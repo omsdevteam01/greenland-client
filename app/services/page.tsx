@@ -1,139 +1,107 @@
 "use client";
 
-import { 
-  Building2, 
-  Hammer, 
-  Cog, 
-  ArrowRight, 
-  CheckCircle,
-  Home,
-  Warehouse,
-  Factory,
-  HardHat,
-  Shield,
-  Clock,
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowRight,
+  Building2,
+  Sun,
+  Layers,
   Users,
   Award,
+  Clock,
+  Shield,
+  HardHat,
+  Truck,
+  Zap,
+  TrendingUp,
+  Target,
+  CheckCircle,
+  Sparkles,
+  Home,
+  Paintbrush,
+  Sofa,
+  Building,
   Phone,
   Mail,
   MapPin,
-  Sparkles,
-  TrendingUp,
-  Briefcase,
-  Target
+  ChevronRight,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
-const services = [
+// Business Divisions Data
+const divisions = [
   {
-    icon: Home,
-    title: "Residential Construction",
-    description: "Custom homes, villas, apartments, and residential complexes with premium quality.",
-    features: ["Custom Home Building", "Apartment Complexes", "Villa Construction", "Renovation & Remodeling"],
-    image: "/images/residential.jpg",
-    color: "cyan",
-  },
-  {
+    id: "construction",
+    name: "Construction",
     icon: Building2,
-    title: "Commercial Construction",
-    description: "Office buildings, retail spaces, shopping malls, and commercial complexes.",
-    features: ["Office Buildings", "Retail Spaces", "Shopping Malls", "IT Parks & Campuses"],
-    image: "/images/commercial.jpg",
-    color: "purple",
+    image: "/images/luxury.png",
+    description:
+      "End-to-end construction solutions that build strong, functional and sustainable spaces.",
+    link: "/construction",
+    features: [
+      "Building Construction",
+      "Interior Works",
+      "Renovation & Remodeling",
+      "Project Management",
+      "Quality Assurance",
+    ],
   },
   {
-    icon: Warehouse,
-    title: "Industrial Construction",
-    description: "Factories, warehouses, industrial plants, and manufacturing facilities.",
-    features: ["Factories & Plants", "Warehouses", "Industrial Sheds", "Manufacturing Facilities"],
-    image: "/images/industrial.jpg",
-    color: "orange",
-  },
-  {
-    icon: Hammer,
-    title: "Steel Fabrication",
-    description: "High-quality steel structures built for strength, durability, and precision.",
-    features: ["Structural Steel", "Custom Fabrication", "Steel Frames", "Heavy Steel Structures"],
-    image: "/images/steel.jpg",
-    color: "emerald",
-  },
-  {
-    icon: Cog,
-    title: "Engineering Solutions",
-    description: "End-to-end engineering solutions tailored to your project requirements.",
-    features: ["Structural Engineering", "Civil Engineering", "Project Management", "Consulting"],
-    image: "/images/engineering.jpg",
-    color: "blue",
-  },
-  {
-    icon: HardHat,
-    title: "Renovation & Remodeling",
-    description: "Transform existing spaces with modern designs and quality workmanship.",
-    features: ["Interior Remodeling", "Exterior Renovation", "Space Optimization", "Modern Upgrades"],
-    image: "/images/renovation.jpg",
-    color: "gold",
+    id: "greenland",
+    name: "GreenLand",
+    icon: Sun,
+    image: "/images/product2.png",
+    subtitle: "Tensile Shade Solutions",
+    description:
+      "Modern tensile and shade structures designed for comfort, durability and aesthetic appeal.",
+    link: "/greenland",
+    features: [
+      "Car Parking Shades",
+      "Walkway & Entrance Shades",
+      "Outdoor Canopies",
+      "Custom Tensile Structures",
+      "Design & Installation",
+    ],
   },
 ];
 
-const stats = [
-  { icon: Building2, value: "500+", label: "Projects Completed", color: "cyan" },
-  { icon: Users, value: "200+", label: "Happy Clients", color: "purple" },
-  { icon: Award, value: "15+", label: "Awards Won", color: "orange" },
-  { icon: Clock, value: "10+", label: "Years Experience", color: "emerald" },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Consultation",
-    description: "We understand your requirements, budget, and vision for the project.",
-  },
-  {
-    step: "02",
-    title: "Planning & Design",
-    description: "Our team creates detailed plans and designs tailored to your needs.",
-  },
-  {
-    step: "03",
-    title: "Execution",
-    description: "We execute the project with precision, quality, and timely delivery.",
-  },
-  {
-    step: "04",
-    title: "Handover",
-    description: "We ensure complete satisfaction and provide ongoing support.",
-  },
-];
-
-const whyChooseUs = [
+// Why Choose Data
+const whyChoose = [
   {
     icon: Shield,
-    title: "Quality Assurance",
-    description: "We maintain the highest quality standards in every project.",
-  },
-  {
-    icon: Users,
-    title: "Expert Team",
-    description: "Our skilled professionals ensure superior craftsmanship.",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description: "We value your time and deliver projects on schedule.",
+    title: "Experienced Team",
+    description: "Skilled professionals with industry expertise",
   },
   {
     icon: Award,
+    title: "Quality Materials",
+    description: "We use quality materials for lasting results",
+  },
+  {
+    icon: Clock,
+    title: "Timely Delivery",
+    description: "On-time execution without compromising on quality",
+  },
+  {
+    icon: Users,
     title: "Client Satisfaction",
-    description: "We exceed expectations and build lasting relationships.",
+    description: "Building long-term relationships through trust and transparency",
   },
 ];
 
-export default function ServicesPage() {
+// Stats
+const stats = [
+  { value: "100+", label: "Projects Completed" },
+  { value: "50+", label: "Happy Clients" },
+  { value: "10+", label: "Years of Experience" },
+];
+
+export default function BusinessesPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -156,62 +124,130 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
+
+      {/* Hero Section - No Image */}
+      <section
+        className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
         }}
-        ref={sectionRef}
       >
-        {/* Background Glow - Hidden on mobile */}
         <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow" />
         <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-delayed" />
 
-        {/* Animated Orb - Hidden on mobile */}
-        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyan-400/5 blur-3xl animate-orb" />
-
-        {/* Floating Particles - Reduced on mobile */}
+        {/* Floating Particles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <div
               key={i}
               className={`absolute rounded-full bg-cyan-400/10 animate-float ${
-                i < 8 ? 'block' : 'hidden md:block'
+                i < 8 ? "block" : "hidden md:block"
               }`}
               style={{
                 width: `${Math.random() * 4 + 2}px`,
                 height: `${Math.random() * 4 + 2}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 12 + 8}s`,
-                animationDelay: `${Math.random() * 8}s`,
-                opacity: 0.2 + Math.random() * 0.4,
+                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDelay: `${Math.random() * 10}s`,
               }}
             />
           ))}
         </div>
 
-        {/* Floating Shapes - Hidden on mobile */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(4)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute border border-cyan-400/5 backdrop-blur-sm animate-float-shape"
-              style={{
-                width: `${Math.random() * 30 + 15}px`,
-                height: `${Math.random() * 30 + 15}px`,
-                left: `${Math.random() * 80 + 10}%`,
-                top: `${Math.random() * 80 + 10}%`,
-                borderRadius: i % 2 === 0 ? '50%' : '8px',
-                animationDuration: `${Math.random() * 12 + 8}s`,
-                animationDelay: `${Math.random() * 6}s`,
-                transform: `rotate(${Math.random() * 360}deg)`,
-                background: `radial-gradient(circle, rgba(22,213,232,.03), transparent)`,
-              }}
-            />
-          ))}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
+                Our Businesses
+              </span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white animate-slide-up">
+              Different Expertise.{" "}
+              <span className="text-cyan-400">One Vision.</span>
+            </h1>
+            <div className="w-14 sm:w-20 h-1 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 sm:mt-4 animate-scale-x" />
+            <p className="max-w-2xl mx-auto text-white/60 mt-3 sm:mt-6 text-sm sm:text-lg leading-relaxed px-2 animate-fade-in-delayed">
+              Ruhan Groups operates through two specialized divisions, united by a commitment to quality, innovation and client satisfaction.
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-4 sm:mt-6 animate-fade-in-delayed-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 text-xs transition-all duration-300 hover:bg-cyan-400/20 hover:border-cyan-400/40 hover:scale-105 hover:shadow-[0_0_20px_rgba(22,213,232,0.1)]">
+                <CheckCircle size={12} className="text-cyan-400" />
+                Quality Driven
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 text-xs transition-all duration-300 hover:bg-cyan-400/20 hover:border-cyan-400/40 hover:scale-105 hover:shadow-[0_0_20px_rgba(22,213,232,0.1)]">
+                <CheckCircle size={12} className="text-cyan-400" />
+                Client Focused
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 text-xs transition-all duration-300 hover:bg-cyan-400/20 hover:border-cyan-400/40 hover:scale-105 hover:shadow-[0_0_20px_rgba(22,213,232,0.1)]">
+                <CheckCircle size={12} className="text-cyan-400" />
+                Result Oriented
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Glassy Grid Pattern - Hidden on mobile */}
+        <style jsx>{`
+          @keyframes pulse-glow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+          }
+          @keyframes pulse-delayed {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(-20px) translateX(-5px); }
+            75% { transform: translateY(-10px) translateX(5px); }
+          }
+          @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fade-in-delayed {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fade-in-delayed-2 {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes slide-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes scale-x {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+          }
+          .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+          .animate-pulse-glow-delayed { animation: pulse-glow 4s ease-in-out infinite; animation-delay: 2s; }
+          .animate-float { animation: float linear infinite; }
+          .animate-pulse { animation: pulse-delayed 2s ease-in-out infinite; }
+          .animate-pulse-delayed { animation: pulse-delayed 2s ease-in-out infinite; animation-delay: 0.5s; }
+          .animate-fade-in { animation: fade-in 0.8s ease-out 0.2s forwards; opacity: 0; }
+          .animate-fade-in-delayed { animation: fade-in-delayed 0.8s ease-out 0.6s forwards; opacity: 0; }
+          .animate-fade-in-delayed-2 { animation: fade-in-delayed-2 0.8s ease-out 0.8s forwards; opacity: 0; }
+          .animate-slide-up { animation: slide-up 0.8s ease-out 0.4s forwards; opacity: 0; }
+          .animate-scale-x { animation: scale-x 0.8s ease-out 0.4s forwards; transform-origin: left; }
+        `}</style>
+      </section>
+
+      {/* Main Content */}
+      <section
+        className="relative py-10 sm:py-16 md:py-20 overflow-hidden"
+        ref={sectionRef}
+        style={{
+          background: "linear-gradient(180deg, #03141C 0%, #05202B 30%, #03141C 100%)",
+        }}
+      >
+        {/* Grid Pattern */}
         <div
           className="hidden md:block absolute inset-0 opacity-[0.02] z-[5]"
           style={{
@@ -223,298 +259,330 @@ export default function ServicesPage() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
-          {/* Hero Header - Reduced spacing */}
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-cyan-400/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-cyan-400/20 mb-2 sm:mb-4 animate-slide-up">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              <span className="text-cyan-300 text-[8px] sm:text-[10px] font-semibold uppercase tracking-[2px] sm:tracking-[3px] animate-text-shimmer">
-                What We Offer
+        {/* Animated Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-cyan-400/5 animate-float-slow hidden md:block"
+              style={{
+                width: `${Math.random() * 6 + 3}px`,
+                height: `${Math.random() * 6 + 3}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDuration: `${Math.random() * 20 + 15}s`,
+                animationDelay: `${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          {/* Section Header - Customizable Heading */}
+          <div className="text-center mb-10 sm:mb-14">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
+                Our Divisions
               </span>
-              <Sparkles size={10} className="sm:w-3 sm:h-3 text-cyan-400 animate-pulse-slow" />
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white mt-2 sm:mt-3 animate-slide-up-delayed">
-              Our <span className="text-cyan-400 animate-gradient-text">Services</span>
-            </h1>
-            <div className="w-14 sm:w-20 h-1 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 sm:mt-4 animate-scale-x" />
-            <p className="max-w-3xl mx-auto text-white/60 mt-2 sm:mt-4 text-sm sm:text-lg leading-relaxed px-2 animate-fade-in-delayed">
-              Comprehensive construction and engineering services delivered with excellence,
-              innovation, and unwavering quality. From concept to completion, we bring your vision to life.
-            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 animate-slide-up-delayed">
+              {/* Change this heading to anything you want */}
+              Two Divisions. <span className="text-cyan-400">Endless Possibilities.</span>
+            </h2>
+            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x-delayed" />
           </div>
 
-          {/* Stats Section - Mobile optimized */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 lg:mb-16">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
+          {/* Divisions Cards with Images */}
+          <div className="space-y-6 sm:space-y-8">
+            {divisions.map((division, index) => {
+              const Icon = division.icon;
               return (
                 <div
-                  key={index}
-                  className={`text-center p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-cyan-400/30 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] hover:-translate-y-1 hover:scale-[1.02] ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  key={division.id}
+                  className={`group relative transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                   }`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
+                  style={{ transitionDelay: `${0.3 + index * 0.2}s` }}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div className="relative inline-block">
-                    <Icon size={20} className="sm:w-7 sm:h-7 text-cyan-400 mx-auto group-hover:scale-110 transition-transform" />
-                    <div className="absolute inset-0 rounded-full bg-cyan-400/20 scale-0 group-hover:scale-150 transition-transform duration-500" />
-                  </div>
-                  <div className="text-lg sm:text-2xl font-bold text-white mt-0.5 sm:mt-1 animate-counter">{stat.value}</div>
-                  <div className="text-[9px] sm:text-xs text-white/40 uppercase tracking-wider">{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
+                  <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-cyan-400/30 hover:shadow-[0_0_50px_rgba(22,213,232,0.05)] hover:-translate-y-1">
+                    {/* Shimmer effect on hover */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                    
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-          {/* Services Grid - Mobile optimized */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12 lg:mb-16">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={index}
-                  className={`group p-4 sm:p-5 md:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(22,213,232,0.05)] relative overflow-hidden ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
-                  onMouseEnter={() => setHoveredService(index)}
-                  onMouseLeave={() => setHoveredService(null)}
-                >
-                  {/* Animated Background Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 via-cyan-400/0 to-cyan-400/5 group-hover:from-cyan-400/10 group-hover:via-cyan-400/5 group-hover:to-cyan-400/0 transition-all duration-700" />
-                  
-                  {/* Shimmer Effect - Hidden on mobile */}
-                  <div className="hidden md:block absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                    <div className="p-6 sm:p-8 lg:p-10 relative">
+                      <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
+                        {/* Left - Content */}
+                        <div className="lg:col-span-3">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300 border border-cyan-400/20 group-hover:border-cyan-400/40 flex-shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(22,213,232,0.1)]">
+                              <Icon size={24} className="text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 group-hover:translate-x-1">
+                                {division.name}
+                              </h3>
+                              {division.subtitle && (
+                                <p className="text-xs sm:text-sm text-cyan-300/50 tracking-wider uppercase font-light group-hover:text-cyan-300/70 transition-colors duration-300">
+                                  {division.subtitle}
+                                </p>
+                              )}
+                            </div>
+                          </div>
 
-                  <div className="relative z-10">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 group-hover:scale-110 transition-all duration-300">
-                      <Icon size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                          <p className="text-white/60 text-sm sm:text-base leading-relaxed mt-4 group-hover:text-white/70 transition-colors duration-300">
+                            {division.description}
+                          </p>
+
+                          {/* Features List */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-4">
+                            {division.features.map((feature, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/5 transition-all duration-300 group-hover:bg-white/5"
+                              >
+                                <CheckCircle size={12} className="text-cyan-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                                <span className="text-xs sm:text-sm text-white/60 group-hover:text-white/80 transition-colors duration-300">
+                                  {feature}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <Link
+                            href={division.link}
+                            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-all duration-300 group/btn mt-4 text-sm font-medium"
+                          >
+                            <span className="relative">
+                              Explore More
+                              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover/btn:w-full transition-all duration-300" />
+                            </span>
+                            <ArrowRight size={14} className="transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:scale-110" />
+                          </Link>
+                        </div>
+
+                        {/* Right - Image */}
+                        <div className="lg:col-span-2">
+                          <div className="relative rounded-xl overflow-hidden h-[180px] sm:h-[200px] lg:h-[220px] bg-gradient-to-br from-cyan-900/20 to-blue-900/10 border border-white/5 group/image">
+                            <Image
+                              src={division.image}
+                              alt={division.name}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover/image:scale-105"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                const parent = target.parentElement;
+                                if (parent) {
+                                  const fallback = document.createElement('div');
+                                  fallback.className = 'w-full h-full bg-gradient-to-br from-cyan-900/20 to-blue-900/10 flex flex-col items-center justify-center';
+                                  fallback.innerHTML = `
+                                    <div class="w-16 h-16 rounded-full bg-cyan-400/10 flex items-center justify-center mb-2 border border-cyan-400/20 animate-pulse-slow">
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-cyan-400/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                      </svg>
+                                    </div>
+                                    <p class="text-white/30 text-xs">${division.name}</p>
+                                  `;
+                                  parent.appendChild(fallback);
+                                }
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                            <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 transition-all duration-300 group-hover/image:bg-cyan-500/20 group-hover/image:border-cyan-400/30">
+                              <p className="text-white text-[10px] font-medium flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                                {division.id === "construction" ? "Construction" : "GreenLand Tensile Shades"}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="text-white font-bold text-base sm:text-lg mt-3 sm:mt-4 group-hover:text-cyan-400 transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-white/50 text-xs sm:text-sm mt-1.5 sm:mt-2 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <ul className="mt-3 sm:mt-4 space-y-1 sm:space-y-1.5">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-1.5 sm:gap-2 text-white/40 text-[10px] sm:text-xs group-hover:text-white/60 transition-colors duration-300">
-                          <CheckCircle size={10} className="sm:w-3 sm:h-3 text-cyan-400 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center gap-1 text-cyan-400 text-xs sm:text-sm font-medium mt-3 sm:mt-4 group-hover:gap-2 transition-all duration-300"
-                    >
-                      Get a Quote
-                      <ArrowRight size={12} className="sm:w-[14px] sm:h-[14px] transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
-                    </Link>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Why Choose Us Section - Mobile optimized */}
-          <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10">
-            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+          {/* Why Choose Section */}
+          <div className="mt-16 sm:mt-20 lg:mt-24 pt-8 sm:pt-12 border-t border-white/10">
+            <div className="text-center mb-8 sm:mb-12">
               <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-text-shimmer">
-                  Why Choose Us
+                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
+                  Why Choose Ruhan Groups?
                 </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-1.5 sm:mt-2 animate-slide-up">
-                Built with <span className="text-cyan-400">Excellence</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 animate-slide-up-delayed">
+                Built on Trust. <span className="text-cyan-400">Driven by Excellence.</span>
               </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1.5 sm:mt-3" />
+              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x-delayed" />
+              <p className="text-white/50 text-sm max-w-2xl mx-auto mt-3 animate-fade-in-delayed">
+                With a skilled team, modern approach and client-first mindset, we deliver solutions that stand the test of time.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              {whyChooseUs.map((item, index) => {
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto mb-8 sm:mb-12">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`text-center p-4 rounded-xl bg-white/5 border border-white/10 transition-all duration-500 hover:border-cyan-400/30 hover:bg-white/10 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${0.5 + index * 0.1}s` }}
+                >
+                  <div className="text-2xl sm:text-3xl font-bold text-cyan-400 transition-all duration-300 group-hover:scale-110">
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-0.5">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Why Choose Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {whyChoose.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={index}
-                    className={`group p-4 sm:p-5 md:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-cyan-400/30 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] ${
+                    className={`group p-5 sm:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-cyan-400/30 hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(22,213,232,0.06)] ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
-                    style={{ transitionDelay: `${1.2 + index * 0.1}s` }}
+                    style={{ transitionDelay: `${0.6 + index * 0.08}s` }}
                   >
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                      <Icon size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="w-11 h-11 rounded-xl bg-cyan-400/10 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <Icon size={20} className="text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <h3 className="text-white font-semibold text-sm sm:text-base mt-2 sm:mt-3 group-hover:text-cyan-400 transition-colors duration-300">
+                    <h3 className="text-white font-semibold text-sm sm:text-base mt-3 group-hover:text-cyan-400 transition-colors duration-300 group-hover:translate-x-1">
                       {item.title}
                     </h3>
-                    <p className="text-white/50 text-xs sm:text-sm mt-1.5 sm:mt-2 leading-relaxed">
+                    <p className="text-white/40 text-xs sm:text-sm mt-1 leading-relaxed group-hover:text-white/50 transition-colors duration-300">
                       {item.description}
                     </p>
                   </div>
                 );
               })}
             </div>
-          </div>
 
-          {/* Process Section - Mobile optimized */}
-          <div className="mt-6 sm:mt-8 lg:mt-12 pt-6 sm:pt-8 border-t border-white/10">
-            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
-                  How We Work
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            {/* 24/7 Support Badge */}
+            <div className="flex justify-center mt-6">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 transition-all duration-500 hover:bg-cyan-400/20 hover:border-cyan-400/40 hover:scale-105 hover:shadow-[0_0_30px_rgba(22,213,232,0.1)]">
+                <Clock size={18} className="text-cyan-400 animate-spin-slow" />
+                <span className="text-cyan-300 text-sm font-semibold tracking-wider">24/7 Support & Service</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-1.5 sm:mt-2">
-                Our <span className="text-cyan-400">Process</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1.5 sm:mt-3" />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-              {processSteps.map((step, index) => (
-                <div
-                  key={index}
-                  className={`group p-4 sm:p-5 md:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:border-cyan-400/30 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-cyan-400/30 group-hover:text-cyan-400 transition-colors duration-300">
-                    {step.step}
-                  </div>
-                  <h3 className="text-white font-bold text-base sm:text-lg mt-2 sm:mt-3 group-hover:text-cyan-400 transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-white/50 text-xs sm:text-sm mt-1.5 sm:mt-2 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
 
-          {/* CTA Section - Mobile optimized */}
-          <div className="mt-8 sm:mt-12 lg:mt-16 p-5 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-r from-cyan-400/10 to-cyan-400/5 border border-cyan-400/20 text-center hover:border-cyan-400/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(22,213,232,0.05)]">
-            <h3 className="text-xl sm:text-2xl font-bold text-white">Ready to Start Your Project?</h3>
-            <p className="text-white/50 text-sm sm:text-base mt-1.5 sm:mt-2">Let's discuss your requirements and bring your vision to life.</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-4 sm:mt-6">
-              <Link
-                href="/#contact"
-                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-cyan-500 text-[#03141C] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.3)] relative overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <span className="relative z-10">Get a Free Quote</span>
-                <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
-              </Link>
-              <Link
-                href="/projects"
-                className="group inline-flex items-center justify-center gap-2 border border-white/20 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 hover:border-cyan-400/30"
-              >
-                View Our Projects
-                <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] transition-all duration-300 group-hover:translate-x-1" />
-              </Link>
+          {/* CTA Section */}
+          <div className="mt-12 sm:mt-16 lg:mt-20">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-cyan-400/30 hover:shadow-[0_0_60px_rgba(22,213,232,0.08)]">
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/5 via-cyan-500/10 to-blue-600/5 animate-gradient-shift" />
+              
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-slow" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-slow-delayed" />
+
+              <div className="relative z-10 p-8 sm:p-12 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-4 transition-all duration-300 hover:bg-cyan-400/20 hover:border-cyan-400/40 hover:scale-105">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span className="text-cyan-300 text-[8px] font-semibold uppercase tracking-[3px]">
+                    Let's Work Together
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white animate-slide-up-delayed">
+                  Have a project in mind?
+                </h3>
+                
+                <p className="text-white/50 text-sm sm:text-base mt-2 max-w-xl mx-auto animate-fade-in-delayed">
+                  Let's build something great together.
+                </p>
+                
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg transition-all duration-300 group text-sm font-medium shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 mt-4"
+                >
+                  <span>Contact Us</span>
+                  <ArrowRight size={16} className="transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         <style jsx>{`
-          @keyframes pulse-glow {
-            0%, 100% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-          }
-
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-8px) translateX(4px); }
-            50% { transform: translateY(-16px) translateX(-4px); }
-            75% { transform: translateY(-8px) translateX(4px); }
-          }
-
-          @keyframes float-shape {
-            0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-            25% { transform: translateY(-15px) rotate(6deg); opacity: 0.4; }
-            50% { transform: translateY(-30px) rotate(-6deg); opacity: 0.6; }
-            75% { transform: translateY(-15px) rotate(4deg); opacity: 0.4; }
-          }
-
-          @keyframes pulse-delayed {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-          }
-
-          @keyframes text-shimmer {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(22,213,232,0.3); }
-          }
-
-          @keyframes gradient-text {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-          }
-
           @keyframes slide-up {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
-
           @keyframes slide-up-delayed {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
-
+          @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
           @keyframes fade-in-delayed {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
           }
-
-          @keyframes scale-x {
+          @keyframes scale-x-delayed {
             from { transform: scaleX(0); }
             to { transform: scaleX(1); }
           }
-
-          @keyframes orb {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+          @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-15px) translateX(8px); }
+            50% { transform: translateY(-25px) translateX(-8px); }
+            75% { transform: translateY(-15px) translateX(8px); }
           }
-
+          @keyframes pulse-glow-slow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+          }
+          @keyframes pulse-glow-slow-delayed {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+          }
+          @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
           @keyframes pulse-slow {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
+            0%, 100% { transform: scale(1); opacity: 0.5; }
             50% { transform: scale(1.1); opacity: 1; }
           }
-
-          @keyframes counter {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-          }
-
-          .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
-          .animate-pulse-glow-delayed { animation: pulse-glow 4s ease-in-out infinite; animation-delay: 2s; }
-          .animate-float { animation: float linear infinite; }
-          .animate-float-shape { animation: float-shape ease-in-out infinite; }
-          .animate-pulse { animation: pulse-delayed 2s ease-in-out infinite; }
-          .animate-pulse-delayed { animation: pulse-delayed 2s ease-in-out infinite; animation-delay: 0.5s; }
-          .animate-text-shimmer { animation: text-shimmer 3s ease-in-out infinite; }
-          .animate-gradient-text { background-size: 200% 200%; animation: gradient-text 4s ease-in-out infinite; }
-          .animate-slide-up { animation: slide-up 0.6s ease-out 0.2s forwards; opacity: 0; }
-          .animate-slide-up-delayed { animation: slide-up-delayed 0.6s ease-out 0.4s forwards; opacity: 0; }
+          .animate-slide-up { animation: slide-up 0.8s ease-out 0.2s forwards; opacity: 0; }
+          .animate-slide-up-delayed { animation: slide-up-delayed 0.8s ease-out 0.4s forwards; opacity: 0; }
+          .animate-fade-in { animation: fade-in 0.8s ease-out 0.2s forwards; opacity: 0; }
           .animate-fade-in-delayed { animation: fade-in-delayed 0.8s ease-out 0.6s forwards; opacity: 0; }
-          .animate-scale-x { animation: scale-x 0.8s ease-out 0.4s forwards; transform-origin: left; }
-          .animate-orb { animation: orb 6s ease-in-out infinite; }
+          .animate-scale-x-delayed { animation: scale-x-delayed 0.8s ease-out 0.4s forwards; transform-origin: left; }
+          .animate-float-slow { animation: float-slow linear infinite; }
+          .animate-pulse-glow-slow { animation: pulse-glow-slow 4s ease-in-out infinite; }
+          .animate-pulse-glow-slow-delayed { animation: pulse-glow-slow-delayed 4s ease-in-out infinite; animation-delay: 2s; }
+          .animate-gradient-shift { animation: gradient-shift 8s ease-in-out infinite; background-size: 200% 200%; }
+          .animate-spin-slow { animation: spin-slow 8s linear infinite; }
           .animate-pulse-slow { animation: pulse-slow 2s ease-in-out infinite; }
-          .animate-counter { animation: counter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; display: inline-block; }
-
-          @media (max-width: 640px) {
-            .animate-float {
-              animation-duration: 15s !important;
-            }
-          }
         `}</style>
       </section>
+
       <Footer />
     </>
   );

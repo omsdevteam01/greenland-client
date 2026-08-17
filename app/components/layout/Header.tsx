@@ -34,8 +34,8 @@ export default function Header() {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "About Us", href: "/about", icon: Info },
+     { name: "Services", href: "/services", icon: Settings },
     { name: "Projects", href: "/projects", icon: FolderKanban },
-    { name: "Services", href: "/services", icon: Settings },
     { name: "Contact", href: "/contact", icon: Mail },
   ];
 

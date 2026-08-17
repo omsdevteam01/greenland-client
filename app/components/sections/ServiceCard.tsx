@@ -2,35 +2,41 @@
 
 import {
   Building2,
-  Hammer,
-  Cog,
+  Layers,
+  Sun,
   ArrowRight,
+  Home,
+  Building,
+  Sofa,
+  Paintbrush,
+  Truck,
+  Users,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-const services = [
+const businesses = [
   {
     icon: Building2,
-    title: 'CONSTRUCTION',
+    title: 'CONSTRUCTION & INTERIORS',
     description:
-      'Residential, Commercial & Industrial Construction',
+      'Building strong, functional, and reliable spaces. From residential and commercial projects to complete interior works and renovations.',
+    link: '/construction',
+    features: ['Residential', 'Commercial', 'Interior', 'Renovation'],
+    gradient: 'from-cyan-500/20 to-cyan-600/10',
   },
   {
-    icon: Hammer,
-    title: 'STEEL FABRICATION',
+    icon: Sun,
+    title: 'GREENLAND',
     description:
-      'High-quality steel structures built for strength & durability.',
-  },
-  {
-    icon: Cog,
-    title: 'ENGINEERING SOLUTIONS',
-    description:
-      'End-to-end engineering solutions tailored to your projects.',
+      'Innovative tensile and canopy shade solutions. Designing, supplying, and installing premium tensile structures for outdoor spaces.',
+    link: '/greenland',
+    features: ['Car Parking', 'Walkway', 'Canopy', 'Custom'],
+    gradient: 'from-cyan-500/20 to-cyan-600/10',
   },
 ];
 
-export default function ServiceCard() {
+export default function OurBusinesses() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +71,7 @@ export default function ServiceCard() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#03141C]/50 via-[#05202B]/60 to-[#03141C]/70"></div>
       </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern */}
       <div
         className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
@@ -77,7 +83,7 @@ export default function ServiceCard() {
         }}
       />
 
-      {/* Animated Particles - Cyan - Reduced on mobile */}
+      {/* Animated Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(10)].map((_, i) => (
           <div
@@ -95,7 +101,7 @@ export default function ServiceCard() {
         ))}
       </div>
 
-      {/* Floating Shapes - Cyan - Hidden on mobile */}
+      {/* Floating Shapes */}
       <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
         {[...Array(6)].map((_, i) => (
           <div
@@ -119,7 +125,7 @@ export default function ServiceCard() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6">
 
-        {/* Main Glass Card - Dark Glassy */}
+        {/* Main Glass Card */}
         <div
           className={`
           relative
@@ -136,166 +142,47 @@ export default function ServiceCard() {
           `}
         >
 
-          {/* Glass Reflection Effect - Subtle - Hidden on mobile */}
+          {/* Glass Reflection Effect */}
           <div className="hidden md:block absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
             <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-white/3 to-transparent rounded-full blur-3xl"></div>
             <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-cyan-400/3 to-transparent rounded-full blur-3xl"></div>
           </div>
 
-          {/* Animated Border Glow - Cyan - Hidden on mobile */}
+          {/* Animated Border Glow */}
           <div className="hidden md:block absolute inset-0 rounded-2xl pointer-events-none">
             <div className="absolute inset-0 rounded-2xl border border-white/10"></div>
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent animate-border-pulse"></div>
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent animate-border-pulse-delayed"></div>
           </div>
 
-          {/* Heading with Animation - Cyan */}
+          {/* Heading */}
           <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[10px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                Our Core Services
+              <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[9px] sm:text-[11px] font-semibold text-cyan-300 animate-fade-in">
+                Our Businesses
               </p>
               <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-4 mt-12 sm:mt-16">
+          <div className="grid lg:grid-cols-2 mt-12 sm:mt-14">
 
-            {/* Left Side - 3 Services */}
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 h-full">
-                {services.map((service, index) => {
-                  const Icon = service.icon;
-                  return (
-                    <div
-                      key={index}
-                      className={`
-                      relative
-                      px-3 sm:px-4
-                      py-6 sm:py-8
-                      group
-                      transition-all
-                      duration-500
-                      hover:bg-white/5
-                      flex
-                      flex-col
-                      items-center
-                      text-center
-                      animate-slide-up
-                      ${index < services.length - 1 ? 'border-b border-white/5 sm:border-b-0' : ''}
-                      ${index === 0 ? 'sm:border-r border-white/5' : ''}
-                      ${index === 1 ? 'sm:border-r border-white/5' : ''}
-                      `}
-                      style={{ animationDelay: `${index * 0.2}s` }}
-                    >
-                      {/* Glass reflection on hover */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-white/5 to-transparent"></div>
-
-                      {/* Icon - Dark Glassy Style */}
-                      <div className="flex-shrink-0">
-                        <div
-                          className="
-                          w-10 h-10 sm:w-12 sm:h-12
-                          rounded-full
-                          border
-                          border-white/15
-                          bg-white/5
-                          backdrop-blur-sm
-                          flex
-                          items-center
-                          justify-center
-                          text-cyan-400
-                          transition-all
-                          duration-500
-                          group-hover:bg-cyan-400
-                          group-hover:text-[#03141C]
-                          group-hover:scale-110
-                          group-hover:shadow-[0_0_30px_rgba(22,213,232,0.2)]
-                          group-hover:border-cyan-400/50
-                          "
-                        >
-                          <Icon size={16} className="sm:w-5 sm:h-5" />
-                        </div>
-                      </div>
-
-                      {/* Title - Cyan on Hover */}
-                      <h3 className="uppercase font-bold text-white/90 text-[10px] sm:text-xs tracking-wide mt-3 sm:mt-4 group-hover:text-cyan-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-white/50 text-[11px] sm:text-xs leading-5 sm:leading-6 mt-1.5 sm:mt-2 max-w-[160px] sm:max-w-[180px] group-hover:text-white/70 transition-colors duration-300">
-                        {service.description}
-                      </p>
-
-                      {/* Learn More Button - Cyan */}
-                      <button
-                        className="
-                        mt-3 sm:mt-4
-                        flex
-                        items-center
-                        gap-1 sm:gap-1.5
-                        text-cyan-400
-                        hover:text-[#16D5E8]
-                        transition-all
-                        group/btn
-                        text-[10px] sm:text-xs
-                        "
-                      >
-                        <span className="relative">
-                          Learn More
-                          <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover/btn:w-full transition-all duration-300"></span>
-                        </span>
-                        <ArrowRight
-                          size={11}
-                          className="sm:w-[13px] sm:h-[13px] group-hover/btn:translate-x-1 transition-transform duration-300"
-                        />
-                      </button>
-
-                      {/* Vertical Divider - Glassy - Hidden on mobile */}
-                      {index !== services.length - 1 && (
-                        <div
-                          className="
-                          hidden
-                          md:block
-                          absolute
-                          top-6
-                          bottom-6
-                          right-0
-                          w-px
-                          bg-gradient-to-b
-                          from-transparent
-                          via-white/10
-                          to-transparent
-                          animate-divider-pulse
-                          "
-                        />
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Right Side - Greenland Card - Moves to top on mobile */}
-            <div className="p-3 sm:p-4 border-t border-white/5 lg:border-t-0 order-first lg:order-last">
+            {/* Left Side - Construction */}
+            <div className="lg:col-span-1">
               <Link
-                href="/greenland"
+                href="/construction"
                 className="
                 block
                 h-full
-                rounded-xl
-                border
-                border-white/10
-                bg-[#03141C]/40
+                rounded-l-xl
+                border-r border-white/5
+                bg-[#03141C]/30
                 backdrop-blur-xl
-                px-3 sm:px-4
-                pt-2
-                py-4 sm:py-6
+                px-4 sm:px-6
+                py-5 sm:py-7
                 flex
                 flex-col
-                justify-center
                 items-center
                 text-center
                 shadow-[0_8px_32px_rgba(0,0,0,0.3)]
@@ -306,55 +193,147 @@ export default function ServiceCard() {
                 group/card
                 animate-slide-up
                 cursor-pointer
+                relative
                 "
-                style={{ animationDelay: '0.6s' }}
+                style={{ animationDelay: '0.2s' }}
               >
                 {/* Glass reflection */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/3 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-l-xl bg-gradient-to-br from-white/3 to-transparent pointer-events-none"></div>
 
-                {/* Logo Image with Subtle Cyan Glow - No Pop */}
-                <div className="relative">
-                  {/* Outer Glow - Very subtle - Hidden on mobile */}
-                  <div className="hidden md:block absolute inset-[-20px] rounded-full bg-cyan-400/50 blur-3xl animate-glow-subtle"></div>
-                  
-                  {/* Inner Glow - Gentle - Hidden on mobile */}
-                  <div className="hidden md:block absolute inset-[-10px] rounded-full bg-cyan-400/30 blur-2xl animate-glow-subtle-delayed"></div>
-                  
-                  {/* Logo */}
-                  <img
-                    src="/images/logo.webp"
-                    alt="Greenland"
-                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-[0_0_30px_rgba(22,213,232,0.15)] relative z-10 animate-float-logo group-hover/card:animate-pulse-slow"
-                  />
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <div
+                    className="
+                    w-14 h-14 sm:w-16 sm:h-16
+                    rounded-full
+                    border
+                    border-white/15
+                    bg-white/5
+                    backdrop-blur-sm
+                    flex
+                    items-center
+                    justify-center
+                    text-cyan-400
+                    transition-all
+                    duration-500
+                    group-hover/card:bg-cyan-400
+                    group-hover/card:text-[#03141C]
+                    group-hover/card:scale-110
+                    group-hover/card:shadow-[0_0_30px_rgba(22,213,232,0.2)]
+                    group-hover/card:border-cyan-400/50
+                    "
+                  >
+                    <Layers size={26} className="sm:w-7 sm:h-7" />
+                  </div>
                 </div>
 
-                <p className="uppercase tracking-[2px] sm:tracking-[3px] text-[8px] sm:text-[9px] text-cyan-300/50 mt-0 animate-fade-in-delayed">
-                  Tensile Shade
-                </p>
-
-                <h3 className="mt-1.5 sm:mt-2 text-cyan-400 uppercase font-bold text-base sm:text-lg group-hover/card:scale-105 transition-transform duration-300">
-                  Greenland
+                <h3 className="uppercase font-bold text-white/90 text-xs sm:text-sm tracking-wide mt-3 sm:mt-4 group-hover/card:text-cyan-400 transition-colors duration-300">
+                  Construction & Interiors
                 </h3>
 
-                <h4 className="text-white/50 uppercase tracking-wide text-[10px] sm:text-xs mt-0.5">
-                  Shade Solutions
-                </h4>
-
-                <p className="text-white/40 text-[11px] sm:text-xs leading-4 sm:leading-5 mt-2 sm:mt-3 max-w-[200px] sm:max-w-none">
-                  Premium tensile structures,
-                  parking shades and
-                  customized engineering
-                  solutions for every project.
+                <p className="text-white/50 text-xs sm:text-sm leading-5 sm:leading-6 mt-2 sm:mt-3 max-w-[260px] group-hover/card:text-white/70 transition-colors duration-300">
+                  Building strong, functional, and reliable spaces. From residential and commercial projects to complete interior works and renovations.
                 </p>
 
-                <div className="mt-3 sm:mt-4 flex items-center gap-1 sm:gap-1.5 text-cyan-400 text-[10px] sm:text-xs font-medium group-hover/card:gap-2 transition-all duration-300">
+                {/* Features */}
+                <div className="flex flex-wrap justify-center gap-1.5 mt-3">
+                  {['Residential', 'Commercial', 'Interior', 'Renovation'].map((feature, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[8px] sm:text-[9px] px-2 py-0.5 rounded-full bg-cyan-400/10 text-cyan-300/70 border border-white/5"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-4 flex items-center gap-1.5 text-cyan-400 text-xs sm:text-sm font-medium group-hover/card:gap-2 transition-all duration-300">
                   <span className="relative">
-                    Explore More
+                    Explore Construction
                     <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover/card:w-full transition-all duration-300"></span>
                   </span>
                   <ArrowRight
-                    size={11}
-                    className="sm:w-[13px] sm:h-[13px] group-hover/card:translate-x-1 transition-transform duration-300"
+                    size={14}
+                    className="sm:w-4 sm:h-4 group-hover/card:translate-x-1 transition-transform duration-300"
+                  />
+                </div>
+              </Link>
+            </div>
+
+            {/* Right Side - Greenland */}
+            <div className="lg:col-span-1">
+              <Link
+                href="/greenland"
+                className="
+                block
+                h-full
+                rounded-r-xl
+                bg-[#03141C]/30
+                backdrop-blur-xl
+                px-4 sm:px-6
+                py-5 sm:py-7
+                flex
+                flex-col
+                items-center
+                text-center
+                shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                hover:shadow-[0_8px_40px_rgba(22,213,232,0.15)]
+                transition-all
+                duration-500
+                hover:scale-[1.02]
+                group/card
+                animate-slide-up
+                cursor-pointer
+                relative
+                "
+                style={{ animationDelay: '0.4s' }}
+              >
+                {/* Glass reflection */}
+                <div className="absolute inset-0 rounded-r-xl bg-gradient-to-br from-white/3 to-transparent pointer-events-none"></div>
+
+                {/* Logo with Cyan Glow */}
+                <div className="relative">
+                  <div className="hidden md:block absolute inset-[-30px] rounded-full bg-cyan-400/70 blur-3xl animate-glow-subtle"></div>
+                  <div className="hidden md:block absolute inset-[-10px] rounded-full bg-cyan-400/20 blur-2xl animate-glow-subtle-delayed"></div>
+                  <img
+                    src="/images/logo.webp"
+                    alt="Greenland"
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain drop-shadow-[0_0_30px_rgba(22,213,232,0.2)] relative z-10 animate-float-logo group-hover/card:animate-pulse-slow"
+                  />
+                </div>
+
+                <p className="uppercase tracking-[2px] sm:tracking-[3px] text-[7px] sm:text-[8px] text-cyan-300/50 mt-1 animate-fade-in-delayed">
+                  Tensile Shade
+                </p>
+
+                <h3 className="mt-1 text-cyan-400 uppercase font-bold text-sm sm:text-base group-hover/card:scale-105 transition-transform duration-300">
+                  Greenland
+                </h3>
+
+                <p className="text-white/50 text-xs sm:text-sm leading-5 sm:leading-6 mt-2 sm:mt-3 max-w-[260px] group-hover/card:text-white/70 transition-colors duration-300">
+                  Innovative tensile and canopy shade solutions. Designing, supplying, and installing premium tensile structures for outdoor spaces.
+                </p>
+
+                {/* Features */}
+                <div className="flex flex-wrap justify-center gap-1.5 mt-3">
+                  {['Car Parking', 'Walkway', 'Canopy', 'Custom'].map((feature, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[8px] sm:text-[9px] px-2 py-0.5 rounded-full bg-cyan-400/10 text-cyan-300/70 border border-white/5"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-4 flex items-center gap-1.5 text-cyan-400 text-xs sm:text-sm font-medium group-hover/card:gap-2 transition-all duration-300">
+                  <span className="relative">
+                    Explore Greenland
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover/card:w-full transition-all duration-300"></span>
+                  </span>
+                  <ArrowRight
+                    size={14}
+                    className="sm:w-4 sm:h-4 group-hover/card:translate-x-1 transition-transform duration-300"
                   />
                 </div>
               </Link>

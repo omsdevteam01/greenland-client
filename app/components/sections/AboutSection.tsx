@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Building2, Users, Award, Shield, Zap, TrendingUp } from 'lucide-react';
+import { Building2, Users, Award, Shield, Zap, TrendingUp, Target, Eye, CheckCircle } from 'lucide-react';
 
 const features = [
   { icon: Building2, label: 'Premium Quality Materials' },
@@ -14,6 +14,13 @@ const stats = [
   { icon: Building2, value: '2020', label: 'Founded' },
   { icon: TrendingUp, value: '500+', label: 'Projects' },
   { icon: Users, value: '98%', label: 'Satisfaction' },
+];
+
+const values = [
+  { icon: Shield, title: 'Quality First', desc: 'We never compromise on quality, using only the best materials and craftsmanship.' },
+  { icon: Target, title: 'Client-Centric', desc: 'Our clients are at the heart of everything we do, ensuring complete satisfaction.' },
+  { icon: Eye, title: 'Safety & Integrity', desc: 'We maintain the highest safety standards and operate with complete integrity.' },
+  { icon: Zap, title: 'Innovation', desc: 'We embrace cutting-edge technology and innovative construction methods.' },
 ];
 
 export default function AboutPage() {
@@ -84,36 +91,6 @@ export default function AboutPage() {
         ))}
       </div>
 
-      {/* Diagonal Lines - Hidden on mobile */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none z-[5] opacity-[0.03]">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `
-            repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(22,213,232,0.3) 40px, rgba(22,213,232,0.3) 41px)
-          `,
-        }} />
-      </div>
-
-      {/* Floating Shapes - Hidden on mobile */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute border border-cyan-400/5 backdrop-blur-sm"
-            style={{
-              width: `${Math.random() * 40 + 20}px`,
-              height: `${Math.random() * 40 + 20}px`,
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
-              borderRadius: i % 2 === 0 ? '50%' : '12px',
-              animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 6}s`,
-              transform: `rotate(${Math.random() * 360}deg)`,
-              background: `radial-gradient(circle, rgba(22,213,232,.03), transparent)`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 xl:gap-16 items-center">
 
@@ -158,36 +135,38 @@ export default function AboutPage() {
             </h2>
 
             {/* Description */}
-            <div
-              className="relative pl-3 sm:pl-4 border-l-2 border-cyan-400/30 mt-3 sm:mt-4 mb-4 sm:mb-5"
-              style={{
-                opacity: 0,
-                animation: "fadeInUp 0.8s ease-out 0.5s forwards",
-              }}
-            >
-              <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-xl">
-                Ruhan Groups is a trusted name in construction, steel fabrication and engineering solutions.
-                We build stronger structures with innovative engineering and long-lasting quality.
-              </p>
-            </div>
-
             <p
-              className="text-white/60 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-xl"
+              className="text-white/60 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-xl"
               style={{
                 opacity: 0,
                 animation: "fadeInUp 0.8s ease-out 0.6s forwards",
               }}
             >
-              We pride ourselves on providing innovative and sustainable solutions
-              for residential, commercial, and institutional clients across the region.
+              Ruhan Groups is a diversified organization delivering solutions across
+              construction, interior development, and innovative tensile architecture.
+              Our businesses work across different stages of creating spaces — from
+              building strong structures to designing functional environments and
+              delivering modern architectural solutions.
             </p>
 
-            {/* Features */}
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-5 sm:mb-6 max-w-xl"
+            <p
+              className="text-white/50 text-sm sm:text-base leading-relaxed mt-2 sm:mt-3 max-w-xl"
               style={{
                 opacity: 0,
                 animation: "fadeInUp 0.8s ease-out 0.7s forwards",
+              }}
+            >
+              With years of expertise and a focus on quality work, on-time delivery,
+              and customer satisfaction, we have established ourselves as a reliable
+              partner for residential, commercial, and industrial projects across the region.
+            </p>
+
+            {/* Features - 2x2 Grid */}
+            <div
+              className="grid grid-cols-2 gap-2 sm:gap-3 mt-4 sm:mt-5 max-w-xl"
+              style={{
+                opacity: 0,
+                animation: "fadeInUp 0.8s ease-out 0.8s forwards",
               }}
             >
               {features.map((feature, index) => {
@@ -211,7 +190,7 @@ export default function AboutPage() {
 
             {/* Stats Cards */}
             <div
-              className="grid grid-cols-3 gap-2 sm:gap-3 max-w-md"
+              className="grid grid-cols-3 gap-2 sm:gap-3 max-w-md mt-4 sm:mt-5"
               style={{
                 opacity: 0,
                 animation: "fadeInUp 0.8s ease-out 0.9s forwards",
@@ -248,7 +227,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE SECTION - Moves to top on mobile */}
+          {/* RIGHT IMAGE SECTION */}
           <div
             className="relative flex justify-center lg:justify-end order-1 lg:order-2"
             style={{
@@ -256,23 +235,8 @@ export default function AboutPage() {
               animation: "fadeInUp 0.8s ease-out 0.4s forwards",
             }}
           >
-            {/* Top Border Only - Hidden on mobile */}
-            <div className="absolute -top-8 right-10 w-48 h-20 border-2 border-cyan-400/20 rounded-t-[2rem] border-b-0 hidden lg:block" />
-
-            {/* Decorative dots - Hidden on mobile */}
-            <div className="absolute -right-4 top-10 hidden lg:grid grid-cols-4 gap-2 opacity-30">
-              {[...Array(16)].map((_, index) => (
-                <span
-                  key={index}
-                  className="w-1 h-1 rounded-full bg-cyan-400/40 animate-pulse"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                />
-              ))}
-            </div>
-
-            {/* IMAGE + CARD WRAPPER */}
             <div className="relative w-full max-w-[480px] lg:max-w-[450px]">
-              {/* Main image with unique frame */}
+              {/* Main image */}
               <div className="relative overflow-visible">
                 <div className="absolute -inset-1 rounded-[1.8rem] bg-gradient-to-r from-cyan-400/30 via-transparent to-cyan-400/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <img
@@ -281,18 +245,11 @@ export default function AboutPage() {
                   className="relative w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[380px] object-cover rounded-[1.5rem] sm:rounded-[1.8rem] shadow-2xl border border-white/10"
                 />
                 <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[1.8rem] bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Corner accents - Top only - Hidden on mobile */}
-                <div className="absolute top-3 left-3 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-cyan-400/30 rounded-tl-lg hidden sm:block"></div>
-                <div className="absolute top-3 right-3 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg hidden sm:block"></div>
               </div>
 
-              {/* Unique Floating Card */}
+              {/* Floating Card */}
               <div className="absolute -bottom-4 sm:-bottom-5 left-3 sm:left-5 w-[80%] sm:w-[78%] z-20 animate-float-card">
                 <div className="rounded-xl bg-gradient-to-br from-[#05202B]/95 to-[#03141C]/95 border border-cyan-400/20 shadow-[0_15px_40px_rgba(0,0,0,0.6)] p-3 sm:p-4 backdrop-blur-xl overflow-hidden">
-                  {/* Card shimmer - Hidden on mobile */}
-                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/5 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                  
                   <div className="relative flex items-center gap-2 sm:gap-3">
                     <div className="flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-cyan-400/30 bg-cyan-400/10 items-center justify-center flex-shrink-0 animate-pulse-glow">
                       <span className="text-xl sm:text-2xl">🏗️</span>
@@ -315,11 +272,56 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-
-            {/* Bottom decorative glow - Hidden on mobile */}
-            <div className="hidden md:block absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-400/5 rounded-full blur-3xl pointer-events-none" />
           </div>
 
+        </div>
+
+        {/* Values Section - Below the main content */}
+        <div
+          className="mt-10 sm:mt-14 pt-6 sm:pt-10 border-t border-white/10"
+          style={{
+            opacity: 0,
+            animation: isVisible ? "fadeInUp 0.8s ease-out 0.6s forwards" : "none",
+          }}
+        >
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+                Core Values
+              </span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1 sm:mt-2">
+              What Drives <span className="text-cyan-400">Us</span>
+            </h3>
+            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1 sm:mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={index}
+                  className={`group p-4 sm:p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
+                >
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
+                    <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-400" />
+                  </div>
+                  <h4 className="text-white font-semibold text-sm sm:text-base mt-2 sm:mt-3 group-hover:text-cyan-400 transition-colors duration-300">
+                    {value.title}
+                  </h4>
+                  <p className="text-white/50 text-xs sm:text-sm mt-1 leading-relaxed">
+                    {value.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
