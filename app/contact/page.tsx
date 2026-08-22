@@ -38,10 +38,55 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 3000);
+
+    const formData = new FormData(e.currentTarget);
+
+    const name = formData.get("name")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const phone = formData.get("phone")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim() || "";
+
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+      ?.replace(/\\D/g, "");
+
+    if (!whatsappNumber) {
+      console.error(
+        "NEXT_PUBLIC_WHATSAPP_NUMBER is not configured in .env.local"
+      );
+      return;
+    }
+
+    const whatsappMessage = [
+      "Hello Greenland Tensile Shade,",
+      "",
+      "I would like to enquire about your services.",
+      "",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message,
+      "",
+      "Thank you.",
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    // Clear all typed values before leaving the Contact page.
+    // This also prevents the browser from restoring the old form
+    // values when the user returns to this page.
+    e.currentTarget.reset();
+    setFormSubmitted(false);
+
+    // Redirect directly to WhatsApp.
+    // On mobile this opens the WhatsApp app when available;
+    // otherwise it opens WhatsApp Web in the browser.
+    window.location.assign(whatsappUrl);
   };
 
   return (
@@ -51,61 +96,16 @@ export default function Contact() {
         id="contact"
         className="relative overflow-hidden pt-16 sm:pt-20 pb-8 sm:pb-12 w-full min-h-screen"
         ref={sectionRef}
-        style={{
-          background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-        }}
       >
-        {/* Background Glow Effects - Hidden on mobile */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed" />
-
-        {/* Animated Gradient Orb - Hidden on mobile */}
-        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyan-400/5 blur-3xl animate-orb" />
-
-        {/* Floating Particles - Reduced on mobile */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className={`absolute rounded-full bg-cyan-400/10 animate-float ${
-                i < 8 ? 'block' : 'hidden md:block'
-              }`}
-              style={{
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 12 + 8}s`,
-                animationDelay: `${Math.random() * 8}s`,
-                opacity: 0.2 + Math.random() * 0.4,
-              }}
-            />
-          ))}
+        {/* Background - Same as Business Section */}
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
         </div>
 
-        {/* Floating Shapes - Hidden on mobile */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(4)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute border border-cyan-400/5 backdrop-blur-sm animate-float-shape"
-              style={{
-                width: `${Math.random() * 30 + 15}px`,
-                height: `${Math.random() * 30 + 15}px`,
-                left: `${Math.random() * 80 + 10}%`,
-                top: `${Math.random() * 80 + 10}%`,
-                borderRadius: i % 2 === 0 ? '50%' : '8px',
-                animationDuration: `${Math.random() * 12 + 8}s`,
-                animationDelay: `${Math.random() * 6}s`,
-                transform: `rotate(${Math.random() * 360}deg)`,
-                background: `radial-gradient(circle, rgba(22,213,232,.03), transparent)`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Glassy Grid Pattern - Hidden on mobile */}
-        <div className="hidden md:block absolute inset-0 opacity-[0.02] z-[5]"
+        {/* Glassy Grid Pattern */}
+        <div
+          className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -115,8 +115,51 @@ export default function Contact() {
           }}
         />
 
+        {/* Animated Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+              style={{
+                width: `${Math.random() * 6 + 2}px`,
+                height: `${Math.random() * 6 + 2}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDelay: `${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Floating Shapes */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute border border-cyan-400/15 backdrop-blur-sm"
+              style={{
+                width: `${Math.random() * 40 + 15}px`,
+                height: `${Math.random() * 40 + 15}px`,
+                left: `${Math.random() * 80 + 10}%`,
+                top: `${Math.random() * 80 + 10}%`,
+                borderRadius: i % 2 === 0 ? '50%' : '8px',
+                animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 6}s`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Background Glow Effects */}
+        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed" />
+
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
-          {/* CENTER HEADER - Reduced spacing */}
+          {/* CENTER HEADER */}
           <div
             className="text-center mb-6 sm:mb-8 lg:mb-10"
             style={{
@@ -125,33 +168,33 @@ export default function Contact() {
             }}
           >
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-text-shimmer">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700 animate-text-shimmer">
                 GET IN TOUCH
               </span>
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
             </div>
 
-            <h2 className="mt-1.5 sm:mt-3 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-white animate-slide-up">
+            <h2 className="mt-1.5 sm:mt-3 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-[#001a1f] animate-slide-up">
               Let's Build the Perfect
-              <span className="block text-cyan-400 mt-0.5 sm:mt-1 animate-gradient-text">
+              <span className="block text-cyan-600 mt-0.5 sm:mt-1">
                 Solution for You
               </span>
             </h2>
 
             <div className="flex justify-center items-center gap-2 sm:gap-3 mt-2 sm:mt-4">
-              <span className="w-8 sm:w-12 h-[2px] bg-cyan-400 animate-scale-x" />
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-cyan-400 flex-shrink-0 animate-spin-slow" />
-              <span className="w-8 sm:w-12 h-[2px] bg-cyan-400/40 animate-scale-x-delayed" />
+              <span className="w-8 sm:w-12 h-[2px] bg-cyan-600 animate-scale-x" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-cyan-600 flex-shrink-0 animate-spin-slow" />
+              <span className="w-8 sm:w-12 h-[2px] bg-cyan-600/40 animate-scale-x-delayed" />
             </div>
 
-            <p className="max-w-2xl mx-auto text-white/60 mt-2 sm:mt-4 text-xs sm:text-sm leading-relaxed px-2 animate-fade-in-delayed">
+            <p className="max-w-2xl mx-auto text-[#001a1f]/50 mt-2 sm:mt-4 text-xs sm:text-sm leading-relaxed px-2 animate-fade-in-delayed">
               Have a question or need a custom quote? Our team is here to help you with the best 
               solutions tailored to your construction needs.
             </p>
           </div>
 
-          {/* MAIN CONTENT - Reduced gap */}
+          {/* MAIN CONTENT */}
           <div className="grid lg:grid-cols-[1fr_0.8fr] gap-6 sm:gap-8 lg:gap-12 items-start">
             {/* LEFT SIDE - Contact Cards */}
             <div
@@ -161,7 +204,7 @@ export default function Contact() {
                 animation: "fadeInUp 0.8s ease-out 0.4s forwards",
               }}
             >
-              {/* Contact Cards - Mobile optimized */}
+              {/* Contact Cards */}
               <div className="space-y-2.5 sm:space-y-3">
                 {[
                   {
@@ -170,7 +213,6 @@ export default function Contact() {
                     text: "+91 7708 7760 22",
                     link: "tel:+917708776022",
                     subtext: "Mon-Fri 9AM - 6PM",
-                    iconBg: "bg-blue-400/10",
                   },
                   {
                     icon: Mail,
@@ -178,7 +220,6 @@ export default function Contact() {
                     text: "Info@gltgroup.com",
                     link: "mailto:Info@gltgroup.com",
                     subtext: "We reply within 24 hours",
-                    iconBg: "bg-purple-400/10",
                   },
                   {
                     icon: MapPin,
@@ -192,7 +233,6 @@ export default function Contact() {
                     ),
                     link: null,
                     subtext: "Visit our office",
-                    iconBg: "bg-green-400/10",
                   },
                 ].map((item, index) => {
                   const Icon = item.icon;
@@ -209,17 +249,16 @@ export default function Contact() {
                         gap-3 sm:gap-4
                         p-3 sm:p-4
                         rounded-xl
-                        bg-white/5
+                        bg-white/30
                         backdrop-blur-sm
-                        border border-white/10
-                        hover:bg-white/10
-                        hover:border-cyan-400/30
+                        border border-white/40
+                        hover:bg-white/40
+                        hover:border-cyan-600/40
                         hover:translate-x-1 sm:hover:translate-x-2
                         transition-all
                         duration-500
                         w-full
                         ${item.link ? 'cursor-pointer' : 'cursor-default'}
-                        animate-slide-up-stagger
                       `}
                       style={{
                         animationDelay: `${index * 0.15}s`,
@@ -228,20 +267,20 @@ export default function Contact() {
                       onMouseLeave={() => setHoveredCard(null)}
                     >
                       {/* Card Glow Effect */}
-                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/0 via-cyan-400/5 to-cyan-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-600/0 via-cyan-600/5 to-cyan-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
 
                       <div
                         className={`
                           w-8 h-8 sm:w-10 sm:h-10
                           rounded-lg
-                          ${item.iconBg}
-                          border border-cyan-400/20
+                          bg-cyan-600/10
+                          border border-cyan-600/20
                           flex-shrink-0
                           flex
                           items-center
                           justify-center
                           group-hover:scale-110
-                          group-hover:bg-cyan-400/20
+                          group-hover:bg-cyan-600/20
                           transition-all
                           duration-500
                           ${hoveredCard === index ? 'animate-pulse-icon' : ''}
@@ -249,19 +288,19 @@ export default function Contact() {
                       >
                         <Icon
                           size={15}
-                          className="sm:w-[18px] sm:h-[18px] text-cyan-400 group-hover:scale-110 transition-transform duration-300"
+                          className="sm:w-[18px] sm:h-[18px] text-cyan-600 group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-white text-xs sm:text-sm font-semibold group-hover:text-cyan-400 transition-colors duration-300">
+                        <h4 className="text-[#001a1f] text-xs sm:text-sm font-semibold group-hover:text-cyan-700 transition-colors duration-300">
                           {item.title}
                         </h4>
-                        <p className="text-white/60 text-xs sm:text-sm leading-relaxed break-words group-hover:text-white/80 transition-colors duration-300">
+                        <p className="text-[#001a1f]/60 text-xs sm:text-sm leading-relaxed break-words group-hover:text-[#001a1f]/80 transition-colors duration-300">
                           {item.text}
                         </p>
                         {item.subtext && (
-                          <p className="text-white/30 text-[10px] sm:text-xs mt-0.5 flex items-center gap-1 group-hover:text-white/50 transition-colors duration-300">
+                          <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-0.5 flex items-center gap-1 group-hover:text-[#001a1f]/60 transition-colors duration-300">
                             <Clock size={8} className="sm:w-[10px] sm:h-[10px] animate-pulse-slow" />
                             {item.subtext}
                           </p>
@@ -271,7 +310,7 @@ export default function Contact() {
                       {item.link && (
                         <ArrowRight
                           size={12}
-                          className="sm:w-[14px] sm:h-[14px] text-white/20 group-hover:text-cyan-400 group-hover:translate-x-1 sm:group-hover:translate-x-2 group-hover:rotate-[-10deg] transition-all duration-500 flex-shrink-0"
+                          className="sm:w-[14px] sm:h-[14px] text-[#001a1f]/20 group-hover:text-cyan-600 group-hover:translate-x-1 sm:group-hover:translate-x-2 group-hover:rotate-[-10deg] transition-all duration-500 flex-shrink-0"
                         />
                       )}
                     </Wrapper>
@@ -279,36 +318,36 @@ export default function Contact() {
                 })}
               </div>
 
-              {/* Working Hours - Mobile optimized */}
+              {/* Working Hours */}
               <div
-                className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)]"
+                className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-xl bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]"
                 style={{
                   opacity: 0,
                   animation: "fadeInUp 0.8s ease-out 0.6s forwards",
                 }}
               >
-                <h4 className="text-white font-semibold text-xs sm:text-sm mb-2 sm:mb-3 flex items-center gap-2">
-                  <Clock size={14} className="sm:w-4 sm:h-4 text-cyan-400 animate-spin-slow" />
+                <h4 className="text-[#001a1f] font-semibold text-xs sm:text-sm mb-2 sm:mb-3 flex items-center gap-2">
+                  <Clock size={14} className="sm:w-4 sm:h-4 text-cyan-600 animate-spin-slow" />
                   Working Hours
                 </h4>
                 <div className="space-y-1 sm:space-y-1.5 text-xs sm:text-sm">
-                  <div className="flex justify-between text-white/50 hover:text-white/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
                     <span>Monday - Friday</span>
-                    <span className="text-white/70">9:00 AM - 6:00 PM</span>
+                    <span className="text-[#001a1f]/70">9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-white/50 hover:text-white/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
                     <span>Saturday</span>
-                    <span className="text-white/70">10:00 AM - 4:00 PM</span>
+                    <span className="text-[#001a1f]/70">10:00 AM - 4:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-white/50 hover:text-white/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
                     <span>Sunday</span>
-                    <span className="text-white/70">Closed</span>
+                    <span className="text-[#001a1f]/70">Closed</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT FORM - Mobile optimized, moves to top */}
+            {/* RIGHT FORM */}
             <div
               className="w-full order-1 lg:order-2"
               style={{
@@ -318,12 +357,12 @@ export default function Contact() {
             >
               <div
                 className="
-                  bg-white/5
+                  bg-white/30
                   backdrop-blur-xl
                   rounded-2xl
-                  border border-white/10
-                  shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-                  hover:shadow-[0_8px_40px_rgba(22,213,232,0.05)]
+                  border border-white/40
+                  shadow-[0_8px_32px_rgba(0,0,0,0.05)]
+                  hover:shadow-[0_8px_40px_rgba(6,182,212,0.08)]
                   transition-all
                   duration-500
                   p-4 sm:p-6 md:p-8
@@ -335,19 +374,19 @@ export default function Contact() {
                 "
               >
                 {/* Glass reflection */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/3 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
 
                 {/* Animated Border */}
-                <div className="absolute inset-0 rounded-2xl border border-cyan-400/0 hover:border-cyan-400/20 transition-all duration-700 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-cyan-600/0 hover:border-cyan-600/20 transition-all duration-700 pointer-events-none" />
 
-                {/* Form Header - Compact */}
+                {/* Form Header */}
                 <div className="mb-3 sm:mb-4 md:mb-5">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white leading-tight flex items-center gap-1.5 sm:gap-2">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#001a1f] leading-tight flex items-center gap-1.5 sm:gap-2">
                     Send Us a Message
-                    <Sparkles size={14} className="sm:w-4 sm:h-4 text-cyan-400 animate-pulse-slow" />
+                    <Sparkles size={14} className="sm:w-4 sm:h-4 text-cyan-600 animate-pulse-slow" />
                   </h3>
-                  <div className="w-8 sm:w-10 h-[2px] bg-gradient-to-r from-cyan-400 to-transparent mt-1.5 sm:mt-2" />
-                  <p className="text-white/40 text-[10px] sm:text-xs mt-1.5 sm:mt-2 flex items-center gap-1">
+                  <div className="w-8 sm:w-10 h-[2px] bg-gradient-to-r from-cyan-600 to-transparent mt-1.5 sm:mt-2" />
+                  <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-1.5 sm:mt-2 flex items-center gap-1">
                     <MessageSquare size={10} className="sm:w-3 sm:h-3 animate-pulse-slow" />
                     We'll get back within 24 hours
                   </p>
@@ -356,12 +395,12 @@ export default function Contact() {
                 {formSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-6 sm:py-8 space-y-2 sm:space-y-3 animate-fade-in">
                     <div className="relative">
-                      <CheckCircle size={36} className="sm:w-12 sm:h-12 text-cyan-400 animate-bounce-in" />
-                      <div className="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping-slow" />
+                      <CheckCircle size={36} className="sm:w-12 sm:h-12 text-cyan-600 animate-bounce-in" />
+                      <div className="absolute inset-0 rounded-full bg-cyan-600/20 animate-ping-slow" />
                     </div>
-                    <h4 className="text-white font-semibold text-base sm:text-lg animate-slide-up">Message Sent!</h4>
-                    <p className="text-white/50 text-xs sm:text-sm text-center animate-fade-in-delayed">
-                      Thank you for reaching out. We'll get back to you shortly.
+                    <h4 className="text-[#001a1f] font-semibold text-base sm:text-lg animate-slide-up">WhatsApp Opened!</h4>
+                    <p className="text-[#001a1f]/50 text-xs sm:text-sm text-center animate-fade-in-delayed">
+                      Your message is ready in WhatsApp. Please press Send to complete your enquiry.
                     </p>
                   </div>
                 ) : (
@@ -369,122 +408,94 @@ export default function Contact() {
                     <div className="relative group">
                       <input
                         type="text"
+                        name="name"
                         placeholder="Your Name"
                         required
                         className="
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-white/10
-                          bg-white/5
+                          border border-[#001a1f]/20
+                          bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-white
+                          text-[#001a1f]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-400/50
+                          focus:border-cyan-600/50
                           focus:ring-2
-                          focus:ring-cyan-400/20
-                          placeholder:text-white/30
-                          hover:border-white/20
-                          group-hover:border-white/20
+                          focus:ring-cyan-600/20
+                          placeholder:text-[#001a1f]/40
+                          hover:border-[#001a1f]/30
+                          group-hover:border-[#001a1f]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <div className="relative group">
                       <input
                         type="email"
+                        name="email"
                         placeholder="Your Email"
                         required
                         className="
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-white/10
-                          bg-white/5
+                          border border-[#001a1f]/20
+                          bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-white
+                          text-[#001a1f]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-400/50
+                          focus:border-cyan-600/50
                           focus:ring-2
-                          focus:ring-cyan-400/20
-                          placeholder:text-white/30
-                          hover:border-white/20
-                          group-hover:border-white/20
+                          focus:ring-cyan-600/20
+                          placeholder:text-[#001a1f]/40
+                          hover:border-[#001a1f]/30
+                          group-hover:border-[#001a1f]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <div className="relative group">
                       <input
                         type="tel"
+                        name="phone"
                         placeholder="Your Phone"
                         className="
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-white/10
-                          bg-white/5
+                          border border-[#001a1f]/20
+                          bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-white
+                          text-[#001a1f]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-400/50
+                          focus:border-cyan-600/50
                           focus:ring-2
-                          focus:ring-cyan-400/20
-                          placeholder:text-white/30
-                          hover:border-white/20
-                          group-hover:border-white/20
+                          focus:ring-cyan-600/20
+                          placeholder:text-[#001a1f]/40
+                          hover:border-[#001a1f]/30
+                          group-hover:border-[#001a1f]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
-                    <div className="relative group">
-                      <select
-                        className="
-                          w-full
-                          h-[38px] sm:h-[42px]
-                          rounded-lg
-                          border border-white/10
-                          bg-white/5
-                          px-3 sm:px-4
-                          text-xs sm:text-sm
-                          text-white
-                          outline-none
-                          transition-all
-                          duration-300
-                          focus:border-cyan-400/50
-                          focus:ring-2
-                          focus:ring-cyan-400/20
-                          hover:border-white/20
-                          group-hover:border-white/20
-                          appearance-none
-                        "
-                      >
-                        <option value="" className="bg-[#03141C]">Select Service</option>
-                        <option value="residential" className="bg-[#03141C]">Residential Construction</option>
-                        <option value="commercial" className="bg-[#03141C]">Commercial Construction</option>
-                        <option value="industrial" className="bg-[#03141C]">Industrial Construction</option>
-                        <option value="steel" className="bg-[#03141C]">Steel Fabrication</option>
-                        <option value="engineering" className="bg-[#03141C]">Engineering Solutions</option>
-                        <option value="renovation" className="bg-[#03141C]">Renovation & Remodeling</option>
-                        <option value="other" className="bg-[#03141C]">Other</option>
-                      </select>
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
-                    </div>
+                    
 
                     <div className="relative group">
                       <textarea
+                        name="message"
                         placeholder="Your Message"
                         required
                         rows={3}
@@ -492,24 +503,24 @@ export default function Contact() {
                           w-full
                           h-[80px] sm:h-[100px]
                           rounded-lg
-                          border border-white/10
-                          bg-white/5
+                          border border-[#001a1f]/20
+                          bg-white/20
                           p-3 sm:p-4
                           text-xs sm:text-sm
                           resize-none
-                          text-white
+                          text-[#001a1f]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-400/50
+                          focus:border-cyan-600/50
                           focus:ring-2
-                          focus:ring-cyan-400/20
-                          placeholder:text-white/30
-                          hover:border-white/20
-                          group-hover:border-white/20
+                          focus:ring-cyan-600/20
+                          placeholder:text-[#001a1f]/40
+                          hover:border-[#001a1f]/30
+                          group-hover:border-[#001a1f]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <button
@@ -521,13 +532,14 @@ export default function Contact() {
                         items-center
                         justify-center
                         gap-1.5 sm:gap-2
-                        bg-gradient-to-r from-cyan-400 to-cyan-500
-                        text-[#03141C]
+                        bg-cyan-600
+                        hover:bg-cyan-700
+                        text-white
                         rounded-lg
                         font-semibold
                         text-xs sm:text-sm
-                        shadow-[0_0_30px_rgba(22,213,232,0.15)]
-                        hover:shadow-[0_0_40px_rgba(22,213,232,0.25)]
+                        shadow-[0_0_30px_rgba(6,182,212,0.15)]
+                        hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]
                         hover:-translate-y-1
                         transition-all
                         duration-300
@@ -564,16 +576,16 @@ export default function Contact() {
 
           @keyframes float {
             0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-8px) translateX(4px); }
-            50% { transform: translateY(-16px) translateX(-4px); }
-            75% { transform: translateY(-8px) translateX(4px); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(-20px) translateX(-5px); }
+            75% { transform: translateY(-10px) translateX(5px); }
           }
-
-          @keyframes float-shape {
+          
+          @keyframes floatShape {
             0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-            25% { transform: translateY(-15px) rotate(6deg); opacity: 0.4; }
-            50% { transform: translateY(-30px) rotate(-6deg); opacity: 0.6; }
-            75% { transform: translateY(-15px) rotate(4deg); opacity: 0.4; }
+            25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
+            50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
+            75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
           }
 
           @keyframes pulse-glow {
@@ -608,12 +620,7 @@ export default function Contact() {
 
           @keyframes text-shimmer {
             0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(22,213,232,0.3); }
-          }
-
-          @keyframes gradient-text {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            50% { opacity: 1; text-shadow: 0 0 20px rgba(6,182,212,0.2); }
           }
 
           @keyframes spin-slow {
@@ -638,13 +645,7 @@ export default function Contact() {
             100% { transform: scale(1.5); opacity: 0; }
           }
 
-          @keyframes orb {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
-          }
-
           .animate-float { animation: float linear infinite; }
-          .animate-float-shape { animation: float-shape ease-in-out infinite; }
           .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
           .animate-pulse-glow-delayed { animation: pulse-glow 4s ease-in-out infinite; animation-delay: 2s; }
           .animate-pulse { animation: pulse-delayed 2s ease-in-out infinite; }
@@ -654,14 +655,51 @@ export default function Contact() {
           .animate-scale-x { animation: scale-x 0.8s ease-out 0.4s forwards; transform-origin: left; }
           .animate-scale-x-delayed { animation: scale-x-delayed 0.8s ease-out 0.6s forwards; transform-origin: right; }
           .animate-text-shimmer { animation: text-shimmer 3s ease-in-out infinite; }
-          .animate-gradient-text { background-size: 200% 200%; animation: gradient-text 4s ease-in-out infinite; }
           .animate-spin-slow { animation: spin-slow 4s linear infinite; }
           .animate-pulse-slow { animation: pulse-slow 2s ease-in-out infinite; }
           .animate-bounce-in { animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
           .animate-ping-slow { animation: ping-slow 2s ease-in-out infinite; }
-          .animate-orb { animation: orb 6s ease-in-out infinite; }
           .animate-slide-up { animation: slide-up 0.6s ease-out 0.4s forwards; opacity: 0; }
-          .animate-slide-up-stagger { opacity: 0; animation: slide-up 0.6s ease-out forwards; }
+
+          @keyframes mobile-pop {
+            0% { transform: scale(1); }
+            35% { transform: scale(0.96); }
+            65% { transform: scale(1.025); }
+            100% { transform: scale(1); }
+          }
+
+          @media (hover: none) and (pointer: coarse) {
+            #contact a,
+            #contact button,
+            #contact input,
+            #contact textarea,
+            #contact select {
+              touch-action: manipulation;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            #contact a:active,
+            #contact button:active {
+              animation: mobile-pop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            #contact input:focus,
+            #contact textarea:focus,
+            #contact select:focus {
+              transform: scale(1.01);
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            #contact *,
+            #contact *::before,
+            #contact *::after {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              scroll-behavior: auto !important;
+              transition-duration: 0.01ms !important;
+            }
+          }
 
           @media (max-width: 640px) {
             .animate-float {

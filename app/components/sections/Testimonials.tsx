@@ -95,20 +95,15 @@ export default function TestimonialsSection() {
   return (
     <section className="relative w-full py-12 sm:py-16 overflow-hidden" ref={sectionRef}>
 
-      {/* Background - Dark Glassy */}
+      {/* Background - Same as Business Section */}
       <div className="absolute inset-0">
-        <img
-          src="/images/cons hero.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#03141C]/85 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03141C]/60 via-[#05202B]/70 to-[#03141C]/85"></div>
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
       </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern - Same as Business Section */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.03] z-[5]"
+        className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -118,21 +113,40 @@ export default function TestimonialsSection() {
         }}
       />
 
-      {/* Animated Particles - Reduced on mobile */}
+      {/* Animated Particles - Same as Business Section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full bg-[#16D5E8]/8 animate-float ${
-              i < 6 ? 'block' : 'hidden md:block'
-            }`}
+            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
-              width: `${Math.random() * 5 + 2}px`,
-              height: `${Math.random() * 5 + 2}px`,
+              width: `${Math.random() * 6 + 2}px`,
+              height: `${Math.random() * 6 + 2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDuration: `${Math.random() * 15 + 10}s`,
               animationDelay: `${Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Shapes - Same as Business Section */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute border border-cyan-400/15 backdrop-blur-sm"
+            style={{
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
+              left: `${Math.random() * 80 + 10}%`,
+              top: `${Math.random() * 80 + 10}%`,
+              borderRadius: i % 2 === 0 ? '50%' : '8px',
+              animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 6}s`,
+              transform: `rotate(${Math.random() * 360}deg)`,
+              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
             }}
           />
         ))}
@@ -148,16 +162,16 @@ export default function TestimonialsSection() {
           }`}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
               Client Testimonials
             </p>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1.5 sm:mt-2">
-            What Our <span className="text-cyan-400">Clients Say</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001a1f] mt-1.5 sm:mt-2">
+            What Our <span className="text-cyan-600">Clients Say</span>
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1.5 sm:mt-3"></div>
+          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-1.5 sm:mt-3"></div>
         </div>
 
         {/* Testimonials Carousel */}
@@ -176,15 +190,16 @@ export default function TestimonialsSection() {
                     className={`
                       relative
                       rounded-xl
-                      border border-white/10
-                      bg-[#03141C]/40
+                      border border-white/40
+                      bg-white/20
                       backdrop-blur-xl
                       p-4 sm:p-8
                       text-center
                       transition-all
                       duration-500
-                      hover:border-cyan-400/20
-                      hover:shadow-[0_0_30px_rgba(22,213,232,0.03)]
+                      hover:border-cyan-600/40
+                      hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]
+                      hover:bg-white/30
                       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                     `}
                     style={{ 
@@ -193,11 +208,11 @@ export default function TestimonialsSection() {
                     }}
                   >
                     {/* Glass reflection - Hidden on mobile */}
-                    <div className="hidden md:block absolute inset-0 rounded-xl bg-gradient-to-br from-white/3 to-transparent pointer-events-none"></div>
+                    <div className="hidden md:block absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div>
 
                     {/* Quote Icon - Smaller on mobile */}
                     <div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-10">
-                      <Quote size={32} className="sm:w-12 sm:h-12 text-white" />
+                      <Quote size={32} className="sm:w-12 sm:h-12 text-[#001a1f]" />
                     </div>
 
                     {/* Stars - Smaller on mobile */}
@@ -206,26 +221,26 @@ export default function TestimonialsSection() {
                         <Star
                           key={i}
                           size={14}
-                          className={`sm:w-4 sm:h-4 ${i < testimonial.rating ? 'text-cyan-400 fill-cyan-400' : 'text-white/20'}`}
+                          className={`sm:w-4 sm:h-4 ${i < testimonial.rating ? 'text-cyan-600 fill-cyan-600' : 'text-[#001a1f]/20'}`}
                         />
                       ))}
                     </div>
 
                     {/* Text - Smaller on mobile */}
-                    <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-[#001a1f]/70 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
                       "{testimonial.text}"
                     </p>
 
                     {/* Client Info - Smaller on mobile */}
                     <div className="flex items-center justify-center gap-2.5 sm:gap-3 mt-4 sm:mt-6">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-cyan-400 font-bold text-base sm:text-lg">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-600/20 to-cyan-600/5 border border-cyan-600/20 flex items-center justify-center text-cyan-700 font-bold text-base sm:text-lg">
                         {testimonial.name.charAt(0)}
                       </div>
                       <div className="text-left">
-                        <p className="text-white font-semibold text-xs sm:text-sm">
+                        <p className="text-[#001a1f] font-semibold text-xs sm:text-sm">
                           {testimonial.name}
                         </p>
-                        <p className="text-white/40 text-[10px] sm:text-xs">
+                        <p className="text-[#001a1f]/50 text-[10px] sm:text-xs">
                           {testimonial.position}
                         </p>
                       </div>
@@ -246,18 +261,18 @@ export default function TestimonialsSection() {
               -translate-y-1/2
               w-8 h-8 sm:w-10 sm:h-10
               rounded-full
-              border border-white/10
-              bg-[#03141C]/60
+              border border-[#001a1f]/20
+              bg-white/40
               backdrop-blur-xl
               flex
               items-center
               justify-center
-              text-white/50
+              text-[#001a1f]/50
               transition-all
               duration-300
-              hover:border-cyan-400/30
-              hover:bg-cyan-400/10
-              hover:text-white
+              hover:border-cyan-600/40
+              hover:bg-cyan-600/10
+              hover:text-[#001a1f]
               hover:scale-110
             "
           >
@@ -273,18 +288,18 @@ export default function TestimonialsSection() {
               -translate-y-1/2
               w-8 h-8 sm:w-10 sm:h-10
               rounded-full
-              border border-white/10
-              bg-[#03141C]/60
+              border border-[#001a1f]/20
+              bg-white/40
               backdrop-blur-xl
               flex
               items-center
               justify-center
-              text-white/50
+              text-[#001a1f]/50
               transition-all
               duration-300
-              hover:border-cyan-400/30
-              hover:bg-cyan-400/10
-              hover:text-white
+              hover:border-cyan-600/40
+              hover:bg-cyan-600/10
+              hover:text-[#001a1f]
               hover:scale-110
             "
           >
@@ -301,8 +316,8 @@ export default function TestimonialsSection() {
               className={`
                 transition-all duration-300 rounded-full
                 ${index === currentIndex
-                  ? 'w-6 sm:w-8 h-1 sm:h-1.5 bg-cyan-400 shadow-[0_0_10px_rgba(22,213,232,0.3)]'
-                  : 'w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/20 hover:bg-white/40'
+                  ? 'w-6 sm:w-8 h-1 sm:h-1.5 bg-cyan-600 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                  : 'w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#001a1f]/20 hover:bg-[#001a1f]/40'
                 }
               `}
             />
@@ -318,6 +333,13 @@ export default function TestimonialsSection() {
           25% { transform: translateY(-10px) translateX(5px); }
           50% { transform: translateY(-20px) translateX(-5px); }
           75% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        @keyframes floatShape {
+          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
+          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
+          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
         }
         
         @keyframes slide-up {

@@ -7,205 +7,444 @@ export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        backgroundImage: "url('/images/cons hero.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="relative min-h-screen w-full overflow-hidden -mt-8 sm:-mt-12 md:-mt-16"
     >
-      {/* ================= Background ================= */}
+      {/* =========================================================
+          MAIN HERO BACKGROUND
+          SAME LIGHT STYLE AS OUR BUSINESSES
+      ========================================================= */}
 
-      {/* Main Overlay - Very light for brighter image */}
-      <div className="absolute inset-0 bg-[#03141C]/5" />
+      <div className="absolute inset-0 z-0">
 
-      {/* Left Dark Gradient - Mobile optimized */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#02141D]/90 via-[#05202B]/80 to-transparent z-[5] md:from-[#02141D]/90 md:via-[#05202B]/70" />
+        {/* Same background gradient as Our Businesses - DARKER CYAN */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/50 via-cyan-400/40 to-blue-500/50" />
 
-      {/* Cyan Ambient Glow - Mobile adjusted */}
-      <div
-        className="absolute -left-40 top-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[700px] md:h-[700px] rounded-full blur-[100px] md:blur-[140px] z-[4]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(22,213,232,.12), transparent 70%)",
-        }}
-      />
+        {/* Soft white lighting */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
 
-      {/* Shimmer - Hidden on mobile for performance */}
-      <div
-        className="hidden md:block absolute inset-0 z-[6] opacity-20"
-        style={{
-          background:
-            "linear-gradient(105deg, transparent 40%, rgba(22,213,232,.10) 50%, transparent 60%)",
-          backgroundSize: "200% 100%",
-          animation: "shimmer 5s ease-in-out infinite",
-        }}
-      />
+        {/* Soft bottom cyan lighting - DARKER */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cyan-400/50 to-transparent" />
 
-      {/* Floating Cyan Particles - Reduced count on mobile */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-[7]">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-[#16D5E8] hidden md:block"
-            style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `floatCyan ${
-                Math.random() * 15 + 10
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 8}s`,
-              opacity: 0.3 + Math.random() * 0.5,
-            }}
-          />
-        ))}
       </div>
 
-      {/* Left Diagonal Panel - Mobile optimized */}
-      <div className="absolute inset-y-0 left-0 w-full md:w-[75%] overflow-hidden z-10">
+      {/* =========================================================
+          RIGHT SIDE BUILDING IMAGE
+          PURE / CLEAR IMAGE
+      ========================================================= */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          z-[5]
+          h-full
+          w-full
+          lg:w-[52%]
+        "
+      >
+        <img
+          src="/images/cons hero.png"
+          alt="Ruhan Groups Construction"
+          className="
+            h-full
+            w-full
+            object-cover
+            object-center
+          "
+        />
+
+        {/* Only blend the LEFT EDGE of the image - DARKER */}
         <div
-          className={`absolute inset-0 md:-skew-x-[15deg] origin-top-left transition-all duration-1000 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
+          className="
+            absolute
+            inset-y-0
+            left-0
+            w-[30%]
+          "
           style={{
             background:
-              "linear-gradient(90deg, rgba(3,20,28,.92) 0%, rgba(4,32,44,.80) 40%, rgba(5,38,52,.50) 70%, rgba(5,38,52,.20) 90%, rgba(5,38,52,0) 100%)",
-            transform: isVisible ? "scaleX(1)" : "scaleX(0)",
-            transformOrigin: "left center",
-            transition: "transform 1.2s cubic-bezier(.4,0,.2,1)",
+              'linear-gradient(90deg, rgba(180,240,245,0.95) 0%, rgba(180,240,245,0.65) 35%, rgba(180,240,245,0) 100%)',
+          }}
+        />
+
+        {/* Very subtle bottom blend - DARKER */}
+        <div
+          className="
+            absolute
+            bottom-0
+            left-0
+            right-0
+            h-[18%]
+          "
+          style={{
+            background:
+              'linear-gradient(to top, rgba(160,235,240,0.45), transparent)',
           }}
         />
       </div>
 
-      {/* Soft Right Edge Blend - Mobile adjusted */}
+      {/* =========================================================
+          LEFT SIDE LIGHT BACKGROUND - DARKER
+      ========================================================= */}
+
       <div
-        className="absolute top-0 left-[60%] md:left-[70%] h-full w-16 md:w-24 z-10"
+        className="
+          absolute
+          left-0
+          top-0
+          z-[6]
+          hidden
+          h-full
+          w-[62%]
+          lg:block
+        "
         style={{
           background:
-            "linear-gradient(to right, rgba(3,20,28,0), rgba(3,20,28,.10))",
-          filter: "blur(10px) md:blur(15px)",
+            'linear-gradient(90deg, rgba(190,245,248,0.98) 0%, rgba(180,242,245,0.94) 58%, rgba(180,242,245,0.60) 82%, rgba(180,242,245,0) 100%)',
         }}
       />
 
-      {/* Blueprint Grid - Hidden on mobile */}
+      {/* =========================================================
+          MOBILE BACKGROUND - DARKER
+      ========================================================= */}
+
+      <div className="absolute inset-0 z-[6] bg-gradient-to-br from-cyan-200/95 via-cyan-100/80 to-blue-200/70 lg:hidden" />
+
+      {/* =========================================================
+          DECORATIVE CYAN GLOW - DARKER
+      ========================================================= */}
+
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.03] z-[6]"
+        className="
+          absolute
+          -left-40
+          top-1/3
+          z-[7]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-cyan-400/30
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -right-40
+          top-1/4
+          z-[7]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-blue-400/20
+          blur-[130px]
+        "
+      />
+
+      {/* =========================================================
+          DECORATIVE TOP LEFT CIRCLE - DARKER
+      ========================================================= */}
+
+      <div
+        className="
+          absolute
+          -left-20
+          -top-20
+          z-[8]
+          h-[300px]
+          w-[300px]
+          rounded-full
+          border
+          border-cyan-500/30
+          bg-cyan-400/15
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -left-10
+          -top-10
+          z-[8]
+          h-[200px]
+          w-[200px]
+          rounded-full
+          bg-cyan-400/15
+          blur-2xl
+        "
+      />
+
+      {/* =========================================================
+          DOT PATTERN - DARKER
+      ========================================================= */}
+
+      <div
+        className="
+          absolute
+          left-0
+          top-[34%]
+          z-[8]
+          hidden
+          h-[190px]
+          w-[150px]
+          opacity-60
+          md:block
+        "
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
-          `,
-          backgroundSize: "70px 70px",
+          backgroundImage:
+            'radial-gradient(circle, rgba(22,213,232,0.6) 1.5px, transparent 1.5px)',
+          backgroundSize: '16px 16px',
+          maskImage: 'linear-gradient(to right, black, transparent)',
+          WebkitMaskImage:
+            'linear-gradient(to right, black, transparent)',
         }}
       />
 
-      {/* Blueprint Circles - Hidden on mobile */}
-      <div className="hidden md:block absolute left-20 bottom-16 w-64 h-64 rounded-full border border-cyan-400/3 z-[6]" />
-      <div className="hidden md:block absolute left-32 bottom-28 w-40 h-40 rounded-full border border-cyan-400/3 z-[6]" />
+      {/* =========================================================
+          BOTTOM DECORATIVE WAVES - DARKER
+      ========================================================= */}
 
-      {/* ================= Main Content ================= */}
-      <div className="relative z-30 min-h-screen max-w-7xl mx-auto flex items-center px-4 sm:px-6 lg:px-10">
-        <div className="w-full max-w-[620px] pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-0">
-          
-          {/* Badge - Mobile optimized */}
+      <div className="absolute bottom-0 left-0 z-[8] h-[180px] w-[420px] opacity-50">
+        <svg
+          viewBox="0 0 500 180"
+          className="h-full w-full"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-20 140C80 40 150 40 250 115C330 175 410 160 520 55"
+            stroke="#16D5E8"
+            strokeWidth="1.5"
+            strokeOpacity="0.50"
+          />
+
+          <path
+            d="M-20 155C80 55 150 55 250 130C330 190 410 175 520 70"
+            stroke="#16D5E8"
+            strokeWidth="1.5"
+            strokeOpacity="0.35"
+          />
+
+          <path
+            d="M-20 170C80 70 150 70 250 145C330 205 410 190 520 85"
+            stroke="#16D5E8"
+            strokeWidth="1.5"
+            strokeOpacity="0.25"
+          />
+        </svg>
+      </div>
+
+      {/* =========================================================
+          RIGHT SIDE SOFT CIRCLE - DARKER
+      ========================================================= */}
+
+      <div
+        className="
+          absolute
+          -right-32
+          top-1/2
+          z-[2]
+          hidden
+          h-[400px]
+          w-[400px]
+          rounded-full
+          border
+          border-cyan-400/20
+          bg-cyan-300/15
+          blur-sm
+          lg:block
+        "
+      />
+
+      {/* =========================================================
+          HERO CONTENT
+      ========================================================= */}
+
+      <div
+        className="
+          relative
+          z-20
+          mx-auto
+          flex
+          min-h-screen
+          max-w-7xl
+          items-center
+          px-4
+          pb-20
+          pt-16
+          sm:px-6
+          sm:pt-20
+          lg:px-10
+          lg:pt-24
+        "
+      >
+        <div className="w-full max-w-[690px]">
+
+          {/* =====================================================
+              BADGE - UPDATED TO HEADER COLORS
+          ===================================================== */}
+
           <div
-            className="
+            className={`
+              mb-6
               inline-flex
               items-center
-              gap-2 sm:gap-3
-              mb-6 sm:mb-6 md:mb-8
-              px-3 sm:px-5
-              py-2 sm:py-2.5
+              gap-3
               rounded-full
               border
-              border-cyan-400/25
-              bg-cyan-400/10
+              border-cyan-600/40
+              bg-cyan-600/10
+              px-4
+              py-2.5
+              shadow-[0_5px_25px_rgba(6,182,212,0.15)]
               backdrop-blur-md
-            "
-            style={{
-              opacity: 0,
-              animation: "fadeInScale .8s ease-out .2s forwards",
-            }}
+              transition-all
+              duration-1000
+              sm:mb-7
+              sm:px-5
+              ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-5 opacity-0'
+              }
+            `}
           >
-            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping"></span>
-              <span className="relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-cyan-400"></span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-600 opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-600" />
             </span>
-            <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+
+            <span className="text-[9px] font-semibold uppercase tracking-[3px] text-cyan-700 sm:text-[10px] sm:tracking-[4px]">
               BUILDING TOMORROW
             </span>
           </div>
 
-          {/* Heading - Mobile responsive */}
+          {/* =====================================================
+              MAIN HEADING - WITH "RUHAN GROUPS" HIGHLIGHTED
+          ===================================================== */}
+
           <h1
-            className="
-              text-white
+            className={`
+              max-w-[700px]
+              text-[40px]
               font-black
-              leading-[1.08] sm:leading-[1.03]
-              tracking-[-1px] sm:tracking-[-2px]
-              text-[36px] 
-              sm:text-[48px] 
-              md:text-[62px] 
+              leading-[1.03]
+              tracking-[-2px]
+              text-[#001a1f]
+              transition-all
+              duration-1000
+              sm:text-[50px]
+              md:text-[62px]
               lg:text-[72px]
-            "
-            style={{
-              opacity: 0,
-              animation: "fadeInUp .8s ease-out .4s forwards",
-            }}
+              ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              }
+            `}
           >
             With Strength,
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            Steel &amp;
-            <span
-              className="text-[#16D5E8]"
-              style={{
-                animation: "textGlow 3s ease-in-out infinite",
-              }}
-            >
-              {" "}
+            <br />
+            Steel &{' '}
+            <span className="text-cyan-600">
               Innovation
+            </span>
+            <br />
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-700/50 font-light tracking-[4px] sm:tracking-[6px] mt-1 block animate-fade-in-delayed">
+              — Ruhan Groups
             </span>
           </h1>
 
-          {/* Description - Mobile optimized */}
+          {/* =====================================================
+              ACCENT LINE - HEADER CYAN COLOR
+          ===================================================== */}
+
+          <div
+            className={`
+              mt-5
+              h-1
+              rounded-full
+              bg-cyan-600
+              transition-all
+              duration-1000
+              sm:mt-6
+              ${
+                isVisible
+                  ? 'w-20 opacity-100'
+                  : 'w-0 opacity-0'
+              }
+            `}
+          />
+
+          {/* =====================================================
+              DESCRIPTION - DARKER TEXT
+          ===================================================== */}
+
           <p
-            className="
-              mt-5 sm:mt-6 md:mt-8
-              max-w-[560px]
-              text-[15px] sm:text-[16px] md:text-[18px]
-              leading-[1.6] sm:leading-8 md:leading-9
-              text-white/80
-            "
-            style={{
-              opacity: 0,
-              animation: "fadeInUp .8s ease-out .6s forwards",
-            }}
+            className={`
+              mt-5
+              max-w-[600px]
+              text-[15px]
+              leading-7
+              text-[#001a1f]/80
+              transition-all
+              delay-200
+              duration-1000
+              sm:mt-6
+              sm:text-[16px]
+              sm:leading-8
+              md:text-[18px]
+              md:leading-9
+              ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-6 opacity-0'
+              }
+            `}
           >
             Ruhan Groups is a trusted name in construction,
-            steel fabrication and engineering solutions.
-            We build stronger structures with innovative
-            engineering and long-lasting quality.
+            steel fabrication and engineering solutions. We build
+            stronger structures with innovative engineering and
+            long-lasting quality.
           </p>
 
-          {/* Buttons - Mobile responsive with smaller cards */}
+          {/* =====================================================
+              BUTTONS - UPDATED TO HEADER COLORS
+          ===================================================== */}
+
           <div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-12"
-            style={{
-              opacity: 0,
-              animation: "fadeInUp .8s ease-out .8s forwards",
-            }}
+            className={`
+              mt-7
+              flex
+              flex-col
+              gap-3
+              transition-all
+              delay-300
+              duration-1000
+              sm:mt-9
+              sm:flex-row
+              sm:gap-4
+              ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-6 opacity-0'
+              }
+            `}
           >
-            {/* Primary - Smaller on mobile */}
+
+            {/* Primary Button - HEADER CYAN COLOR */}
             <a
               href="#services"
               className="
@@ -214,117 +453,170 @@ export default function HeroSection() {
                 inline-flex
                 items-center
                 justify-center
-                gap-2 sm:gap-3
+                gap-3
                 overflow-hidden
                 rounded-lg
-                bg-[#16D5E8]
-                px-5 sm:px-7 md:px-8
-                py-2.5 sm:py-3 md:py-4
-                text-xs sm:text-sm md:text-base
+                bg-cyan-600
+                px-6
+                py-3.5
+                text-sm
                 font-semibold
-                text-[#02141D]
+                text-white
+                shadow-[0_10px_30px_rgba(6,182,212,0.30)]
                 transition-all
                 duration-500
                 hover:-translate-y-1
-                hover:bg-[#11C5D6]
-                hover:shadow-[0_0_35px_rgba(22,213,232,.45)]
+                hover:bg-cyan-700
+                hover:shadow-[0_15px_40px_rgba(6,182,212,0.40)]
+                sm:px-7
+                md:px-8
+                md:py-4
+                md:text-base
               "
             >
-              <span className="absolute inset-0 bg-white/20 -translate-x-full transition-transform duration-500 group-hover:translate-x-0"></span>
-              <span className="relative z-10">Explore Our Services</span>
+              <span className="absolute inset-0 -translate-x-full bg-white/15 transition-transform duration-500 group-hover:translate-x-0" />
+
+              <span className="relative z-10">
+                Explore Our Services
+              </span>
+
               <ArrowRight
-                size={16}
-                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+                size={18}
+                className="
+                  relative
+                  z-10
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
               />
             </a>
 
-            {/* Secondary - Smaller on mobile */}
+            {/* Secondary Button - HEADER CYAN BORDER */}
             <a
               href="#contact"
               className="
                 group
-                relative
                 inline-flex
                 items-center
                 justify-center
-                overflow-hidden
                 rounded-lg
-                border
-                border-white/30
-                bg-white/5
-                backdrop-blur-md
-                px-5 sm:px-7 md:px-8
-                py-2.5 sm:py-3 md:py-4
-                text-xs sm:text-sm md:text-base
+                border-2
+                border-cyan-600/50
+                bg-white/40
+                px-6
+                py-3.5
+                text-sm
                 font-semibold
-                text-white
+                text-cyan-700
+                shadow-[0_5px_20px_rgba(6,182,212,0.08)]
+                backdrop-blur-md
                 transition-all
                 duration-500
                 hover:-translate-y-1
-                hover:border-cyan-400
-                hover:bg-cyan-400
-                hover:text-[#02141D]
+                hover:border-cyan-600
+                hover:bg-white/70
+                hover:shadow-[0_10px_30px_rgba(6,182,212,0.15)]
+                sm:px-7
+                md:px-8
+                md:py-4
+                md:text-base
               "
             >
-              <span className="absolute inset-0 bg-cyan-400 -translate-x-full transition-transform duration-500 group-hover:translate-x-0"></span>
-              <span className="relative z-10">Contact Us</span>
+              Contact Us
             </a>
-          </div>
 
+          </div>
         </div>
       </div>
 
-      {/* ================= Scroll Indicator - Now visible on all devices ================= */}
+      {/* =========================================================
+          SCROLL DOWN - UPDATED TO HEADER COLORS
+      ========================================================= */}
+
       <div
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30"
-        style={{
-          opacity: 0,
-          animation: "fadeIn 1s ease-out 1.2s forwards",
-        }}
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          z-20
+          hidden
+          -translate-x-1/2
+          md:block
+          lg:bottom-10
+        "
       >
-        <div className="flex flex-col items-center gap-2 sm:gap-3 group cursor-pointer">
-          <span className="text-cyan-300/70 text-[8px] sm:text-[10px] uppercase tracking-[3px] sm:tracking-[4px] transition-colors duration-300 group-hover:text-cyan-300">
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-[9px] font-semibold uppercase tracking-[4px] text-cyan-700/80">
             SCROLL DOWN
           </span>
-          <div className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border border-cyan-400/40 flex justify-center pt-1.5 sm:pt-2 backdrop-blur-sm">
-            <div className="w-1 h-1.5 sm:w-1.5 sm:h-2 rounded-full bg-cyan-400 animate-scroll-down" />
+          <div
+            className="
+              flex
+              h-9
+              w-6
+              justify-center
+              rounded-full
+              border-2
+              border-cyan-600/50
+              bg-white/25
+              pt-2
+              backdrop-blur-sm
+            "
+          >
+            <div className="h-2 w-1 animate-scroll-down rounded-full bg-cyan-600" />
           </div>
         </div>
       </div>
 
-      {/* Bottom Fade - Mobile adjusted */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 bg-gradient-to-t from-[#02141D]/50 to-transparent z-20" />
+      {/* =========================================================
+          BOTTOM SOFT BLEND - DARKER
+      ========================================================= */}
 
-      {/* ================= Animations ================= */}
+      <div className="absolute bottom-0 left-0 right-0 z-[10] h-20 bg-gradient-to-t from-cyan-300/30 to-transparent" />
+
+      {/* =========================================================
+          ANIMATIONS
+      ========================================================= */}
+
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
+        @keyframes scrollDown {
+          0% {
             transform: translateY(0);
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateY(12px);
+            opacity: 0;
           }
         }
 
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(.9);
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px);
           }
-          to {
-            opacity: 1;
+          25% {
+            transform: translateY(-10px) translateX(5px);
+          }
+          50% {
+            transform: translateY(-20px) translateX(-5px);
+          }
+          75% {
+            transform: translateY(-10px) translateX(5px);
+          }
+        }
+
+        @keyframes pulse-slow {
+          0%, 100% {
+            opacity: 0.4;
             transform: scale(1);
           }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
+          50% {
+            opacity: 0.8;
+            transform: scale(1.05);
           }
         }
 
@@ -337,54 +629,85 @@ export default function HeroSection() {
           }
         }
 
-        @keyframes floatCyan {
-          0%,100% {
-            transform: translateY(0) translateX(0);
-            opacity: .25;
-          }
-          25% {
-            transform: translateY(-35px) translateX(15px);
-            opacity: .6;
-          }
-          50% {
-            transform: translateY(-70px) translateX(-12px);
-            opacity: 1;
-          }
-          75% {
-            transform: translateY(-35px) translateX(18px);
-            opacity: .6;
-          }
-        }
-
-        @keyframes scrollDown {
-          0% {
-            transform: translateY(0);
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(16px);
+        @keyframes fade-in-delayed {
+          from {
             opacity: 0;
+            transform: translateY(10px);
           }
-        }
-
-        @keyframes textGlow {
-          0%,100% {
-            text-shadow: 0 0 15px rgba(22,213,232,.12);
-          }
-          50% {
-            text-shadow: 0 0 30px rgba(22,213,232,.35),
-                         0 0 60px rgba(22,213,232,.18);
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
 
         .animate-scroll-down {
-          animation: scrollDown 2s ease-in-out infinite;
+          animation: scrollDown 1.8s ease-in-out infinite;
         }
 
-        @media (max-width: 640px) {
-          section {
-            background-position: 60% center !important;
+        .animate-float {
+          animation: float linear infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .animate-fade-in-delayed {
+          animation: fade-in-delayed 0.8s ease-out 0.6s forwards;
+          opacity: 0;
+        }
+
+        /* Shimmer effect on the image edge */
+        .shimmer-effect {
+          background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(6,182,212,0.08) 50%,
+            transparent 60%
+          );
+          background-size: 200% 100%;
+          animation: shimmer 5s ease-in-out infinite;
+        }
+
+        /* Fade in animations */
+        .fade-in-up {
+          opacity: 0;
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
           }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Floating shapes animation */
+        @keyframes floatShape {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.15;
+          }
+          25% {
+            transform: translateY(-20px) rotate(8deg);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translateY(-40px) rotate(-8deg);
+            opacity: 0.6;
+          }
+          75% {
+            transform: translateY(-20px) rotate(5deg);
+            opacity: 0.4;
+          }
+        }
+
+        .animate-float-shape {
+          animation: floatShape 12s ease-in-out infinite;
         }
       `}</style>
     </section>

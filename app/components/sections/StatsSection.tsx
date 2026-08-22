@@ -54,20 +54,15 @@ export default function StatsSection() {
   return (
     <section className="relative w-full py-10 sm:py-12 overflow-hidden" ref={sectionRef}>
 
-      {/* Background - Dark Glassy */}
+      {/* Background - Same as Business Section */}
       <div className="absolute inset-0">
-        <img
-          src="/images/cons hero.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#03141C]/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03141C]/60 via-[#05202B]/70 to-[#03141C]/80"></div>
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
       </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern - Same as Business Section */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.03] z-[5]"
+        className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -77,14 +72,12 @@ export default function StatsSection() {
         }}
       />
 
-      {/* Animated Particles - Reduced on mobile but visible */}
+      {/* Animated Particles - Same as Business Section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full bg-[#16D5E8]/10 animate-float ${
-              i < 8 ? 'block' : 'hidden md:block'
-            }`}
+            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
               width: `${Math.random() * 6 + 2}px`,
               height: `${Math.random() * 6 + 2}px`,
@@ -92,6 +85,27 @@ export default function StatsSection() {
               top: `${Math.random() * 100}%`,
               animationDuration: `${Math.random() * 15 + 10}s`,
               animationDelay: `${Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Shapes - Same as Business Section */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute border border-cyan-400/15 backdrop-blur-sm"
+            style={{
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
+              left: `${Math.random() * 80 + 10}%`,
+              top: `${Math.random() * 80 + 10}%`,
+              borderRadius: i % 2 === 0 ? '50%' : '8px',
+              animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 6}s`,
+              transform: `rotate(${Math.random() * 360}deg)`,
+              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
             }}
           />
         ))}
@@ -107,16 +121,16 @@ export default function StatsSection() {
           }`}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
               Our Achievements
             </p>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1.5 sm:mt-2">
-            Numbers That <span className="text-cyan-400">Speak</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#001a1f] mt-1.5 sm:mt-2">
+            Numbers That <span className="text-cyan-600">Speak</span>
           </h2>
-          <div className="w-10 sm:w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1.5 sm:mt-2"></div>
+          <div className="w-10 sm:w-12 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-1.5 sm:mt-2"></div>
         </div>
 
         {/* Stats Grid - Mobile optimized with animations */}
@@ -129,17 +143,17 @@ export default function StatsSection() {
                 className={`
                   relative
                   rounded-lg
-                  border border-white/10
-                  bg-[#03141C]/40
+                  border border-white/40
+                  bg-white/20
                   backdrop-blur-xl
                   p-2.5 sm:p-3
                   text-center
                   transition-all
                   duration-500
                   hover:scale-[1.08]
-                  hover:border-cyan-400/40
-                  hover:shadow-[0_0_40px_rgba(22,213,232,0.08)]
-                  hover:bg-[#03141C]/60
+                  hover:border-cyan-600/40
+                  hover:shadow-[0_0_40px_rgba(6,182,212,0.08)]
+                  hover:bg-white/30
                   group
                   cursor-default
                   overflow-hidden
@@ -152,52 +166,52 @@ export default function StatsSection() {
               >
                 {/* Pop Effect - Animated Background - Hidden on mobile */}
                 <div className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl animate-pop-glow"></div>
-                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl animate-pop-glow-delayed"></div>
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-600/10 rounded-full blur-2xl animate-pop-glow"></div>
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-600/10 rounded-full blur-2xl animate-pop-glow-delayed"></div>
                 </div>
 
                 {/* Glass reflection - Hidden on mobile */}
-                <div className="hidden md:block absolute inset-0 rounded-lg bg-gradient-to-br from-white/3 to-transparent pointer-events-none"></div>
+                <div className="hidden md:block absolute inset-0 rounded-lg bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div>
 
                 {/* Icon - Smaller with Pop Effect */}
                 <div className="flex justify-center mb-1.5 sm:mb-2">
                   <div className="
                     w-8 h-8 sm:w-10 sm:h-10 
                     rounded-full 
-                    border border-cyan-400/20 
-                    bg-cyan-400/5 
+                    border border-cyan-600/30 
+                    bg-cyan-600/5 
                     flex 
                     items-center 
                     justify-center 
                     transition-all 
                     duration-300
-                    group-hover:bg-cyan-400/20
+                    group-hover:bg-cyan-600/20
                     group-hover:scale-110
-                    group-hover:shadow-[0_0_20px_rgba(22,213,232,0.15)]
+                    group-hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]
                   ">
-                    <Icon size={15} className="sm:w-[18px] sm:h-[18px] text-cyan-400 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-5deg]" />
+                    <Icon size={15} className="sm:w-[18px] sm:h-[18px] text-cyan-700 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-5deg]" />
                   </div>
                 </div>
 
                 {/* Value - Animated Counter with Pop */}
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:text-cyan-400">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#001a1f] transition-all duration-300 group-hover:scale-110 group-hover:text-cyan-700">
                   <span className="inline-block animate-counter">{stat.value}</span>
                   {stat.suffix}
                 </div>
 
                 {/* Label - Smaller */}
-                <p className="text-white/40 text-[8px] sm:text-[10px] uppercase tracking-wider mt-0.5 transition-all duration-300 group-hover:text-white/60">
+                <p className="text-[#001a1f]/50 text-[8px] sm:text-[10px] uppercase tracking-wider mt-0.5 transition-all duration-300 group-hover:text-[#001a1f]/70">
                   {stat.label}
                 </p>
 
                 {/* Bottom glow line with pop - Hidden on mobile */}
-                <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent group-hover:w-3/4 transition-all duration-500"></div>
+                <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-600 to-transparent group-hover:w-3/4 transition-all duration-500"></div>
 
                 {/* Corner accents - Hidden on mobile */}
-                <div className="hidden md:block absolute top-0 left-0 w-4 h-4 border-t border-l border-cyan-400/0 group-hover:border-cyan-400/20 transition-all duration-500 rounded-tl-lg"></div>
-                <div className="hidden md:block absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan-400/0 group-hover:border-cyan-400/20 transition-all duration-500 rounded-tr-lg"></div>
-                <div className="hidden md:block absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan-400/0 group-hover:border-cyan-400/20 transition-all duration-500 rounded-bl-lg"></div>
-                <div className="hidden md:block absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cyan-400/0 group-hover:border-cyan-400/20 transition-all duration-500 rounded-br-lg"></div>
+                <div className="hidden md:block absolute top-0 left-0 w-4 h-4 border-t border-l border-cyan-600/0 group-hover:border-cyan-600/20 transition-all duration-500 rounded-tl-lg"></div>
+                <div className="hidden md:block absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan-600/0 group-hover:border-cyan-600/20 transition-all duration-500 rounded-tr-lg"></div>
+                <div className="hidden md:block absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan-600/0 group-hover:border-cyan-600/20 transition-all duration-500 rounded-bl-lg"></div>
+                <div className="hidden md:block absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cyan-600/0 group-hover:border-cyan-600/20 transition-all duration-500 rounded-br-lg"></div>
               </div>
             );
           })}
@@ -212,6 +226,13 @@ export default function StatsSection() {
           25% { transform: translateY(-10px) translateX(5px); }
           50% { transform: translateY(-20px) translateX(-5px); }
           75% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        @keyframes floatShape {
+          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
+          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
+          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
         }
         
         @keyframes slide-up {

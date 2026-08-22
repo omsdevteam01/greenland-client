@@ -74,40 +74,33 @@ export default function WhyChooseUs() {
   return (
     <section className="relative w-full py-8 sm:py-12 overflow-hidden" ref={sectionRef}>
 
-      {/* Background - Dark Glassy */}
+      {/* Background - Same as Business Section */}
       <div className="absolute inset-0">
-        <img
-          src="/images/cons hero.png"
-          alt=""
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-[#03141C]/85 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03141C]/60 via-[#05202B]/70 to-[#03141C]/85"></div>
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
       </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern - Same as Business Section */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.02] z-[5]"
+        className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(22,213,232,.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,213,232,.08) 1px, transparent 1px)
+            linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
       />
 
-      {/* Animated Particles - Reduced on mobile */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-        {[...Array(15)].map((_, i) => (
+      {/* Animated Particles - Same as Business Section */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full bg-cyan-400/8 animate-float ${
-              i < 8 ? 'block' : 'hidden md:block'
-            }`}
+            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
-              width: `${Math.random() * 5 + 2}px`,
-              height: `${Math.random() * 5 + 2}px`,
+              width: `${Math.random() * 6 + 2}px`,
+              height: `${Math.random() * 6 + 2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDuration: `${Math.random() * 15 + 10}s`,
@@ -117,22 +110,22 @@ export default function WhyChooseUs() {
         ))}
       </div>
 
-      {/* Floating Shapes - Hidden on mobile */}
+      {/* Floating Shapes - Same as Business Section */}
       <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute border border-cyan-400/5 backdrop-blur-sm"
+            className="absolute border border-cyan-400/15 backdrop-blur-sm"
             style={{
-              width: `${Math.random() * 30 + 15}px`,
-              height: `${Math.random() * 30 + 15}px`,
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
               left: `${Math.random() * 80 + 10}%`,
               top: `${Math.random() * 80 + 10}%`,
               borderRadius: i % 2 === 0 ? '50%' : '8px',
               animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 6}s`,
               transform: `rotate(${Math.random() * 360}deg)`,
-              background: `radial-gradient(circle, rgba(22,213,232,.03), transparent)`,
+              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
             }}
           />
         ))}
@@ -148,25 +141,25 @@ export default function WhyChooseUs() {
           }`}
         >
           <div className="flex items-center justify-center gap-1 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span className="uppercase tracking-[1.5px] sm:tracking-[4px] text-[7px] sm:text-[10px] font-semibold text-cyan-300">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+            <span className="uppercase tracking-[1.5px] sm:tracking-[4px] text-[7px] sm:text-[10px] font-semibold text-cyan-700">
               WHY CHOOSE US
             </span>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
           </div>
 
           <h2 className="mt-1 sm:mt-3 text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-tight leading-tight">
-            <span className="text-white">Built with</span>{" "}
-            <span className="text-cyan-400">Excellence</span>
+            <span className="text-[#001a1f]">Built with</span>{" "}
+            <span className="text-cyan-600">Excellence</span>
           </h2>
 
           <div className="flex justify-center items-center gap-1.5 sm:gap-3 mt-1.5 sm:mt-3">
-            <span className="w-6 sm:w-10 h-[2px] bg-cyan-400" />
-            <span className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rotate-45 bg-cyan-400" />
-            <span className="w-6 sm:w-10 h-[2px] bg-cyan-400/40" />
+            <span className="w-6 sm:w-10 h-[2px] bg-cyan-600" />
+            <span className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rotate-45 bg-cyan-600" />
+            <span className="w-6 sm:w-10 h-[2px] bg-cyan-600/40" />
           </div>
 
-          <p className="hidden sm:block max-w-2xl mx-auto mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-white/60 leading-relaxed px-2">
+          <p className="hidden sm:block max-w-2xl mx-auto mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-[#001a1f]/60 leading-relaxed px-2">
             We combine years of experience, skilled craftsmanship, and cutting-edge technology
             to deliver construction projects that stand the test of time.
           </p>
@@ -186,8 +179,8 @@ export default function WhyChooseUs() {
                   px-4 py-6
                   transition-all
                   duration-500
-                  ${index < desktopFeatures.length - 1 ? "border-r border-white/10" : ""}
-                  hover:bg-white/5
+                  ${index < desktopFeatures.length - 1 ? "border-r border-white/20" : ""}
+                  hover:bg-white/20
                   rounded-2xl
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                 `}
@@ -197,25 +190,25 @@ export default function WhyChooseUs() {
                 }}
               >
                 {/* Glass reflection on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
 
                 {/* Icon */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/10 border border-cyan-400/20 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_30px_rgba(22,213,232,0.1)]">
-                  <Icon size={20} className="text-cyan-400" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-600/10 border border-cyan-600/20 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-cyan-600/20 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+                  <Icon size={20} className="text-cyan-700" />
                 </div>
 
                 {/* Heading */}
-                <h4 className="mt-3 text-sm font-bold leading-snug text-white group-hover:text-cyan-400 transition-colors duration-300">
+                <h4 className="mt-3 text-sm font-bold leading-snug text-[#001a1f] group-hover:text-cyan-700 transition-colors duration-300">
                   {item.title}
                 </h4>
 
                 {/* Description */}
-                <p className="mt-1.5 max-w-[150px] text-xs text-white/50 leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                <p className="mt-1.5 max-w-[150px] text-xs text-[#001a1f]/50 leading-relaxed group-hover:text-[#001a1f]/70 transition-colors duration-300">
                   {item.desc}
                 </p>
 
                 {/* Bottom glow line */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:w-12 transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-600/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:w-12 transition-all duration-500"></div>
               </div>
             );
           })}
@@ -235,10 +228,10 @@ export default function WhyChooseUs() {
                   px-2 sm:px-4 py-3 sm:py-6
                   transition-all
                   duration-500
-                  ${index < mobileFeatures.length - 1 ? "border-b border-white/5" : ""}
-                  ${index % 2 === 0 ? "border-r border-white/5" : ""}
-                  ${index < mobileFeatures.length - 2 ? "border-b border-white/5" : ""}
-                  hover:bg-white/5
+                  ${index < mobileFeatures.length - 1 ? "border-b border-white/10" : ""}
+                  ${index % 2 === 0 ? "border-r border-white/10" : ""}
+                  ${index < mobileFeatures.length - 2 ? "border-b border-white/10" : ""}
+                  hover:bg-white/20
                   rounded-lg sm:rounded-2xl
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                 `}
@@ -248,30 +241,30 @@ export default function WhyChooseUs() {
                 }}
               >
                 {/* Glass reflection on hover - Hidden on mobile */}
-                <div className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent rounded-2xl"></div>
+                <div className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
 
                 {/* Icon - Even smaller on mobile */}
-                <div className="flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-cyan-400/10 border border-cyan-400/20 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_30px_rgba(22,213,232,0.1)]">
-                  <Icon size={14} className="sm:w-5 sm:h-5 text-cyan-400" />
+                <div className="flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-cyan-600/10 border border-cyan-600/20 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-cyan-600/20 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+                  <Icon size={14} className="sm:w-5 sm:h-5 text-cyan-700" />
                 </div>
 
                 {/* Heading - Compact on mobile */}
-                <h4 className="mt-1 sm:mt-3 text-[9px] sm:text-sm font-bold leading-tight text-white group-hover:text-cyan-400 transition-colors duration-300">
+                <h4 className="mt-1 sm:mt-3 text-[9px] sm:text-sm font-bold leading-tight text-[#001a1f] group-hover:text-cyan-700 transition-colors duration-300">
                   {item.title}
                 </h4>
 
                 {/* Description - Hidden on mobile, shown on tablet+ */}
-                <p className="hidden sm:block mt-1 sm:mt-1.5 max-w-[150px] text-[10px] sm:text-xs text-white/50 leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                <p className="hidden sm:block mt-1 sm:mt-1.5 max-w-[150px] text-[10px] sm:text-xs text-[#001a1f]/50 leading-relaxed group-hover:text-[#001a1f]/70 transition-colors duration-300">
                   {item.desc}
                 </p>
 
                 {/* Short description for mobile */}
-                <p className="block sm:hidden text-[8px] text-white/40 leading-tight mt-0.5 max-w-[80px]">
+                <p className="block sm:hidden text-[8px] text-[#001a1f]/40 leading-tight mt-0.5 max-w-[80px]">
                   {item.desc.split(' ').slice(0, 4).join(' ')}...
                 </p>
 
                 {/* Bottom glow line - Hidden on mobile */}
-                <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:w-12 transition-all duration-500"></div>
+                <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-600/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:w-12 transition-all duration-500"></div>
               </div>
             );
           })}
@@ -279,9 +272,9 @@ export default function WhyChooseUs() {
 
         {/* Bottom decorative divider - Smaller on mobile */}
         <div className="mt-4 sm:mt-8 flex items-center justify-center gap-2 sm:gap-4">
-          <span className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-transparent to-cyan-400/50" />
-          <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rotate-45 bg-cyan-400" />
-          <span className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-l from-transparent to-cyan-400/50" />
+          <span className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-transparent to-cyan-600/50" />
+          <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rotate-45 bg-cyan-600" />
+          <span className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-l from-transparent to-cyan-600/50" />
         </div>
       </div>
 

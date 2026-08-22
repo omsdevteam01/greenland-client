@@ -1,170 +1,196 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
-  Building2,
   Home,
   Building,
   Sofa,
   Paintbrush,
-  CheckCircle,
   Users,
   Award,
   Clock,
   Shield,
-  HardHat,
-  Truck,
-  Zap,
   TrendingUp,
-  Target,
-  Eye,
-  Sparkles,
   Droplets,
   Wind,
   Thermometer,
   ShieldCheck,
   Flame,
-  Award as AwardIcon,
   Ruler,
-  Palette,
-  Quote,
+  ArrowUpRight,
+  Phone,
+  Check,
 } from "lucide-react";
+
+import { useEffect, useRef, useState } from "react";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 import Link from "next/link";
 import Image from "next/image";
 
-// Service Data
+/* =========================================================
+   SERVICES
+========================================================= */
+
 const services = [
   {
-    id: "residential",
     icon: Home,
     title: "Residential Construction",
+    shortTitle: "Residential",
     description:
-      "Building dream homes with superior quality, modern design, and sustainable materials. From villas to apartments, we create spaces that reflect your lifestyle.",
-    image: "/images/villa.png",
+      "Dream homes built with superior quality, modern design and sustainable materials.",
   },
   {
-    id: "commercial",
     icon: Building,
     title: "Commercial Construction",
+    shortTitle: "Commercial",
     description:
-      "State-of-the-art commercial spaces designed for productivity, efficiency, and growth. We deliver office buildings, retail spaces, and commercial complexes.",
-    image: "/images/commercial.png",
+      "Efficient commercial spaces designed for productivity, growth and long-term value.",
   },
   {
-    id: "interior",
     icon: Sofa,
     title: "Interior Works",
+    shortTitle: "Interiors",
     description:
-      "Transforming spaces with elegant interior design, premium finishes, and thoughtful planning. We create interiors that are both beautiful and functional.",
-    image: "/images/inte.png",
+      "Elegant interiors with premium finishes, thoughtful planning and functional design.",
   },
   {
-    id: "renovation",
     icon: Paintbrush,
     title: "Renovation & Remodeling",
+    shortTitle: "Renovation",
     description:
-      "Breathing new life into existing spaces with modern upgrades, structural improvements, and contemporary design solutions.",
-    image: "/images/home.png",
+      "Modern upgrades and structural improvements that transform existing spaces.",
   },
 ];
 
-// Nanoceramic Features
-const nanoceramicFeatures = [
+/* =========================================================
+   NANO CERAMIC
+========================================================= */
+
+const nanoFeatures = [
   {
     icon: Droplets,
-    title: "Zero Moisture Absorption",
-    desc: "Nano-coating protection repels dust, moisture, and stains, preventing particles and liquids from adhering.",
+    title: "Moisture Resistant",
+    desc: "Repels dust, moisture and stains.",
   },
   {
     icon: Wind,
     title: "Acoustic Insulation",
-    desc: "Engineered with nano-scale ceramic particles that disrupt and absorb sound waves, minimizing echo and noise infiltration.",
+    desc: "Helps minimize echo and unwanted noise.",
   },
   {
     icon: Thermometer,
     title: "Thermal Insulation",
-    desc: "Blocks external heat from entering indoor spaces, reducing reliance on air conditioning and lowering energy bills.",
+    desc: "Helps reduce external heat.",
   },
   {
     icon: ShieldCheck,
-    title: "Antibacterial & Dust Repelling",
-    desc: "Actively resists bacteria, fungi, and dust accumulation, maintaining a cleaner and healthier indoor environment.",
+    title: "Antibacterial",
+    desc: "Resists bacteria, fungi and dust.",
   },
   {
     icon: Flame,
-    title: "Termite Proof & Zero Migration",
-    desc: "Naturally resistant to termites, fungi, and algae, ensuring long-term structural integrity and longevity.",
+    title: "Termite Proof",
+    desc: "Resistant to termites and algae.",
   },
   {
-    icon: AwardIcon,
-    title: "Long-Lasting Finish",
-    desc: "Retains color, texture, and sheen far longer than conventional materials, reducing long-term upkeep costs.",
+    icon: Award,
+    title: "Long Lasting",
+    desc: "Maintains finish and texture for longer.",
   },
 ];
 
-// Why Choose Data
-const whyChoose = [
+/* =========================================================
+   WHY CHOOSE
+========================================================= */
+
+const advantages = [
   {
     icon: Shield,
     title: "Quality First",
-    description: "We never compromise on quality, using only the best materials and craftsmanship.",
+    text: "Best materials and careful craftsmanship.",
   },
   {
     icon: Users,
     title: "Expert Team",
-    description: "Our team of experienced professionals delivers excellence in every project.",
+    text: "Experienced professionals on every project.",
   },
   {
     icon: Clock,
     title: "On-Time Delivery",
-    description: "We respect your time and deliver projects within the agreed timeframe.",
+    text: "Projects completed within agreed timelines.",
   },
   {
     icon: TrendingUp,
-    title: "Cost Effective",
-    description: "We provide competitive pricing without compromising on quality.",
+    title: "Competitive Pricing",
+    text: "Excellent value without compromising quality.",
   },
 ];
 
-// Process Steps
+/* =========================================================
+   PROCESS
+========================================================= */
+
 const process = [
   {
     title: "Consultation",
-    description: "We discuss your vision, requirements, and budget to create a tailored plan.",
+    text: "Understand your requirements, vision and budget.",
   },
   {
-    title: "Design & Planning",
-    description: "Our experts create detailed designs and comprehensive project plans.",
+    title: "Planning",
+    text: "Prepare designs, materials and project schedules.",
   },
   {
-    title: "Construction",
-    description: "We execute the project with precision, quality, and attention to detail.",
+    title: "Execution",
+    text: "Build with precision, quality and attention to detail.",
   },
   {
     title: "Handover",
-    description: "We deliver the completed project and ensure your complete satisfaction.",
+    text: "Complete the project and ensure your satisfaction.",
   },
 ];
 
+/* =========================================================
+   COLORS
+========================================================= */
+
+const productColors = [
+  {
+    name: "Redwood",
+    color: "#8B4513",
+  },
+  {
+    name: "Coffee",
+    color: "#6F4E37",
+  },
+  {
+    name: "Chocolate",
+    color: "#3B2F2F",
+  },
+];
+
+/* =========================================================
+   PAGE
+========================================================= */
+
 export default function ConstructionPage() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.05,
+      }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (pageRef.current) {
+      observer.observe(pageRef.current);
     }
 
     return () => observer.disconnect();
@@ -173,595 +199,734 @@ export default function ConstructionPage() {
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-screen pt-8 sm:pt-10 pb-6 sm:pb-10 overflow-hidden" ref={sectionRef}
-        style={{
-          background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-        }}
-      >
-        {/* Background Glow */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-delayed" />
 
-        {/* Floating Particles - Reduced on mobile */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(10)].map((_, i) => (
+      <main
+        ref={pageRef}
+        className="relative overflow-hidden"
+      >
+        {/* =====================================================
+            GLOBAL BACKGROUND - Same as Business Section
+        ===================================================== */}
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="fixed inset-0 -z-10 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
+
+        <div
+          className="fixed inset-0 -z-10 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* Animated Particles */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className={`absolute rounded-full bg-cyan-400/10 animate-float ${
-                i < 6 ? "block" : "hidden md:block"
-              }`}
+              className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
               style={{
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
+                width: `${Math.random() * 5 + 2}px`,
+                height: `${Math.random() * 5 + 2}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDuration: `${Math.random() * 18 + 12}s`,
                 animationDelay: `${Math.random() * 10}s`,
               }}
             />
           ))}
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Back Button */}
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-cyan-400 transition-colors duration-300 mb-3 sm:mb-4 group animate-fade-in"
-          >
-            <ArrowRight size={14} className="sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="text-xs sm:text-sm">Back to Service</span>
-          </Link>
+        {/* =====================================================
+            HERO
+        ===================================================== */}
 
-          {/* Hero Section - Smaller */}
-          <div className="relative rounded-2xl overflow-hidden mb-6 sm:mb-8 border border-white/10 animate-slide-up">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-cyan-500/10 to-blue-600/10" />
-            <div className="absolute -top-20 -right-20 w-48 h-48 bg-cyan-400/10 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-cyan-400/10 rounded-full blur-3xl animate-pulse-slow-delayed" />
-            
-            <div className="relative z-10 p-6 sm:p-8 md:p-10 text-center">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-2 sm:mb-3">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-[8px] sm:text-[10px] font-semibold text-cyan-300 uppercase tracking-[2px] sm:tracking-[3px]">
-                  Ruhan Groups - Construction & Interiors
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                Building <span className="text-cyan-400">Strong</span>.{" "}
-                <span className="text-cyan-400">Designing</span> Beautiful.
-              </h1>
-              <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-white/60 text-sm sm:text-base px-2">
-                From structural construction to complete interior works, we deliver high-quality residential,
-                commercial, and industrial projects with precision and excellence.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg transition-all duration-300 group text-sm font-medium shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105"
-                >
-                  <span>Get a Quote</span>
-                  <ArrowRight size={16} className="transition-all duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* What We Offer - Premium Grid with Full Images */}
-          <div className="mb-10 sm:mb-12">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                  What We Offer
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                Our <span className="text-cyan-400">Services</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
+        <section className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between pt-4 sm:pt-5 animate-fade-in">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-[#001a1f]/40 hover:text-cyan-600 text-[10px] transition-colors group"
+              >
+                <ArrowRight
+                  size={12}
+                  className="rotate-180 group-hover:-translate-x-1 transition-transform"
+                />
+                Back to Services
+              </Link>
+              <span className="hidden sm:block text-[8px] uppercase tracking-[3px] text-[#001a1f]/25">
+                Ruhan Groups
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <div
-                    key={service.id}
-                    className={`group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(22,213,232,0.08)] animate-slide-up`}
-                    style={{ animationDelay: `${0.3 + index * 0.12}s` }}
+            <div
+              className={`grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-center py-7 sm:py-8 lg:py-10 transition-all duration-700 ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
+              {/* LEFT */}
+              <div className="lg:pr-4">
+                <div className="flex items-center gap-2 mb-3 animate-fade-in">
+                  <span className="w-7 h-px bg-cyan-600 animate-scale-x" />
+                  <span className="text-cyan-700 text-[8px] uppercase tracking-[3px] font-bold">
+                    Construction & Interiors
+                  </span>
+                </div>
+
+                <h1 className="text-[43px] sm:text-[54px] md:text-[64px] lg:text-[72px] font-black leading-[0.87] tracking-[-4px] animate-slide-up">
+                  BUILDING
+                  <span className="block text-cyan-600 animate-text-glow">STRONG.</span>
+                  <span className="block">DESIGNING</span>
+                  <span className="block text-[#001a1f]/35">BEAUTIFUL.</span>
+                </h1>
+
+                <div className="w-10 h-1 bg-cyan-600 mt-4 animate-scale-x" />
+
+                <p className="max-w-lg text-[#001a1f]/50 text-xs sm:text-sm leading-6 mt-3 animate-fade-in-delayed">
+                  From structural construction to complete interior works,
+                  Ruhan Groups creates residential, commercial and industrial
+                  spaces with quality, precision and thoughtful design.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-4 animate-fade-in-delayed-2">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2.5 text-[10px] font-semibold transition-all group hover:-translate-y-0.5"
                   >
-                    <div className="relative w-full h-52 sm:h-56 lg:h-64 xl:h-72 overflow-hidden">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                        priority={index < 2}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const parent = target.parentElement;
-                          if (parent) {
-                            const fallback = document.createElement('div');
-                            fallback.className = 'w-full h-full bg-gradient-to-br from-cyan-900/30 to-blue-900/20 flex items-center justify-center';
-                            fallback.innerHTML = `
-                              <div class="text-center">
-                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-cyan-400/10 flex items-center justify-center mx-auto border border-cyan-400/20">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 sm:w-8 sm:h-8 text-cyan-400/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                  </svg>
-                                </div>
-                                <p class="text-white/30 text-xs mt-2">${service.title}</p>
-                              </div>
-                            `;
-                            parent.appendChild(fallback);
-                          }
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/30 flex items-center justify-center group-hover:bg-cyan-400/30 transition-all duration-300">
-                          <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-300" />
-                        </div>
-                      </div>
-                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/30 text-cyan-300 text-[7px] sm:text-[8px] font-medium tracking-wider">
-                        {service.id.toUpperCase()}
-                      </div>
-                    </div>
+                    Start Your Project
+                    <ArrowRight
+                      size={12}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </Link>
+                  <Link
+                    href="#services"
+                    className="inline-flex items-center gap-2 border border-[#001a1f]/15 hover:border-cyan-600 text-[#001a1f]/60 hover:text-cyan-700 px-4 py-2.5 text-[10px] font-semibold transition-all hover:-translate-y-0.5"
+                  >
+                    Explore Services
+                  </Link>
+                </div>
 
-                    <div className="p-4 sm:p-5 lg:p-6">
-                      <h3 className="text-white font-bold text-base sm:text-lg lg:text-xl group-hover:text-cyan-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-white/50 text-xs sm:text-sm lg:text-base mt-1.5 leading-relaxed line-clamp-3 sm:line-clamp-none">
-                        {service.description}
+                <div className="flex items-center gap-5 sm:gap-7 mt-5 pt-4 border-t border-[#001a1f]/10 animate-fade-in-delayed-3">
+                  {[
+                    { value: "500+", label: "Projects" },
+                    { value: "10+", label: "Years" },
+                    { value: "100%", label: "Commitment" },
+                  ].map((stat, index) => (
+                    <div
+                      key={index}
+                      className={`transition-all duration-500 hover:-translate-y-1 ${
+                        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
+                    >
+                      <p className="text-xl font-black text-cyan-600 animate-counter">
+                        {stat.value}
+                      </p>
+                      <p className="text-[7px] uppercase tracking-[1.5px] text-[#001a1f]/35">
+                        {stat.label}
                       </p>
                     </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT IMAGE */}
+              <div className="relative h-[300px] sm:h-[370px] lg:h-[450px] animate-slide-up-delayed">
+                <div className="absolute right-0 top-0 w-[88%] h-[88%] overflow-hidden">
+                  <Image
+                    src="/images/villa.png"
+                    alt="Ruhan Groups Construction"
+                    fill
+                    priority
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/50 via-transparent to-transparent" />
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-[58%] bg-cyan-800 text-white p-4 animate-fade-in">
+                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                    Ruhan Groups
+                  </span>
+                  <h2 className="text-lg font-black mt-1">
+                    STRUCTURE.
+                    <span className="text-white/40"> FUNCTION.</span>
+                  </h2>
+                </div>
+
+                <div className="absolute top-7 left-0 w-14 h-14 border-l border-t border-cyan-600/30" />
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Nanoceramic Section - Premium Design */}
-          <div className="mb-10 sm:mb-12 pt-8 sm:pt-10 border-t border-white/10">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                  Granoceramics
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                Nanoceramic <span className="text-cyan-400">Ceiling Tiles</span>
+        {/* =====================================================
+            INTRO
+        ===================================================== */}
+
+        <section className="relative bg-cyan-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`grid md:grid-cols-[0.7fr_1.3fr] gap-5 items-center py-5 sm:py-6 transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}>
+              <h2 className="text-xl sm:text-2xl font-black text-white animate-slide-up">
+                MORE THAN
+                <span className="text-cyan-300 animate-text-glow"> STRUCTURES.</span>
               </h2>
-              <p className="text-white/50 text-sm max-w-2xl mx-auto mt-2 animate-fade-in px-2">
-                Developed using advanced nanoceramic particles — a groundbreaking innovation in ceiling technology for modern construction
+              <p className="text-white/60 text-xs leading-5 animate-fade-in-delayed">
+                We combine construction expertise, interior design, quality
+                materials and disciplined execution to create spaces that
+                remain valuable for years.
               </p>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            SERVICES
+        ===================================================== */}
+
+        <section id="services" className="py-8 sm:py-10 lg:py-12 scroll-mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* HEADER */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5 sm:mb-7">
+              <div className="animate-fade-in">
+                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                  What We Do
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-none tracking-[-2px] mt-1.5 animate-slide-up">
+                  OUR
+                  <span className="text-cyan-600 animate-text-glow"> SERVICES.</span>
+                </h2>
+              </div>
+              <p className="max-w-sm text-[#001a1f]/40 text-[10px] sm:text-xs leading-5 animate-fade-in-delayed">
+                Complete construction and interior solutions under one roof.
+              </p>
             </div>
 
-            {/* Features - Premium Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 mb-8 sm:mb-10">
-              {nanoceramicFeatures.map((feature, index) => {
+            {/* SERVICES GRID */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                {services.map((service, index) => {
+                  const Icon = service.icon;
+                  return (
+                    <Link
+                      href="#showcase"
+                      key={service.title}
+                      className={`group relative min-h-[205px] sm:min-h-[220px] bg-white/20 backdrop-blur-sm border border-white/20 overflow-hidden hover:bg-cyan-800 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(6,182,212,0.08)] ${
+                        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ 
+                        transitionDelay: `${0.3 + index * 0.1}s`,
+                        transition: 'none'
+                      }}
+                    >
+                      {/* TOP ACCENT - Instant */}
+                      <div className="absolute top-0 left-0 w-10 h-0.5 bg-cyan-700 group-hover:w-full" />
+                      
+                      {/* CORNER DETAIL - Instant */}
+                      <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
+                        <div className="absolute -right-8 -top-8 w-16 h-16 rotate-45 bg-cyan-700/10 group-hover:bg-cyan-700/20" />
+                      </div>
+                      
+                      {/* CONTENT */}
+                      <div className="relative z-10 h-full p-5 flex flex-col">
+                        {/* ICON ROW */}
+                        <div className="flex items-start justify-between">
+                          <div className="relative w-11 h-11 bg-cyan-600/15 backdrop-blur-sm border border-cyan-600/35 flex items-center justify-center text-cyan-600 shadow-sm group-hover:bg-cyan-600 group-hover:text-white group-hover:rotate-3">
+                            <Icon size={18} />
+                            <span className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-600 group-hover:bg-cyan-300" />
+                          </div>
+                          <ArrowUpRight
+                            size={15}
+                            className="text-[#001a1f]/20 group-hover:text-cyan-300"
+                          />
+                        </div>
+                        
+                        {/* CATEGORY - Instant */}
+                        <span className="text-cyan-600 group-hover:text-cyan-300 text-[7px] uppercase tracking-[2px] font-bold mt-5">
+                          {service.shortTitle}
+                        </span>
+                        
+                        {/* TITLE - Instant */}
+                        <h3 className="text-base sm:text-[17px] font-black leading-tight mt-1.5 text-[#001a1f] group-hover:text-white">
+                          {service.title}
+                        </h3>
+                        
+                        {/* DESCRIPTION - Instant */}
+                        <p className="text-[#001a1f]/40 group-hover:text-white/80 text-[9px] sm:text-[10px] leading-5 mt-2">
+                          {service.description}
+                        </p>
+                        
+                        {/* BOTTOM */}
+                        <div className="mt-auto pt-4 flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 text-cyan-600 group-hover:text-cyan-300 text-[8px] uppercase tracking-[1.5px] font-bold">
+                            Explore Service
+                            <ArrowRight
+                              size={11}
+                              className="group-hover:translate-x-1"
+                            />
+                          </span>
+                          <span className="w-8 h-px bg-cyan-800/20 group-hover:w-12 group-hover:bg-cyan-400/40" />
+                        </div>
+                      </div>
+                      
+                      {/* BOTTOM ACCENT - Instant */}
+                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-500 group-hover:w-full" />
+                    </Link>
+                  );
+                })}
+              </div>
+              </div>
+              </section>
+
+        {/* =====================================================
+            IMAGE SHOWCASE
+        ===================================================== */}
+
+        <section id="showcase" className="py-7 sm:py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`grid lg:grid-cols-[1.4fr_0.6fr] gap-2.5 transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              {/* MAIN IMAGE */}
+              <div className="relative h-[270px] sm:h-[340px] lg:h-[390px] overflow-hidden group">
+                <Image
+                  src="/images/commercial.png"
+                  alt="Commercial Construction"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/80 to-transparent" />
+                <div className="absolute bottom-5 left-5 sm:left-6">
+                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                    Commercial
+                  </span>
+                  <h3 className="text-white text-xl sm:text-2xl font-black mt-1">
+                    BUILT TO PERFORM.
+                  </h3>
+                </div>
+              </div>
+
+              {/* SMALL IMAGES */}
+              <div className="grid grid-rows-2 gap-2.5">
+                <div className="relative min-h-[130px] sm:min-h-[160px] overflow-hidden group">
+                  <Image
+                    src="/images/inte.png"
+                    alt="Interior Works"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/75 to-transparent" />
+                  <div className="absolute bottom-3 left-4">
+                    <span className="text-cyan-300 text-[7px] uppercase tracking-[2px]">
+                      Interior
+                    </span>
+                    <h3 className="text-white text-base font-bold mt-1">
+                      THOUGHTFUL DETAILS.
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="relative min-h-[130px] sm:min-h-[160px] overflow-hidden group">
+                  <Image
+                    src="/images/home.png"
+                    alt="Renovation"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/75 to-transparent" />
+                  <div className="absolute bottom-3 left-4">
+                    <span className="text-cyan-300 text-[7px] uppercase tracking-[2px]">
+                      Renovation
+                    </span>
+                    <h3 className="text-white text-base font-bold mt-1">
+                      NEW LIFE. NEW SPACE.
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            NANOCERAMIC
+        ===================================================== */}
+
+        <section className="py-8 sm:py-10 lg:py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-5 lg:gap-8 items-end mb-5">
+              <div className="animate-fade-in">
+                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                  Granoceramics
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.9] tracking-[-2px] mt-1.5 animate-slide-up">
+                  NANOCERAMIC
+                  <span className="block text-cyan-600 animate-text-glow">CEILING TILES.</span>
+                </h2>
+              </div>
+              <p className="text-[#001a1f]/45 text-[10px] sm:text-xs leading-5 max-w-xl animate-fade-in-delayed">
+                Advanced nanoceramic technology designed for modern
+                construction and architectural projects.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+              {nanoFeatures.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
                   <div
-                    key={index}
-                    className={`group p-4 sm:p-5 md:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(22,213,232,0.06)] animate-slide-up`}
-                    style={{ animationDelay: `${0.5 + index * 0.08}s` }}
+                    key={feature.title}
+                    className={`relative p-4 bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/25 hover:-translate-y-0.5 transition-all duration-300 ${
+                      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: `${1.0 + index * 0.08}s` }}
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300 flex-shrink-0">
-                        <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 bg-white/80 backdrop-blur-sm text-cyan-600 flex items-center justify-center flex-shrink-0 border border-cyan-600/10 transition-all duration-300 group-hover:bg-cyan-600 group-hover:text-white">
+                        <Icon size={15} />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold text-xs sm:text-sm group-hover:text-cyan-400 transition-colors duration-300">
+                        <h3 className="text-[12px] sm:text-xs font-bold text-[#001a1f]">
                           {feature.title}
-                        </h4>
-                        <p className="text-white/40 text-[10px] sm:text-xs mt-1 leading-relaxed">
+                        </h3>
+                        <p className="text-[#001a1f]/80 text-[10px] sm:text-[9px] leading-4 mt-1">
                           {feature.desc}
                         </p>
                       </div>
                     </div>
+                    <div className="absolute bottom-0 left-0 w-5 h-0.5 bg-cyan-600/30" />
                   </div>
                 );
               })}
             </div>
+          </div>
+        </section>
 
-            {/* Weathered Wood Series - Premium Layout with Full Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 mb-6 sm:mb-8 animate-slide-up">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-blue-900/10" />
-              <div className="absolute -top-20 -right-20 w-48 sm:w-64 h-48 sm:h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow" />
-              
-              <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10">
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
-                  {/* Left - Full Image */}
-                  <div className="relative rounded-xl overflow-hidden h-52 sm:h-64 md:h-72 lg:h-80 group/image">
-                    <Image
-                      src="/images/weatherwood.png"
-                      alt="Weathered Wood Series"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/image:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = document.createElement('div');
-                          fallback.className = 'w-full h-full bg-gradient-to-br from-amber-900/30 to-amber-800/20 flex items-center justify-center';
-                          fallback.innerHTML = `
-                            <div class="text-center">
-                              <span class="text-4xl sm:text-5xl mb-2 block">🪵</span>
-                              <p class="text-white/30 text-xs sm:text-sm">Weathered Wood Series</p>
-                            </div>
-                          `;
-                          parent.appendChild(fallback);
-                        }
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-wrap gap-1.5 sm:gap-2">
-                      <span className="text-[8px] sm:text-[10px] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-white/70">Wall Panelling Tiles</span>
-                      <span className="text-[8px] sm:text-[10px] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-white/70">False Ceiling Tile</span>
-                    </div>
+        {/* =====================================================
+            PRODUCTS
+        ===================================================== */}
+
+        <section className="relative py-8 sm:py-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`grid lg:grid-cols-2 transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              {/* WEATHERED */}
+              <div className="grid sm:grid-cols-2 min-h-[280px]">
+                <div className="relative min-h-[200px] sm:min-h-full">
+                  <Image
+                    src="/images/weatherwood.png"
+                    alt="Weathered Wood"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="bg-cyan-600 p-5 flex flex-col justify-center">
+                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                    Collection
+                  </span>
+                  <h3 className="text-2xl font-black text-white mt-1.5">
+                    WEATHERED
+                    <span className="block text-cyan-300">WOOD</span>
+                  </h3>
+                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-2">
+                    <Ruler size={11} />
+                    465 × 330 mm
                   </div>
-
-                  {/* Right - Content */}
-                  <div>
-                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-400/30">WEATHERED</span>
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">WOOD</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-white/40 text-xs sm:text-sm mb-3">
-                      <Ruler size={14} className="text-cyan-400" />
-                      Size: 465 x 330 mm
-                    </div>
-                    <p className="text-white/60 text-xs sm:text-sm leading-relaxed line-clamp-4 sm:line-clamp-none">
-                      Granoceramic's Weathered Wood Series ceiling tiles combine the rustic elegance of traditional wooden ceilings with the advanced performance of nanoceramic technology. Designed to replicate the rich textures and natural aesthetics of real wood, these tiles offer a warm, classic look ideal for both heritage-style and modern interiors.
-                    </p>
-                    
-                    <div className="mt-4">
-                      <p className="text-white/40 text-[10px] sm:text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
-                        <Palette size={14} className="text-cyan-400" />
-                        Available Colors
-                      </p>
-                      <div className="flex gap-2 sm:gap-3">
-                        {[
-                          { name: "Redwood Brown", color: "#8B4513" },
-                          { name: "Coffee Brown", color: "#6F4E37" },
-                          { name: "Chocolate Brown", color: "#3B2F2F" },
-                        ].map((color, idx) => (
-                          <div key={idx} className="text-center group/color">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg border border-white/10 transition-all duration-300 group-hover/color:border-cyan-400/50 group-hover/color:scale-110" style={{ backgroundColor: color.color }} />
-                            <p className="text-white/40 text-[7px] sm:text-[8px] mt-1 group-hover/color:text-white/60 transition-colors duration-300">{color.name.split(' ')[0]}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-                      <span className="text-white/20 text-[8px] sm:text-[10px] uppercase tracking-[3px]">JUST LOOK UP</span>
-                    </div>
+                  <p className="text-white/80 text-[10px] leading-5 mt-3">
+                    Rustic wood aesthetics combined with advanced nanoceramic
+                    technology for refined interiors.
+                  </p>
+                  <div className="flex gap-1.5 mt-3">
+                    {productColors.map((item) => (
+                      <div
+                        key={item.name}
+                        className="w-6 h-6 border border-white/10 transition-all duration-300 hover:scale-110"
+                        style={{ backgroundColor: item.color }}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Heritage Series - Premium Layout with Full Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 animate-slide-up">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-blue-900/10" />
-              <div className="absolute -top-20 -right-20 w-48 sm:w-64 h-48 sm:h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow-delayed" />
-              
-              <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10">
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
-                  {/* Left - Full Image (Order 2 on desktop) */}
-                  <div className="relative rounded-xl overflow-hidden h-52 sm:h-64 md:h-72 lg:h-80 order-2 lg:order-1 group/image">
-                    <Image
-                      src="/images/heritage.png"
-                      alt="Heritage Series"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/image:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = document.createElement('div');
-                          fallback.className = 'w-full h-full bg-gradient-to-br from-amber-900/30 to-amber-800/20 flex items-center justify-center';
-                          fallback.innerHTML = `
-                            <div class="text-center">
-                              <span class="text-4xl sm:text-5xl mb-2 block">🏛️</span>
-                              <p class="text-white/30 text-xs sm:text-sm">Heritage Series</p>
-                            </div>
-                          `;
-                          parent.appendChild(fallback);
-                        }
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
-                      <span className="text-[8px] sm:text-[10px] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-white/70">False Ceiling Tiles</span>
-                    </div>
+              {/* HERITAGE */}
+              <div className="grid sm:grid-cols-2 min-h-[280px]">
+                <div className="relative min-h-[200px] sm:min-h-full order-1 sm:order-2">
+                  <Image
+                    src="/images/heritage.png"
+                    alt="Heritage Series"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="bg-cyan-800 p-5 flex flex-col justify-center order-2 sm:order-1">
+                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                    Collection
+                  </span>
+                  <h3 className="text-2xl font-black text-white mt-1.5">
+                    HERITAGE
+                    <span className="block text-cyan-300">SERIES</span>
+                  </h3>
+                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-2">
+                    <Ruler size={11} />
+                    465 × 465 mm
                   </div>
-
-                  {/* Right - Content (Order 1 on desktop) */}
-                  <div className="order-1 lg:order-2">
-                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-400/30">HERITAGE</span>
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">SERIES</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-white/40 text-xs sm:text-sm mb-3">
-                      <Ruler size={14} className="text-cyan-400" />
-                      Size: 465 x 465 mm
-                    </div>
-                    <p className="text-white/60 text-xs sm:text-sm leading-relaxed line-clamp-4 sm:line-clamp-none">
-                      The Nanoceramic Heritage Series ceiling tiles are designed to evoke the timeless elegance of classic architecture, combining modern durability with a vintage aesthetic. Featuring intricate patterns and refined textures, these tiles mirror the craftsmanship and ornamental detail of traditional heritage styles.
-                    </p>
-                    
-                    <div className="mt-4">
-                      <p className="text-white/40 text-[10px] sm:text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
-                        <Palette size={14} className="text-cyan-400" />
-                        Available Colors
-                      </p>
-                      <div className="flex gap-2 sm:gap-3">
-                        {[
-                          { name: "Redwood Brown", color: "#8B4513" },
-                          { name: "Coffee Brown", color: "#6F4E37" },
-                          { name: "Chocolate Brown", color: "#3B2F2F" },
-                        ].map((color, idx) => (
-                          <div key={idx} className="text-center group/color">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg border border-white/10 transition-all duration-300 group-hover/color:border-cyan-400/50 group-hover/color:scale-110" style={{ backgroundColor: color.color }} />
-                            <p className="text-white/40 text-[7px] sm:text-[8px] mt-1 group-hover/color:text-white/60 transition-colors duration-300">{color.name.split(' ')[0]}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-                      <span className="text-white/20 text-[8px] sm:text-[10px] uppercase tracking-[3px]">JUST LOOK UP</span>
-                    </div>
+                  <p className="text-white/80 text-[10px] leading-5 mt-3">
+                    Timeless architectural patterns combined with modern
+                    durability and refined nanoceramic technology.
+                  </p>
+                  <div className="flex gap-1.5 mt-3">
+                    {productColors.map((item) => (
+                      <div
+                        key={item.name}
+                        className="w-6 h-6 border border-white/10 transition-all duration-300 hover:scale-110"
+                        style={{ backgroundColor: item.color }}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Why Choose - Premium Cards */}
-          <div className="mb-10 sm:mb-12">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                  Why Choose Us
+        {/* =====================================================
+            WHY CHOOSE
+        ===================================================== */}
+
+        <section className="py-8 sm:py-10 lg:py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-5 lg:gap-8">
+              <div className="animate-fade-in">
+                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                  Why Ruhan Groups
                 </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.9] tracking-[-2px] mt-1.5 animate-slide-up">
+                  BUILT ON
+                  <span className="block text-cyan-600 animate-text-glow">TRUST.</span>
+                </h2>
+                <p className="text-[#001a1f]/40 text-[10px] leading-5 max-w-sm mt-3 animate-fade-in-delayed">
+                  Quality materials, experienced professionals and disciplined
+                  execution come together in every project.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                Built on <span className="text-cyan-400">Trust</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
-            </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {whyChoose.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={index}
-                    className={`group p-4 sm:p-5 md:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(22,213,232,0.06)] animate-slide-up`}
-                    style={{ animationDelay: `${0.9 + index * 0.1}s` }}
-                  >
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                      <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+              <div className="grid sm:grid-cols-2 gap-2">
+                {advantages.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className={`group bg-white/30 backdrop-blur-sm p-4 border border-white/40 hover:border-cyan-600/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)] ${
+                        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ transitionDelay: `${1.4 + index * 0.1}s` }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-cyan-600 text-white flex items-center justify-center group-hover:rotate-3 transition-transform">
+                          <Icon size={15} />
+                        </div>
+                        <h3 className="text-xs sm:text-sm font-bold text-[#001a1f] group-hover:text-cyan-700 transition-colors">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-[#001a1f]/40 text-[9px] leading-5 mt-2.5">
+                        {item.text}
+                      </p>
+                      <div className="flex items-center gap-1 text-cyan-600 text-[7px] uppercase tracking-[1.5px] font-bold mt-3">
+                        <Check size={10} />
+                        Guaranteed Approach
+                      </div>
                     </div>
-                    <h3 className="text-white font-semibold text-xs sm:text-sm mt-2 sm:mt-3 group-hover:text-cyan-400 transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-white/40 text-[10px] sm:text-xs mt-1 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Process - Premium Simple (No Numbers) */}
-          <div className="mb-8 sm:mb-10">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
+        {/* =====================================================
+            PROCESS
+        ===================================================== */}
+
+        <section className="py-8 sm:py-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-end justify-between mb-5">
+              <div className="animate-fade-in">
+                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
                   Our Process
                 </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
+                <h2 className="text-3xl sm:text-4xl font-black text-[#001a1f] mt-1.5 animate-slide-up">
+                  HOW WE
+                  <span className="text-cyan-600 animate-text-glow"> WORK.</span>
+                </h2>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                How We <span className="text-cyan-400">Work</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
+              <span className="hidden sm:block text-[#001a1f]/20 text-[8px] uppercase tracking-[3px] animate-fade-in-delayed">
+                Simple · Clear · Reliable
+              </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
               {process.map((step, index) => (
                 <div
-                  key={index}
-                  className={`group p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] animate-slide-up`}
-                  style={{ animationDelay: `${1.1 + index * 0.1}s` }}
+                  key={step.title}
+                  className={`group relative p-4 sm:p-5 bg-white/30 backdrop-blur-sm border border-white/40 hover:bg-[#001a1f] hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)] ${
+                    visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${1.6 + index * 0.1}s` }}
                 >
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                    <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px] text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="flex items-center justify-between">
+                    <span className="text-cyan-600 text-[7px] uppercase tracking-[2px] font-bold group-hover:text-cyan-500">
+                      Step {index + 1}
+                    </span>
+                    <ArrowRight
+                      size={12}
+                      className="text-cyan-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                    />
                   </div>
-                  <h3 className="text-white font-semibold text-xs sm:text-sm mt-1.5 sm:mt-2 group-hover:text-cyan-400 transition-colors duration-300">
+                  <h3 className="text-sm sm:text-base font-bold text-[#001a1f] mt-3 group-hover:text-cyan-600 transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-white/40 text-[10px] sm:text-xs mt-0.5 leading-relaxed">
-                    {step.description}
+                  <p className="text-[#001a1f]/40 group-hover:text-cyan-800 text-[9px] leading-5 mt-1.5">
+                    {step.text}
                   </p>
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-500 group-hover:w-full transition-all duration-500" />
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* CTA - Premium Full Width */}
-          <div className="text-center animate-slide-up">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 p-6 sm:p-8 md:p-12 lg:p-16">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 via-cyan-500/5 to-blue-600/10" />
-              <div className="absolute -top-24 -right-24 w-48 sm:w-64 h-48 sm:h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow" />
-              <div className="absolute -bottom-24 -left-24 w-48 sm:w-64 h-48 sm:h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow-delayed" />
-              
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-3 sm:mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-cyan-300 text-[8px] font-semibold uppercase tracking-[3px]">
-                    Let's Build Together
-                  </span>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                  Ready to Start Your <span className="text-cyan-400">Project</span>?
-                </h3>
-                <p className="text-white/50 text-xs sm:text-sm md:text-base mt-2 max-w-xl mx-auto px-2">
-                  Get in touch with us today. Our team is ready to discuss your
-                  project requirements and provide the best solutions.
+        {/* =====================================================
+            CTA
+        ===================================================== */}
+
+        <section className="relative bg-cyan-900 overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)
+                `,
+                backgroundSize: "55px 55px",
+              }}
+            />
+          </div>
+          
+          <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow-delayed" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`flex flex-col md:flex-row md:items-center justify-between gap-5 py-7 sm:py-8 transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              <div className="animate-fade-in">
+                <span className="text-cyan-300 text-[8px] uppercase tracking-[3px]">
+                  Start Your Project
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mt-1.5 animate-slide-up">
+                  LET'S CREATE
+                  <span className="text-cyan-300 animate-text-glow"> YOUR SPACE.</span>
+                </h2>
+                <p className="text-white/35 text-[10px] sm:text-xs mt-1.5 max-w-xl animate-fade-in-delayed">
+                  Tell us about your construction, interior or renovation
+                  project and let our team turn your vision into reality.
                 </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 animate-fade-in-delayed-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-all duration-300 group text-sm font-medium shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 mt-4"
+                  className="inline-flex items-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-[#001a1f] px-5 py-2.5 text-[9px] font-bold uppercase tracking-wide transition-all group hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <span>Contact Us</span>
-                  <ArrowRight size={16} className="transition-all duration-300 group-hover:translate-x-1" />
+                  Get a Free Quote
+                  <ArrowRight
+                    size={12}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </Link>
+                <a
+                  href="tel:+919999999999"
+                  className="inline-flex items-center gap-2 border border-white/20 hover:border-cyan-400 text-white/60 hover:text-white px-4 py-2.5 text-[9px] font-bold transition-all hover:-translate-y-1"
+                >
+                  <Phone size={12} />
+                  Talk to Us
+                </a>
               </div>
             </div>
           </div>
-
-          {/* Back to Top */}
-          <div className="text-center mt-6 pb-3">
-            <Link
-              href="#top"
-              className="inline-flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors duration-300 text-[10px] sm:text-xs uppercase tracking-[1.5px] sm:tracking-[2px] group"
-            >
-              <span className="w-5 sm:w-6 md:w-8 h-px bg-white/10 group-hover:bg-white/30 transition-colors duration-300"></span>
-              Back to Top
-              <span className="w-5 sm:w-6 md:w-8 h-px bg-white/10 group-hover:bg-white/30 transition-colors duration-300"></span>
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
 
-      <style jsx>{`
-        @keyframes pulse-delayed {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        @keyframes slide-up {
-          from { opacity: 0; transform: translateY(30px) scale(0.95); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
+      {/* =====================================================
+          ANIMATIONS
+      ===================================================== */}
+      <style jsx global>{`
         @keyframes fade-in {
-          from { opacity: 0; transform: translateY(10px); }
+          from { opacity: 0; transform: translateY(15px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
+        @keyframes fade-in-delayed {
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(-10px) translateX(5px); }
-          50% { transform: translateY(-20px) translateX(-5px); }
-          75% { transform: translateY(-10px) translateX(5px); }
+        @keyframes fade-in-delayed-2 {
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
+        @keyframes fade-in-delayed-3 {
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes pulse-slow-delayed {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
+        @keyframes slide-up-delayed {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes scale-x {
           from { transform: scaleX(0); }
           to { transform: scaleX(1); }
         }
-
-        .animate-pulse-delayed {
-          animation: pulse-delayed 2s ease-in-out infinite;
-          animation-delay: 0.5s;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-12px) translateX(6px); }
+          50% { transform: translateY(-24px) translateX(-6px); }
+          75% { transform: translateY(-12px) translateX(6px); }
+        }
+        @keyframes text-glow {
+          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
+          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
+        }
+        @keyframes counter {
+          0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+          60% { transform: scale(1.1) translateY(-2px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .animate-slide-up {
-          opacity: 0;
-          animation: slide-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .animate-fade-in {
-          opacity: 0;
-          animation: fade-in 0.6s ease-out forwards;
-        }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow-delayed {
-          animation: pulse-glow 4s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-
-        .animate-float {
-          animation: float linear infinite;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-slow-delayed {
-          animation: pulse-slow-delayed 4s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-
-        .animate-scale-x {
-          animation: scale-x 0.8s ease-out 0.4s forwards;
-          transform-origin: left;
-        }
-
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
-        .line-clamp-4 {
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
+        .animate-fade-in { animation: fade-in 0.6s ease-out forwards; opacity: 0; }
+        .animate-fade-in-delayed { animation: fade-in-delayed 0.8s ease-out 0.3s forwards; opacity: 0; }
+        .animate-fade-in-delayed-2 { animation: fade-in-delayed-2 0.8s ease-out 0.5s forwards; opacity: 0; }
+        .animate-fade-in-delayed-3 { animation: fade-in-delayed-3 0.8s ease-out 0.7s forwards; opacity: 0; }
+        .animate-slide-up { animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+        .animate-slide-up-delayed { animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards; opacity: 0; }
+        .animate-scale-x { animation: scale-x 0.8s ease-out 0.4s forwards; transform-origin: left; }
+        .animate-float { animation: float linear infinite; }
+        .animate-text-glow { animation: text-glow 3s ease-in-out infinite; }
+        .animate-counter { animation: counter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; display: inline-block; }
 
         @media (max-width: 640px) {
-          .animate-slide-up {
-            animation: slide-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-          }
-          .animate-float {
-            animation-duration: 15s !important;
-          }
+          .animate-float { animation-duration: 18s !important; }
         }
       `}</style>
     </>

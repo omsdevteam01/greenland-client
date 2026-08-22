@@ -49,8 +49,8 @@ export default function Header() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-cyan-600 border-b border-cyan-400/30 shadow-[0_8px_40px_rgba(0,0,0,0.2)]"
-            : "bg-cyan-600 border-b border-cyan-400/30 shadow-[0_8px_40px_rgba(0,0,0,0.2)]"
+            ? "bg-cyan-700 border-b border-cyan-400/30 shadow-[0_8px_40px_rgba(0,0,0,0.2)]"
+            : "bg-cyan-700 border-b border-cyan-400/30 shadow-[0_8px_40px_rgba(0,0,0,0.2)]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,17 +96,17 @@ export default function Header() {
                 </Link>
               ))}
             </div>
-
-            {/* Right Side - CTA Button */}
-            <div className="hidden lg:flex items-center gap-4">
-              <a
-                href="tel:+917708776022"
-                className="group relative flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-cyan-900 bg-white rounded-full transition-all duration-500 hover:scale-105 hover:shadow-lg"
-              >
-                <Phone size={16} />
-                <span>Call Now</span>
-              </a>
-            </div>
+{/* Right Side - CTA Button */}
+<div className="hidden lg:flex items-center gap-4">
+  <a
+  href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-cyan-700 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-cyan-50 active:scale-[0.97] touch-manipulation"
+  onClick={() => setIsOpen(false)}
+>
+  <Phone size={18} />
+  Call Now
+</a>
+</div>
 
             {/* Mobile Menu Button */}
             <button

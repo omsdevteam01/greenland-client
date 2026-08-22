@@ -32,7 +32,7 @@ const projects = [
     id: 3,
     title: "SR Complex",
     category: "Residential",
-    image: "/images/project3.jpg",
+    image: "/images/project3.png",
     slug: "sr-complex",
     description: "Modern residential complex with premium amenities and sustainable design.",
     fullDescription: "SR Complex is a modern residential development offering premium living spaces with world-class amenities. The project focuses on sustainable design and community living.",
@@ -42,7 +42,7 @@ const projects = [
     id: 4,
     title: "Contemporary Home",
     category: "Residential",
-    image: "/images/project4.jpg",
+    image: "/images/project4.png",
     slug: "contemporary-home",
     description: "Elegant contemporary home with innovative design and premium finishes.",
     fullDescription: "This contemporary home combines modern design with functional living spaces. The clean lines, natural materials, and open spaces create a warm and inviting atmosphere.",
@@ -72,7 +72,7 @@ const projects = [
     id: 7,
     title: "ABC Office Building",
     category: "Commercial",
-    image: "/images/office.png",
+    image: "/images/off.png",
     slug: "abc-office-building",
     description: "State-of-the-art office space with innovative architectural design.",
     fullDescription: "ABC Office Building is a state-of-the-art commercial space featuring innovative design, sustainable infrastructure, and modern amenities. The building sets new standards for workplace excellence.",
@@ -140,67 +140,116 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-        }}
-      >
-        {/* Background Glow - Hidden on mobile */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-delayed" />
+      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden">
+        {/* Background - Same as Business Section */}
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
+        </div>
+
+        {/* Glassy Grid Pattern */}
+        <div
+          className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* Animated Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+              style={{
+                width: `${Math.random() * 6 + 2}px`,
+                height: `${Math.random() * 6 + 2}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDelay: `${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Floating Shapes */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute border border-cyan-400/15 backdrop-blur-sm"
+              style={{
+                width: `${Math.random() * 40 + 15}px`,
+                height: `${Math.random() * 40 + 15}px`,
+                left: `${Math.random() * 80 + 10}%`,
+                top: `${Math.random() * 80 + 10}%`,
+                borderRadius: i % 2 === 0 ? '50%' : '8px',
+                animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 6}s`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
+              }}
+            />
+          ))}
+        </div>
 
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
-          {/* Back Button - Reduced margin */}
+          {/* Back Button */}
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-cyan-400 transition-colors duration-300 mb-4 sm:mb-6 group"
+            className="inline-flex items-center gap-2 text-[#001a1f]/40 hover:text-cyan-600 transition-colors duration-300 mb-4 sm:mb-6 group"
           >
             <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px] group-hover:-translate-x-1 transition-transform" />
             <span className="text-xs sm:text-sm">Back to Projects</span>
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
-            {/* Image - Mobile optimized */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            {/* Image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/40 group">
               <div className="relative aspect-[4/3]">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/30 to-transparent" />
               </div>
               {/* Category Badge */}
-              <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/20 text-cyan-300">
+              <span className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium bg-cyan-600/20 backdrop-blur-sm border border-cyan-600/20 text-cyan-700">
                 {project.category}
               </span>
             </div>
 
-            {/* Details - Mobile optimized */}
+            {/* Details */}
             <div>
               <div className="flex items-center gap-3 mb-1.5 sm:mb-2">
-                <span className="text-[10px] sm:text-sm font-medium text-cyan-400 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-sm font-medium text-cyan-600 uppercase tracking-wider">
                   {project.category}
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-0.5 sm:mt-1">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#001a1f] mt-0.5 sm:mt-1">
                 {project.title}
               </h1>
-              <div className="w-10 sm:w-12 h-[2px] bg-gradient-to-r from-cyan-400 to-transparent mt-2 sm:mt-4" />
+              <div className="w-10 sm:w-12 h-[2px] bg-gradient-to-r from-cyan-600 to-transparent mt-2 sm:mt-4" />
               
-              <p className="text-white/60 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4">
+              <p className="text-[#001a1f]/60 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4">
                 {project.fullDescription || project.description}
               </p>
 
-              {/* Features - Mobile optimized */}
+              {/* Features */}
               {project.features && (
                 <div className="mt-4 sm:mt-6">
-                  <h3 className="text-white font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Key Features</h3>
+                  <h3 className="text-[#001a1f] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Key Features</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
                     {project.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-white/50">
-                        <CheckCircle size={12} className="sm:w-[14px] sm:h-[14px] text-cyan-400 flex-shrink-0" />
+                      <li key={index} className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#001a1f]/50">
+                        <CheckCircle size={12} className="sm:w-[14px] sm:h-[14px] text-cyan-600 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -208,17 +257,17 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 </div>
               )}
 
-              {/* CTA Buttons - Perfect for mobile */}
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 mt-6 sm:mt-8">
                 <Link
                   href="/#contact"
-                  className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-400 to-cyan-500 text-[#03141C] rounded-full font-semibold text-center text-sm sm:text-base hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(22,213,232,0.3)] transition-all duration-300"
+                  className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-cyan-600 text-white rounded-full font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] hover:bg-cyan-700"
                 >
                   Get a Quote
                 </Link>
                 <Link
                   href="/#contact"
-                  className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 border border-white/20 text-white rounded-full font-semibold text-center text-sm sm:text-base hover:bg-white/10 transition-all duration-300 hover:border-white/30"
+                  className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-[#001a1f]/20 text-[#001a1f] rounded-full font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:border-cyan-600/40 hover:bg-cyan-600/10 hover:text-cyan-700"
                 >
                   Contact Us
                 </Link>
@@ -230,23 +279,22 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       <Footer />
 
       <style jsx>{`
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-10px) translateX(5px); }
+          50% { transform: translateY(-20px) translateX(-5px); }
+          75% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        @keyframes floatShape {
+          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
+          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
+          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
         }
 
-        @keyframes pulse-glow-delayed {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow-delayed {
-          animation: pulse-glow-delayed 4s ease-in-out infinite;
-          animation-delay: 2s;
+        .animate-float {
+          animation: float linear infinite;
         }
       `}</style>
     </>

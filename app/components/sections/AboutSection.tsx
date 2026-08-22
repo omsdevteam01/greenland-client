@@ -49,21 +49,16 @@ export default function AboutPage() {
       id="about"
       className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden"
       ref={sectionRef}
-      style={{
-        background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-      }}
     >
-      {/* Background Glow Effects - Hidden on mobile */}
-      <div
-        className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
-      />
-      <div
-        className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed"
-      />
+      {/* Background - Same as Business Section */}
+      <div className="absolute inset-0">
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
+      </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern - Same as Business Section */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.02] z-[5]"
+        className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -73,19 +68,48 @@ export default function AboutPage() {
         }}
       />
 
-      {/* Animated Particles - Reduced on mobile */}
+      {/* Background Glow Effects */}
+      <div
+        className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
+      />
+      <div
+        className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed"
+      />
+
+      {/* Animated Particles - Same as Business Section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-cyan-400/10 animate-float hidden md:block"
+            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
+              width: `${Math.random() * 6 + 2}px`,
+              height: `${Math.random() * 6 + 2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDuration: `${Math.random() * 15 + 10}s`,
               animationDelay: `${Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Shapes - Same as Business Section */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute border border-cyan-400/15 backdrop-blur-sm"
+            style={{
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
+              left: `${Math.random() * 80 + 10}%`,
+              top: `${Math.random() * 80 + 10}%`,
+              borderRadius: i % 2 === 0 ? '50%' : '8px',
+              animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 6}s`,
+              transform: `rotate(${Math.random() * 360}deg)`,
+              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
             }}
           />
         ))}
@@ -98,18 +122,18 @@ export default function AboutPage() {
           <div className="order-2 lg:order-1">
             {/* Badge */}
             <div
-              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-cyan-400/10 to-cyan-400/5 border border-cyan-400/20 mb-4 sm:mb-6 relative overflow-hidden group"
+              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/10 border border-cyan-600/30 mb-4 sm:mb-6 relative overflow-hidden group"
               style={{
                 opacity: 0,
                 animation: "fadeInScale 0.8s ease-out 0.2s forwards",
               }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/10 to-cyan-400/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="text-[9px] sm:text-[10px] font-semibold text-cyan-300 uppercase tracking-[2px] sm:tracking-[3px] relative z-10">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+              <span className="text-[9px] sm:text-[10px] font-semibold text-cyan-700 uppercase tracking-[2px] sm:tracking-[3px] relative z-10">
                 Who We Are
               </span>
-              <Shield size={11} className="sm:w-3 sm:h-3 text-cyan-400 relative z-10" />
+              <Shield size={11} className="sm:w-3 sm:h-3 text-cyan-600 relative z-10" />
             </div>
 
             {/* Heading */}
@@ -120,23 +144,23 @@ export default function AboutPage() {
                 animation: "fadeInUp 0.8s ease-out 0.4s forwards",
               }}
             >
-              <span className="text-white">About</span>{' '}
+              <span className="text-[#001a1f]">About</span>{' '}
               <span
                 className="text-transparent bg-clip-text relative"
                 style={{
-                  background: "linear-gradient(135deg, #16D5E8 0%, #0EA5E9 100%)",
+                  background: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
                 Ruhan Groups
               </span>
-              <span className="block w-16 sm:w-20 h-1 bg-gradient-to-r from-cyan-400 to-transparent mt-2 rounded-full animate-pulse-glow"></span>
+              <span className="block w-16 sm:w-20 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-2 rounded-full animate-pulse-glow"></span>
             </h2>
 
             {/* Description */}
             <p
-              className="text-white/60 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-xl"
+              className="text-[#001a1f]/70 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4 max-w-xl"
               style={{
                 opacity: 0,
                 animation: "fadeInUp 0.8s ease-out 0.6s forwards",
@@ -150,7 +174,7 @@ export default function AboutPage() {
             </p>
 
             <p
-              className="text-white/50 text-sm sm:text-base leading-relaxed mt-2 sm:mt-3 max-w-xl"
+              className="text-[#001a1f]/60 text-sm sm:text-base leading-relaxed mt-2 sm:mt-3 max-w-xl"
               style={{
                 opacity: 0,
                 animation: "fadeInUp 0.8s ease-out 0.7s forwards",
@@ -174,13 +198,13 @@ export default function AboutPage() {
                 return (
                   <div
                     key={index}
-                    className="group relative flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] overflow-hidden"
+                    className="group relative flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/30 border border-white/40 hover:border-cyan-600/40 hover:bg-white/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] overflow-hidden"
                   >
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-400/20 group-hover:scale-110 transition-all duration-300">
-                      <Icon size={14} className="sm:w-4 sm:h-4 text-cyan-400" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-600/10 border border-cyan-600/20 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-600/20 group-hover:scale-110 transition-all duration-300">
+                      <Icon size={14} className="sm:w-4 sm:h-4 text-cyan-700" />
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+                    <span className="text-xs sm:text-sm font-medium text-[#001a1f]/80 group-hover:text-[#001a1f] transition-colors duration-300">
                       {feature.label}
                     </span>
                   </div>
@@ -201,23 +225,23 @@ export default function AboutPage() {
                 return (
                   <div
                     key={index}
-                    className="group relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-4 text-center overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:scale-[1.03] hover:border-cyan-400/30 hover:shadow-[0_0_30px_rgba(22,213,232,0.08)]"
+                    className="group relative bg-gradient-to-br from-white/30 to-transparent backdrop-blur-sm border border-white/40 rounded-xl p-3 sm:p-4 text-center overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:scale-[1.03] hover:border-cyan-600/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)]"
                   >
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className="absolute -top-10 -right-10 w-20 h-20 bg-cyan-400/10 rounded-full blur-2xl"></div>
-                      <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-cyan-400/10 rounded-full blur-2xl"></div>
+                      <div className="absolute -top-10 -right-10 w-20 h-20 bg-cyan-600/10 rounded-full blur-2xl"></div>
+                      <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-cyan-600/10 rounded-full blur-2xl"></div>
                     </div>
                     
                     <div className="relative z-10">
                       <div className="flex justify-center mb-1">
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                          <Icon size={15} className="sm:w-[17px] sm:h-[17px] text-cyan-400" />
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-600/10 border border-cyan-600/20 flex items-center justify-center group-hover:bg-cyan-600/20 transition-all duration-300">
+                          <Icon size={15} className="sm:w-[17px] sm:h-[17px] text-cyan-700" />
                         </div>
                       </div>
-                      <div className="text-base sm:text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                      <div className="text-base sm:text-xl font-extrabold text-[#001a1f] group-hover:text-cyan-700 transition-colors duration-300">
                         {stat.value}
                       </div>
-                      <div className="text-[8px] sm:text-[10px] text-white/40 mt-0.5 uppercase tracking-wider">
+                      <div className="text-[8px] sm:text-[10px] text-[#001a1f]/50 mt-0.5 uppercase tracking-wider">
                         {stat.label}
                       </div>
                     </div>
@@ -242,29 +266,29 @@ export default function AboutPage() {
                 <img
                   src="/images/con hero.png"
                   alt="Ruhan Groups - Construction"
-                  className="relative w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[380px] object-cover rounded-[1.5rem] sm:rounded-[1.8rem] shadow-2xl border border-white/10"
+                  className="relative w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[380px] object-cover rounded-[1.5rem] sm:rounded-[1.8rem] shadow-2xl border border-white/20"
                 />
-                <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[1.8rem] bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[1.8rem] bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Card */}
               <div className="absolute -bottom-4 sm:-bottom-5 left-3 sm:left-5 w-[80%] sm:w-[78%] z-20 animate-float-card">
-                <div className="rounded-xl bg-gradient-to-br from-[#05202B]/95 to-[#03141C]/95 border border-cyan-400/20 shadow-[0_15px_40px_rgba(0,0,0,0.6)] p-3 sm:p-4 backdrop-blur-xl overflow-hidden">
+                <div className="rounded-xl bg-white/80 backdrop-blur-xl border border-cyan-600/20 shadow-[0_15px_40px_rgba(0,0,0,0.15)] p-3 sm:p-4 overflow-hidden">
                   <div className="relative flex items-center gap-2 sm:gap-3">
-                    <div className="flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-cyan-400/30 bg-cyan-400/10 items-center justify-center flex-shrink-0 animate-pulse-glow">
+                    <div className="flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-cyan-600/30 bg-cyan-600/10 items-center justify-center flex-shrink-0 animate-pulse-glow">
                       <span className="text-xl sm:text-2xl">🏗️</span>
                     </div>
 
                     <div className="min-w-0">
-                      <h3 className="text-sm sm:text-lg font-bold text-white leading-tight">
+                      <h3 className="text-sm sm:text-lg font-bold text-[#001a1f] leading-tight">
                         Excellence in{' '}
-                        <span className="text-cyan-400">Construction</span>
+                        <span className="text-cyan-700">Construction</span>
                       </h3>
                       <div className="flex items-center gap-2 mt-0.5 sm:mt-1">
-                        <span className="w-4 sm:w-6 h-[2px] bg-cyan-400"></span>
-                        <span className="text-[8px] sm:text-[9px] text-white/40 uppercase tracking-wider">Since 2020</span>
+                        <span className="w-4 sm:w-6 h-[2px] bg-cyan-600"></span>
+                        <span className="text-[8px] sm:text-[9px] text-[#001a1f]/50 uppercase tracking-wider">Since 2020</span>
                       </div>
-                      <p className="text-[9px] sm:text-[10px] text-white/50 leading-relaxed mt-0.5 sm:mt-1">
+                      <p className="text-[9px] sm:text-[10px] text-[#001a1f]/60 leading-relaxed mt-0.5 sm:mt-1">
                         Building stronger structures with innovation.
                       </p>
                     </div>
@@ -278,7 +302,7 @@ export default function AboutPage() {
 
         {/* Values Section - Below the main content */}
         <div
-          className="mt-10 sm:mt-14 pt-6 sm:pt-10 border-t border-white/10"
+          className="mt-10 sm:mt-14 pt-6 sm:pt-10 border-t border-white/30"
           style={{
             opacity: 0,
             animation: isVisible ? "fadeInUp 0.8s ease-out 0.6s forwards" : "none",
@@ -286,16 +310,16 @@ export default function AboutPage() {
         >
           <div className="text-center mb-6 sm:mb-8">
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
                 Core Values
               </span>
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
             </div>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1 sm:mt-2">
-              What Drives <span className="text-cyan-400">Us</span>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#001a1f] mt-1 sm:mt-2">
+              What Drives <span className="text-cyan-700">Us</span>
             </h3>
-            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-1 sm:mt-2" />
+            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-1 sm:mt-2" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -304,18 +328,18 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className={`group p-4 sm:p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] ${
+                  className={`group p-4 sm:p-5 rounded-xl bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/40 hover:bg-white/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
                 >
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                    <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-400" />
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-600/10 border border-cyan-600/20 flex items-center justify-center group-hover:bg-cyan-600/20 transition-all duration-300">
+                    <Icon size={18} className="sm:w-5 sm:h-5 text-cyan-700" />
                   </div>
-                  <h4 className="text-white font-semibold text-sm sm:text-base mt-2 sm:mt-3 group-hover:text-cyan-400 transition-colors duration-300">
+                  <h4 className="text-[#001a1f] font-semibold text-sm sm:text-base mt-2 sm:mt-3 group-hover:text-cyan-700 transition-colors duration-300">
                     {value.title}
                   </h4>
-                  <p className="text-white/50 text-xs sm:text-sm mt-1 leading-relaxed">
+                  <p className="text-[#001a1f]/60 text-xs sm:text-sm mt-1 leading-relaxed">
                     {value.desc}
                   </p>
                 </div>

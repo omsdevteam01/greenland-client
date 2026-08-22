@@ -358,9 +358,9 @@ export default function ProjectsPage() {
   };
 
   const getCategoryColor = (category: string) => {
-    if (category === "Construction") return "text-cyan-400 border-cyan-400/20 bg-cyan-400/10";
-    if (category === "Tensile Shade") return "text-cyan-400 border-cyan-400/20 bg-cyan-400/10";
-    return "text-cyan-400 border-cyan-400/20 bg-cyan-400/10";
+    if (category === "Construction") return "text-cyan-700 border-cyan-600/20 bg-cyan-600/10";
+    if (category === "Tensile Shade") return "text-cyan-700 border-cyan-600/20 bg-cyan-600/10";
+    return "text-cyan-700 border-cyan-600/20 bg-cyan-600/10";
   };
 
   const getTotalProjects = (): number => {
@@ -372,18 +372,16 @@ export default function ProjectsPage() {
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden" ref={sectionRef}
-        style={{
-          background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-        }}
-      >
-        {/* Background Glow */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-delayed" />
+      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden" ref={sectionRef}>
+        {/* Background - Same as Business Section */}
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
+        </div>
 
         {/* Glassy Grid Pattern */}
         <div
-          className="hidden md:block absolute inset-0 opacity-[0.02] z-[5]"
+          className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -398,17 +396,35 @@ export default function ProjectsPage() {
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className={`absolute rounded-full bg-cyan-400/10 animate-float ${
-                i < 8 ? 'block' : 'hidden md:block'
-              }`}
+              className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
               style={{
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
+                width: `${Math.random() * 6 + 2}px`,
+                height: `${Math.random() * 6 + 2}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 12 + 8}s`,
-                animationDelay: `${Math.random() * 8}s`,
-                opacity: 0.2 + Math.random() * 0.4,
+                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDelay: `${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Floating Shapes */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute border border-cyan-400/15 backdrop-blur-sm"
+              style={{
+                width: `${Math.random() * 40 + 15}px`,
+                height: `${Math.random() * 40 + 15}px`,
+                left: `${Math.random() * 80 + 10}%`,
+                top: `${Math.random() * 80 + 10}%`,
+                borderRadius: i % 2 === 0 ? '50%' : '8px',
+                animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 6}s`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
               }}
             />
           ))}
@@ -424,33 +440,24 @@ export default function ProjectsPage() {
             }}
           >
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-text-shimmer">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700 animate-text-shimmer">
                 Our Portfolio
               </span>
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
             </div>
 
-            <h2 className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white animate-slide-up">
-              Our <span
-                className="text-transparent bg-clip-text animate-gradient-text"
-                style={{
-                  background: "linear-gradient(135deg, #16D5E8 0%, #0EA5E9 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Projects
-              </span>
+            <h2 className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl lg:text-5xl font-extrabold text-[#001a1f] animate-slide-up">
+              Our <span className="text-cyan-600">Projects</span>
             </h2>
 
             <div className="flex justify-center items-center gap-2 sm:gap-3 mt-1.5 sm:mt-3">
-              <span className="w-8 sm:w-10 h-[2px] bg-cyan-400 animate-scale-x" />
-              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-45 bg-cyan-400 animate-spin-slow" />
-              <span className="w-8 sm:w-10 h-[2px] bg-cyan-400/40 animate-scale-x-delayed" />
+              <span className="w-8 sm:w-10 h-[2px] bg-cyan-600 animate-scale-x" />
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-45 bg-cyan-600 animate-spin-slow" />
+              <span className="w-8 sm:w-10 h-[2px] bg-cyan-600/40 animate-scale-x-delayed" />
             </div>
 
-            <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-center text-xs sm:text-sm md:text-base text-white/60 leading-relaxed animate-fade-in-delayed px-2">
+            <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-center text-xs sm:text-sm md:text-base text-[#001a1f]/50 leading-relaxed animate-fade-in-delayed px-2">
               Explore our portfolio of completed construction projects and tensile shade structures showcasing excellence,
               innovation, and superior craftsmanship.
             </p>
@@ -471,13 +478,17 @@ export default function ProjectsPage() {
               }}
               className={`flex items-center gap-2 px-5 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeCategory === "construction" || !activeCategory
-                  ? "bg-cyan-400 text-[#03141C] shadow-[0_0_30px_rgba(22,213,232,0.25)]"
-                  : "border border-white/10 text-white/60 hover:text-white hover:border-white/20 bg-white/5 backdrop-blur-sm"
+                  ? "bg-cyan-600 text-white shadow-[0_0_30px_rgba(6,182,212,0.25)]"
+                  : "border border-[#001a1f]/20 text-[#001a1f]/50 hover:text-[#001a1f] hover:border-cyan-600/30 bg-white/30 backdrop-blur-sm"
               }`}
             >
               <Building2 size={16} className="sm:w-[18px] sm:h-[18px]" />
               Construction
-              <span className="ml-1 text-[10px] bg-[#03141C]/20 px-1.5 py-0.5 rounded-full">
+              <span className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
+                activeCategory === "construction" || !activeCategory
+                  ? "bg-white/20 text-white"
+                  : "bg-[#001a1f]/10 text-[#001a1f]/40"
+              }`}>
                 {constructionProjects.length}
               </span>
             </button>
@@ -489,13 +500,17 @@ export default function ProjectsPage() {
               }}
               className={`flex items-center gap-2 px-5 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeCategory === "tensile"
-                  ? "bg-cyan-400 text-[#03141C] shadow-[0_0_30px_rgba(22,213,232,0.25)]"
-                  : "border border-white/10 text-white/60 hover:text-white hover:border-white/20 bg-white/5 backdrop-blur-sm"
+                  ? "bg-cyan-600 text-white shadow-[0_0_30px_rgba(6,182,212,0.25)]"
+                  : "border border-[#001a1f]/20 text-[#001a1f]/50 hover:text-[#001a1f] hover:border-cyan-600/30 bg-white/30 backdrop-blur-sm"
               }`}
             >
               <Sun size={16} className="sm:w-[18px] sm:h-[18px]" />
               Tensile Shade
-              <span className="ml-1 text-[10px] bg-[#03141C]/20 px-1.5 py-0.5 rounded-full">
+              <span className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
+                activeCategory === "tensile"
+                  ? "bg-white/20 text-white"
+                  : "bg-[#001a1f]/10 text-[#001a1f]/40"
+              }`}>
                 {tensileProjects.length}
               </span>
             </button>
@@ -514,8 +529,8 @@ export default function ProjectsPage() {
                 onClick={() => setActiveSubCategory(null)}
                 className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[8px] sm:text-[10px] font-medium transition-all duration-300 ${
                   !activeSubCategory
-                    ? "bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 shadow-[0_0_20px_rgba(22,213,232,0.05)]"
-                    : "border border-white/5 text-white/40 hover:text-white/60 hover:border-white/15 bg-white/5 backdrop-blur-sm"
+                    ? "bg-cyan-600/20 text-cyan-700 border border-cyan-600/30 shadow-[0_0_20px_rgba(6,182,212,0.05)]"
+                    : "border border-[#001a1f]/10 text-[#001a1f]/40 hover:text-[#001a1f] hover:border-[#001a1f]/20 bg-white/20 backdrop-blur-sm"
                 }`}
               >
                 All
@@ -528,8 +543,8 @@ export default function ProjectsPage() {
                     onClick={() => setActiveSubCategory(activeSubCategory === sub ? null : sub)}
                     className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[8px] sm:text-[10px] font-medium transition-all duration-300 ${
                       activeSubCategory === sub
-                        ? "bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 shadow-[0_0_20px_rgba(22,213,232,0.05)]"
-                        : "border border-white/5 text-white/40 hover:text-white/60 hover:border-white/15 bg-white/5 backdrop-blur-sm"
+                        ? "bg-cyan-600/20 text-cyan-700 border border-cyan-600/30 shadow-[0_0_20px_rgba(6,182,212,0.05)]"
+                        : "border border-[#001a1f]/10 text-[#001a1f]/40 hover:text-[#001a1f] hover:border-[#001a1f]/20 bg-white/20 backdrop-blur-sm"
                     }`}
                   >
                     {sub}
@@ -547,30 +562,30 @@ export default function ProjectsPage() {
             }}
           >
             <div className="relative w-full max-w-xs group">
-              <Search size={16} className="sm:w-[18px] sm:h-[18px] absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+              <Search size={16} className="sm:w-[18px] sm:h-[18px] absolute left-3 top-1/2 -translate-y-1/2 text-[#001a1f]/30" />
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-9 sm:px-10 py-2 sm:py-2.5 text-xs sm:text-sm text-white placeholder:text-white/30 outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-white/20"
+                className="w-full bg-white/30 backdrop-blur-sm border border-[#001a1f]/20 rounded-lg px-9 sm:px-10 py-2 sm:py-2.5 text-xs sm:text-sm text-[#001a1f] placeholder:text-[#001a1f]/30 outline-none focus:border-cyan-600/50 focus:ring-2 focus:ring-cyan-600/20 transition-all duration-300 hover:border-[#001a1f]/40"
               />
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent group-focus-within:w-full transition-all duration-500" />
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
             </div>
 
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="text-white/30 text-[11px] sm:text-sm flex items-center gap-1">
-                <Sparkles size={12} className="sm:w-[14px] sm:h-[14px] text-cyan-400 animate-pulse-slow" />
+              <span className="text-[#001a1f]/30 text-[11px] sm:text-sm flex items-center gap-1">
+                <Sparkles size={12} className="sm:w-[14px] sm:h-[14px] text-cyan-600 animate-pulse-slow" />
                 {filteredProjects.length} Projects
               </span>
               
-              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm rounded-lg p-1 border border-white/10">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/30 backdrop-blur-sm rounded-lg p-1 border border-[#001a1f]/10">
                 <button
                   onClick={() => setViewMode("grid")}
                   className={`p-1.5 rounded-md transition-all duration-300 ${
                     viewMode === "grid"
-                      ? "bg-cyan-400 text-[#03141C] shadow-sm scale-105"
-                      : "text-white/40 hover:text-white/60 hover:scale-105"
+                      ? "bg-cyan-600 text-white shadow-sm scale-105"
+                      : "text-[#001a1f]/40 hover:text-[#001a1f] hover:scale-105"
                   }`}
                 >
                   <Grid3x3 size={14} className="sm:w-4 sm:h-4" />
@@ -579,8 +594,8 @@ export default function ProjectsPage() {
                   onClick={() => setViewMode("list")}
                   className={`p-1.5 rounded-md transition-all duration-300 ${
                     viewMode === "list"
-                      ? "bg-cyan-400 text-[#03141C] shadow-sm scale-105"
-                      : "text-white/40 hover:text-white/60 hover:scale-105"
+                      ? "bg-cyan-600 text-white shadow-sm scale-105"
+                      : "text-[#001a1f]/40 hover:text-[#001a1f] hover:scale-105"
                   }`}
                 >
                   <LayoutList size={14} className="sm:w-4 sm:h-4" />
@@ -592,7 +607,7 @@ export default function ProjectsPage() {
           {/* Projects Grid/List */}
           {filteredProjects.length === 0 ? (
             <div className="text-center py-8 sm:py-12 animate-fade-in">
-              <p className="text-white/40 text-sm sm:text-base">No projects found matching your criteria.</p>
+              <p className="text-[#001a1f]/40 text-sm sm:text-base">No projects found matching your criteria.</p>
             </div>
           ) : (
             <div
@@ -614,7 +629,7 @@ export default function ProjectsPage() {
                         setSelectedImage(project);
                       }
                     }}
-                    className={`group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 shadow-lg hover:shadow-[0_0_40px_rgba(22,213,232,0.05)] transition-all duration-500 ${
+                    className={`group rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/30 shadow-lg hover:shadow-[0_0_40px_rgba(6,182,212,0.05)] transition-all duration-500 ${
                       viewMode === "grid"
                         ? "hover:-translate-y-2 hover:scale-[1.02]"
                         : "flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-3 sm:p-4 hover:translate-x-2"
@@ -629,7 +644,7 @@ export default function ProjectsPage() {
                       />
                     ) : null}
 
-                    <div className="hidden md:block absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
+                    <div className="hidden md:block absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
                     <div
                       className={`relative overflow-hidden ${
@@ -644,7 +659,7 @@ export default function ProjectsPage() {
                         fill
                         className="object-cover transition duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/60 via-[#001a1f]/20 to-transparent" />
                       
                       {/* Category Badge - Only show for Construction */}
                       {!isTensile && (
@@ -656,7 +671,7 @@ export default function ProjectsPage() {
 
                       {/* Sub-category badge - Only show for Construction */}
                       {!isTensile && project.subCategory && (
-                        <span className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[7px] sm:text-[8px] font-medium bg-black/50 backdrop-blur-sm border border-white/10 text-white/60">
+                        <span className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[7px] sm:text-[8px] font-medium bg-[#001a1f]/50 backdrop-blur-sm border border-white/20 text-[#001a1f]/80">
                           {project.subCategory}
                         </span>
                       )}
@@ -672,7 +687,7 @@ export default function ProjectsPage() {
                         }
                       >
                         <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
-                          <span className="text-[9px] sm:text-xs font-medium text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <span className="text-[9px] sm:text-xs font-medium text-cyan-700 uppercase tracking-wider flex items-center gap-1.5">
                             {project.category === "Construction" ? (
                               <Building2 size={12} className="sm:w-3.5 sm:h-3.5" />
                             ) : (
@@ -680,21 +695,21 @@ export default function ProjectsPage() {
                             )}
                             {project.category}
                           </span>
-                          <span className="text-white/20 text-[8px]">•</span>
-                          <span className="text-[8px] sm:text-[9px] text-white/30">{project.subCategory}</span>
+                          <span className="text-[#001a1f]/20 text-[8px]">•</span>
+                          <span className="text-[8px] sm:text-[9px] text-[#001a1f]/30">{project.subCategory}</span>
                         </div>
-                        <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                        <h3 className="text-sm sm:text-base font-bold text-[#001a1f] group-hover:text-cyan-700 transition-colors duration-300">
                           {project.title}
                         </h3>
                         {viewMode === "list" && (
-                          <p className="text-xs sm:text-sm text-white/50 mt-0.5 sm:mt-1 line-clamp-2">
+                          <p className="text-xs sm:text-sm text-[#001a1f]/50 mt-0.5 sm:mt-1 line-clamp-2">
                             {project.description}
                           </p>
                         )}
-                        <span className="inline-flex items-center gap-1 text-[10px] sm:text-sm font-medium text-cyan-400 hover:text-[#16D5E8] transition-colors mt-1.5 sm:mt-2 group-hover:gap-2">
+                        <span className="inline-flex items-center gap-1 text-[10px] sm:text-sm font-medium text-cyan-600 hover:text-cyan-700 transition-colors mt-1.5 sm:mt-2 group-hover:gap-2">
                           <span className="relative">
                             View Details
-                            <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
                           </span>
                           <ArrowRight size={12} className="sm:w-[14px] sm:h-[14px] transition-all duration-300 group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
                         </span>
@@ -715,14 +730,14 @@ export default function ProjectsPage() {
             }}
           >
             <div className="text-center">
-              <p className="text-white/20 text-[10px] sm:text-sm flex items-center justify-center gap-2">
-                <span className="w-6 sm:w-8 h-px bg-white/10"></span>
+              <p className="text-[#001a1f]/20 text-[10px] sm:text-sm flex items-center justify-center gap-2">
+                <span className="w-6 sm:w-8 h-px bg-[#001a1f]/10"></span>
                 Showing {filteredProjects.length} of {getTotalProjects()} projects
-                <span className="w-6 sm:w-8 h-px bg-white/10"></span>
+                <span className="w-6 sm:w-8 h-px bg-[#001a1f]/10"></span>
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 sm:gap-2 text-white/40 text-[10px] sm:text-sm font-medium hover:text-cyan-400 transition-all duration-300 group mt-2 sm:mt-3"
+                className="inline-flex items-center gap-1.5 sm:gap-2 text-[#001a1f]/40 text-[10px] sm:text-sm font-medium hover:text-cyan-600 transition-all duration-300 group mt-2 sm:mt-3"
               >
                 ← Back to Home
               </Link>
@@ -735,18 +750,18 @@ export default function ProjectsPage() {
       {/* Image Modal - Like Greenland Page */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-4xl w-full bg-[#03141C]/95 rounded-2xl border border-white/10 overflow-hidden animate-scale-up"
+            className="relative max-w-4xl w-full bg-white/90 backdrop-blur-xl rounded-2xl border border-white/40 overflow-hidden animate-scale-up shadow-[0_0_60px_rgba(6,182,212,0.05)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0A4A5A] hover:bg-[#0D5A6E] border border-cyan-400/30 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg shadow-cyan-400/20"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#001a1f]/10 hover:bg-[#001a1f]/20 border border-[#001a1f]/20 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
             >
-              <X size={16} className="sm:w-5 sm:h-5 text-cyan-300" />
+              <X size={16} className="sm:w-5 sm:h-5 text-[#001a1f]" />
             </button>
             <div className="relative aspect-[16/9]">
               <Image
@@ -761,16 +776,18 @@ export default function ProjectsPage() {
       )}
 
       <style jsx>{`
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(-8px) translateX(4px); }
-          50% { transform: translateY(-16px) translateX(-4px); }
-          75% { transform: translateY(-8px) translateX(4px); }
+          25% { transform: translateY(-10px) translateX(5px); }
+          50% { transform: translateY(-20px) translateX(-5px); }
+          75% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        @keyframes floatShape {
+          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
+          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
+          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
         }
 
         @keyframes pulse-delayed {
@@ -805,12 +822,7 @@ export default function ProjectsPage() {
 
         @keyframes text-shimmer {
           0%, 100% { opacity: 0.8; }
-          50% { opacity: 1; text-shadow: 0 0 20px rgba(22,213,232,0.3); }
-        }
-
-        @keyframes gradient-text {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+          50% { opacity: 1; text-shadow: 0 0 20px rgba(6,182,212,0.2); }
         }
 
         @keyframes spin-slow {
@@ -833,13 +845,10 @@ export default function ProjectsPage() {
           to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
-        .animate-pulse-glow-delayed { animation: pulse-glow 4s ease-in-out infinite; animation-delay: 2s; }
         .animate-float { animation: float linear infinite; }
         .animate-pulse { animation: pulse-delayed 2s ease-in-out infinite; }
         .animate-pulse-delayed { animation: pulse-delayed 2s ease-in-out infinite; animation-delay: 0.5s; }
         .animate-text-shimmer { animation: text-shimmer 3s ease-in-out infinite; }
-        .animate-gradient-text { background-size: 200% 200%; animation: gradient-text 4s ease-in-out infinite; }
         .animate-spin-slow { animation: spin-slow 4s linear infinite; }
         .animate-pulse-slow { animation: pulse-slow 2s ease-in-out infinite; }
         .animate-slide-up { opacity: 0; animation: slide-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }

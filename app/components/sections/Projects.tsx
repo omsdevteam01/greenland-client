@@ -78,20 +78,15 @@ export default function ProjectsSection() {
   return (
     <section className="relative w-full py-12 sm:py-16 overflow-hidden" ref={sectionRef}>
 
-      {/* Background - Dark Glassy */}
+      {/* Background - Same as Business Section */}
       <div className="absolute inset-0">
-        <img
-          src="/images/cons hero.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#03141C]/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03141C]/60 via-[#05202B]/70 to-[#03141C]/80"></div>
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
       </div>
 
-      {/* Glassy Grid Pattern - Hidden on mobile */}
+      {/* Glassy Grid Pattern - Same as Business Section */}
       <div
-        className="hidden md:block absolute inset-0 opacity-[0.03] z-[5]"
+        className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -101,14 +96,12 @@ export default function ProjectsSection() {
         }}
       />
 
-      {/* Animated Particles - Reduced on mobile but still visible */}
+      {/* Animated Particles - Same as Business Section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full bg-[#16D5E8]/10 animate-float ${
-              i < 8 ? 'block' : 'hidden md:block'
-            }`}
+            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
               width: `${Math.random() * 6 + 2}px`,
               height: `${Math.random() * 6 + 2}px`,
@@ -121,22 +114,22 @@ export default function ProjectsSection() {
         ))}
       </div>
 
-      {/* Floating Shapes - Hidden on mobile */}
+      {/* Floating Shapes - Same as Business Section */}
       <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute border border-cyan-400/5 backdrop-blur-sm"
+            className="absolute border border-cyan-400/15 backdrop-blur-sm"
             style={{
-              width: `${Math.random() * 30 + 15}px`,
-              height: `${Math.random() * 30 + 15}px`,
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
               left: `${Math.random() * 80 + 10}%`,
               top: `${Math.random() * 80 + 10}%`,
               borderRadius: i % 2 === 0 ? '50%' : '8px',
               animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 6}s`,
               transform: `rotate(${Math.random() * 360}deg)`,
-              background: `radial-gradient(circle, rgba(22,213,232,.03), transparent)`,
+              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
             }}
           />
         ))}
@@ -152,16 +145,16 @@ export default function ProjectsSection() {
           }`}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
               Our Portfolio
             </p>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1.5 sm:mt-2">
-            Featured <span className="text-cyan-400">Projects</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001a1f] mt-1.5 sm:mt-2">
+            Featured <span className="text-cyan-600">Projects</span>
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 sm:mt-3"></div>
+          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-2 sm:mt-3"></div>
         </div>
 
         {/* Projects Grid - With animations on mobile */}
@@ -174,15 +167,15 @@ export default function ProjectsSection() {
                 relative
                 rounded-lg
                 overflow-hidden
-                border border-white/10
-                bg-[#03141C]/40
+                border border-white/40
+                bg-white/20
                 backdrop-blur-xl
                 transition-all
                 duration-500
                 hover:scale-[1.04]
-                hover:border-cyan-400/30
-                hover:shadow-[0_0_40px_rgba(22,213,232,0.08)]
-                hover:bg-[#03141C]/60
+                hover:border-cyan-600/40
+                hover:shadow-[0_0_40px_rgba(6,182,212,0.08)]
+                hover:bg-white/30
                 cursor-pointer
                 ${hoveredIndex === index ? 'z-10' : ''}
                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
@@ -197,7 +190,7 @@ export default function ProjectsSection() {
             >
               {/* Animated Border Gradient on Hover - Hidden on mobile */}
               <div className="hidden md:block absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-cyan-400/0 via-cyan-400/20 to-cyan-400/0 animate-border-spin"></div>
+                <div className="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-cyan-600/0 via-cyan-600/20 to-cyan-600/0 animate-border-spin"></div>
               </div>
 
               {/* Image */}
@@ -207,16 +200,11 @@ export default function ProjectsSection() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03141C]/90 via-[#03141C]/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/80 via-[#001a1f]/20 to-transparent"></div>
                 
-                {/* Category Badge - Smaller on mobile */}
-                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-1.5 sm:px-2 py-0.5 rounded-full text-[7px] sm:text-[8px] font-medium bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/15 text-cyan-300 animate-fade-in">
+                {/* Category Badge - WHITE TEXT */}
+                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-1.5 sm:px-2 py-0.5 rounded-full text-[7px] sm:text-[8px] font-medium bg-cyan-600/20 backdrop-blur-sm border border-cyan-600/15 text-white animate-fade-in">
                   {project.category}
-                </span>
-
-                {/* Number Badge - Hidden on mobile */}
-                <span className="hidden sm:block absolute top-3 left-3 px-2 py-0.5 rounded-full text-[8px] font-medium bg-white/5 backdrop-blur-sm border border-white/5 text-white/40 animate-fade-in">
-                  0{index + 1}
                 </span>
               </div>
 
@@ -243,7 +231,7 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* View All Button - With animation */}
+        {/* View All Button - UPDATED TO BLUE/CYAN */}
         <div 
           className={`text-center mt-8 sm:mt-10 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -259,26 +247,24 @@ export default function ProjectsSection() {
               px-4 sm:px-6
               py-2 sm:py-2.5
               rounded-lg
-              border border-white/10
-              bg-white/5
-              backdrop-blur-sm
-              text-white/70
+              bg-cyan-600
+              text-white
               text-xs sm:text-sm
               font-medium
+              shadow-[0_8px_25px_rgba(6,182,212,0.25)]
               transition-all
               duration-300
-              hover:border-cyan-400/30
-              hover:bg-cyan-400/10
-              hover:text-white
-              hover:shadow-[0_0_30px_rgba(22,213,232,0.05)]
+              hover:bg-cyan-700
+              hover:shadow-[0_10px_35px_rgba(6,182,212,0.35)]
+              hover:-translate-y-1
               hover:gap-2 sm:hover:gap-3
             "
           >
             <span className="relative">
               View All Projects
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
             </span>
-            <ArrowRight size={14} className="sm:w-4 sm:h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
+            <ArrowRight size={14} className="sm:w-4 sm:h-4 transition-all duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </div>
@@ -290,15 +276,15 @@ export default function ProjectsSection() {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-[#03141C]/95 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden animate-scale-up shadow-[0_0_60px_rgba(22,213,232,0.05)]"
+            className="relative max-w-2xl w-full bg-white/90 backdrop-blur-xl rounded-2xl border border-white/40 overflow-hidden animate-scale-up shadow-[0_0_60px_rgba(6,182,212,0.05)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button - Smaller on mobile */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#001a1f]/10 hover:bg-[#001a1f]/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
             >
-              <X size={16} className="sm:w-[18px] sm:h-[18px] text-white" />
+              <X size={16} className="sm:w-[18px] sm:h-[18px] text-[#001a1f]" />
             </button>
 
             {/* Image */}
@@ -308,31 +294,31 @@ export default function ProjectsSection() {
                 alt={selectedProject.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#03141C]/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/40 to-transparent"></div>
             </div>
 
             {/* Content */}
             <div className="p-4 sm:p-6">
               <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-[10px] sm:text-xs font-medium text-cyan-400 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-xs font-medium text-cyan-700 uppercase tracking-wider">
                   {selectedProject.category}
                 </span>
-                <span className="w-0.5 h-0.5 rounded-full bg-white/20"></span>
-                <span className="text-[9px] sm:text-xs text-white/30">Featured Project</span>
+                <span className="w-0.5 h-0.5 rounded-full bg-[#001a1f]/20"></span>
+                <span className="text-[9px] sm:text-xs text-[#001a1f]/40">Featured Project</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#001a1f] mt-1">
                 {selectedProject.title}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed mt-2 sm:mt-3">
+              <p className="text-[#001a1f]/60 text-sm leading-relaxed mt-2 sm:mt-3">
                 {selectedProject.description}
               </p>
               <Link
                 href={`/projects/${selectedProject.id}`}
-                className="inline-flex items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 text-cyan-400 font-medium hover:gap-2 sm:hover:gap-3 transition-all duration-300 group text-sm sm:text-base"
+                className="inline-flex items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 text-cyan-700 font-medium hover:gap-2 sm:hover:gap-3 transition-all duration-300 group text-sm sm:text-base"
               >
                 <span className="relative">
                   View Full Details
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-700 group-hover:w-full transition-all duration-300"></span>
                 </span>
                 <ArrowRight size={14} className="sm:w-4 sm:h-4 transition-all duration-300 group-hover:translate-x-1" />
               </Link>

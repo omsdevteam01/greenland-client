@@ -1,164 +1,187 @@
-'use client';
+"use client";
 
-import { ArrowRight, Shield, Sun, Droplets, Zap, X, Award, Calendar, MapPin, Truck, CheckCircle, Building2, Home, Users } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Header from '@/app/components/layout/Header';
-import Footer from '@/app/components/layout/Footer';
+import {
+  ArrowRight,
+  Shield,
+  Sun,
+  Droplets,
+  Zap,
+  X,
+  Award,
+  MapPin,
+  Truck,
+  CheckCircle,
+  Building2,
+  Home,
+  Users,
+  Calendar,
+  Phone,
+  Wind,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+
+/* =========================================================
+   DATA
+========================================================= */
 
 const features = [
   {
-    icon: Shield,
-    title: 'UV Protection',
-    desc: 'Blocks 99% of harmful UV rays for safe outdoor spaces.',
+    icon: Sun,
+    title: "UV Protection",
+    desc: "Blocks harmful UV rays and keeps outdoor spaces comfortable.",
   },
   {
     icon: Droplets,
-    title: 'Weather Resistant',
-    desc: 'Built to withstand rain, wind, and extreme conditions.',
+    title: "Weather Resistant",
+    desc: "Built to withstand rain, wind and harsh conditions.",
   },
   {
-    icon: Sun,
-    title: 'Heat Reduction',
-    desc: 'Cools outdoor areas by up to 15°C with premium shade.',
+    icon: Wind,
+    title: "Heat Reduction",
+    desc: "Reduces heat and keeps the shaded area cool and pleasant.",
   },
   {
-    icon: Zap,
-    title: 'Energy Efficient',
-    desc: 'Reduces energy costs with natural cooling solutions.',
+    icon: Shield,
+    title: "Long Lasting",
+    desc: "Premium fabric and steel for long-term performance.",
   },
 ];
 
-// Services Data - No Images
 const services = [
   {
     icon: Truck,
-    title: 'Car Parking Shades',
-    description: 'Elegant and durable car parking tensile structures suitable for villas, apartments, and commercial buildings.',
+    title: "Car Parking Shades",
+    description:
+      "Elegant and durable car parking tensile structures suitable for villas, apartments and commercial buildings.",
   },
   {
     icon: Building2,
-    title: 'Entrance & Walkway Shades',
-    description: 'Stylish entrance covers and walkway shades that enhance the look of your building.',
+    title: "Entrance & Walkway Shades",
+    description:
+      "Stylish entrance covers and walkway shades that enhance the look of your building.",
   },
   {
     icon: Home,
-    title: 'Terrace & Outdoor Shades',
-    description: 'Perfect solutions for terraces, gardens, and open outdoor spaces.',
+    title: "Terrace & Outdoor Shades",
+    description:
+      "Perfect shade solutions for terraces, gardens and open outdoor spaces.",
   },
   {
     icon: Users,
-    title: 'Custom Tensile Structures',
-    description: 'Premium quality materials with strong and weather-resistant fabric for any custom requirement.',
+    title: "Custom Tensile Structures",
+    description:
+      "Custom designed structures using premium fabric for unique shade requirements.",
   },
 ];
 
-// Gallery Images - 12 Images
-const galleryImages = [
-  {
-    id: 1,
-    image: '/images/gl1.png',
-  },
-  {
-    id: 2,
-    image: '/images/gl2.png',
-  },
-  {
-    id: 3,
-    image: '/images/gl3.png',
-  },
-  {
-    id: 4,
-    image: '/images/gl4.png',
-  },
-  {
-    id: 5,
-    image: '/images/gl5.png',
-  },
-  {
-    id: 6,
-    image: '/images/gl6.png',
-  },
-  {
-    id: 7,
-    image: '/images/gl7.png',
-  },
-  {
-    id: 8,
-    image: '/images/gl8.png',
-  },
-  {
-    id: 9,
-    image: '/images/gl9.png',
-  },
-  {
-    id: 10,
-    image: '/images/gl10.png',
-  },
-  {
-    id: 11,
-    image: '/images/gl11.png',
-  },
-  {
-    id: 12,
-    image: '/images/gl12.png',
-  },
-];
+const galleryImages = Array.from({ length: 12 }, (_, i) => ({
+  id: i + 1,
+  image: `/images/gl${i + 1}.png`,
+}));
 
-// Canopy Solutions
 const canopySolutions = [
-  'Car Parking Shade',
-  'Waiting Area Shade',
-  'Entrance Shade',
-  'Swimming Pool Shade',
-  'Entrance Facade Fabric',
+  "Car Parking Shade",
+  "Waiting Area Shade",
+  "Entrance Shade",
+  "Swimming Pool Shade",
+  "Entrance Facade Fabric",
 ];
 
-// Highlights
-const highlights = [
-  { icon: Award, text: 'Accredited Fabricator of SERGE FERRARI' },
-  { icon: MapPin, text: 'Kumbakonam, South India' },
-  { icon: Truck, text: 'Under 10 Year Warranty on Fabric' },
+const companyHighlights = [
+  { icon: Award, text: "Accredited Fabricator of SERGE FERRARI" },
+  { icon: MapPin, text: "Kumbakonam, South India" },
+  { icon: Calendar, text: "Established in 2020" },
+  { icon: Shield, text: "Under 10 Year Warranty on Fabric" },
 ];
+
+const aboutPoints = [
+  "Modern designs",
+  "Strong steel structure",
+  "Long-lasting fabric",
+  "Professional installation",
+];
+
+const projectPoints = [
+  "Premium quality materials",
+  "Strong and weather-resistant fabric",
+  "Attractive modern designs",
+  "Affordable pricing",
+  "Experienced installation team",
+];
+
+const stats = [
+  { value: "100+", label: "Projects" },
+  { value: "50+", label: "Clients" },
+  { value: "100%", label: "Satisfaction" },
+];
+
+const warrantyItems = [
+  { icon: Award, text: "Accredited Fabricator of SERGE FERRARI" },
+  { icon: Shield, text: "Under 10 Year Warranty on Fabric" },
+  { icon: MapPin, text: "Kumbakonam, South India" },
+];
+
+/* =========================================================
+   COMPONENTS
+========================================================= */
+
+const SectionHeader = ({ badge, title, highlight, description }: any) => (
+  <div className="text-center mb-5 sm:mb-6">
+    <div className="flex items-center justify-center gap-2 animate-fade-in">
+      <span className="w-8 h-px bg-cyan-600 animate-scale-x" />
+      <span className="text-cyan-700 text-[9px] sm:text-[10px] uppercase tracking-[3px] font-bold">
+        {badge}
+      </span>
+      <span className="w-8 h-px bg-cyan-600 animate-scale-x-delayed" />
+    </div>
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#071f35] mt-2 tracking-[-1px] animate-slide-up">
+      {title}{" "}
+      <span className="text-cyan-600 animate-text-glow">{highlight}</span>
+    </h2>
+    {description && (
+      <p className="max-w-xl mx-auto text-[#001a1f]/45 text-xs sm:text-sm leading-6 mt-1.5 animate-fade-in-delayed">
+        {description}
+      </p>
+    )}
+  </div>
+);
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 export default function GreenlandPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [selectedImage, setSelectedImage] = useState<(typeof galleryImages)[0] | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
     <>
       <Header />
-      <section className="relative w-full min-h-screen pt-12 sm:pt-14 pb-6 sm:pb-10 overflow-hidden" ref={sectionRef}
-        style={{
-          background: "linear-gradient(135deg, #03141C 0%, #05202B 50%, #03141C 100%)",
-        }}
-      >
-        {/* Background Glow */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl animate-pulse-glow-delayed" />
-
-        {/* Glassy Grid Pattern */}
+      <main ref={sectionRef} className="relative overflow-hidden">
+        {/* =====================================================
+            GLOBAL BACKGROUND
+        ===================================================== */}
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="fixed inset-0 -z-10 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
         <div
-          className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
+          className="fixed inset-0 -z-10 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage: `
               linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
@@ -167,270 +190,142 @@ export default function GreenlandPage() {
             backgroundSize: "60px 60px",
           }}
         />
-
-        {/* Animated Particles */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(8)].map((_, i) => (
+        <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-cyan-400/8 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
               style={{
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
+                width: `${Math.random() * 5 + 2}px`,
+                height: `${Math.random() * 5 + 2}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 15 + 10}s`,
+                animationDuration: `${Math.random() * 18 + 12}s`,
                 animationDelay: `${Math.random() * 10}s`,
               }}
             />
           ))}
         </div>
 
-        {/* Floating Shapes */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
-          {[...Array(6)].map((_, i) => (
+        {/* =====================================================
+            HERO
+        ===================================================== */}
+        <section className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-5 sm:pb-6 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-[#001a1f]/40 hover:text-cyan-600 transition-colors duration-300 mb-3 sm:mb-4 group animate-fade-in"
+            >
+              <ArrowRight size={14} className="rotate-180 transition-transform group-hover:-translate-x-1" />
+              <span className="text-xs sm:text-sm">Back to Service</span>
+            </Link>
+
             <div
-              key={i}
-              className="absolute border border-cyan-400/10 backdrop-blur-sm"
-              style={{
-                width: `${Math.random() * 40 + 15}px`,
-                height: `${Math.random() * 40 + 15}px`,
-                left: `${Math.random() * 80 + 10}%`,
-                top: `${Math.random() * 80 + 10}%`,
-                borderRadius: i % 2 === 0 ? '50%' : '8px',
-                animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 6}s`,
-                transform: `rotate(${Math.random() * 360}deg)`,
-                background: `radial-gradient(circle, rgba(22,213,232,.05), transparent)`,
-              }}
-            />
-          ))}
-        </div>
+              className={`relative rounded-2xl border border-white/40 bg-white/25 backdrop-blur-2xl shadow-[0_15px_50px_rgba(0,100,120,0.08)] overflow-hidden transition-all duration-1000 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+            >
+              <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-cyan-300/20 blur-3xl animate-pulse-slow" />
+              <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl animate-pulse-slow-delayed" />
 
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
-          {/* Back Button */}
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-cyan-400 transition-colors duration-300 mb-3 sm:mb-4 group animate-fade-in"
-          >
-            <ArrowRight size={14} className="sm:w-4 sm:h-4 rotate-180 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="text-xs sm:text-sm">Back to Service</span>
-          </Link>
-
-          {/* Hero Section */}
-          <div className={`relative rounded-2xl border border-white/10 bg-[#03141C]/50 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-            
-            <div className="hidden md:block absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
-              <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-white/3 to-transparent rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-cyan-400/3 to-transparent rounded-full blur-3xl"></div>
-            </div>
-
-            <div className="hidden md:block absolute inset-0 rounded-2xl pointer-events-none">
-              <div className="absolute inset-0 rounded-2xl border border-white/10"></div>
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent animate-border-pulse"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent animate-border-pulse-delayed"></div>
-            </div>
-
-            <div className="relative z-10 p-6 sm:p-8 md:p-10 text-center">
-              <div className="flex justify-center mb-3 sm:mb-4">
-                <div className="relative">
-                  <div className="hidden md:block absolute inset-[-40px] rounded-full bg-cyan-400/50 blur-3xl animate-glow-subtle"></div>
-                  <div className="hidden md:block absolute inset-[-60px] rounded-full bg-cyan-400/30 blur-2xl animate-glow-subtle-delayed"></div>
-                  <img
-                    src="/images/logo.webp"
-                    alt="Greenland"
-                    className="w-28 h-28 sm:w-26 sm:h-26 md:w-32 md:h-32 object-contain drop-shadow-[0_0_30px_rgba(22,213,232,0.15)] relative z-10 animate-float-logo"
-                  />
-                </div>
-              </div>
-
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-2 sm:mb-3">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-[8px] sm:text-[10px] font-semibold text-cyan-300 uppercase tracking-[2px] sm:tracking-[3px]">
-                  Greenland Tensile Shade
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                Premium <span className="text-cyan-400">Shade</span> Solutions
-              </h1>
-              <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-white/60 text-sm sm:text-base px-2">
-                Modern | Durable | Elegant — Tensile structure systems since 2020.
-              </p>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
-            </div>
-          </div>
-
-          {/* Highlights */}
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 mt-6">
-            {highlights.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300/80 text-[8px] sm:text-[10px] animate-fade-in"
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  <Icon size={12} className="text-cyan-400 flex-shrink-0" />
-                  <span>{item.text}</span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Features - 4 Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 sm:mb-10">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={index}
-                  className={`group p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(22,213,232,0.05)] animate-slide-up`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                    <Icon size={14} className="sm:w-[18px] sm:h-[18px] text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+              <div className="relative z-10 p-6 sm:p-8 md:p-10 text-center">
+                <div className="flex justify-center mb-3 sm:mb-4 animate-fade-in-down">
+                  <div className="relative">
+                    <div className="absolute inset-[-35px] rounded-full bg-cyan-400/15 blur-3xl animate-pulse-glow" />
+                    <Image
+                      src="/images/logo.webp"
+                      alt="Greenland Tensile Shade Solutions"
+                      width={150}
+                      height={150}
+                      priority
+                      className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain animate-float-logo"
+                    />
                   </div>
-                  <h3 className="text-white font-semibold text-[10px] sm:text-sm mt-1.5 sm:mt-2 group-hover:text-cyan-400 transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-white/50 text-[9px] sm:text-xs mt-0.5 sm:mt-1 leading-relaxed">
-                    {feature.desc}
-                  </p>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* About Section - No Background Image */}
-          <div className="mb-8 sm:mb-10">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-r from-cyan-900/10 via-[#03141C]/40 to-blue-900/10 backdrop-blur-xl">
-              {/* Decorative Lines */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
-              
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow" />
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow-delayed" />
-
-              <div className="relative z-10 p-6 sm:p-8 md:p-10">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  </div>
-                  <span className="uppercase tracking-[3px] text-[9px] sm:text-[10px] font-semibold text-cyan-300">
-                    About Us
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-cyan-600/10 border border-cyan-600/20 animate-fade-in">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" />
+                  <span className="text-[8px] sm:text-[10px] font-semibold text-cyan-700 uppercase tracking-[2px] sm:tracking-[3px]">
+                    Greenland Tensile Shade
                   </span>
-                  <div className="flex-1 h-px bg-gradient-to-r from-cyan-400/20 to-transparent ml-2" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed" />
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                  {/* Left - Content */}
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                      <span className="text-cyan-400">Greenland</span> Tensile Shade
-                    </h2>
-                    <div className="flex items-center gap-2 mt-1.5">
-                      <span className="text-cyan-400 text-[10px] font-medium tracking-wider">✦ SOUTH INDIA</span>
-                      <span className="w-8 h-px bg-cyan-400/30" />
-                      <span className="text-white/30 text-[10px] tracking-wider">EST. 2020</span>
-                    </div>
-                    <div className="w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mt-3" />
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#001a1f] leading-tight mt-3 animate-slide-up">
+                  Modern <span className="text-cyan-600 animate-text-glow">Shade</span> Solutions
+                </h1>
 
-                    <p className="text-white/60 text-sm sm:text-base leading-relaxed mt-4">
-                      <span className="text-cyan-300 font-medium">Greenland Tensile Shade</span> is a trusted provider of high-quality tensile and canopy shade structures. We design, supply, and install car parking shades, walkway covers, outdoor canopies, and custom tensile roofs for homes, commercial buildings, and industrial spaces.
-                    </p>
-                    <p className="text-white/60 text-sm sm:text-base leading-relaxed mt-3">
-                      Our aim is to deliver strong, stylish, and long-lasting shade solutions that protect against sun and rain while enhancing the aesthetics of any space. With a focus on quality workmanship, on-time delivery, and customer satisfaction, we have built a reputation as a reliable shade solution provider across South India.
-                    </p>
+                <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-[#001a1f]/60 text-sm sm:text-base px-2 animate-fade-in-delayed">
+                  Modern | Durable | Elegant — Tensile structure systems since 2020.
+                </p>
 
-                    {/* Stats */}
-                    <div className="flex flex-wrap items-center gap-4 mt-4 pt-4 border-t border-white/5">
-                      <div>
-                        <span className="text-cyan-400 text-lg font-bold">100+</span>
-                        <span className="text-white/30 text-[10px] block uppercase tracking-wider">Projects</span>
-                      </div>
-                      <span className="w-px h-8 bg-white/10" />
-                      <div>
-                        <span className="text-cyan-400 text-lg font-bold">50+</span>
-                        <span className="text-white/30 text-[10px] block uppercase tracking-wider">Clients</span>
-                      </div>
-                      <span className="w-px h-8 bg-white/10" />
-                      <div>
-                        <span className="text-cyan-400 text-lg font-bold">100%</span>
-                        <span className="text-white/30 text-[10px] block uppercase tracking-wider">Satisfaction</span>
-                      </div>
-                    </div>
-                  </div>
+                <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-3 animate-scale-x" />
 
-                  {/* Right - Clean Icons with Text */}
-                  <div>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { icon: CheckCircle, text: "Modern Designs" },
-                        { icon: Shield, text: "Strong Steel Structure" },
-                        { icon: Award, text: "Long-lasting Fabric" },
-                        { icon: Users, text: "Professional Install" },
-                      ].map((item, idx) => {
-                        const Icon = item.icon;
-                        return (
-                          <div
-                            key={idx}
-                            className="group flex flex-col items-center text-center p-3 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-400/30 transition-all duration-300 hover:bg-cyan-400/5 hover:-translate-y-1"
-                          >
-                            <div className="w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300">
-                              <Icon size={18} className="text-cyan-400" />
-                            </div>
-                            <span className="text-white/70 text-[10px] sm:text-xs font-medium mt-2 group-hover:text-white transition-colors duration-300">
-                              {item.text}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                <div className="flex flex-wrap items-center justify-center gap-3 mt-4 animate-fade-in-delayed-2">
+                  <Link
+                    href="projects"
+                    className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium shadow-lg shadow-cyan-600/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-cyan-600/40"
+                  >
+                    Explore Projects
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 border border-cyan-600/40 text-cyan-700 hover:bg-cyan-600 hover:text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 group hover:-translate-y-1"
+                  >
+                    Get a Free Quote
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Services Section - Small Cards with Small Icons */}
-          <div className="mb-8 sm:mb-10">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                  Our Services
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                What We <span className="text-cyan-400">Offer</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              {services.map((service, index) => {
-                const Icon = service.icon;
+            {/* Highlights */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mt-4">
+              {companyHighlights.map((item, index) => {
+                const Icon = item.icon;
                 return (
                   <div
                     key={index}
-                    className={`group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(22,213,232,0.06)] animate-slide-up`}
-                    style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                    className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-white/30 border border-white/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] hover:border-cyan-600/30 ${
+                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
                   >
-                    <div className="flex items-center justify-center pt-4">
-                      <div className="w-10 h-10 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center group-hover:bg-cyan-400/20 transition-all duration-300 group-hover:scale-110">
-                        <Icon size={16} className="text-cyan-400" />
-                      </div>
-                    </div>
+                    <Icon size={15} className="text-cyan-600 flex-shrink-0 animate-pulse-slow" />
+                    <span className="text-[9px] sm:text-[10px] text-[#001a1f]/60 leading-4">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-                    <div className="p-3 sm:p-4 text-center">
-                      <h3 className="text-white font-semibold text-xs sm:text-sm group-hover:text-cyan-400 transition-colors duration-300">
-                        {service.title}
+        {/* =====================================================
+            FEATURE STRIP
+        ===================================================== */}
+        <section className="relative bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 text-white">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`flex flex-col sm:flex-row items-center sm:items-start lg:items-center text-center sm:text-left gap-3 py-3 sm:py-4 px-3 sm:px-5 transition-all duration-500 hover:bg-white/5 ${
+                      index !== 0 ? "border-l border-white/20" : ""
+                    } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
+                  >
+                    <Icon size={29} strokeWidth={1.5} className="text-white flex-shrink-0 animate-float-icon" />
+                    <div>
+                      <h3 className="text-[9px] sm:text-xs font-bold uppercase tracking-wide">
+                        {feature.title}
                       </h3>
-                      <p className="text-white/40 text-[10px] sm:text-xs mt-1 leading-relaxed line-clamp-2">
-                        {service.description}
+                      <p className="text-[8px] sm:text-[10px] text-white/65 leading-5 mt-1">
+                        {feature.desc}
                       </p>
                     </div>
                   </div>
@@ -438,158 +333,461 @@ export default function GreenlandPage() {
               })}
             </div>
           </div>
+        </section>
 
-          {/* Gallery Section - 12 Images (No Numbers, No +) */}
-          <div className="mb-8 sm:mb-10">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300 animate-fade-in">
-                  Project Gallery
-                </span>
-                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse-delayed" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 animate-slide-up">
-                Our <span className="text-cyan-400">Work</span>
-              </h2>
-              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mx-auto mt-2 animate-scale-x" />
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
-              {galleryImages.map((image, index) => (
-                <div
-                  key={image.id}
-                  className="group relative rounded-xl overflow-hidden cursor-pointer aspect-square bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(22,213,232,0.05)] animate-slide-up"
-                  style={{ animationDelay: `${0.5 + index * 0.06}s` }}
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <Image
-                    src={image.image}
-                    alt="Gallery Image"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/10 transition-colors duration-500" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Canopy Solutions Section */}
-          <div className="mb-8 sm:mb-10">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#03141C]/40 backdrop-blur-xl p-6 sm:p-8 md:p-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-blue-900/10" />
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow-delayed" />
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-1.5 sm:gap-2 mb-3">
-                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-300">
-                    Canopy Shade Solutions
+        {/* =====================================================
+            ABOUT
+        ===================================================== */}
+        <section className="relative py-8 sm:py-10 lg:py-12">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-3 animate-fade-in">
+                  <span className="text-cyan-700 text-[9px] sm:text-[10px] font-bold uppercase tracking-[3px]">
+                    About Greenland
                   </span>
+                  <span className="w-10 h-px bg-cyan-600 animate-scale-x" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">
-                  <span className="text-cyan-400">Premium</span> Canopy Solutions
+
+                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black leading-[0.95] tracking-[-1.5px] text-[#071f35] animate-slide-up">
+                  SHADE SOLUTIONS
+                  <span className="block text-cyan-600 mt-1 animate-text-glow-delayed">
+                    FOR MODERN SPACES
+                  </span>
                 </h2>
-                <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent mt-2" />
-                
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-4">
-                  {canopySolutions.map((solution, idx) => (
+
+                <div className="w-12 h-1 bg-cyan-600 mt-3 animate-scale-x" />
+
+                <p className="text-[#001a1f]/60 text-sm sm:text-base leading-7 mt-3 animate-fade-in-delayed">
+                  <span className="font-semibold text-cyan-700">
+                    Greenland Tensile Shade
+                  </span>{" "}
+                  specializes in designing and installing high-quality tensile
+                  shade structures for homes, commercial buildings, parking
+                  areas, walkways and outdoor spaces.
+                </p>
+
+                <p className="text-[#001a1f]/55 text-sm sm:text-base leading-7 mt-2 animate-fade-in-delayed-2">
+                  We provide strong steel frames with premium tensile fabric
+                  to create stylish, durable and weather-resistant shading
+                  solutions. Our team focuses on quality workmanship,
+                  professional installation and dependable service.
+                </p>
+
+                <div className="grid grid-cols-2 gap-x-5 gap-y-1.5 mt-3">
+                  {aboutPoints.map((point, index) => (
                     <div
-                      key={idx}
-                      className={`flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-400/20 transition-all duration-300 animate-slide-up`}
-                      style={{ animationDelay: `${0.6 + idx * 0.1}s` }}
+                      key={index}
+                      className={`flex items-center gap-2 transition-all duration-500 hover:translate-x-1 ${
+                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
                     >
-                      <CheckCircle size={14} className="text-cyan-400 flex-shrink-0" />
-                      <span className="text-white/60 text-[10px] sm:text-xs leading-tight">{solution}</span>
+                      <CheckCircle size={15} className="text-cyan-600 flex-shrink-0 animate-pulse-slow" />
+                      <span className="text-xs sm:text-sm text-[#001a1f]/65">{point}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
-                  <Truck size={14} className="text-cyan-400" />
-                  <span className="text-cyan-300 text-[10px] sm:text-xs font-medium">Under 10 Year Warranty on Fabric</span>
+                <div className="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-[#001a1f]/10">
+                  {stats.map((stat, index) => (
+                    <div
+                      key={index}
+                      className={`transition-all duration-500 hover:-translate-y-1 ${
+                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                      }`}
+                      style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
+                    >
+                      <p className="text-2xl sm:text-3xl font-black text-cyan-600 animate-counter">
+                        {stat.value}
+                      </p>
+                      <p className="text-[8px] sm:text-[9px] uppercase tracking-wide text-[#001a1f]/45 mt-1">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative animate-slide-up-delayed">
+                <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-full h-full border-[10px] sm:border-[14px] border-cyan-600/15 animate-pulse-slow" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
+                  <Image
+                    src="/images/about.webp"
+                    alt="Greenland Tensile Shade Project"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/40 to-transparent" />
+                  <div className="absolute left-4 bottom-4">
+                    <span className="bg-white/90 backdrop-blur-sm px-3 py-2 text-[8px] sm:text-[9px] uppercase tracking-[2px] font-bold text-[#071f35] border border-white/40">
+                      Professional Tensile Structure Systems
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* CTA */}
-          <div className="text-center animate-slide-up">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#03141C]/40 backdrop-blur-xl p-8 sm:p-12 md:p-16">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 via-cyan-500/5 to-blue-600/10" />
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse-slow-delayed" />
-              
+        {/* =====================================================
+            SERVICES
+        ===================================================== */}
+        <section className="relative py-8 sm:py-10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <SectionHeader
+              badge="What We Create"
+              title="OUR"
+              highlight="SERVICES"
+              description="Practical and elegant shade solutions designed for residential, commercial and outdoor spaces."
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`relative px-5 sm:px-6 py-4 lg:py-2 text-center transition-all duration-500 hover:bg-white/20 hover:-translate-y-1 ${
+                      index !== 0 ? "border-t sm:border-t-0 sm:border-l border-cyan-700/15" : ""
+                    } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    style={{ transitionDelay: `${1.0 + index * 0.1}s` }}
+                  >
+                    <div className="flex justify-center mb-2">
+                      <div className="w-14 h-14 flex items-center justify-center text-cyan-600 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon size={40} strokeWidth={1} className="transition-transform duration-500 group-hover:scale-110" />
+                      </div>
+                    </div>
+                    <h3 className="text-xs sm:text-sm font-bold text-[#071f35] group-hover:text-cyan-700 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-[9px] sm:text-[10px] leading-5 text-[#001a1f]/50 max-w-[230px] mx-auto mt-1">
+                      {service.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            GALLERY
+        ===================================================== */}
+        <section id="gallery" className="relative py-8 sm:py-10 scroll-mt-20">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <SectionHeader
+              badge="Project Gallery"
+              title="OUR"
+              highlight="WORK"
+              description="A selection of tensile shade structures designed and installed by Greenland."
+            />
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
+              {galleryImages.map((image, index) => (
+                <button
+                  key={image.id}
+                  type="button"
+                  onClick={() => setSelectedImage(image)}
+                  className={`group relative rounded-xl overflow-hidden cursor-pointer aspect-square bg-white/30 border border-[#001a1f]/10 hover:border-cyan-600/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(6,182,212,0.12)] text-left ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${1.2 + index * 0.05}s` }}
+                >
+                  <Image
+                    src={image.image}
+                    alt="Greenland Tensile Shade Project"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-cyan-600/0 group-hover:bg-cyan-600/10 transition-colors duration-500" />
+                </button>
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-4 animate-fade-in-up">
+              <Link
+                href="#gallery"
+                className="inline-flex items-center gap-2 border border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-5 py-2.5 text-[9px] sm:text-[10px] uppercase tracking-wide font-bold transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-600/20"
+              >
+                View More Projects
+                <ArrowRight size={13} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            PROJECT QUALITY
+        ===================================================== */}
+        <section className="relative py-6 sm:py-8 lg:py-10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+            <div className="relative overflow-hidden rounded-[28px] border border-cyan-700/10 bg-white/35 backdrop-blur-xl">
+
+              <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-cyan-300 text-[8px] font-semibold uppercase tracking-[3px]">
-                    Get Your Shade Solution
-                  </span>
+
+                <div className="px-6 sm:px-8 lg:px-10 pt-5 sm:pt-6">
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <span className="w-8 h-px bg-cyan-600" />
+                        <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-bold">
+                          Our Projects
+                        </span>
+                      </div>
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#071f35] leading-[0.9] tracking-[-2px] mt-2">
+                        BUILT FOR{" "}
+                        <span className="text-cyan-600">
+                          PERFORMANCE
+                        </span>
+                      </h2>
+                    </div>
+                    <p className="max-w-sm text-[#001a1f]/45 text-xs sm:text-sm leading-6">
+                      Every project combines dependable materials, experienced
+                      installation and designs created to complement the space.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                  Ready for Premium <span className="text-cyan-400">Shade</span>?
-                </h3>
-                <p className="text-white/50 text-sm sm:text-base mt-2 max-w-xl mx-auto">
-                  Contact us today for a free consultation and quote for your tensile shade project.
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg transition-all duration-300 group text-sm font-medium shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105"
-                  >
-                    <span>Get a Free Quote</span>
-                    <ArrowRight size={16} className="transition-all duration-300 group-hover:translate-x-1" />
-                  </Link>
-                  <Link
-                    href="tel:7708776022"
-                    className="inline-flex items-center gap-2 text-white/60 hover:text-white px-6 py-3 rounded-lg transition-all duration-300 group text-sm font-medium border border-white/10 hover:border-white/20"
-                  >
-                    <span>📞 7708776022</span>
-                  </Link>
+
+                <div className="px-6 sm:px-8 lg:px-10 pb-5 sm:pb-6 mt-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-cyan-700/10 rounded-2xl overflow-hidden">
+                    {projectPoints.map((point, index) => (
+                      <div
+                        key={point}
+                        className={`group relative bg-cyan-700 backdrop-blur-sm px-4 sm:px-5 py-4 sm:py-5 min-h-[100px] transition-all duration-500 hover:bg-cyan-600 ${
+                          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        }`}
+                        style={{ transitionDelay: `${1.4 + index * 0.08}s` }}
+                      >
+                        <div className="w-8 h-1 bg-cyan-600 group-hover:bg-cyan transition-colors duration-300" />
+                        <div className="mt-4">
+                          <CheckCircle size={21} strokeWidth={1.7} className="text-cyan-600 group-hover:text-cyan transition-colors duration-300" />
+                        </div>
+                        <p className="text-[10px] sm:text-xs font-semibold leading-5 text-white group-hover:text-cyan transition-colors duration-300 mt-2">
+                          {point}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border-t border-cyan-700/10 px-6 sm:px-8 lg:px-10 py-3 sm:py-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
+                      <span className="text-[9px] sm:text-[10px] uppercase tracking-[2px] font-semibold text-[#001a1f]/50">
+                        Quality Materials
+                      </span>
+                    </div>
+                    <div className="hidden sm:block h-px flex-1 mx-4 bg-cyan-700" />
+                    <span className="text-[9px] sm:text-[10px] text-[#001a1f]/40">
+                      Designed • Fabricated • Installed
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Back to Top */}
-          <div className="text-center mt-6 pb-3">
-            <Link
-              href="#top"
-              className="inline-flex items-center gap-2 text-white/20 hover:text-white/40 transition-colors duration-300 text-[10px] sm:text-xs uppercase tracking-[1.5px] sm:tracking-[2px] group"
-            >
-              <span className="w-6 sm:w-8 h-px bg-white/10 group-hover:bg-white/30 transition-colors duration-300"></span>
-              Back to Top
-              <span className="w-6 sm:w-8 h-px bg-white/10 group-hover:bg-white/30 transition-colors duration-300"></span>
-            </Link>
+        {/* =====================================================
+            CANOPY SOLUTIONS
+        ===================================================== */}
+        <section className="relative py-6 sm:py-8 lg:py-10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+            <div className="relative overflow-hidden rounded-[26px] border border-white/50 bg-white/30 backdrop-blur-xl">
+
+              <div className="absolute -top-28 -right-28 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-28 -left-28 w-64 h-64 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 grid lg:grid-cols-[0.75fr_1.25fr]">
+
+                <div className="relative p-5 sm:p-7 lg:p-8 bg-cyan-600/[0.04] lg:border-r border-cyan-700/10">
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-px bg-cyan-600" />
+                    <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-bold">
+                      Canopy Solutions
+                    </span>
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#071f35] leading-[0.9] tracking-[-2px] mt-3">
+                    PREMIUM
+                    <span className="block text-cyan-600">
+                      CANOPY
+                    </span>
+                    <span className="block">
+                      SOLUTIONS
+                    </span>
+                  </h2>
+
+                  <div className="w-12 h-1 bg-cyan-600 mt-4" />
+
+                  <p className="text-[#001a1f]/50 text-xs sm:text-sm leading-6 mt-4 max-w-md">
+                    Purpose-built shade structures for parking areas, entrances,
+                    waiting spaces, pools and architectural facades.
+                  </p>
+
+                  <div className="mt-5 pt-4 border-t border-cyan-700/10">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-600/10 flex items-center justify-center">
+                        <Sun size={18} className="text-cyan-600" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#071f35]">
+                          Designed For
+                        </p>
+                        <p className="text-[9px] text-[#001a1f]/40 mt-0.5">
+                          Protection · Comfort · Style
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6 lg:p-7">
+                  <div className="mb-2">
+                    <span className="text-cyan-700 text-[8px] uppercase tracking-[2.5px] font-bold">
+                      Applications
+                    </span>
+                    <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-1">
+                      Shade solutions tailored to your space.
+                    </p>
+                  </div>
+
+                  <div className="divide-y divide-cyan-700/10">
+                    {canopySolutions.map((solution, index) => (
+                      <div
+                        key={solution}
+                        className="group flex items-center gap-3 py-3 first:pt-2 last:pb-2 px-1 hover:px-3 transition-all duration-300"
+                      >
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-600/8 border border-cyan-600/10 flex items-center justify-center shrink-0 group-hover:bg-cyan-600 group-hover:border-cyan-600 transition-all duration-300">
+                          {index === 0 && <Truck size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                          {index === 1 && <Users size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                          {index === 2 && <Building2 size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                          {index === 3 && <Sun size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                          {index === 4 && <Home size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-xs sm:text-sm font-bold text-[#071f35] group-hover:text-cyan-700 transition-colors">
+                            {solution}
+                          </h3>
+                          <p className="hidden sm:block text-[9px] text-[#001a1f]/35 mt-0.5">
+                            Premium tensile structure solution
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4">
+              {warrantyItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="flex items-center gap-2">
+                    <Icon size={14} className="text-cyan-600" />
+                    <span className="text-[9px] sm:text-[10px] font-medium text-[#001a1f]/55">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Gallery Modal - Dark Cyan Close Button */}
+        {/* =====================================================
+            CTA
+        ===================================================== */}
+        <section className="relative bg-cyan-700 text-white overflow-hidden py-6 sm:py-8">
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)
+                `,
+                backgroundSize: "55px 55px",
+              }}
+            />
+          </div>
+          <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-white/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-white/10 blur-3xl animate-pulse-slow-delayed" />
+
+          <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <div className="grid md:grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-5">
+              <div className="hidden sm:flex w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-400/30 items-center justify-center animate-pulse-slow">
+                <Phone size={24} className="text-cyan-300" />
+              </div>
+
+              <div className="animate-slide-up">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight">
+                  Let's Build Something
+                  <span className="text-cyan-300 animate-text-glow">
+                    {" "}Amazing Together
+                  </span>
+                </h2>
+                <p className="text-white/50 text-xs sm:text-sm mt-1">
+                  Contact us today for a free consultation and quote for your
+                  tensile shade project.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:items-end gap-2 animate-fade-in-delayed">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-cyan-700 hover:bg-cyan-50 px-5 sm:px-6 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Get a Free Quote
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
+                </Link>
+                <a
+                  href="tel:7708776022"
+                  className="inline-flex items-center gap-2 text-cyan-200 hover:text-white text-sm sm:text-base font-semibold transition-colors hover:scale-105"
+                >
+                  <Phone size={14} />
+                  7708776022
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* =====================================================
+          GALLERY MODAL
+      ===================================================== */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#001a1f]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-4xl w-full bg-[#03141C]/95 rounded-2xl border border-white/10 overflow-hidden animate-scale-up"
+            className="relative w-full max-w-5xl bg-white/90 backdrop-blur-xl overflow-hidden rounded-2xl animate-scale-up shadow-[0_0_60px_rgba(6,182,212,0.1)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               onClick={() => setSelectedImage(null)}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0A4A5A] hover:bg-[#0D5A6E] border border-cyan-400/30 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg shadow-cyan-400/20"
+              className="absolute z-20 top-3 right-3 w-9 h-9 rounded-full bg-[#001a1f]/80 hover:bg-cyan-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
             >
-              <X size={16} className="sm:w-5 sm:h-5 text-cyan-300" />
+              <X size={17} />
             </button>
-            <div className="relative aspect-[16/9]">
+            <div className="relative aspect-[16/10]">
               <Image
                 src={selectedImage.image}
-                alt="Gallery Image"
+                alt="Greenland Tensile Shade Project"
                 fill
-                className="object-cover"
+                className="object-contain bg-[#001a1f]"
               />
             </div>
           </div>
@@ -598,175 +796,119 @@ export default function GreenlandPage() {
 
       <Footer />
 
-      <style jsx>{`
-        @keyframes pulse-delayed {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        @keyframes slide-up {
-          from { opacity: 0; transform: translateY(30px) scale(0.95); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
+      {/* =====================================================
+          ANIMATIONS
+      ===================================================== */}
+      <style jsx global>{`
         @keyframes fade-in {
-          from { opacity: 0; transform: translateY(10px); }
+          from { opacity: 0; transform: translateY(15px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
+        @keyframes fade-in-down {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes fade-in-delayed {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.1); }
+        @keyframes fade-in-delayed-2 {
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(-10px) translateX(5px); }
-          50% { transform: translateY(-20px) translateX(-5px); }
-          75% { transform: translateY(-10px) translateX(5px); }
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes float-logo {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(2deg); }
+        @keyframes slide-up-delayed {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes floatShape {
-          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
-          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
-          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
-        }
-
-        @keyframes glow-subtle {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.05); }
-        }
-
-        @keyframes glow-subtle-delayed {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.05); }
-        }
-
-        @keyframes border-pulse {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.5; }
-        }
-
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
-        }
-
-        @keyframes pulse-slow-delayed {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
-        }
-
-        @keyframes scale-up {
-          from { opacity: 0; transform: scale(0.9) translateY(20px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
         @keyframes scale-x {
           from { transform: scaleX(0); }
           to { transform: scaleX(1); }
         }
-
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
+        @keyframes scale-x-delayed {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
         }
-
-        .animate-pulse-delayed {
-          animation: pulse-delayed 2s ease-in-out infinite;
-          animation-delay: 0.5s;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-12px) translateX(6px); }
+          50% { transform: translateY(-24px) translateX(-6px); }
+          75% { transform: translateY(-12px) translateX(6px); }
         }
-
-        .animate-slide-up {
-          opacity: 0;
-          animation: slide-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        @keyframes float-logo {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-8px) rotate(2deg); }
         }
-
-        .animate-fade-in {
-          opacity: 0;
-          animation: fade-in 0.6s ease-out forwards;
+        @keyframes float-icon {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
         }
-
-        .animate-fade-in-delayed {
-          opacity: 0;
-          animation: fade-in-delayed 0.8s ease-out 0.3s forwards;
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.7; transform: scale(1.05); }
         }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow-delayed {
-          animation: pulse-glow 4s ease-in-out infinite;
+        @keyframes pulse-slow-delayed {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.7; transform: scale(1.05); }
           animation-delay: 2s;
         }
-
-        .animate-float {
-          animation: float linear infinite;
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.2; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.2); }
         }
-
-        .animate-float-logo {
-          animation: float-logo 3s ease-in-out infinite;
+        @keyframes pulse-delayed {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
         }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
+        @keyframes text-glow {
+          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
+          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
         }
-
-        .animate-pulse-slow-delayed {
-          animation: pulse-slow-delayed 4s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-
-        .animate-scale-up {
-          animation: scale-up 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .animate-scale-x {
-          animation: scale-x 0.8s ease-out 0.4s forwards;
-          transform-origin: left;
-        }
-
-        .animate-border-pulse {
-          animation: border-pulse 2s ease-in-out infinite;
-        }
-
-        .animate-border-pulse-delayed {
-          animation: border-pulse 2s ease-in-out infinite;
+        @keyframes text-glow-delayed {
+          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
+          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
           animation-delay: 1s;
         }
-
-        .animate-glow-subtle {
-          animation: glow-subtle 3s ease-in-out infinite;
+        @keyframes counter {
+          0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+          60% { transform: scale(1.1) translateY(-2px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes scale-up {
+          from { opacity: 0; transform: scale(0.9) translateY(20px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
-        .animate-glow-subtle-delayed {
-          animation: glow-subtle-delayed 3s ease-in-out infinite;
-        }
+        .animate-fade-in { animation: fade-in 0.6s ease-out forwards; opacity: 0; }
+        .animate-fade-in-down { animation: fade-in-down 0.6s ease-out forwards; opacity: 0; }
+        .animate-fade-in-delayed { animation: fade-in-delayed 0.8s ease-out 0.3s forwards; opacity: 0; }
+        .animate-fade-in-delayed-2 { animation: fade-in-delayed-2 0.8s ease-out 0.5s forwards; opacity: 0; }
+        .animate-slide-up { animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+        .animate-slide-up-delayed { animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards; opacity: 0; }
+        .animate-scale-x { animation: scale-x 0.8s ease-out 0.4s forwards; transform-origin: left; }
+        .animate-scale-x-delayed { animation: scale-x-delayed 0.8s ease-out 0.6s forwards; transform-origin: right; }
+        .animate-float { animation: float linear infinite; }
+        .animate-float-logo { animation: float-logo 3s ease-in-out infinite; }
+        .animate-float-icon { animation: float-icon 2s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+        .animate-pulse-slow-delayed { animation: pulse-slow-delayed 3s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .animate-pulse-delayed { animation: pulse-delayed 2s ease-in-out infinite; animation-delay: 0.5s; }
+        .animate-text-glow { animation: text-glow 3s ease-in-out infinite; }
+        .animate-text-glow-delayed { animation: text-glow-delayed 3s ease-in-out infinite; }
+        .animate-counter { animation: counter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; display: inline-block; }
+        .animate-scale-up { animation: scale-up 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
 
         @media (max-width: 640px) {
-          .animate-slide-up {
-            animation: slide-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-          }
-          .animate-float {
-            animation-duration: 15s !important;
-          }
-          .animate-float-logo {
-            animation: float-logo 2s ease-in-out infinite;
-          }
+          .animate-float { animation-duration: 18s !important; }
         }
       `}</style>
     </>
