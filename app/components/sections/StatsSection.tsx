@@ -6,19 +6,19 @@ import { Building2, Users, Award, Clock } from 'lucide-react';
 const stats = [
   {
     icon: Building2,
-    value: 500,
+    value: 50,
     label: 'Projects',
     suffix: '+',
   },
   {
     icon: Users,
-    value: 200,
+    value: 50,
     label: 'Clients',
     suffix: '+',
   },
   {
     icon: Award,
-    value: 15,
+    value: 5,
     label: 'Awards',
     suffix: '+',
   },

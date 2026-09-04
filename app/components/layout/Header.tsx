@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Home, Info, FolderKanban, Settings, Mail } from "lucide-react";
+import { mediaUrl } from "@/lib/media";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +63,7 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
             >
               <img
-                src="/images/logo main.png"
+                src={mediaUrl("/images/logo main.png")}
                 alt="Ruhan Groups"
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-500 group-hover:scale-105"
               />

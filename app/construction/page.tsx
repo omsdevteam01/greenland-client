@@ -27,6 +27,7 @@ import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { mediaUrl } from "@/lib/media";
 
 /* =========================================================
    SERVICES
@@ -337,7 +338,7 @@ export default function ConstructionPage() {
               <div className="relative h-[300px] sm:h-[370px] lg:h-[450px] animate-slide-up-delayed">
                 <div className="absolute right-0 top-0 w-[88%] h-[88%] overflow-hidden">
                   <Image
-                    src="/images/villa.png"
+                    src={mediaUrl("/images/villa.png")}
                     alt="Ruhan Groups Construction"
                     fill
                     priority
@@ -494,7 +495,7 @@ export default function ConstructionPage() {
               {/* MAIN IMAGE */}
               <div className="relative h-[270px] sm:h-[340px] lg:h-[390px] overflow-hidden group">
                 <Image
-                  src="/images/commercial.png"
+                  src={mediaUrl("/images/cons2.png")}
                   alt="Commercial Construction"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -514,7 +515,7 @@ export default function ConstructionPage() {
               <div className="grid grid-rows-2 gap-2.5">
                 <div className="relative min-h-[130px] sm:min-h-[160px] overflow-hidden group">
                   <Image
-                    src="/images/inte.png"
+                    src={mediaUrl("/images/inte.png")}
                     alt="Interior Works"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -532,7 +533,7 @@ export default function ConstructionPage() {
 
                 <div className="relative min-h-[130px] sm:min-h-[160px] overflow-hidden group">
                   <Image
-                    src="/images/home.png"
+                    src={mediaUrl("/images/cons4.png")}
                     alt="Renovation"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -619,7 +620,7 @@ export default function ConstructionPage() {
               <div className="grid sm:grid-cols-2 min-h-[280px]">
                 <div className="relative min-h-[200px] sm:min-h-full">
                   <Image
-                    src="/images/weatherwood.png"
+                    src={mediaUrl("/images/weatherwood.png")}
                     alt="Weathered Wood"
                     fill
                     className="object-cover"
@@ -657,7 +658,7 @@ export default function ConstructionPage() {
               <div className="grid sm:grid-cols-2 min-h-[280px]">
                 <div className="relative min-h-[200px] sm:min-h-full order-1 sm:order-2">
                   <Image
-                    src="/images/heritage.png"
+                    src={mediaUrl("/images/heritage.png")}
                     alt="Heritage Series"
                     fill
                     className="object-cover"

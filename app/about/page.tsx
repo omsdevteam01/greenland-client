@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { mediaUrl } from "@/lib/media";
 import {
   Users,
   Building2,
@@ -36,19 +37,19 @@ import Link from "next/link";
 const stats = [
   {
     icon: Building2,
-    value: 500,
+    value: 50,
     suffix: "+",
     label: "Projects Completed",
   },
   {
     icon: Users,
-    value: 200,
+    value: 50,
     suffix: "+",
     label: "Happy Clients",
   },
   {
     icon: Award,
-    value: 15,
+    value: 5,
     suffix: "+",
     label: "Awards Won",
   },
@@ -129,7 +130,7 @@ const divisions = [
       "Interior Works",
       "Renovation",
     ],
-    image: "/images/reno.png",
+    image: mediaUrl("/images/cons5.png"),
   },
   {
     id: "greenland",
@@ -145,7 +146,7 @@ const divisions = [
       "Outdoor Canopies",
       "Custom Tensile Roofs",
     ],
-    image: "/images/about.webp",
+    image: mediaUrl("/images/about.webp"),
   },
 ];
 
@@ -304,7 +305,7 @@ export default function AboutPage() {
               {/* Hero image */}
               <div className="absolute right-0 top-0 w-full lg:w-[55%] h-[230px] sm:h-[270px] lg:h-full">
                 <img
-                  src="/images/interior.png"
+                  src={mediaUrl("/images/cons8.png")}
                   alt="Ruhan Groups"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
@@ -386,7 +387,7 @@ export default function AboutPage() {
               {/* Small visual */}
               <div className="relative min-h-[280px] lg:min-h-[400px] rounded-[24px] overflow-hidden border border-white/50 bg-white/25 backdrop-blur-md animate-slide-up">
                 <img
-                  src="/images/luxury.png"
+                  src={mediaUrl("/images/luxury.png")}
                   alt="Ruhan Groups"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />

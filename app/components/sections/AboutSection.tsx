@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Building2, Users, Award, Shield, Zap, TrendingUp, Target, Eye, CheckCircle } from 'lucide-react';
+import { mediaUrl } from "@/lib/media";
 
 const features = [
   { icon: Building2, label: 'Premium Quality Materials' },
@@ -12,7 +13,7 @@ const features = [
 
 const stats = [
   { icon: Building2, value: '2020', label: 'Founded' },
-  { icon: TrendingUp, value: '500+', label: 'Projects' },
+  { icon: TrendingUp, value: '50+', label: 'Projects' },
   { icon: Users, value: '98%', label: 'Satisfaction' },
 ];
 
@@ -264,7 +265,7 @@ export default function AboutPage() {
               <div className="relative overflow-visible">
                 <div className="absolute -inset-1 rounded-[1.8rem] bg-gradient-to-r from-cyan-400/30 via-transparent to-cyan-400/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <img
-                  src="/images/con hero.png"
+                  src={mediaUrl("/images/cons5.png")}
                   alt="Ruhan Groups - Construction"
                   className="relative w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[380px] object-cover rounded-[1.5rem] sm:rounded-[1.8rem] shadow-2xl border border-white/20"
                 />

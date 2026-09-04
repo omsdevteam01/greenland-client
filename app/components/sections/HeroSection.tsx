@@ -2,6 +2,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { mediaUrl } from "@/lib/media";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,7 +55,7 @@ export default function HeroSection() {
         "
       >
         <img
-          src="/images/cons hero.png"
+          src={mediaUrl("/images/cons hero.png")}
           alt="Ruhan Groups Construction"
           className="
             h-full
@@ -362,7 +363,7 @@ export default function HeroSection() {
               Innovation
             </span>
             <br />
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-700/50 font-light tracking-[4px] sm:tracking-[6px] mt-1 block animate-fade-in-delayed">
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-900/100 font-light tracking-[4px] sm:tracking-[6px] mt-1 block animate-fade-in-delayed">
               — Ruhan Groups
             </span>
           </h1>

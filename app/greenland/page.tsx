@@ -23,6 +23,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
+import { mediaUrl } from "@/lib/media";
 
 /* =========================================================
    DATA
@@ -233,7 +234,7 @@ export default function GreenlandPage() {
                   <div className="relative">
                     <div className="absolute inset-[-35px] rounded-full bg-cyan-400/15 blur-3xl animate-pulse-glow" />
                     <Image
-                      src="/images/logo.webp"
+                      src={mediaUrl("/images/logo.webp")}
                       alt="Greenland Tensile Shade Solutions"
                       width={150}
                       height={150}
@@ -413,7 +414,7 @@ export default function GreenlandPage() {
                 <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-full h-full border-[10px] sm:border-[14px] border-cyan-600/15 animate-pulse-slow" />
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
                   <Image
-                    src="/images/about.webp"
+                    src={mediaUrl("/images/about.webp")}
                     alt="Greenland Tensile Shade Project"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

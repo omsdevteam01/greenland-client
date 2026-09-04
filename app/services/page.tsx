@@ -23,6 +23,7 @@ import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { mediaUrl } from "@/lib/media";
 
 /* =========================================================
    BUSINESS DIVISIONS
@@ -34,7 +35,7 @@ const divisions = [
     name: "Construction",
     subtitle: "Construction & Interiors",
     icon: Building2,
-    image: "/images/luxury.png",
+    image: mediaUrl("/images/villa.png"),
     description:
       "End-to-end construction solutions that build strong, functional and sustainable spaces.",
     link: "/construction",
@@ -51,7 +52,7 @@ const divisions = [
     name: "GreenLand",
     subtitle: "Tensile Shade Solutions",
     icon: Sun,
-    image: "/images/product2.png",
+    image: mediaUrl("/images/product2.png"),
     description:
       "Modern tensile and shade structures designed for comfort, durability and aesthetic appeal.",
     link: "/greenland",

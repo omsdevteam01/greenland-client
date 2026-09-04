@@ -1,58 +1,33 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Link from 'next/link';
+import { mediaUrl } from "@/lib/media";
 
 const projects = [
   {
     id: 1,
-    title: 'Luxury Villa Complex',
-    category: 'Residential',
-    image: '/images/villa.png',
-    description: 'Modern luxury villas with premium amenities and sustainable design.',
+    image: mediaUrl("images/cons5.png"),
   },
   {
     id: 2,
-    title: 'Corporate Office Tower',
-    category: 'Commercial',
-    image: '/images/corporate.png',
-    description: 'State-of-the-art office space with innovative architectural design.',
+    image: mediaUrl("images/cons2.png"),
   },
   {
     id: 3,
-    title: 'Industrial Warehouse',
-    category: 'Industrial',
-    image: '/images/warehouse.png',
-    description: 'Large-scale industrial facility with advanced logistics infrastructure.',
+    image: mediaUrl("images/cons3.png"),
   },
   {
     id: 4,
-    title: 'Green Residential Park',
-    category: 'Residential',
-    image: '/images/green.png',
-    description: 'Eco-friendly residential community with lush green spaces.',
-  },
-  {
-    id: 5,
-    title: 'Shopping Mall Complex',
-    category: 'Commercial',
-    image: '/images/mall.png',
-    description: 'Modern retail destination with world-class facilities.',
-  },
-  {
-    id: 6,
-    title: 'Steel Fabrication Plant',
-    category: 'Industrial',
-    image: '/images/steel.png',
-    description: 'Advanced steel fabrication facility with cutting-edge technology.',
+    image: mediaUrl("images/cons4.png"),
   },
 ];
-
 export default function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] =
+    useState<(typeof projects)[0] | null>(null);
+
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,9 +35,12 @@ export default function ProjectsSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+      }
     );
 
     if (sectionRef.current) {
@@ -72,19 +50,21 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Show only first 4 projects
   const displayedProjects = projects.slice(0, 4);
 
   return (
-    <section className="relative w-full py-12 sm:py-16 overflow-hidden" ref={sectionRef}>
-
-      {/* Background - Same as Business Section */}
+    <section
+      ref={sectionRef}
+      className="relative w-full py-12 sm:py-16 overflow-hidden"
+    >
+      {/* Background */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
+        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
       </div>
 
-      {/* Glassy Grid Pattern - Same as Business Section */}
+      {/* Grid Pattern */}
       <div
         className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
@@ -92,44 +72,45 @@ export default function ProjectsSection() {
             linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
             linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
           `,
-          backgroundSize: "60px 60px",
+          backgroundSize: '60px 60px',
         }}
       />
 
-      {/* Animated Particles - Same as Business Section */}
+      {/* Animated Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(10)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
             style={{
-              width: `${Math.random() * 6 + 2}px`,
-              height: `${Math.random() * 6 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 15 + 10}s`,
-              animationDelay: `${Math.random() * 10}s`,
+              width: `${2 + i % 5}px`,
+              height: `${2 + i % 5}px`,
+              left: `${10 + i * 9}%`,
+              top: `${8 + ((i * 17) % 80)}%`,
+              animationDuration: `${12 + i}s`,
+              animationDelay: `${i * 0.7}s`,
             }}
           />
         ))}
       </div>
 
-      {/* Floating Shapes - Same as Business Section */}
+      {/* Floating Shapes */}
       <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[5]">
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute border border-cyan-400/15 backdrop-blur-sm"
+            className="absolute border border-cyan-400/15"
             style={{
-              width: `${Math.random() * 40 + 15}px`,
-              height: `${Math.random() * 40 + 15}px`,
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
+              width: `${20 + i * 5}px`,
+              height: `${20 + i * 5}px`,
+              left: `${15 + i * 13}%`,
+              top: `${12 + i * 11}%`,
               borderRadius: i % 2 === 0 ? '50%' : '8px',
-              animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 6}s`,
-              transform: `rotate(${Math.random() * 360}deg)`,
-              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
+              animation: `floatShape ${10 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.8}s`,
+              transform: `rotate(${i * 25}deg)`,
+              background:
+                'radial-gradient(circle, rgba(22,213,232,.08), transparent)',
             }}
           />
         ))}
@@ -138,279 +119,315 @@ export default function ProjectsSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Header - With animations */}
-        <div 
-          className={`text-center mb-6 sm:mb-10 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+        {/* Header */}
+        <div
+          className={`text-center mb-6 sm:mb-10 transition-all duration-500 ${
+            isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 -translate-y-8'
           }`}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse" />
+
             <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
               Our Portfolio
             </p>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
+
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed" />
           </div>
+
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001a1f] mt-1.5 sm:mt-2">
             Featured <span className="text-cyan-600">Projects</span>
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-2 sm:mt-3"></div>
+
+          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-2 sm:mt-3" />
         </div>
 
-        {/* Projects Grid - With animations on mobile */}
+        {/* Image Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {displayedProjects.map((project, index) => (
-            <div
+            <button
+              type="button"
               key={project.id}
+              onClick={() => setSelectedProject(project)}
+              aria-label="Open project image"
               className={`
                 group
                 relative
+                w-full
                 rounded-lg
                 overflow-hidden
                 border border-white/40
                 bg-white/20
-                backdrop-blur-xl
                 transition-all
-                duration-500
+                duration-300
                 hover:scale-[1.04]
                 hover:border-cyan-600/40
                 hover:shadow-[0_0_40px_rgba(6,182,212,0.08)]
                 hover:bg-white/30
                 cursor-pointer
-                ${hoveredIndex === index ? 'z-10' : ''}
-                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+                text-left
+                ${
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }
               `}
-              style={{ 
-                transitionDelay: `${index * 0.1}s`,
-                animation: isVisible ? `slide-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.12}s forwards` : 'none'
+              style={{
+                transitionDelay: isVisible
+                  ? `${index * 80}ms`
+                  : '0ms',
               }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => setSelectedProject(project)}
             >
-              {/* Animated Border Gradient on Hover - Hidden on mobile */}
-              <div className="hidden md:block absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-cyan-600/0 via-cyan-600/20 to-cyan-600/0 animate-border-spin"></div>
-              </div>
-
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="Project"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className="
+                    w-full
+                    h-full
+                    object-cover
+                    transition-transform
+                    duration-500
+                    group-hover:scale-110
+                  "
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/80 via-[#001a1f]/20 to-transparent"></div>
-                
-                {/* Category Badge - WHITE TEXT */}
-                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 px-1.5 sm:px-2 py-0.5 rounded-full text-[7px] sm:text-[8px] font-medium bg-cyan-600/20 backdrop-blur-sm border border-cyan-600/15 text-white animate-fade-in">
-                  {project.category}
-                </span>
-              </div>
 
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-4">
-                <h3 className="text-white font-semibold text-xs sm:text-sm group-hover:text-cyan-400 transition-colors duration-300 line-clamp-1">
-                  {project.title}
-                </h3>
-                <p className="text-white/70 text-[9px] sm:text-[10px] mt-0.5 line-clamp-1 hidden sm:block">
-                  {project.description}
-                </p>
-                <div className="flex items-center gap-1 sm:gap-1.5 mt-1.5 sm:mt-2 text-cyan-400 text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:gap-2 sm:group-hover:gap-3">
-                  <span className="relative">
-                    View Details
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-                  </span>
-                  <ArrowRight size={10} className="sm:w-3 sm:h-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
-                </div>
-              </div>
+                {/* Image Overlay */}
+                <div className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-[#001a1f]/50
+                  via-transparent
+                  to-transparent
+                  opacity-70
+                  group-hover:opacity-40
+                  transition-opacity
+                  duration-300
+                " />
 
-              {/* Shimmer Effect on Hover - Hidden on mobile */}
-              <div className="hidden md:block absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-            </div>
+                {/* Shine Effect */}
+                <div className="
+                  hidden
+                  md:block
+                  absolute
+                  inset-0
+                  -translate-x-full
+                  group-hover:translate-x-full
+                  transition-transform
+                  duration-700
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/10
+                  to-transparent
+                  pointer-events-none
+                " />
+              </div>
+            </button>
           ))}
         </div>
 
-        {/* View All Button - UPDATED TO BLUE/CYAN */}
-        <div 
-          className={`text-center mt-8 sm:mt-10 transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        {/* View All */}
+        <div
+          className={`text-center mt-8 sm:mt-10 transition-all duration-500 ${
+            isVisible
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
           }`}
         >
           <Link
             href="/projects"
             className="
-              group
               inline-flex
               items-center
-              gap-1.5 sm:gap-2
-              px-4 sm:px-6
-              py-2 sm:py-2.5
+              px-4
+              sm:px-6
+              py-2
+              sm:py-2.5
               rounded-lg
               bg-cyan-600
               text-white
-              text-xs sm:text-sm
+              text-xs
+              sm:text-sm
               font-medium
               shadow-[0_8px_25px_rgba(6,182,212,0.25)]
               transition-all
-              duration-300
+              duration-200
               hover:bg-cyan-700
-              hover:shadow-[0_10px_35px_rgba(6,182,212,0.35)]
               hover:-translate-y-1
-              hover:gap-2 sm:hover:gap-3
             "
           >
-            <span className="relative">
-              View All Projects
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
-            </span>
-            <ArrowRight size={14} className="sm:w-4 sm:h-4 transition-all duration-300 group-hover:translate-x-1" />
+            View All Projects
           </Link>
         </div>
       </div>
 
-      {/* Modal - Project Detail - Mobile optimized with animations */}
+      {/* Image Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in"
+          className="
+            fixed
+            inset-0
+            z-50
+            flex
+            items-center
+            justify-center
+            p-3
+            sm:p-6
+            bg-black/80
+            backdrop-blur-sm
+            animate-fade-in
+          "
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-white/90 backdrop-blur-xl rounded-2xl border border-white/40 overflow-hidden animate-scale-up shadow-[0_0_60px_rgba(6,182,212,0.05)]"
+            className="
+              relative
+              w-full
+              max-w-5xl
+              overflow-hidden
+              rounded-2xl
+              bg-black
+              shadow-[0_0_60px_rgba(6,182,212,0.08)]
+              animate-scale-up
+            "
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button - Smaller on mobile */}
+            {/* Close */}
             <button
+              type="button"
               onClick={() => setSelectedProject(null)}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#001a1f]/10 hover:bg-[#001a1f]/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
+              aria-label="Close image"
+              className="
+                absolute
+                top-3
+                right-3
+                sm:top-4
+                sm:right-4
+                z-10
+                w-8
+                h-8
+                rounded-full
+                bg-white/80
+                hover:bg-white
+                flex
+                items-center
+                justify-center
+                transition-transform
+                duration-200
+                hover:scale-110
+              "
             >
-              <X size={16} className="sm:w-[18px] sm:h-[18px] text-[#001a1f]" />
+              <X
+                size={17}
+                className="text-[#001a1f]"
+              />
             </button>
 
-            {/* Image */}
-            <div className="relative aspect-[16/9] overflow-hidden">
+            {/* Large Image */}
+            <div className="relative w-full aspect-[16/10]">
               <img
                 src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full h-full object-cover"
+                alt="Project"
+                className="w-full h-full object-contain"
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/40 to-transparent"></div>
-            </div>
-
-            {/* Content */}
-            <div className="p-4 sm:p-6">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-[10px] sm:text-xs font-medium text-cyan-700 uppercase tracking-wider">
-                  {selectedProject.category}
-                </span>
-                <span className="w-0.5 h-0.5 rounded-full bg-[#001a1f]/20"></span>
-                <span className="text-[9px] sm:text-xs text-[#001a1f]/40">Featured Project</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#001a1f] mt-1">
-                {selectedProject.title}
-              </h3>
-              <p className="text-[#001a1f]/60 text-sm leading-relaxed mt-2 sm:mt-3">
-                {selectedProject.description}
-              </p>
-              <Link
-                href={`/projects/${selectedProject.id}`}
-                className="inline-flex items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 text-cyan-700 font-medium hover:gap-2 sm:hover:gap-3 transition-all duration-300 group text-sm sm:text-base"
-              >
-                <span className="relative">
-                  View Full Details
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-700 group-hover:w-full transition-all duration-300"></span>
-                </span>
-                <ArrowRight size={14} className="sm:w-4 sm:h-4 transition-all duration-300 group-hover:translate-x-1" />
-              </Link>
             </div>
           </div>
         </div>
       )}
 
-      {/* Custom Animations */}
+      {/* Animations */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          25% { transform: translateY(-10px) translateX(5px); }
-          50% { transform: translateY(-20px) translateX(-5px); }
-          75% { transform: translateY(-10px) translateX(5px); }
-        }
-        
-        @keyframes floatShape {
-          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-          25% { transform: translateY(-20px) rotate(8deg); opacity: 0.4; }
-          50% { transform: translateY(-40px) rotate(-8deg); opacity: 0.6; }
-          75% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
-        }
-        
-        @keyframes slide-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(30px) scale(0.95); 
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
           }
-          to { 
-            opacity: 1; 
-            transform: translateY(0) scale(1); 
+
+          50% {
+            transform: translateY(-18px) translateX(5px);
+          }
+        }
+
+        @keyframes floatShape {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.15;
+          }
+
+          50% {
+            transform: translateY(-30px) rotate(8deg);
+            opacity: 0.5;
           }
         }
 
         @keyframes fade-in {
-          from { opacity: 0; transform: scale(0.9); }
-          to { opacity: 1; transform: scale(1); }
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
         }
 
         @keyframes scale-up {
-          from { 
-            opacity: 0; 
-            transform: scale(0.9) translateY(20px); 
+          from {
+            opacity: 0;
+            transform: scale(0.96);
           }
-          to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0); 
+
+          to {
+            opacity: 1;
+            transform: scale(1);
           }
         }
 
-        @keyframes border-spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        
         @keyframes pulse-delayed {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.2); }
+          0%,
+          100% {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
         }
 
         .animate-float {
           animation: float linear infinite;
         }
-        
+
         .animate-fade-in {
-          animation: fade-in 0.3s ease-out forwards;
+          animation: fade-in 0.2s ease-out forwards;
         }
 
         .animate-scale-up {
-          animation: scale-up 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+          animation: scale-up 0.25s ease-out forwards;
         }
 
-        .animate-border-spin {
-          animation: border-spin 3s linear infinite;
-        }
-        
         .animate-pulse-delayed {
           animation: pulse-delayed 2s ease-in-out infinite;
           animation-delay: 0.5s;
         }
 
-        .line-clamp-1 {
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-float,
+          .animate-pulse-delayed {
+            animation: none !important;
+          }
 
-        @media (max-width: 640px) {
-          .animate-float {
-            animation-duration: 15s !important;
+          * {
+            scroll-behavior: auto !important;
           }
         }
       `}</style>

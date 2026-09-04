@@ -3,6 +3,7 @@
 import { Phone, Mail, MapPin, Send, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { mediaUrl } from "@/lib/media";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -83,7 +84,7 @@ const Footer = () => {
               <div className="relative">
                 <div className="absolute -inset-3 bg-white/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <img
-                  src="/images/logo main.png"
+                  src={mediaUrl("/images/logo main.png")}
                   alt={companyName}
                   className="h-12 sm:h-14 w-auto object-contain relative z-10 transition-all duration-500 group-hover:scale-105"
                 />
@@ -238,7 +239,7 @@ const Footer = () => {
                   <div className="relative">
                     <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse-glow"></div>
                     <img
-                      src="/images/logo.webp"
+                      src={mediaUrl("/images/logo.webp")}
                       alt="Greenland"
                       className="h-6 sm:h-8 w-auto object-contain relative z-10"
                     />
@@ -260,7 +261,7 @@ const Footer = () => {
                   <div className="relative">
                     <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse-glow"></div>
                     <img
-                      src="/images/logo main.png"
+                      src={mediaUrl("/images/logo main.png")}
                       alt="Construction & Interiors"
                       className="h-6 sm:h-8 w-auto object-contain relative z-10"
                     />

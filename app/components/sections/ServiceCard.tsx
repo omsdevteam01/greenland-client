@@ -1,5 +1,5 @@
 'use client';
-
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
   Building2,
@@ -449,8 +449,8 @@ export default function OurBusinesses() {
                     <img
                       src={
                         business.type === 'construction'
-                          ? '/images/logo main.png'
-                          : '/images/logo.webp'
+                          ? mediaUrl("images/logo main.png")
+                          : mediaUrl("images/logo.webp")
                       }
                       alt={business.title}
                       className="
