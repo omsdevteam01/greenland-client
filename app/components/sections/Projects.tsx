@@ -23,6 +23,7 @@ const projects = [
     image: mediaUrl("images/cons4.png"),
   },
 ];
+
 export default function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] =
@@ -55,13 +56,13 @@ export default function ProjectsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-12 sm:py-16 overflow-hidden"
+      className="relative w-full py-7 sm:py-9 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="w-full h-full bg-gradient-to-br from-[#F8F6F1] via-[#EDE4D5] to-[#DCCBB5]/70" />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-transparent to-white/25" />
       </div>
 
       {/* Grid Pattern */}
@@ -69,8 +70,8 @@ export default function ProjectsSection() {
         className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+            linear-gradient(rgba(169,148,121,.10) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169,148,121,.10) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}
@@ -81,7 +82,7 @@ export default function ProjectsSection() {
         {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+            className="absolute rounded-full bg-[#A99479]/20 animate-float hidden md:block"
             style={{
               width: `${2 + i % 5}px`,
               height: `${2 + i % 5}px`,
@@ -99,7 +100,7 @@ export default function ProjectsSection() {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute border border-cyan-400/15"
+            className="absolute border border-[#B8A58D]/20"
             style={{
               width: `${20 + i * 5}px`,
               height: `${20 + i * 5}px`,
@@ -110,7 +111,7 @@ export default function ProjectsSection() {
               animationDelay: `${i * 0.8}s`,
               transform: `rotate(${i * 25}deg)`,
               background:
-                'radial-gradient(circle, rgba(22,213,232,.08), transparent)',
+                'radial-gradient(circle, rgba(184,165,141,.08), transparent)',
             }}
           />
         ))}
@@ -121,27 +122,27 @@ export default function ProjectsSection() {
 
         {/* Header */}
         <div
-          className={`text-center mb-6 sm:mb-10 transition-all duration-500 ${
+          className={`text-center mb-4 sm:mb-7 transition-all duration-500 ${
             isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 -translate-y-8'
           }`}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse" />
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse" />
 
-            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
+            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-[#766B5E]">
               Our Portfolio
             </p>
 
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed" />
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse-delayed" />
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001a1f] mt-1.5 sm:mt-2">
-            Featured <span className="text-cyan-600">Projects</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3F382F] mt-1.5 sm:mt-2">
+            Featured <span className="text-[#A99479]">Projects</span>
           </h2>
 
-          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-2 sm:mt-3" />
+          <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent mx-auto mt-2 sm:mt-3" />
         </div>
 
         {/* Image Grid */}
@@ -158,14 +159,14 @@ export default function ProjectsSection() {
                 w-full
                 rounded-lg
                 overflow-hidden
-                border border-white/40
-                bg-white/20
+                border border-[#E2D8C9]/80
+                bg-white/45
                 transition-all
                 duration-300
                 hover:scale-[1.04]
-                hover:border-cyan-600/40
-                hover:shadow-[0_0_40px_rgba(6,182,212,0.08)]
-                hover:bg-white/30
+                hover:border-[#A99479]/50
+                hover:shadow-[0_0_40px_rgba(169,148,121,0.10)]
+                hover:bg-white/65
                 cursor-pointer
                 text-left
                 ${
@@ -202,7 +203,7 @@ export default function ProjectsSection() {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-[#001a1f]/50
+                  from-[#3F382F]/50
                   via-transparent
                   to-transparent
                   opacity-70
@@ -234,7 +235,7 @@ export default function ProjectsSection() {
 
         {/* View All */}
         <div
-          className={`text-center mt-8 sm:mt-10 transition-all duration-500 ${
+          className={`text-center mt-5 sm:mt-7 transition-all duration-500 ${
             isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'
@@ -250,15 +251,15 @@ export default function ProjectsSection() {
               py-2
               sm:py-2.5
               rounded-lg
-              bg-cyan-600
+              bg-[#A99479]
               text-white
               text-xs
               sm:text-sm
               font-medium
-              shadow-[0_8px_25px_rgba(6,182,212,0.25)]
+              shadow-[0_8px_25px_rgba(169,148,121,0.20)]
               transition-all
               duration-200
-              hover:bg-cyan-700
+              hover:bg-[#927E64]
               hover:-translate-y-1
             "
           >
@@ -279,7 +280,7 @@ export default function ProjectsSection() {
             justify-center
             p-3
             sm:p-6
-            bg-black/80
+            bg-[#3F382F]/80
             backdrop-blur-sm
             animate-fade-in
           "
@@ -292,8 +293,8 @@ export default function ProjectsSection() {
               max-w-5xl
               overflow-hidden
               rounded-2xl
-              bg-black
-              shadow-[0_0_60px_rgba(6,182,212,0.08)]
+              bg-[#3F382F]
+              shadow-[0_0_60px_rgba(169,148,121,0.12)]
               animate-scale-up
             "
             onClick={(e) => e.stopPropagation()}
@@ -325,7 +326,7 @@ export default function ProjectsSection() {
             >
               <X
                 size={17}
-                className="text-[#001a1f]"
+                className="text-[#3F382F]"
               />
             </button>
 

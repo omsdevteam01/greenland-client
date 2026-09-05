@@ -83,8 +83,8 @@ Thank you.`;
     >
       {/* Background - Same as Business Section */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
+        <div className="w-full h-full bg-gradient-to-br from-[#F8F6F1] via-[#EDE4D5] to-[#DCCBB5]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white/40"></div>
       </div>
 
       {/* Glassy Grid Pattern - Same as Business Section */}
@@ -92,8 +92,8 @@ Thank you.`;
         className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+            linear-gradient(rgba(169,148,121,.18) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169,148,121,.18) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -104,7 +104,7 @@ Thank you.`;
         {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+            className="absolute rounded-full bg-[#A99479]/20 animate-float hidden md:block"
             style={{
               width: `${Math.random() * 6 + 2}px`,
               height: `${Math.random() * 6 + 2}px`,
@@ -122,17 +122,17 @@ Thank you.`;
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute border border-cyan-400/15 backdrop-blur-sm"
+            className="absolute border border-[#B8A58D]/30 backdrop-blur-sm"
             style={{
               width: `${Math.random() * 40 + 15}px`,
               height: `${Math.random() * 40 + 15}px`,
               left: `${Math.random() * 80 + 10}%`,
               top: `${Math.random() * 80 + 10}%`,
-              borderRadius: i % 2 === 0 ? '50%' : '8px',
+              borderRadius: i % 2 === 0 ? "50%" : "8px",
               animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 6}s`,
               transform: `rotate(${Math.random() * 360}deg)`,
-              background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
+              background: `radial-gradient(circle, rgba(184,165,141,.12), transparent)`,
             }}
           />
         ))}
@@ -140,10 +140,10 @@ Thank you.`;
 
       {/* Background Glow Effects */}
       <div
-        className="hidden md:block absolute -top-40 -right-20 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
+        className="hidden md:block absolute -top-40 -right-20 w-[400px] h-[400px] bg-[#DCCBB5]/25 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
       />
       <div
-        className="hidden md:block absolute -bottom-40 -left-20 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed"
+        className="hidden md:block absolute -bottom-40 -left-20 w-[400px] h-[400px] bg-[#B8A58D]/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -156,24 +156,24 @@ Thank you.`;
           }}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
-            <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse"></span>
+            <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-[#3F382F]">
               GET IN TOUCH
             </span>
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse-delayed"></span>
           </div>
 
-          <h2 className="mt-1.5 sm:mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#001a1f]">
+          <h2 className="mt-1.5 sm:mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#3F382F]">
             Let's Build the Perfect
-            <span className="block text-cyan-600 mt-0.5">
+            <span className="block text-[#A99479] mt-0.5">
               Solution for You
             </span>
           </h2>
 
           <div className="flex justify-center items-center gap-2 sm:gap-3 mt-1.5 sm:mt-2">
-            <span className="w-8 sm:w-10 h-[2px] bg-cyan-600" />
-            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rotate-45 bg-cyan-600 flex-shrink-0" />
-            <span className="w-8 sm:w-10 h-[2px] bg-cyan-600/40" />
+            <span className="w-8 sm:w-10 h-[2px] bg-[#A99479]" />
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rotate-45 bg-[#A99479] flex-shrink-0" />
+            <span className="w-8 sm:w-10 h-[2px] bg-[#A99479]/40" />
           </div>
         </div>
 
@@ -188,7 +188,7 @@ Thank you.`;
             }}
           >
             {/* Description */}
-            <p className="text-[#001a1f]/60 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-3 max-w-md">
+            <p className="text-[#3F382F]/90 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-3 max-w-md">
               Have a question or need a custom quote?
               Our team is here to help you with the best solutions tailored to your needs.
             </p>
@@ -235,16 +235,16 @@ Thank you.`;
                       gap-2.5 sm:gap-3
                       p-2 sm:p-2.5
                       rounded-lg
-                      bg-white/30
+                      bg-white/45
                       backdrop-blur-sm
-                      border border-white/40
-                      hover:bg-white/40
-                      hover:border-cyan-600/30
+                      border border-[#E2D8C9]/70
+                      hover:bg-white/65
+                      hover:border-[#A99479]/40
                       hover:translate-x-1.5
                       transition-all
                       duration-300
                       w-full
-                      ${item.link ? 'cursor-pointer' : 'cursor-default'}
+                      ${item.link ? "cursor-pointer" : "cursor-default"}
                     `}
                     style={{
                       animationDelay: `${index * 0.15}s`,
@@ -254,29 +254,29 @@ Thank you.`;
                       className="
                         w-7 h-7 sm:w-8 sm:h-8
                         rounded-lg
-                        bg-cyan-600/10
-                        border border-cyan-600/20
+                        bg-[#A99479]/10
+                        border border-[#A99479]/25
                         flex-shrink-0
                         flex
                         items-center
                         justify-center
                         group-hover:scale-110
-                        group-hover:bg-cyan-600/20
+                        group-hover:bg-[#A99479]/20
                         transition-all
                         duration-300
                       "
                     >
                       <Icon
                         size={13}
-                        className="sm:w-[15px] sm:h-[15px] text-cyan-700"
+                        className="sm:w-[15px] sm:h-[15px] text-[#927E64]"
                       />
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-[#001a1f] text-[11px] sm:text-xs font-semibold group-hover:text-cyan-700 transition-colors duration-300">
+                      <h4 className="text-[#3F382F] text-[11px] sm:text-xs font-semibold group-hover:text-[#927E64] transition-colors duration-300">
                         {item.title}
                       </h4>
-                      <p className="text-[#001a1f]/50 text-[11px] sm:text-xs leading-relaxed break-words group-hover:text-[#001a1f]/70 transition-colors duration-300">
+                      <p className="text-[#3F382F]/90 text-[11px] sm:text-xs leading-relaxed break-words group-hover:text-[#3F382F]/90 transition-colors duration-300">
                         {item.text}
                       </p>
                     </div>
@@ -284,7 +284,7 @@ Thank you.`;
                     {item.link && (
                       <ArrowRight
                         size={11}
-                        className="sm:w-3 sm:h-3 text-[#001a1f]/20 group-hover:text-cyan-700 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
+                        className="sm:w-3 sm:h-3 text-[#3F382F]/55 group-hover:text-[#927E64] group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
                       />
                     )}
                   </Wrapper>
@@ -303,12 +303,12 @@ Thank you.`;
           >
             <div
               className="
-                bg-white/30
+                bg-white/50
                 backdrop-blur-xl
                 rounded-xl
-                border border-white/40
-                shadow-[0_8px_32px_rgba(0,0,0,0.05)]
-                hover:shadow-[0_8px_40px_rgba(6,182,212,0.08)]
+                border border-[#E2D8C9]/80
+                shadow-[0_8px_32px_rgba(63,56,47,0.08)]
+                hover:shadow-[0_8px_40px_rgba(169,148,121,0.14)]
                 transition-all
                 duration-500
                 p-3 sm:p-4
@@ -319,15 +319,15 @@ Thank you.`;
               "
             >
               {/* Glass reflection */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/50 to-transparent pointer-events-none" />
 
               {/* Form Header - Compact */}
               <div className="mb-2.5 sm:mb-3">
-                <h3 className="text-sm sm:text-base font-bold text-[#001a1f] leading-tight">
+                <h3 className="text-sm sm:text-base font-bold text-[#3F382F] leading-tight">
                   Send Us a Message
                 </h3>
-                <div className="w-6 sm:w-8 h-[2px] bg-cyan-600 mt-1" />
-                <p className="text-[#001a1f]/40 text-[9px] sm:text-[10px] mt-1">
+                <div className="w-6 sm:w-8 h-[2px] bg-[#A99479] mt-1" />
+                <p className="text-[#3F382F]/100 text-[9px] sm:text-[10px] mt-1">
                   We'll get back within 24 hours
                 </p>
               </div>
@@ -342,19 +342,19 @@ Thank you.`;
                     w-full
                     h-[32px] sm:h-[34px]
                     rounded-lg
-                    border border-[#001a1f]/20
-                    bg-white/20
+                    border border-[#3F382F]/15
+                    bg-white/45
                     px-2.5 sm:px-3
                     text-[11px] sm:text-xs
-                    text-[#001a1f]
+                    text-[#3F382F]
                     outline-none
                     transition-all
                     duration-300
-                    focus:border-cyan-600/50
+                    focus:border-[#A99479]/60
                     focus:ring-2
-                    focus:ring-cyan-600/20
-                    placeholder:text-[#001a1f]/40
-                    hover:border-[#001a1f]/30
+                    focus:ring-[#A99479]/20
+                    placeholder:text-[#3F382F]/80
+                    hover:border-[#A99479]/35
                   "
                 />
 
@@ -367,19 +367,19 @@ Thank you.`;
                     w-full
                     h-[32px] sm:h-[34px]
                     rounded-lg
-                    border border-[#001a1f]/20
-                    bg-white/20
+                    border border-[#3F382F]/15
+                    bg-white/45
                     px-2.5 sm:px-3
                     text-[11px] sm:text-xs
-                    text-[#001a1f]
+                    text-[#3F382F]
                     outline-none
                     transition-all
                     duration-300
-                    focus:border-cyan-600/50
+                    focus:border-[#A99479]/60
                     focus:ring-2
-                    focus:ring-cyan-600/20
-                    placeholder:text-[#001a1f]/40
-                    hover:border-[#001a1f]/30
+                    focus:ring-[#A99479]/20
+                    placeholder:text-[#3F382F]/80
+                    hover:border-[#A99479]/35
                   "
                 />
 
@@ -392,19 +392,19 @@ Thank you.`;
                     w-full
                     h-[32px] sm:h-[34px]
                     rounded-lg
-                    border border-[#001a1f]/20
-                    bg-white/20
+                    border border-[#3F382F]/15
+                    bg-white/45
                     px-2.5 sm:px-3
                     text-[11px] sm:text-xs
-                    text-[#001a1f]
+                    text-[#3F382F]
                     outline-none
                     transition-all
                     duration-300
-                    focus:border-cyan-600/50
+                    focus:border-[#A99479]/60
                     focus:ring-2
-                    focus:ring-cyan-600/20
-                    placeholder:text-[#001a1f]/40
-                    hover:border-[#001a1f]/30
+                    focus:ring-[#A99479]/20
+                    placeholder:text-[#3F382F]/80
+                    hover:border-[#A99479]/35
                   "
                 />
 
@@ -416,20 +416,20 @@ Thank you.`;
                     w-full
                     h-[50px] sm:h-[60px]
                     rounded-lg
-                    border border-[#001a1f]/20
-                    bg-white/20
+                    border border-[#3F382F]/15
+                    bg-white/45
                     p-2.5 sm:p-3
                     text-[11px] sm:text-xs
                     resize-none
-                    text-[#001a1f]
+                    text-[#3F382F]
                     outline-none
                     transition-all
                     duration-300
-                    focus:border-cyan-600/50
+                    focus:border-[#A99479]/60
                     focus:ring-2
-                    focus:ring-cyan-600/20
-                    placeholder:text-[#001a1f]/40
-                    hover:border-[#001a1f]/30
+                    focus:ring-[#A99479]/20
+                    placeholder:text-[#3F382F]/80
+                    hover:border-[#A99479]/35
                   "
                 />
 
@@ -442,15 +442,15 @@ Thank you.`;
                     items-center
                     justify-center
                     gap-1.5 sm:gap-2
-                    bg-cyan-600
+                    bg-[#A99479]
                     text-white
                     rounded-lg
                     font-semibold
                     text-[11px] sm:text-xs
-                    shadow-[0_0_30px_rgba(6,182,212,0.15)]
-                    hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]
+                    shadow-[0_0_30px_rgba(169,148,121,0.18)]
+                    hover:shadow-[0_0_40px_rgba(169,148,121,0.28)]
                     hover:-translate-y-0.5
-                    hover:bg-cyan-700
+                    hover:bg-[#927E64]
                     transition-all
                     duration-300
                     group

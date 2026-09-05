@@ -208,15 +208,15 @@ export default function ConstructionPage() {
         {/* =====================================================
             GLOBAL BACKGROUND - Same as Business Section
         ===================================================== */}
-        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-[#DCCBB5]/40 via-[#EDE4D5]/30 to-[#DCCBB5]/40" />
         <div className="fixed inset-0 -z-10 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
 
         <div
           className="fixed inset-0 -z-10 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+              linear-gradient(rgba(169,148,121,.10) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(169,148,121,.10) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -227,7 +227,7 @@ export default function ConstructionPage() {
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#A99479]/15 animate-float hidden md:block"
               style={{
                 width: `${Math.random() * 5 + 2}px`,
                 height: `${Math.random() * 5 + 2}px`,
@@ -249,7 +249,7 @@ export default function ConstructionPage() {
             <div className="flex items-center justify-between pt-4 sm:pt-5 animate-fade-in">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-[#001a1f]/40 hover:text-cyan-600 text-[10px] transition-colors group"
+                className="inline-flex items-center gap-2 text-[#3F382F]/90 hover:text-[#A99479] text-[10px] transition-colors group"
               >
                 <ArrowRight
                   size={12}
@@ -257,7 +257,7 @@ export default function ConstructionPage() {
                 />
                 Back to Services
               </Link>
-              <span className="hidden sm:block text-[8px] uppercase tracking-[3px] text-[#001a1f]/25">
+              <span className="hidden sm:block text-[8px] uppercase tracking-[3px] text-[#3F382F]/75">
                 Ruhan Groups
               </span>
             </div>
@@ -270,22 +270,22 @@ export default function ConstructionPage() {
               {/* LEFT */}
               <div className="lg:pr-4">
                 <div className="flex items-center gap-2 mb-3 animate-fade-in">
-                  <span className="w-7 h-px bg-cyan-600 animate-scale-x" />
-                  <span className="text-cyan-700 text-[8px] uppercase tracking-[3px] font-bold">
+                  <span className="w-7 h-px bg-[#A99479] animate-scale-x" />
+                  <span className="text-[#927E64] text-[8px] uppercase tracking-[3px] font-bold">
                     Construction & Interiors
                   </span>
                 </div>
 
                 <h1 className="text-[43px] sm:text-[54px] md:text-[64px] lg:text-[72px] font-black leading-[0.87] tracking-[-4px] animate-slide-up">
                   BUILDING
-                  <span className="block text-cyan-600 animate-text-glow">STRONG.</span>
+                  <span className="block text-[#A99479] animate-text-glow">STRONG.</span>
                   <span className="block">DESIGNING</span>
-                  <span className="block text-[#001a1f]/35">BEAUTIFUL.</span>
+                  <span className="block text-[#3F382F]/85">BEAUTIFUL.</span>
                 </h1>
 
-                <div className="w-10 h-1 bg-cyan-600 mt-4 animate-scale-x" />
+                <div className="w-10 h-1 bg-[#A99479] mt-4 animate-scale-x" />
 
-                <p className="max-w-lg text-[#001a1f]/50 text-xs sm:text-sm leading-6 mt-3 animate-fade-in-delayed">
+                <p className="max-w-lg text-[#3F382F]/90 text-xs sm:text-sm leading-6 mt-3 animate-fade-in-delayed">
                   From structural construction to complete interior works,
                   Ruhan Groups creates residential, commercial and industrial
                   spaces with quality, precision and thoughtful design.
@@ -294,7 +294,7 @@ export default function ConstructionPage() {
                 <div className="flex flex-wrap gap-2 mt-4 animate-fade-in-delayed-2">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2.5 text-[10px] font-semibold transition-all group hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 bg-[#A99479] hover:bg-[#A99479] text-white px-4 py-2.5 text-[10px] font-semibold transition-all group hover:-translate-y-0.5"
                   >
                     Start Your Project
                     <ArrowRight
@@ -304,13 +304,13 @@ export default function ConstructionPage() {
                   </Link>
                   <Link
                     href="#services"
-                    className="inline-flex items-center gap-2 border border-[#001a1f]/15 hover:border-cyan-600 text-[#001a1f]/60 hover:text-cyan-700 px-4 py-2.5 text-[10px] font-semibold transition-all hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 border border-[#3F382F]/15 hover:border-[#A99479] text-[#3F382F]/95 hover:text-[#927E64] px-4 py-2.5 text-[10px] font-semibold transition-all hover:-translate-y-0.5"
                   >
                     Explore Services
                   </Link>
                 </div>
 
-                <div className="flex items-center gap-5 sm:gap-7 mt-5 pt-4 border-t border-[#001a1f]/10 animate-fade-in-delayed-3">
+                <div className="flex items-center gap-5 sm:gap-7 mt-5 pt-4 border-t border-[#3F382F]/10 animate-fade-in-delayed-3">
                   {[
                     { value: "500+", label: "Projects" },
                     { value: "10+", label: "Years" },
@@ -318,15 +318,15 @@ export default function ConstructionPage() {
                   ].map((stat, index) => (
                     <div
                       key={index}
-                      className={`transition-all duration-500 hover:-translate-y-1 ${
+                      className={`transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] ${
                         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
                     >
-                      <p className="text-xl font-black text-cyan-600 animate-counter">
+                      <p className="text-xl font-black text-[#A99479] animate-counter">
                         {stat.value}
                       </p>
-                      <p className="text-[7px] uppercase tracking-[1.5px] text-[#001a1f]/35">
+                      <p className="text-[7px] uppercase tracking-[1.5px] text-[#3F382F]/85">
                         {stat.label}
                       </p>
                     </div>
@@ -345,20 +345,20 @@ export default function ConstructionPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 55vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/50 via-transparent to-transparent" />
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-[58%] bg-cyan-800 text-white p-4 animate-fade-in">
-                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                <div className="absolute bottom-0 left-0 w-[58%] bg-[#A99479] text-white p-4 animate-fade-in">
+                  <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[3px]">
                     Ruhan Groups
                   </span>
                   <h2 className="text-lg font-black mt-1">
                     STRUCTURE.
-                    <span className="text-white/40"> FUNCTION.</span>
+                    <span className="text-white/85"> FUNCTION.</span>
                   </h2>
                 </div>
 
-                <div className="absolute top-7 left-0 w-14 h-14 border-l border-t border-cyan-600/30" />
+                <div className="absolute top-7 left-0 w-14 h-14 border-l border-t border-[#A99479]/30" />
               </div>
             </div>
           </div>
@@ -368,16 +368,16 @@ export default function ConstructionPage() {
             INTRO
         ===================================================== */}
 
-        <section className="relative bg-cyan-800">
+        <section className="relative bg-[#A99479]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`grid md:grid-cols-[0.7fr_1.3fr] gap-5 items-center py-5 sm:py-6 transition-all duration-700 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}>
               <h2 className="text-xl sm:text-2xl font-black text-white animate-slide-up">
                 MORE THAN
-                <span className="text-cyan-300 animate-text-glow"> STRUCTURES.</span>
+                <span className="text-[#DCCBB5] animate-text-glow"> STRUCTURES.</span>
               </h2>
-              <p className="text-white/60 text-xs leading-5 animate-fade-in-delayed">
+              <p className="text-white/90 text-xs leading-5 animate-fade-in-delayed">
                 We combine construction expertise, interior design, quality
                 materials and disciplined execution to create spaces that
                 remain valuable for years.
@@ -395,15 +395,15 @@ export default function ConstructionPage() {
             {/* HEADER */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5 sm:mb-7">
               <div className="animate-fade-in">
-                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                   What We Do
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-none tracking-[-2px] mt-1.5 animate-slide-up">
                   OUR
-                  <span className="text-cyan-600 animate-text-glow"> SERVICES.</span>
+                  <span className="text-[#A99479] animate-text-glow"> SERVICES.</span>
                 </h2>
               </div>
-              <p className="max-w-sm text-[#001a1f]/40 text-[10px] sm:text-xs leading-5 animate-fade-in-delayed">
+              <p className="max-w-sm text-[#3F382F]/90 text-[10px] sm:text-xs leading-5 animate-fade-in-delayed">
                 Complete construction and interior solutions under one roof.
               </p>
             </div>
@@ -416,7 +416,7 @@ export default function ConstructionPage() {
                     <Link
                       href="#showcase"
                       key={service.title}
-                      className={`group relative min-h-[205px] sm:min-h-[220px] bg-white/20 backdrop-blur-sm border border-white/20 overflow-hidden hover:bg-cyan-800 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(6,182,212,0.08)] ${
+                      className={`group relative min-h-[205px] sm:min-h-[220px] bg-white/20 backdrop-blur-sm border border-white/20 overflow-hidden hover:bg-[#A99479] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(169,148,121,0.08)] ${
                         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ 
@@ -425,57 +425,57 @@ export default function ConstructionPage() {
                       }}
                     >
                       {/* TOP ACCENT - Instant */}
-                      <div className="absolute top-0 left-0 w-10 h-0.5 bg-cyan-700 group-hover:w-full" />
+                      <div className="absolute top-0 left-0 w-10 h-0.5 bg-[#927E64] group-hover:w-full" />
                       
                       {/* CORNER DETAIL - Instant */}
                       <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
-                        <div className="absolute -right-8 -top-8 w-16 h-16 rotate-45 bg-cyan-700/10 group-hover:bg-cyan-700/20" />
+                        <div className="absolute -right-8 -top-8 w-16 h-16 rotate-45 bg-[#927E64]/10 group-hover:bg-[#927E64]/20" />
                       </div>
                       
                       {/* CONTENT */}
                       <div className="relative z-10 h-full p-5 flex flex-col">
                         {/* ICON ROW */}
                         <div className="flex items-start justify-between">
-                          <div className="relative w-11 h-11 bg-cyan-600/15 backdrop-blur-sm border border-cyan-600/35 flex items-center justify-center text-cyan-600 shadow-sm group-hover:bg-cyan-600 group-hover:text-white group-hover:rotate-3">
+                          <div className="relative w-11 h-11 bg-[#A99479]/15 backdrop-blur-sm border border-[#A99479]/35 flex items-center justify-center text-[#A99479] shadow-sm group-hover:bg-[#A99479] group-hover:text-white group-hover:rotate-3">
                             <Icon size={18} />
-                            <span className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-600 group-hover:bg-cyan-300" />
+                            <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#A99479] group-hover:bg-[#DCCBB5]" />
                           </div>
                           <ArrowUpRight
                             size={15}
-                            className="text-[#001a1f]/20 group-hover:text-cyan-300"
+                            className="text-[#3F382F]/70 group-hover:text-[#DCCBB5]"
                           />
                         </div>
                         
                         {/* CATEGORY - Instant */}
-                        <span className="text-cyan-600 group-hover:text-cyan-300 text-[7px] uppercase tracking-[2px] font-bold mt-5">
+                        <span className="text-[#A99479] group-hover:text-[#DCCBB5] text-[7px] uppercase tracking-[2px] font-bold mt-5">
                           {service.shortTitle}
                         </span>
                         
                         {/* TITLE - Instant */}
-                        <h3 className="text-base sm:text-[17px] font-black leading-tight mt-1.5 text-[#001a1f] group-hover:text-white">
+                        <h3 className="text-base sm:text-[17px] font-black leading-tight mt-1.5 text-[#3F382F] group-hover:text-white">
                           {service.title}
                         </h3>
                         
                         {/* DESCRIPTION - Instant */}
-                        <p className="text-[#001a1f]/40 group-hover:text-white/80 text-[9px] sm:text-[10px] leading-5 mt-2">
+                        <p className="text-[#3F382F]/90 group-hover:text-white/80 text-[9px] sm:text-[10px] leading-5 mt-2">
                           {service.description}
                         </p>
                         
                         {/* BOTTOM */}
                         <div className="mt-auto pt-4 flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1.5 text-cyan-600 group-hover:text-cyan-300 text-[8px] uppercase tracking-[1.5px] font-bold">
+                          <span className="inline-flex items-center gap-1.5 text-[#A99479] group-hover:text-[#DCCBB5] text-[8px] uppercase tracking-[1.5px] font-bold">
                             Explore Service
                             <ArrowRight
                               size={11}
                               className="group-hover:translate-x-1"
                             />
                           </span>
-                          <span className="w-8 h-px bg-cyan-800/20 group-hover:w-12 group-hover:bg-cyan-400/40" />
+                          <span className="w-8 h-px bg-[#A99479]/20 group-hover:w-12 group-hover:bg-[#B8A58D]/40" />
                         </div>
                       </div>
                       
                       {/* BOTTOM ACCENT - Instant */}
-                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-500 group-hover:w-full" />
+                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#B8A58D] group-hover:w-full" />
                     </Link>
                   );
                 })}
@@ -500,9 +500,9 @@ export default function ConstructionPage() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/80 to-transparent" />
                 <div className="absolute bottom-5 left-5 sm:left-6">
-                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                  <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[3px]">
                     Commercial
                   </span>
                   <h3 className="text-white text-xl sm:text-2xl font-black mt-1">
@@ -520,9 +520,9 @@ export default function ConstructionPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/75 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/75 to-transparent" />
                   <div className="absolute bottom-3 left-4">
-                    <span className="text-cyan-300 text-[7px] uppercase tracking-[2px]">
+                    <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[2px]">
                       Interior
                     </span>
                     <h3 className="text-white text-base font-bold mt-1">
@@ -538,9 +538,9 @@ export default function ConstructionPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/75 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/75 to-transparent" />
                   <div className="absolute bottom-3 left-4">
-                    <span className="text-cyan-300 text-[7px] uppercase tracking-[2px]">
+                    <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[2px]">
                       Renovation
                     </span>
                     <h3 className="text-white text-base font-bold mt-1">
@@ -561,15 +561,15 @@ export default function ConstructionPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-5 lg:gap-8 items-end mb-5">
               <div className="animate-fade-in">
-                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                   Granoceramics
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.9] tracking-[-2px] mt-1.5 animate-slide-up">
                   NANOCERAMIC
-                  <span className="block text-cyan-600 animate-text-glow">CEILING TILES.</span>
+                  <span className="block text-[#A99479] animate-text-glow">CEILING TILES.</span>
                 </h2>
               </div>
-              <p className="text-[#001a1f]/45 text-[10px] sm:text-xs leading-5 max-w-xl animate-fade-in-delayed">
+              <p className="text-[#3F382F]/90 text-[10px] sm:text-xs leading-5 max-w-xl animate-fade-in-delayed">
                 Advanced nanoceramic technology designed for modern
                 construction and architectural projects.
               </p>
@@ -581,25 +581,25 @@ export default function ConstructionPage() {
                 return (
                   <div
                     key={feature.title}
-                    className={`relative p-4 bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/25 hover:-translate-y-0.5 transition-all duration-300 ${
+                    className={`relative p-4 bg-white/30 backdrop-blur-sm border border-white/40 hover:border-[#A99479]/25 hover:-translate-y-0.5 transition-all duration-300 ${
                       visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
                     style={{ transitionDelay: `${1.0 + index * 0.08}s` }}
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-white/80 backdrop-blur-sm text-cyan-600 flex items-center justify-center flex-shrink-0 border border-cyan-600/10 transition-all duration-300 group-hover:bg-cyan-600 group-hover:text-white">
+                      <div className="w-8 h-8 bg-white/80 backdrop-blur-sm text-[#A99479] flex items-center justify-center flex-shrink-0 border border-[#A99479]/10 transition-all duration-300 group-hover:bg-[#A99479] group-hover:text-white">
                         <Icon size={15} />
                       </div>
                       <div>
-                        <h3 className="text-[12px] sm:text-xs font-bold text-[#001a1f]">
+                        <h3 className="text-[12px] sm:text-xs font-bold text-[#3F382F]">
                           {feature.title}
                         </h3>
-                        <p className="text-[#001a1f]/80 text-[10px] sm:text-[9px] leading-4 mt-1">
+                        <p className="text-[#3F382F]/80 text-[10px] sm:text-[9px] leading-4 mt-1">
                           {feature.desc}
                         </p>
                       </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 w-5 h-0.5 bg-cyan-600/30" />
+                    <div className="absolute bottom-0 left-0 w-5 h-0.5 bg-[#A99479]/30" />
                   </div>
                 );
               })}
@@ -611,14 +611,17 @@ export default function ConstructionPage() {
             PRODUCTS
         ===================================================== */}
 
-        <section className="relative py-8 sm:py-10">
+        <section className="relative py-5 sm:py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`grid lg:grid-cols-2 transition-all duration-700 ${
+            <div className={`relative grid lg:grid-cols-2 transition-all duration-700 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}>
+              {/* CENTER SEPARATOR */}
+              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-white/40 z-20 pointer-events-none" />
+
               {/* WEATHERED */}
-              <div className="grid sm:grid-cols-2 min-h-[280px]">
-                <div className="relative min-h-[200px] sm:min-h-full">
+              <div className="grid sm:grid-cols-2 min-h-[230px] sm:min-h-[250px]">
+                <div className="relative min-h-[160px] sm:min-h-full">
                   <Image
                     src={mediaUrl("/images/weatherwood.png")}
                     alt="Weathered Wood"
@@ -626,23 +629,23 @@ export default function ConstructionPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="bg-cyan-600 p-5 flex flex-col justify-center">
-                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                <div className="bg-[#A99479] p-4 sm:p-5 flex flex-col justify-center">
+                  <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[3px]">
                     Collection
                   </span>
-                  <h3 className="text-2xl font-black text-white mt-1.5">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
                     WEATHERED
-                    <span className="block text-cyan-300">WOOD</span>
+                    <span className="block text-[#DCCBB5]">WOOD</span>
                   </h3>
-                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-2">
+                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-1.5">
                     <Ruler size={11} />
                     465 × 330 mm
                   </div>
-                  <p className="text-white/80 text-[10px] leading-5 mt-3">
+                  <p className="text-white/80 text-[10px] leading-4.5 mt-2">
                     Rustic wood aesthetics combined with advanced nanoceramic
                     technology for refined interiors.
                   </p>
-                  <div className="flex gap-1.5 mt-3">
+                  <div className="flex gap-1.5 mt-2.5">
                     {productColors.map((item) => (
                       <div
                         key={item.name}
@@ -655,8 +658,8 @@ export default function ConstructionPage() {
               </div>
 
               {/* HERITAGE */}
-              <div className="grid sm:grid-cols-2 min-h-[280px]">
-                <div className="relative min-h-[200px] sm:min-h-full order-1 sm:order-2">
+              <div className="grid sm:grid-cols-2 min-h-[230px] sm:min-h-[250px]">
+                <div className="relative min-h-[160px] sm:min-h-full order-1 sm:order-2">
                   <Image
                     src={mediaUrl("/images/heritage.png")}
                     alt="Heritage Series"
@@ -664,23 +667,23 @@ export default function ConstructionPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="bg-cyan-800 p-5 flex flex-col justify-center order-2 sm:order-1">
-                  <span className="text-cyan-300 text-[7px] uppercase tracking-[3px]">
+                <div className="bg-[#A99479] p-4 sm:p-5 flex flex-col justify-center order-2 sm:order-1">
+                  <span className="text-[#DCCBB5] text-[7px] uppercase tracking-[3px]">
                     Collection
                   </span>
-                  <h3 className="text-2xl font-black text-white mt-1.5">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
                     HERITAGE
-                    <span className="block text-cyan-300">SERIES</span>
+                    <span className="block text-[#DCCBB5]">SERIES</span>
                   </h3>
-                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-2">
+                  <div className="flex items-center gap-2 text-white/80 text-[8px] mt-1.5">
                     <Ruler size={11} />
                     465 × 465 mm
                   </div>
-                  <p className="text-white/80 text-[10px] leading-5 mt-3">
+                  <p className="text-white/80 text-[10px] leading-4.5 mt-2">
                     Timeless architectural patterns combined with modern
                     durability and refined nanoceramic technology.
                   </p>
-                  <div className="flex gap-1.5 mt-3">
+                  <div className="flex gap-1.5 mt-2.5">
                     {productColors.map((item) => (
                       <div
                         key={item.name}
@@ -703,14 +706,14 @@ export default function ConstructionPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-5 lg:gap-8">
               <div className="animate-fade-in">
-                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                   Why Ruhan Groups
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.9] tracking-[-2px] mt-1.5 animate-slide-up">
                   BUILT ON
-                  <span className="block text-cyan-600 animate-text-glow">TRUST.</span>
+                  <span className="block text-[#A99479] animate-text-glow">TRUST.</span>
                 </h2>
-                <p className="text-[#001a1f]/40 text-[10px] leading-5 max-w-sm mt-3 animate-fade-in-delayed">
+                <p className="text-[#3F382F]/90 text-[10px] leading-5 max-w-sm mt-3 animate-fade-in-delayed">
                   Quality materials, experienced professionals and disciplined
                   execution come together in every project.
                 </p>
@@ -722,23 +725,23 @@ export default function ConstructionPage() {
                   return (
                     <div
                       key={item.title}
-                      className={`group bg-white/30 backdrop-blur-sm p-4 border border-white/40 hover:border-cyan-600/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)] ${
+                      className={`group bg-white/30 backdrop-blur-sm p-4 border border-white/40 hover:border-[#A99479]/25 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(169,148,121,0.05)] ${
                         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ transitionDelay: `${1.4 + index * 0.1}s` }}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 bg-cyan-600 text-white flex items-center justify-center group-hover:rotate-3 transition-transform">
+                        <div className="w-9 h-9 bg-[#A99479] text-white flex items-center justify-center group-hover:rotate-3 transition-transform">
                           <Icon size={15} />
                         </div>
-                        <h3 className="text-xs sm:text-sm font-bold text-[#001a1f] group-hover:text-cyan-700 transition-colors">
+                        <h3 className="text-xs sm:text-sm font-bold text-[#3F382F] group-hover:text-[#927E64] transition-colors">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-[#001a1f]/40 text-[9px] leading-5 mt-2.5">
+                      <p className="text-[#3F382F]/90 text-[9px] leading-5 mt-2.5">
                         {item.text}
                       </p>
-                      <div className="flex items-center gap-1 text-cyan-600 text-[7px] uppercase tracking-[1.5px] font-bold mt-3">
+                      <div className="flex items-center gap-1 text-[#A99479] text-[7px] uppercase tracking-[1.5px] font-bold mt-3">
                         <Check size={10} />
                         Guaranteed Approach
                       </div>
@@ -758,15 +761,15 @@ export default function ConstructionPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-end justify-between mb-5">
               <div className="animate-fade-in">
-                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                   Our Process
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-[#001a1f] mt-1.5 animate-slide-up">
+                <h2 className="text-3xl sm:text-4xl font-black text-[#3F382F] mt-1.5 animate-slide-up">
                   HOW WE
-                  <span className="text-cyan-600 animate-text-glow"> WORK.</span>
+                  <span className="text-[#A99479] animate-text-glow"> WORK.</span>
                 </h2>
               </div>
-              <span className="hidden sm:block text-[#001a1f]/20 text-[8px] uppercase tracking-[3px] animate-fade-in-delayed">
+              <span className="hidden sm:block text-[#3F382F]/70 text-[8px] uppercase tracking-[3px] animate-fade-in-delayed">
                 Simple · Clear · Reliable
               </span>
             </div>
@@ -775,27 +778,27 @@ export default function ConstructionPage() {
               {process.map((step, index) => (
                 <div
                   key={step.title}
-                  className={`group relative p-4 sm:p-5 bg-white/30 backdrop-blur-sm border border-white/40 hover:bg-[#001a1f] hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)] ${
+                  className={`group relative p-4 sm:p-5 bg-white/30 backdrop-blur-sm border border-white/40 hover:bg-[#3F382F] hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(63,56,47,0.08)] hover:shadow-[0_0_30px_rgba(169,148,121,0.05)] ${
                     visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${1.6 + index * 0.1}s` }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-600 text-[7px] uppercase tracking-[2px] font-bold group-hover:text-cyan-500">
+                    <span className="text-[#A99479] text-[7px] uppercase tracking-[2px] font-bold group-hover:text-[#B8A58D]">
                       Step {index + 1}
                     </span>
                     <ArrowRight
                       size={12}
-                      className="text-cyan-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                      className="text-[#A99479] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
                     />
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-[#001a1f] mt-3 group-hover:text-cyan-600 transition-colors">
+                  <h3 className="text-sm sm:text-base font-bold text-[#3F382F] mt-3 group-hover:text-[#A99479] transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-[#001a1f]/40 group-hover:text-cyan-800 text-[9px] leading-5 mt-1.5">
+                  <p className="text-[#3F382F]/90 group-hover:text-[#A99479] text-[9px] leading-5 mt-1.5">
                     {step.text}
                   </p>
-                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-500 group-hover:w-full transition-all duration-500" />
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#B8A58D] group-hover:w-full transition-all duration-500" />
                 </div>
               ))}
             </div>
@@ -806,7 +809,7 @@ export default function ConstructionPage() {
             CTA
         ===================================================== */}
 
-        <section className="relative bg-cyan-900 overflow-hidden">
+        <section className="relative bg-[#927E64] overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute inset-0"
@@ -820,22 +823,22 @@ export default function ConstructionPage() {
             />
           </div>
           
-          <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow" />
-          <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow-delayed" />
+          <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-[#B8A58D]/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-[#B8A58D]/10 blur-3xl animate-pulse-slow-delayed" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`flex flex-col md:flex-row md:items-center justify-between gap-5 py-7 sm:py-8 transition-all duration-700 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}>
               <div className="animate-fade-in">
-                <span className="text-cyan-300 text-[8px] uppercase tracking-[3px]">
+                <span className="text-[#DCCBB5] text-[8px] uppercase tracking-[3px]">
                   Start Your Project
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mt-1.5 animate-slide-up">
                   LET'S CREATE
-                  <span className="text-cyan-300 animate-text-glow"> YOUR SPACE.</span>
+                  <span className="text-[#DCCBB5] animate-text-glow"> YOUR SPACE.</span>
                 </h2>
-                <p className="text-white/35 text-[10px] sm:text-xs mt-1.5 max-w-xl animate-fade-in-delayed">
+                <p className="text-white/80 text-[10px] sm:text-xs mt-1.5 max-w-xl animate-fade-in-delayed">
                   Tell us about your construction, interior or renovation
                   project and let our team turn your vision into reality.
                 </p>
@@ -844,7 +847,7 @@ export default function ConstructionPage() {
               <div className="flex flex-wrap gap-2 animate-fade-in-delayed-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-[#001a1f] px-5 py-2.5 text-[9px] font-bold uppercase tracking-wide transition-all group hover:-translate-y-1 hover:shadow-lg"
+                  className="animate-shimmer inline-flex items-center gap-2 bg-[#B8A58D] hover:bg-[#DCCBB5] text-[#3F382F] px-5 py-2.5 text-[9px] font-bold uppercase tracking-wide transition-all group hover:-translate-y-1 hover:shadow-lg"
                 >
                   Get a Free Quote
                   <ArrowRight
@@ -854,7 +857,7 @@ export default function ConstructionPage() {
                 </Link>
                 <a
                   href="tel:+919999999999"
-                  className="inline-flex items-center gap-2 border border-white/20 hover:border-cyan-400 text-white/60 hover:text-white px-4 py-2.5 text-[9px] font-bold transition-all hover:-translate-y-1"
+                  className="inline-flex items-center gap-2 border border-white/20 hover:border-[#B8A58D] text-white/90 hover:text-white px-4 py-2.5 text-[9px] font-bold transition-all hover:-translate-y-1"
                 >
                   <Phone size={12} />
                   Talk to Us
@@ -906,13 +909,34 @@ export default function ConstructionPage() {
           75% { transform: translateY(-12px) translateX(6px); }
         }
         @keyframes text-glow {
-          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
-          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
+          0%, 100% { text-shadow: 0 0 20px rgba(169, 148, 121, 0.12); }
+          50% { text-shadow: 0 0 40px rgba(169, 148, 121, 0.28); }
         }
         @keyframes counter {
           0% { opacity: 0; transform: scale(0.8) translateY(10px); }
           60% { transform: scale(1.1) translateY(-2px); }
           100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(-130%); }
+          55%, 100% { transform: translateX(230%); }
+        }
+
+        .animate-shimmer {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .animate-shimmer::after {
+          content: "";
+          position: absolute;
+          inset: 0 auto 0 -45%;
+          width: 35%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+          transform: skewX(-18deg);
+          animation: shimmer 3.5s ease-in-out infinite;
+          pointer-events: none;
         }
 
         .animate-fade-in { animation: fade-in 0.6s ease-out forwards; opacity: 0; }
@@ -925,6 +949,14 @@ export default function ConstructionPage() {
         .animate-float { animation: float linear infinite; }
         .animate-text-glow { animation: text-glow 3s ease-in-out infinite; }
         .animate-counter { animation: counter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; display: inline-block; }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+          }
+        }
 
         @media (max-width: 640px) {
           .animate-float { animation-duration: 18s !important; }

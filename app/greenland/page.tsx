@@ -81,7 +81,7 @@ const services = [
 
 const galleryImages = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
-  image: `/images/gl${i + 1}.png`,
+  image: mediaUrl(`/images/gl${i + 1}.png`),
 }));
 
 const canopySolutions = [
@@ -133,18 +133,18 @@ const warrantyItems = [
 const SectionHeader = ({ badge, title, highlight, description }: any) => (
   <div className="text-center mb-5 sm:mb-6">
     <div className="flex items-center justify-center gap-2 animate-fade-in">
-      <span className="w-8 h-px bg-cyan-600 animate-scale-x" />
-      <span className="text-cyan-700 text-[9px] sm:text-[10px] uppercase tracking-[3px] font-bold">
+      <span className="w-8 h-px bg-[#A99479] animate-scale-x" />
+      <span className="text-[#927E64] text-[9px] sm:text-[10px] uppercase tracking-[3px] font-bold">
         {badge}
       </span>
-      <span className="w-8 h-px bg-cyan-600 animate-scale-x-delayed" />
+      <span className="w-8 h-px bg-[#A99479] animate-scale-x-delayed" />
     </div>
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#071f35] mt-2 tracking-[-1px] animate-slide-up">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#3F382F] mt-2 tracking-[-1px] animate-slide-up">
       {title}{" "}
-      <span className="text-cyan-600 animate-text-glow">{highlight}</span>
+      <span className="text-[#A99479] animate-text-glow">{highlight}</span>
     </h2>
     {description && (
-      <p className="max-w-xl mx-auto text-[#001a1f]/45 text-xs sm:text-sm leading-6 mt-1.5 animate-fade-in-delayed">
+      <p className="max-w-xl mx-auto text-[#3F382F]/90 text-xs sm:text-sm leading-6 mt-1.5 animate-fade-in-delayed">
         {description}
       </p>
     )}
@@ -179,14 +179,14 @@ export default function GreenlandPage() {
         {/* =====================================================
             GLOBAL BACKGROUND
         ===================================================== */}
-        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-[#B8A58D]/40 via-[#DCCBB5]/30 to-[#DCCBB5]/40" />
         <div className="fixed inset-0 -z-10 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
         <div
           className="fixed inset-0 -z-10 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+              linear-gradient(rgba(169,148,121,.10) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(169,148,121,.10) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -195,7 +195,7 @@ export default function GreenlandPage() {
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#A99479]/15 animate-float hidden md:block"
               style={{
                 width: `${Math.random() * 5 + 2}px`,
                 height: `${Math.random() * 5 + 2}px`,
@@ -215,7 +215,7 @@ export default function GreenlandPage() {
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-[#001a1f]/40 hover:text-cyan-600 transition-colors duration-300 mb-3 sm:mb-4 group animate-fade-in"
+              className="inline-flex items-center gap-2 text-[#3F382F]/85 hover:text-[#A99479] transition-colors duration-300 mb-3 sm:mb-4 group animate-fade-in"
             >
               <ArrowRight size={14} className="rotate-180 transition-transform group-hover:-translate-x-1" />
               <span className="text-xs sm:text-sm">Back to Service</span>
@@ -226,13 +226,13 @@ export default function GreenlandPage() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
             >
-              <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-cyan-300/20 blur-3xl animate-pulse-slow" />
-              <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl animate-pulse-slow-delayed" />
+              <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#DCCBB5]/20 blur-3xl animate-pulse-slow" />
+              <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-[#DCCBB5]/10 blur-3xl animate-pulse-slow-delayed" />
 
               <div className="relative z-10 p-6 sm:p-8 md:p-10 text-center">
                 <div className="flex justify-center mb-3 sm:mb-4 animate-fade-in-down">
                   <div className="relative">
-                    <div className="absolute inset-[-35px] rounded-full bg-cyan-400/15 blur-3xl animate-pulse-glow" />
+                    <div className="absolute inset-[-35px] rounded-full bg-[#B8A58D]/15 blur-3xl animate-pulse-glow" />
                     <Image
                       src={mediaUrl("/images/logo.webp")}
                       alt="Greenland Tensile Shade Solutions"
@@ -244,35 +244,35 @@ export default function GreenlandPage() {
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-cyan-600/10 border border-cyan-600/20 animate-fade-in">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" />
-                  <span className="text-[8px] sm:text-[10px] font-semibold text-cyan-700 uppercase tracking-[2px] sm:tracking-[3px]">
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#A99479]/10 border border-[#A99479]/20 animate-fade-in">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#A99479] animate-pulse" />
+                  <span className="text-[8px] sm:text-[10px] font-semibold text-[#927E64] uppercase tracking-[2px] sm:tracking-[3px]">
                     Greenland Tensile Shade
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#A99479] animate-pulse-delayed" />
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#001a1f] leading-tight mt-3 animate-slide-up">
-                  Modern <span className="text-cyan-600 animate-text-glow">Shade</span> Solutions
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#3F382F] leading-tight mt-3 animate-slide-up">
+                  Modern <span className="text-[#A99479] animate-text-glow">Shade</span> Solutions
                 </h1>
 
-                <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-[#001a1f]/60 text-sm sm:text-base px-2 animate-fade-in-delayed">
+                <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-[#3F382F]/95 text-sm sm:text-base px-2 animate-fade-in-delayed">
                   Modern | Durable | Elegant — Tensile structure systems since 2020.
                 </p>
 
-                <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent mx-auto mt-3 animate-scale-x" />
+                <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent mx-auto mt-3 animate-scale-x" />
 
                 <div className="flex flex-wrap items-center justify-center gap-3 mt-4 animate-fade-in-delayed-2">
                   <Link
                     href="projects"
-                    className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium shadow-lg shadow-cyan-600/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-cyan-600/40"
+                    className="animate-shimmer inline-flex items-center gap-2 bg-[#A99479] hover:bg-[#927E64] text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium shadow-lg shadow-[#A99479]/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[#A99479]/40"
                   >
                     Explore Projects
                     <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 border border-cyan-600/40 text-cyan-700 hover:bg-cyan-600 hover:text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 group hover:-translate-y-1"
+                    className="inline-flex items-center gap-2 border border-[#A99479]/40 text-[#927E64] hover:bg-[#A99479] hover:text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 group hover:-translate-y-1"
                   >
                     Get a Free Quote
                     <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
@@ -288,13 +288,13 @@ export default function GreenlandPage() {
                 return (
                   <div
                     key={index}
-                    className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-white/30 border border-white/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] hover:border-cyan-600/30 ${
+                    className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-white/30 border border-white/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_12px_30px_rgba(63,56,47,0.10)] hover:border-[#A99479]/30 ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
                     style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
                   >
-                    <Icon size={15} className="text-cyan-600 flex-shrink-0 animate-pulse-slow" />
-                    <span className="text-[9px] sm:text-[10px] text-[#001a1f]/60 leading-4">
+                    <Icon size={15} className="text-[#A99479] flex-shrink-0 animate-pulse-slow" />
+                    <span className="text-[9px] sm:text-[10px] text-[#3F382F]/95 leading-4">
                       {item.text}
                     </span>
                   </div>
@@ -307,7 +307,7 @@ export default function GreenlandPage() {
         {/* =====================================================
             FEATURE STRIP
         ===================================================== */}
-        <section className="relative bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 text-white">
+        <section className="relative bg-[#A99479] text-white">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <div className="grid grid-cols-2 lg:grid-cols-4">
               {features.map((feature, index) => {
@@ -325,7 +325,7 @@ export default function GreenlandPage() {
                       <h3 className="text-[9px] sm:text-xs font-bold uppercase tracking-wide">
                         {feature.title}
                       </h3>
-                      <p className="text-[8px] sm:text-[10px] text-white/65 leading-5 mt-1">
+                      <p className="text-[8px] sm:text-[10px] text-white/90 leading-5 mt-1">
                         {feature.desc}
                       </p>
                     </div>
@@ -339,28 +339,28 @@ export default function GreenlandPage() {
         {/* =====================================================
             ABOUT
         ===================================================== */}
-        <section className="relative py-8 sm:py-10 lg:py-12">
+        <section className="relative py-8 sm:py-10 lg:py-12 animate-section-reveal">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <div className="flex items-center gap-3 animate-fade-in">
-                  <span className="text-cyan-700 text-[9px] sm:text-[10px] font-bold uppercase tracking-[3px]">
+                  <span className="text-[#927E64] text-[9px] sm:text-[10px] font-bold uppercase tracking-[3px]">
                     About Greenland
                   </span>
-                  <span className="w-10 h-px bg-cyan-600 animate-scale-x" />
+                  <span className="w-10 h-px bg-[#A99479] animate-scale-x" />
                 </div>
 
-                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black leading-[0.95] tracking-[-1.5px] text-[#071f35] animate-slide-up">
+                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black leading-[0.95] tracking-[-1.5px] text-[#3F382F] animate-slide-up">
                   SHADE SOLUTIONS
-                  <span className="block text-cyan-600 mt-1 animate-text-glow-delayed">
+                  <span className="block text-[#A99479] mt-1 animate-text-glow-delayed">
                     FOR MODERN SPACES
                   </span>
                 </h2>
 
-                <div className="w-12 h-1 bg-cyan-600 mt-3 animate-scale-x" />
+                <div className="w-12 h-1 bg-[#A99479] mt-3 animate-scale-x" />
 
-                <p className="text-[#001a1f]/60 text-sm sm:text-base leading-7 mt-3 animate-fade-in-delayed">
-                  <span className="font-semibold text-cyan-700">
+                <p className="text-[#3F382F]/95 text-sm sm:text-base leading-7 mt-3 animate-fade-in-delayed">
+                  <span className="font-semibold text-[#927E64]">
                     Greenland Tensile Shade
                   </span>{" "}
                   specializes in designing and installing high-quality tensile
@@ -368,7 +368,7 @@ export default function GreenlandPage() {
                   areas, walkways and outdoor spaces.
                 </p>
 
-                <p className="text-[#001a1f]/55 text-sm sm:text-base leading-7 mt-2 animate-fade-in-delayed-2">
+                <p className="text-[#3F382F]/90 text-sm sm:text-base leading-7 mt-2 animate-fade-in-delayed-2">
                   We provide strong steel frames with premium tensile fabric
                   to create stylish, durable and weather-resistant shading
                   solutions. Our team focuses on quality workmanship,
@@ -384,25 +384,25 @@ export default function GreenlandPage() {
                       }`}
                       style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
                     >
-                      <CheckCircle size={15} className="text-cyan-600 flex-shrink-0 animate-pulse-slow" />
-                      <span className="text-xs sm:text-sm text-[#001a1f]/65">{point}</span>
+                      <CheckCircle size={15} className="text-[#A99479] flex-shrink-0 animate-pulse-slow" />
+                      <span className="text-xs sm:text-sm text-[#3F382F]/95">{point}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-[#001a1f]/10">
+                <div className="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-[#3F382F]/10">
                   {stats.map((stat, index) => (
                     <div
                       key={index}
-                      className={`transition-all duration-500 hover:-translate-y-1 ${
+                      className={`transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] ${
                         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ transitionDelay: `${0.8 + index * 0.1}s` }}
                     >
-                      <p className="text-2xl sm:text-3xl font-black text-cyan-600 animate-counter">
+                      <p className="text-2xl sm:text-3xl font-black text-[#A99479] animate-counter">
                         {stat.value}
                       </p>
-                      <p className="text-[8px] sm:text-[9px] uppercase tracking-wide text-[#001a1f]/45 mt-1">
+                      <p className="text-[8px] sm:text-[9px] uppercase tracking-wide text-[#3F382F]/90 mt-1">
                         {stat.label}
                       </p>
                     </div>
@@ -411,17 +411,17 @@ export default function GreenlandPage() {
               </div>
 
               <div className="relative animate-slide-up-delayed">
-                <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-full h-full border-[10px] sm:border-[14px] border-cyan-600/15 animate-pulse-slow" />
+                <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-full h-full border-[10px] sm:border-[14px] border-[#A99479]/15 animate-pulse-slow" />
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
                   <Image
                     src={mediaUrl("/images/about.webp")}
                     alt="Greenland Tensile Shade Project"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105 animate-soft-zoom"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/40 to-transparent" />
                   <div className="absolute left-4 bottom-4">
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-2 text-[8px] sm:text-[9px] uppercase tracking-[2px] font-bold text-[#071f35] border border-white/40">
+                    <span className="bg-white/90 backdrop-blur-sm px-3 py-2 text-[8px] sm:text-[9px] uppercase tracking-[2px] font-bold text-[#3F382F] border border-white/40">
                       Professional Tensile Structure Systems
                     </span>
                   </div>
@@ -434,7 +434,7 @@ export default function GreenlandPage() {
         {/* =====================================================
             SERVICES
         ===================================================== */}
-        <section className="relative py-8 sm:py-10">
+        <section className="relative py-8 sm:py-10 animate-section-reveal">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <SectionHeader
               badge="What We Create"
@@ -450,19 +450,19 @@ export default function GreenlandPage() {
                   <div
                     key={index}
                     className={`relative px-5 sm:px-6 py-4 lg:py-2 text-center transition-all duration-500 hover:bg-white/20 hover:-translate-y-1 ${
-                      index !== 0 ? "border-t sm:border-t-0 sm:border-l border-cyan-700/15" : ""
+                      index !== 0 ? "border-t sm:border-t-0 sm:border-l border-[#927E64]/15" : ""
                     } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                     style={{ transitionDelay: `${1.0 + index * 0.1}s` }}
                   >
                     <div className="flex justify-center mb-2">
-                      <div className="w-14 h-14 flex items-center justify-center text-cyan-600 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                      <div className="w-14 h-14 flex items-center justify-center text-[#A99479] transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
                         <Icon size={40} strokeWidth={1} className="transition-transform duration-500 group-hover:scale-110" />
                       </div>
                     </div>
-                    <h3 className="text-xs sm:text-sm font-bold text-[#071f35] group-hover:text-cyan-700 transition-colors duration-300">
+                    <h3 className="text-xs sm:text-sm font-bold text-[#3F382F] group-hover:text-[#927E64] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-[9px] sm:text-[10px] leading-5 text-[#001a1f]/50 max-w-[230px] mx-auto mt-1">
+                    <p className="text-[9px] sm:text-[10px] leading-5 text-[#3F382F]/90 max-w-[230px] mx-auto mt-1">
                       {service.description}
                     </p>
                   </div>
@@ -475,7 +475,7 @@ export default function GreenlandPage() {
         {/* =====================================================
             GALLERY
         ===================================================== */}
-        <section id="gallery" className="relative py-8 sm:py-10 scroll-mt-20">
+        <section id="gallery" className="relative py-8 sm:py-10 scroll-mt-20 animate-section-reveal">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <SectionHeader
               badge="Project Gallery"
@@ -490,7 +490,7 @@ export default function GreenlandPage() {
                   key={image.id}
                   type="button"
                   onClick={() => setSelectedImage(image)}
-                  className={`group relative rounded-xl overflow-hidden cursor-pointer aspect-square bg-white/30 border border-[#001a1f]/10 hover:border-cyan-600/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(6,182,212,0.12)] text-left ${
+                  className={`group relative rounded-xl overflow-hidden cursor-pointer aspect-square bg-white/30 border border-[#3F382F]/10 hover:border-[#A99479]/40 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(169,148,121,0.16)] text-left ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${1.2 + index * 0.05}s` }}
@@ -501,16 +501,16 @@ export default function GreenlandPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-cyan-600/0 group-hover:bg-cyan-600/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-[#A99479]/0 group-hover:bg-[#A99479]/10 transition-colors duration-500" />
                 </button>
               ))}
             </div>
 
             <div className="flex justify-center mt-4 animate-fade-in-up">
               <Link
-                href="#gallery"
-                className="inline-flex items-center gap-2 border border-cyan-600 text-cyan-700 hover:bg-cyan-600 hover:text-white px-5 py-2.5 text-[9px] sm:text-[10px] uppercase tracking-wide font-bold transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-600/20"
+                href="projects"
+                className="inline-flex items-center gap-2 border border-[#A99479] text-[#927E64] hover:bg-[#A99479] hover:text-white px-5 py-2.5 text-[9px] sm:text-[10px] uppercase tracking-wide font-bold transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg hover:shadow-[#A99479]/20"
               >
                 View More Projects
                 <ArrowRight size={13} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
@@ -525,10 +525,10 @@ export default function GreenlandPage() {
         <section className="relative py-6 sm:py-8 lg:py-10">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
-            <div className="relative overflow-hidden rounded-[28px] border border-cyan-700/10 bg-white/35 backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-[28px] border border-[#927E64]/10 bg-white/35 backdrop-blur-xl">
 
-              <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-72 h-72 bg-[#B8A58D]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#DCCBB5]/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
 
@@ -536,19 +536,19 @@ export default function GreenlandPage() {
                   <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-3">
-                        <span className="w-8 h-px bg-cyan-600" />
-                        <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-bold">
+                        <span className="w-8 h-px bg-[#A99479]" />
+                        <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-bold">
                           Our Projects
                         </span>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#071f35] leading-[0.9] tracking-[-2px] mt-2">
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#3F382F] leading-[0.9] tracking-[-2px] mt-2">
                         BUILT FOR{" "}
-                        <span className="text-cyan-600">
+                        <span className="text-[#A99479]">
                           PERFORMANCE
                         </span>
                       </h2>
                     </div>
-                    <p className="max-w-sm text-[#001a1f]/45 text-xs sm:text-sm leading-6">
+                    <p className="max-w-sm text-[#3F382F]/90 text-xs sm:text-sm leading-6">
                       Every project combines dependable materials, experienced
                       installation and designs created to complement the space.
                     </p>
@@ -556,20 +556,20 @@ export default function GreenlandPage() {
                 </div>
 
                 <div className="px-6 sm:px-8 lg:px-10 pb-5 sm:pb-6 mt-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-cyan-700/10 rounded-2xl overflow-hidden">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#927E64]/10 rounded-2xl overflow-hidden">
                     {projectPoints.map((point, index) => (
                       <div
                         key={point}
-                        className={`group relative bg-cyan-700 backdrop-blur-sm px-4 sm:px-5 py-4 sm:py-5 min-h-[100px] transition-all duration-500 hover:bg-cyan-600 ${
+                        className={`group relative bg-[#927E64] backdrop-blur-sm px-4 sm:px-5 py-4 sm:py-5 min-h-[100px] transition-all duration-500 hover:bg-[#A99479] ${
                           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                         style={{ transitionDelay: `${1.4 + index * 0.08}s` }}
                       >
-                        <div className="w-8 h-1 bg-cyan-600 group-hover:bg-cyan transition-colors duration-300" />
+                        <div className="w-8 h-1 bg-[#A99479] group-hover:bg-[#F8F6F1] transition-colors duration-300" />
                         <div className="mt-4">
-                          <CheckCircle size={21} strokeWidth={1.7} className="text-cyan-600 group-hover:text-cyan transition-colors duration-300" />
+                          <CheckCircle size={21} strokeWidth={1.7} className="text-[#A99479] group-hover:text-[#F8F6F1] transition-colors duration-300" />
                         </div>
-                        <p className="text-[10px] sm:text-xs font-semibold leading-5 text-white group-hover:text-cyan transition-colors duration-300 mt-2">
+                        <p className="text-[10px] sm:text-xs font-semibold leading-5 text-white group-hover:text-[#F8F6F1] transition-colors duration-300 mt-2">
                           {point}
                         </p>
                       </div>
@@ -577,16 +577,16 @@ export default function GreenlandPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-cyan-700/10 px-6 sm:px-8 lg:px-10 py-3 sm:py-4">
+                <div className="border-t border-[#927E64]/10 px-6 sm:px-8 lg:px-10 py-3 sm:py-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
-                      <span className="text-[9px] sm:text-[10px] uppercase tracking-[2px] font-semibold text-[#001a1f]/50">
+                      <span className="w-2 h-2 rounded-full bg-[#A99479] animate-pulse" />
+                      <span className="text-[9px] sm:text-[10px] uppercase tracking-[2px] font-semibold text-[#3F382F]/90">
                         Quality Materials
                       </span>
                     </div>
-                    <div className="hidden sm:block h-px flex-1 mx-4 bg-cyan-700" />
-                    <span className="text-[9px] sm:text-[10px] text-[#001a1f]/40">
+                    <div className="hidden sm:block h-px flex-1 mx-4 bg-[#927E64]" />
+                    <span className="text-[9px] sm:text-[10px] text-[#3F382F]/85">
                       Designed • Fabricated • Installed
                     </span>
                   </div>
@@ -604,22 +604,22 @@ export default function GreenlandPage() {
 
             <div className="relative overflow-hidden rounded-[26px] border border-white/50 bg-white/30 backdrop-blur-xl">
 
-              <div className="absolute -top-28 -right-28 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-28 -left-28 w-64 h-64 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
+              <div className="absolute -top-28 -right-28 w-64 h-64 rounded-full bg-[#B8A58D]/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-28 -left-28 w-64 h-64 rounded-full bg-[#DCCBB5]/10 blur-3xl pointer-events-none" />
 
               <div className="relative z-10 grid lg:grid-cols-[0.75fr_1.25fr]">
 
-                <div className="relative p-5 sm:p-7 lg:p-8 bg-cyan-600/[0.04] lg:border-r border-cyan-700/10">
+                <div className="relative p-5 sm:p-7 lg:p-8 bg-[#A99479]/[0.04] lg:border-r border-[#927E64]/10">
                   <div className="flex items-center gap-3">
-                    <span className="w-8 h-px bg-cyan-600" />
-                    <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-bold">
+                    <span className="w-8 h-px bg-[#A99479]" />
+                    <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-bold">
                       Canopy Solutions
                     </span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#071f35] leading-[0.9] tracking-[-2px] mt-3">
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#3F382F] leading-[0.9] tracking-[-2px] mt-3">
                     PREMIUM
-                    <span className="block text-cyan-600">
+                    <span className="block text-[#A99479]">
                       CANOPY
                     </span>
                     <span className="block">
@@ -627,23 +627,23 @@ export default function GreenlandPage() {
                     </span>
                   </h2>
 
-                  <div className="w-12 h-1 bg-cyan-600 mt-4" />
+                  <div className="w-12 h-1 bg-[#A99479] mt-4" />
 
-                  <p className="text-[#001a1f]/50 text-xs sm:text-sm leading-6 mt-4 max-w-md">
+                  <p className="text-[#3F382F]/90 text-xs sm:text-sm leading-6 mt-4 max-w-md">
                     Purpose-built shade structures for parking areas, entrances,
                     waiting spaces, pools and architectural facades.
                   </p>
 
-                  <div className="mt-5 pt-4 border-t border-cyan-700/10">
+                  <div className="mt-5 pt-4 border-t border-[#927E64]/10">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-600/10 flex items-center justify-center">
-                        <Sun size={18} className="text-cyan-600" />
+                      <div className="w-10 h-10 rounded-xl bg-[#A99479]/10 border border-[#A99479]/10 flex items-center justify-center">
+                        <Sun size={18} className="text-[#A99479]" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#071f35]">
+                        <p className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#3F382F]">
                           Designed For
                         </p>
-                        <p className="text-[9px] text-[#001a1f]/40 mt-0.5">
+                        <p className="text-[9px] text-[#3F382F]/85 mt-0.5">
                           Protection · Comfort · Style
                         </p>
                       </div>
@@ -653,32 +653,32 @@ export default function GreenlandPage() {
 
                 <div className="p-5 sm:p-6 lg:p-7">
                   <div className="mb-2">
-                    <span className="text-cyan-700 text-[8px] uppercase tracking-[2.5px] font-bold">
+                    <span className="text-[#927E64] text-[8px] uppercase tracking-[2.5px] font-bold">
                       Applications
                     </span>
-                    <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-1">
+                    <p className="text-[#3F382F]/85 text-[10px] sm:text-xs mt-1">
                       Shade solutions tailored to your space.
                     </p>
                   </div>
 
-                  <div className="divide-y divide-cyan-700/10">
+                  <div className="divide-y divide-[#927E64]/10">
                     {canopySolutions.map((solution, index) => (
                       <div
                         key={solution}
                         className="group flex items-center gap-3 py-3 first:pt-2 last:pb-2 px-1 hover:px-3 transition-all duration-300"
                       >
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-600/8 border border-cyan-600/10 flex items-center justify-center shrink-0 group-hover:bg-cyan-600 group-hover:border-cyan-600 transition-all duration-300">
-                          {index === 0 && <Truck size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
-                          {index === 1 && <Users size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
-                          {index === 2 && <Building2 size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
-                          {index === 3 && <Sun size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
-                          {index === 4 && <Home size={15} className="text-cyan-600 group-hover:text-white transition-colors" />}
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#A99479]/8 border border-[#A99479]/10 flex items-center justify-center shrink-0 group-hover:bg-[#A99479] group-hover:border-[#A99479] transition-all duration-300">
+                          {index === 0 && <Truck size={15} className="text-[#A99479] group-hover:text-white transition-colors" />}
+                          {index === 1 && <Users size={15} className="text-[#A99479] group-hover:text-white transition-colors" />}
+                          {index === 2 && <Building2 size={15} className="text-[#A99479] group-hover:text-white transition-colors" />}
+                          {index === 3 && <Sun size={15} className="text-[#A99479] group-hover:text-white transition-colors" />}
+                          {index === 4 && <Home size={15} className="text-[#A99479] group-hover:text-white transition-colors" />}
                         </div>
                         <div className="min-w-0">
-                          <h3 className="text-xs sm:text-sm font-bold text-[#071f35] group-hover:text-cyan-700 transition-colors">
+                          <h3 className="text-xs sm:text-sm font-bold text-[#3F382F] group-hover:text-[#927E64] transition-colors">
                             {solution}
                           </h3>
-                          <p className="hidden sm:block text-[9px] text-[#001a1f]/35 mt-0.5">
+                          <p className="hidden sm:block text-[9px] text-[#3F382F]/80 mt-0.5">
                             Premium tensile structure solution
                           </p>
                         </div>
@@ -694,8 +694,8 @@ export default function GreenlandPage() {
                 const Icon = item.icon;
                 return (
                   <div key={index} className="flex items-center gap-2">
-                    <Icon size={14} className="text-cyan-600" />
-                    <span className="text-[9px] sm:text-[10px] font-medium text-[#001a1f]/55">
+                    <Icon size={14} className="text-[#A99479]" />
+                    <span className="text-[9px] sm:text-[10px] font-medium text-[#3F382F]/90">
                       {item.text}
                     </span>
                   </div>
@@ -708,7 +708,7 @@ export default function GreenlandPage() {
         {/* =====================================================
             CTA
         ===================================================== */}
-        <section className="relative bg-cyan-700 text-white overflow-hidden py-6 sm:py-8">
+        <section className="relative bg-[#927E64] text-white overflow-hidden py-6 sm:py-8">
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute inset-0"
@@ -726,18 +726,18 @@ export default function GreenlandPage() {
 
           <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <div className="grid md:grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-5">
-              <div className="hidden sm:flex w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-400/30 items-center justify-center animate-pulse-slow">
-                <Phone size={24} className="text-cyan-300" />
+              <div className="hidden sm:flex w-14 h-14 rounded-full bg-[#F8F6F1]/20 border border-[#B8A58D]/30 items-center justify-center animate-pulse-slow">
+                <Phone size={24} className="text-[#DCCBB5]" />
               </div>
 
               <div className="animate-slide-up">
                 <h2 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight">
                   Let's Build Something
-                  <span className="text-cyan-300 animate-text-glow">
+                  <span className="text-[#DCCBB5] animate-text-glow">
                     {" "}Amazing Together
                   </span>
                 </h2>
-                <p className="text-white/50 text-xs sm:text-sm mt-1">
+                <p className="text-white/85 text-xs sm:text-sm mt-1">
                   Contact us today for a free consultation and quote for your
                   tensile shade project.
                 </p>
@@ -746,14 +746,14 @@ export default function GreenlandPage() {
               <div className="flex flex-col sm:items-end gap-2 animate-fade-in-delayed">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-cyan-700 hover:bg-cyan-50 px-5 sm:px-6 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#927E64] hover:bg-[#F8F6F1] px-5 sm:px-6 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg"
                 >
                   Get a Free Quote
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:rotate-[-10deg]" />
                 </Link>
                 <a
                   href="tel:7708776022"
-                  className="inline-flex items-center gap-2 text-cyan-200 hover:text-white text-sm sm:text-base font-semibold transition-colors hover:scale-105"
+                  className="inline-flex items-center gap-2 text-[#B8A58D] hover:text-white text-sm sm:text-base font-semibold transition-colors hover:scale-105"
                 >
                   <Phone size={14} />
                   7708776022
@@ -769,17 +769,17 @@ export default function GreenlandPage() {
       ===================================================== */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-[#001a1f]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#3F382F]/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative w-full max-w-5xl bg-white/90 backdrop-blur-xl overflow-hidden rounded-2xl animate-scale-up shadow-[0_0_60px_rgba(6,182,212,0.1)]"
+            className="relative w-full max-w-5xl bg-white/90 backdrop-blur-xl overflow-hidden rounded-2xl animate-scale-up shadow-[0_0_60px_rgba(169,148,121,0.1)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setSelectedImage(null)}
-              className="absolute z-20 top-3 right-3 w-9 h-9 rounded-full bg-[#001a1f]/80 hover:bg-cyan-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
+              className="absolute z-20 top-3 right-3 w-9 h-9 rounded-full bg-[#3F382F]/80 hover:bg-[#A99479] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
             >
               <X size={17} />
             </button>
@@ -788,7 +788,7 @@ export default function GreenlandPage() {
                 src={selectedImage.image}
                 alt="Greenland Tensile Shade Project"
                 fill
-                className="object-contain bg-[#001a1f]"
+                className="object-contain bg-[#3F382F]"
               />
             </div>
           </div>
@@ -865,12 +865,12 @@ export default function GreenlandPage() {
           50% { opacity: 1; transform: scale(1.2); }
         }
         @keyframes text-glow {
-          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
-          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
+          0%, 100% { text-shadow: 0 0 20px rgba(169, 148, 121, 0.12); }
+          50% { text-shadow: 0 0 40px rgba(169, 148, 121, 0.28); }
         }
         @keyframes text-glow-delayed {
-          0%, 100% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
-          50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.25); }
+          0%, 100% { text-shadow: 0 0 20px rgba(169, 148, 121, 0.12); }
+          50% { text-shadow: 0 0 40px rgba(169, 148, 121, 0.28); }
           animation-delay: 1s;
         }
         @keyframes counter {
@@ -885,6 +885,45 @@ export default function GreenlandPage() {
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes section-reveal {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(-130%); }
+          55%, 100% { transform: translateX(230%); }
+        }
+
+        @keyframes soft-zoom {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.035); }
+        }
+
+        .animate-section-reveal {
+          animation: section-reveal 0.9s ease-out both;
+        }
+
+        .animate-shimmer {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .animate-shimmer::after {
+          content: "";
+          position: absolute;
+          inset: 0 auto 0 -45%;
+          width: 35%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+          transform: skewX(-18deg);
+          animation: shimmer 3.5s ease-in-out infinite;
+          pointer-events: none;
+        }
+
+        .animate-soft-zoom {
+          animation: soft-zoom 6s ease-in-out infinite;
         }
 
         .animate-fade-in { animation: fade-in 0.6s ease-out forwards; opacity: 0; }
@@ -907,6 +946,14 @@ export default function GreenlandPage() {
         .animate-counter { animation: counter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; display: inline-block; }
         .animate-scale-up { animation: scale-up 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
         .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+          }
+        }
 
         @media (max-width: 640px) {
           .animate-float { animation-duration: 18s !important; }

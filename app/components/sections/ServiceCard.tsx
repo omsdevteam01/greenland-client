@@ -1,4 +1,5 @@
 'use client';
+
 import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
@@ -107,12 +108,12 @@ export default function OurBusinesses() {
         w-full
         overflow-hidden
         bg-gradient-to-br
-        from-cyan-400/40
-        via-cyan-300/30
-        to-blue-400/40
-        py-6
-        sm:py-12
-        lg:py-14
+        from-[#F8F6F1]
+        via-[#EDE4D5]
+        to-[#DCCBB5]/70
+        py-4
+        sm:py-7
+        lg:py-9
       "
     >
       {/* =========================================================
@@ -122,9 +123,9 @@ export default function OurBusinesses() {
       <div className="pointer-events-none absolute inset-0">
 
         {/* Soft white lighting */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-transparent to-white/25" />
 
-        {/* Cyan glow - Hidden on mobile */}
+        {/* Beige glow - Hidden on mobile */}
         <div
           className="
             absolute
@@ -133,14 +134,14 @@ export default function OurBusinesses() {
             h-[450px]
             w-[450px]
             rounded-full
-            bg-cyan-300/20
+            bg-[#DCCBB5]/25
             blur-[120px]
             hidden
             md:block
           "
         />
 
-        {/* Blue glow - Hidden on mobile */}
+        {/* Taupe glow - Hidden on mobile */}
         <div
           className="
             absolute
@@ -149,7 +150,7 @@ export default function OurBusinesses() {
             h-[450px]
             w-[450px]
             rounded-full
-            bg-blue-300/20
+            bg-[#B8A58D]/20
             blur-[120px]
             hidden
             md:block
@@ -176,7 +177,7 @@ export default function OurBusinesses() {
         "
         style={{
           backgroundImage:
-            'radial-gradient(circle, rgba(14,165,233,0.5) 1.5px, transparent 1.5px)',
+            'radial-gradient(circle, rgba(169,148,121,0.5) 1.5px, transparent 1.5px)',
           backgroundSize: '15px 15px',
           maskImage:
             'linear-gradient(to right, black, transparent)',
@@ -197,19 +198,19 @@ export default function OurBusinesses() {
         >
           <path
             d="M-20 170C70 50 130 50 215 115C275 160 330 155 420 55"
-            stroke="#0EA5E9"
+            stroke="#B8A58D"
             strokeWidth="1"
           />
 
           <path
             d="M-20 185C70 65 130 65 215 130C275 175 330 170 420 70"
-            stroke="#0EA5E9"
+            stroke="#B8A58D"
             strokeWidth="1"
           />
 
           <path
             d="M-20 200C70 80 130 80 215 145C275 190 330 185 420 85"
-            stroke="#0EA5E9"
+            stroke="#B8A58D"
             strokeWidth="1"
           />
         </svg>
@@ -227,13 +228,13 @@ export default function OurBusinesses() {
         >
           <path
             d="M-20 170C70 50 130 50 215 115C275 160 330 155 420 55"
-            stroke="#0EA5E9"
+            stroke="#B8A58D"
             strokeWidth="1"
           />
 
           <path
             d="M-20 185C70 65 130 65 215 130C275 175 330 170 420 70"
-            stroke="#0EA5E9"
+            stroke="#B8A58D"
             strokeWidth="1"
           />
         </svg>
@@ -251,8 +252,8 @@ export default function OurBusinesses() {
 
         <div
           className={`
-            mb-4
-            sm:mb-9
+            mb-3
+            sm:mb-6
             text-center
             transition-all
             duration-700
@@ -264,7 +265,9 @@ export default function OurBusinesses() {
           `}
         >
           <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-            <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-cyan-500" />
+
+            <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#A99479]" />
+
             <h2
               className="
                 text-[9px]
@@ -273,28 +276,29 @@ export default function OurBusinesses() {
                 uppercase
                 tracking-[2px]
                 sm:tracking-[3.5px]
-                text-[#087EA3]
+                text-[#3F382F]
               "
             >
               OUR BUSINESSES
             </h2>
-            <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-cyan-500" />
+
+            <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#A99479]" />
           </div>
 
           {/* Small divider */}
-          <div className="mx-auto mt-2 sm:mt-3 h-1 w-10 sm:w-12 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
+          <div className="mx-auto mt-1.5 sm:mt-2.5 h-1 w-10 sm:w-12 rounded-full bg-gradient-to-r from-[#B8A58D] to-[#927E64]" />
 
           <p
             className="
               mx-auto
-              mt-2
-              sm:mt-3
+              mt-1.5
+              sm:mt-2.5
               max-w-[560px]
               text-[10px]
               sm:text-xs
               leading-4
               sm:leading-5
-              text-[#36566A]
+              text-[#3F382F]
             "
           >
             Delivering quality, innovation, and trust through
@@ -318,27 +322,27 @@ export default function OurBusinesses() {
                 className={`
                   group
                   relative
-                  min-h-[280px]
-                  sm:min-h-[430px]
-                  lg:min-h-[445px]
+                  min-h-[245px]
+                  sm:min-h-[350px]
+                  lg:min-h-[370px]
                   overflow-hidden
                   rounded-[12px]
                   sm:rounded-[24px]
                   border
-                  border-cyan-300/45
-                  bg-white/65
+                  border-[#DCCBB5]/70
+                  bg-white/75
                   px-2.5
-                  sm:px-5
-                  py-2.5
-                  sm:py-5
-                  shadow-[0_15px_45px_rgba(8,145,178,0.10)]
+                  sm:px-4
+                  py-2
+                  sm:py-4
+                  shadow-[0_15px_45px_rgba(63,56,47,0.08)]
                   backdrop-blur-xl
                   transition-all
                   duration-700
                   hover:-translate-y-1.5
-                  hover:border-cyan-400/70
-                  hover:bg-white/80
-                  hover:shadow-[0_20px_55px_rgba(8,145,178,0.18)]
+                  hover:border-[#B8A58D]
+                  hover:bg-white/90
+                  hover:shadow-[0_20px_55px_rgba(63,56,47,0.13)]
                   ${
                     isVisible
                       ? 'translate-y-0 opacity-100'
@@ -366,8 +370,8 @@ export default function OurBusinesses() {
                     rounded-bl-[30px]
                     sm:rounded-bl-[80px]
                     bg-gradient-to-bl
-                    from-cyan-400/30
-                    via-cyan-300/10
+                    from-[#B8A58D]/30
+                    via-[#DCCBB5]/15
                     to-transparent
                     transition-all
                     duration-500
@@ -395,7 +399,7 @@ export default function OurBusinesses() {
                   "
                   style={{
                     backgroundImage:
-                      'radial-gradient(circle, rgba(14,165,233,0.55) 1.3px, transparent 1.3px)',
+                      'radial-gradient(circle, rgba(169,148,121,0.55) 1.3px, transparent 1.3px)',
                     backgroundSize: '10px 10px',
                   }}
                 />
@@ -411,23 +415,23 @@ export default function OurBusinesses() {
                       relative
                       flex
                       h-14
-                      sm:h-26
-                      w-14
-                      sm:w-26
+                      sm:h-22
+                      w-12
+                      sm:w-22
                       items-center
                       justify-center
                       rounded-full
                       border
-                      border-cyan-300/50
+                      border-[#DCCBB5]/70
                       bg-gradient-to-br
                       from-white
-                      via-cyan-50
-                      to-cyan-100/60
-                      shadow-[0_10px_30px_rgba(14,165,233,0.10)]
+                      via-[#F8F6F1]
+                      to-[#EDE4D5]/70
+                      shadow-[0_10px_30px_rgba(63,56,47,0.08)]
                       transition-all
                       duration-500
                       group-hover:scale-105
-                      group-hover:border-cyan-400/70
+                      group-hover:border-[#B8A58D]
                     "
                   >
 
@@ -438,11 +442,11 @@ export default function OurBusinesses() {
                         -inset-2
                         -z-10
                         rounded-full
-                        bg-cyan-300/15
+                        bg-[#DCCBB5]/20
                         blur-xl
                         transition-all
                         duration-500
-                        group-hover:bg-cyan-300/30
+                        group-hover:bg-[#DCCBB5]/35
                       "
                     />
 
@@ -454,11 +458,11 @@ export default function OurBusinesses() {
                       }
                       alt={business.title}
                       className="
-                        h-9
-                        sm:h-16
+                        h-8
+                        sm:h-14
                         w-auto
                         object-contain
-                        drop-shadow-[0_5px_12px_rgba(0,80,120,0.12)]
+                        drop-shadow-[0_5px_12px_rgba(63,56,47,0.10)]
                         transition-transform
                         duration-500
                         group-hover:scale-105
@@ -472,7 +476,7 @@ export default function OurBusinesses() {
                     BADGE - Same text size, smaller padding on mobile
                 ================================================= */}
 
-                <div className="relative z-10 mt-2 sm:mt-4 flex justify-center">
+                <div className="relative z-10 mt-1.5 sm:mt-3 flex justify-center">
 
                   <div
                     className="
@@ -482,8 +486,8 @@ export default function OurBusinesses() {
                       sm:gap-1.5
                       rounded-full
                       border
-                      border-cyan-300/40
-                      bg-cyan-100/60
+                      border-[#DCCBB5]/70
+                      bg-[#EDE4D5]/70
                       px-1.5
                       sm:px-3
                       py-0.5
@@ -494,7 +498,7 @@ export default function OurBusinesses() {
                       uppercase
                       tracking-[1px]
                       sm:tracking-[1.5px]
-                      text-[#087EA3]
+                      text-[#3F382F]
                     "
                   >
                     <BadgeIcon size={8} className="sm:w-3 sm:h-3" />
@@ -507,7 +511,7 @@ export default function OurBusinesses() {
                     TITLE - Same text size
                 ================================================= */}
 
-                <div className="relative z-10 mt-1.5 sm:mt-3 text-center">
+                <div className="relative z-10 mt-1 sm:mt-2.5 text-center">
 
                   <h3
                     className="
@@ -515,7 +519,7 @@ export default function OurBusinesses() {
                       sm:text-lg
                       font-extrabold
                       tracking-tight
-                      text-[#092E49]
+                      text-[#3F382F]
                       leading-tight
                     "
                   >
@@ -532,14 +536,14 @@ export default function OurBusinesses() {
                         uppercase
                         tracking-[1.5px]
                         sm:tracking-[2.5px]
-                        text-[#0B91B3]
+                        text-[#A99479]
                       "
                     >
                       {business.subtitle}
                     </p>
                   )}
 
-                  <div className="mx-auto mt-1.5 sm:mt-2.5 h-0.5 w-6 sm:w-10 rounded-full bg-cyan-400" />
+                  <div className="mx-auto mt-1.5 sm:mt-2.5 h-0.5 w-6 sm:w-10 rounded-full bg-[#B8A58D]" />
 
                 </div>
 
@@ -552,15 +556,15 @@ export default function OurBusinesses() {
                     relative
                     z-10
                     mx-auto
-                    mt-1.5
-                    sm:mt-3
+                    mt-1
+                    sm:mt-2
                     max-w-[450px]
                     text-center
                     text-[10px]
                     sm:text-xs
                     leading-4
                     sm:leading-5
-                    text-[#425B6B]
+                    text-[#3F382F]
                     line-clamp-2
                     sm:line-clamp-none
                   "
@@ -577,7 +581,7 @@ export default function OurBusinesses() {
                     relative
                     z-10
                     mt-2
-                    sm:mt-4
+                    sm:mt-3
                     flex
                     flex-wrap
                     justify-center
@@ -598,8 +602,8 @@ export default function OurBusinesses() {
                           sm:gap-1
                           rounded-full
                           border
-                          border-cyan-300/35
-                          bg-white/75
+                          border-[#DCCBB5]/70
+                          bg-white/80
                           px-1.5
                           sm:px-2.5
                           py-0.5
@@ -607,15 +611,18 @@ export default function OurBusinesses() {
                           text-[7px]
                           sm:text-[9px]
                           font-medium
-                          text-[#087EA3]
+                          text-[#3F382F]
                           shadow-sm
                           transition-all
                           duration-300
-                          group-hover:border-cyan-400/60
-                          group-hover:bg-cyan-50
+                          group-hover:border-[#B8A58D]
+                          group-hover:bg-[#F8F6F1]
                         "
                       >
-                        <FeatureIcon size={8} className="sm:w-[11px] sm:h-[11px]" />
+                        <FeatureIcon
+                          size={8}
+                          className="sm:w-[11px] sm:h-[11px]"
+                        />
                         {feature.name}
                       </span>
                     );
@@ -626,7 +633,7 @@ export default function OurBusinesses() {
                     CTA - Smaller on mobile, same text size
                 ================================================= */}
 
-                <div className="relative z-10 mt-2 sm:mt-5 flex justify-center">
+                <div className="relative z-10 mt-1.5 sm:mt-3.5 flex justify-center">
 
                   <span
                     className="
@@ -636,8 +643,8 @@ export default function OurBusinesses() {
                       sm:gap-2
                       rounded-lg
                       bg-gradient-to-r
-                      from-cyan-500
-                      to-blue-500
+                      from-[#A99479]
+                      to-[#927E64]
                       px-2.5
                       sm:px-5
                       py-1.5
@@ -646,12 +653,12 @@ export default function OurBusinesses() {
                       sm:text-xs
                       font-semibold
                       text-white
-                      shadow-[0_8px_22px_rgba(14,165,233,0.20)]
+                      shadow-[0_8px_22px_rgba(169,148,121,0.20)]
                       transition-all
                       duration-500
                       group-hover:gap-1.5
                       sm:group-hover:gap-3
-                      group-hover:shadow-[0_12px_30px_rgba(14,165,233,0.30)]
+                      group-hover:shadow-[0_12px_30px_rgba(169,148,121,0.30)]
                     "
                   >
                     {business.type === 'construction'
@@ -698,19 +705,19 @@ export default function OurBusinesses() {
                     >
                       <path
                         d="M15 110V60L55 25L95 60V110"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
 
                       <path
                         d="M35 110V72L55 55L75 72V110"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
 
                       <path
                         d="M15 60L55 90L95 60"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
                     </svg>
@@ -722,25 +729,25 @@ export default function OurBusinesses() {
                     >
                       <path
                         d="M10 100C40 30 70 30 105 75C125 100 140 95 155 45"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1.2"
                       />
 
                       <path
                         d="M10 112C40 42 70 42 105 87C125 112 140 107 155 57"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
 
                       <path
                         d="M45 90V48"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
 
                       <path
                         d="M110 92V60"
-                        stroke="#0891B2"
+                        stroke="#A99479"
                         strokeWidth="1"
                       />
                     </svg>
@@ -759,11 +766,11 @@ export default function OurBusinesses() {
                     w-20
                     sm:w-28
                     rounded-tl-full
-                    bg-cyan-300/10
+                    bg-[#DCCBB5]/15
                     blur-xl
                     transition-all
                     duration-500
-                    group-hover:bg-cyan-300/20
+                    group-hover:bg-[#DCCBB5]/25
                     hidden
                     sm:block
                   "
@@ -780,7 +787,7 @@ export default function OurBusinesses() {
           BOTTOM SPACING
       ========================================================= */}
 
-      <div className="h-2 sm:h-3" />
+      <div className="h-1 sm:h-2" />
     </section>
   );
 }

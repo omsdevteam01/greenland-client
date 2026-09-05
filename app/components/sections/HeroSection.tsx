@@ -22,19 +22,19 @@ export default function HeroSection() {
     >
       {/* =========================================================
           MAIN HERO BACKGROUND
-          SAME LIGHT STYLE AS OUR BUSINESSES
+          BEIGE + WHITE STYLE
       ========================================================= */}
 
       <div className="absolute inset-0 z-0">
 
-        {/* Same background gradient as Our Businesses - DARKER CYAN */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/50 via-cyan-400/40 to-blue-500/50" />
+        {/* Soft beige background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F1]/95 via-[#EDE4D5]/80 to-[#DCCBB5]/70" />
 
         {/* Soft white lighting */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/20" />
 
-        {/* Soft bottom cyan lighting - DARKER */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cyan-400/50 to-transparent" />
+        {/* Soft bottom beige lighting */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#DCCBB5]/45 to-transparent" />
 
       </div>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
           "
         />
 
-        {/* Only blend the LEFT EDGE of the image - DARKER */}
+        {/* Only blend the LEFT EDGE of the image */}
         <div
           className="
             absolute
@@ -75,11 +75,11 @@ export default function HeroSection() {
           "
           style={{
             background:
-              'linear-gradient(90deg, rgba(180,240,245,0.95) 0%, rgba(180,240,245,0.65) 35%, rgba(180,240,245,0) 100%)',
+              'linear-gradient(90deg, rgba(248,246,241,0.96) 0%, rgba(237,228,213,0.82) 35%, rgba(237,228,213,0) 100%)',
           }}
         />
 
-        {/* Very subtle bottom blend - DARKER */}
+        {/* Very subtle bottom blend */}
         <div
           className="
             absolute
@@ -90,13 +90,13 @@ export default function HeroSection() {
           "
           style={{
             background:
-              'linear-gradient(to top, rgba(160,235,240,0.45), transparent)',
+              'linear-gradient(to top, rgba(220,203,181,0.45), transparent)',
           }}
         />
       </div>
 
       {/* =========================================================
-          LEFT SIDE LIGHT BACKGROUND - DARKER
+          LEFT SIDE LIGHT BACKGROUND
       ========================================================= */}
 
       <div
@@ -112,18 +112,18 @@ export default function HeroSection() {
         "
         style={{
           background:
-            'linear-gradient(90deg, rgba(190,245,248,0.98) 0%, rgba(180,242,245,0.94) 58%, rgba(180,242,245,0.60) 82%, rgba(180,242,245,0) 100%)',
+            'linear-gradient(90deg, rgba(248,246,241,0.98) 0%, rgba(237,228,213,0.94) 58%, rgba(237,228,213,0.60) 82%, rgba(237,228,213,0) 100%)',
         }}
       />
 
       {/* =========================================================
-          MOBILE BACKGROUND - DARKER
+          MOBILE BACKGROUND
       ========================================================= */}
 
-      <div className="absolute inset-0 z-[6] bg-gradient-to-br from-cyan-200/95 via-cyan-100/80 to-blue-200/70 lg:hidden" />
+      <div className="absolute inset-0 z-[6] bg-gradient-to-br from-[#F8F6F1]/95 via-[#EDE4D5]/85 to-[#DCCBB5]/70 lg:hidden" />
 
       {/* =========================================================
-          DECORATIVE CYAN GLOW - DARKER
+          DECORATIVE BEIGE GLOW
       ========================================================= */}
 
       <div
@@ -135,7 +135,7 @@ export default function HeroSection() {
           h-[500px]
           w-[500px]
           rounded-full
-          bg-cyan-400/30
+          bg-[#DCCBB5]/30
           blur-[120px]
         "
       />
@@ -149,13 +149,13 @@ export default function HeroSection() {
           h-[500px]
           w-[500px]
           rounded-full
-          bg-blue-400/20
+          bg-[#B8A58D]/20
           blur-[130px]
         "
       />
 
       {/* =========================================================
-          DECORATIVE TOP LEFT CIRCLE - DARKER
+          DECORATIVE TOP LEFT CIRCLE
       ========================================================= */}
 
       <div
@@ -168,8 +168,8 @@ export default function HeroSection() {
           w-[300px]
           rounded-full
           border
-          border-cyan-500/30
-          bg-cyan-400/15
+          border-[#B8A58D]/30
+          bg-[#DCCBB5]/15
         "
       />
 
@@ -182,13 +182,13 @@ export default function HeroSection() {
           h-[200px]
           w-[200px]
           rounded-full
-          bg-cyan-400/15
+          bg-[#DCCBB5]/15
           blur-2xl
         "
       />
 
       {/* =========================================================
-          DOT PATTERN - DARKER
+          DOT PATTERN
       ========================================================= */}
 
       <div
@@ -205,7 +205,7 @@ export default function HeroSection() {
         "
         style={{
           backgroundImage:
-            'radial-gradient(circle, rgba(22,213,232,0.6) 1.5px, transparent 1.5px)',
+            'radial-gradient(circle, rgba(169,148,121,0.45) 1.5px, transparent 1.5px)',
           backgroundSize: '16px 16px',
           maskImage: 'linear-gradient(to right, black, transparent)',
           WebkitMaskImage:
@@ -214,7 +214,7 @@ export default function HeroSection() {
       />
 
       {/* =========================================================
-          BOTTOM DECORATIVE WAVES - DARKER
+          BOTTOM DECORATIVE WAVES
       ========================================================= */}
 
       <div className="absolute bottom-0 left-0 z-[8] h-[180px] w-[420px] opacity-50">
@@ -226,21 +226,21 @@ export default function HeroSection() {
         >
           <path
             d="M-20 140C80 40 150 40 250 115C330 175 410 160 520 55"
-            stroke="#16D5E8"
+            stroke="#B8A58D"
             strokeWidth="1.5"
             strokeOpacity="0.50"
           />
 
           <path
             d="M-20 155C80 55 150 55 250 130C330 190 410 175 520 70"
-            stroke="#16D5E8"
+            stroke="#B8A58D"
             strokeWidth="1.5"
             strokeOpacity="0.35"
           />
 
           <path
             d="M-20 170C80 70 150 70 250 145C330 205 410 190 520 85"
-            stroke="#16D5E8"
+            stroke="#B8A58D"
             strokeWidth="1.5"
             strokeOpacity="0.25"
           />
@@ -248,7 +248,7 @@ export default function HeroSection() {
       </div>
 
       {/* =========================================================
-          RIGHT SIDE SOFT CIRCLE - DARKER
+          RIGHT SIDE SOFT CIRCLE
       ========================================================= */}
 
       <div
@@ -262,8 +262,8 @@ export default function HeroSection() {
           w-[400px]
           rounded-full
           border
-          border-cyan-400/20
-          bg-cyan-300/15
+          border-[#B8A58D]/20
+          bg-[#DCCBB5]/15
           blur-sm
           lg:block
         "
@@ -294,7 +294,7 @@ export default function HeroSection() {
         <div className="w-full max-w-[690px]">
 
           {/* =====================================================
-              BADGE - UPDATED TO HEADER COLORS
+              BADGE
           ===================================================== */}
 
           <div
@@ -305,11 +305,11 @@ export default function HeroSection() {
               gap-3
               rounded-full
               border
-              border-cyan-600/40
-              bg-cyan-600/10
+              border-[#A99479]/40
+              bg-[#B8A58D]/10
               px-4
               py-2.5
-              shadow-[0_5px_25px_rgba(6,182,212,0.15)]
+              shadow-[0_5px_25px_rgba(169,148,121,0.15)]
               backdrop-blur-md
               transition-all
               duration-1000
@@ -323,17 +323,17 @@ export default function HeroSection() {
             `}
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-600 opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-600" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#A99479] opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#A99479]" />
             </span>
 
-            <span className="text-[9px] font-semibold uppercase tracking-[3px] text-cyan-700 sm:text-[10px] sm:tracking-[4px]">
+            <span className="text-[9px] font-semibold uppercase tracking-[3px] text-[#3F382F] sm:text-[10px] sm:tracking-[4px]">
               BUILDING TOMORROW
             </span>
           </div>
 
           {/* =====================================================
-              MAIN HEADING - WITH "RUHAN GROUPS" HIGHLIGHTED
+              MAIN HEADING
           ===================================================== */}
 
           <h1
@@ -343,7 +343,7 @@ export default function HeroSection() {
               font-black
               leading-[1.03]
               tracking-[-2px]
-              text-[#001a1f]
+              text-[#3F382F]
               transition-all
               duration-1000
               sm:text-[50px]
@@ -359,17 +359,17 @@ export default function HeroSection() {
             With Strength,
             <br />
             Steel &{' '}
-            <span className="text-cyan-600">
+            <span className="text-[#A99479]">
               Innovation
             </span>
             <br />
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-900/100 font-light tracking-[4px] sm:tracking-[6px] mt-1 block animate-fade-in-delayed">
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#3F382F] font-light tracking-[4px] sm:tracking-[6px] mt-1 block animate-fade-in-delayed">
               — Ruhan Groups
             </span>
           </h1>
 
           {/* =====================================================
-              ACCENT LINE - HEADER CYAN COLOR
+              ACCENT LINE
           ===================================================== */}
 
           <div
@@ -377,7 +377,7 @@ export default function HeroSection() {
               mt-5
               h-1
               rounded-full
-              bg-cyan-600
+              bg-[#B8A58D]
               transition-all
               duration-1000
               sm:mt-6
@@ -390,7 +390,7 @@ export default function HeroSection() {
           />
 
           {/* =====================================================
-              DESCRIPTION - DARKER TEXT
+              DESCRIPTION
           ===================================================== */}
 
           <p
@@ -399,7 +399,7 @@ export default function HeroSection() {
               max-w-[600px]
               text-[15px]
               leading-7
-              text-[#001a1f]/80
+              text-[#3F382F]
               transition-all
               delay-200
               duration-1000
@@ -422,7 +422,7 @@ export default function HeroSection() {
           </p>
 
           {/* =====================================================
-              BUTTONS - UPDATED TO HEADER COLORS
+              BUTTONS
           ===================================================== */}
 
           <div
@@ -445,7 +445,8 @@ export default function HeroSection() {
             `}
           >
 
-            {/* Primary Button - HEADER CYAN COLOR */}
+            {/* Primary Button */}
+
             <a
               href="#services"
               className="
@@ -457,18 +458,18 @@ export default function HeroSection() {
                 gap-3
                 overflow-hidden
                 rounded-lg
-                bg-cyan-600
+                bg-[#A99479]
                 px-6
                 py-3.5
                 text-sm
                 font-semibold
                 text-white
-                shadow-[0_10px_30px_rgba(6,182,212,0.30)]
+                shadow-[0_10px_30px_rgba(169,148,121,0.25)]
                 transition-all
                 duration-500
                 hover:-translate-y-1
-                hover:bg-cyan-700
-                hover:shadow-[0_15px_40px_rgba(6,182,212,0.40)]
+                hover:bg-[#927E64]
+                hover:shadow-[0_15px_40px_rgba(169,148,121,0.30)]
                 sm:px-7
                 md:px-8
                 md:py-4
@@ -493,7 +494,8 @@ export default function HeroSection() {
               />
             </a>
 
-            {/* Secondary Button - HEADER CYAN BORDER */}
+            {/* Secondary Button */}
+
             <a
               href="#contact"
               className="
@@ -503,21 +505,21 @@ export default function HeroSection() {
                 justify-center
                 rounded-lg
                 border-2
-                border-cyan-600/50
+                border-[#A99479]/50
                 bg-white/40
                 px-6
                 py-3.5
                 text-sm
                 font-semibold
-                text-cyan-700
-                shadow-[0_5px_20px_rgba(6,182,212,0.08)]
+                text-[#3F382F]
+                shadow-[0_5px_20px_rgba(169,148,121,0.08)]
                 backdrop-blur-md
                 transition-all
                 duration-500
                 hover:-translate-y-1
-                hover:border-cyan-600
+                hover:border-[#A99479]
                 hover:bg-white/70
-                hover:shadow-[0_10px_30px_rgba(6,182,212,0.15)]
+                hover:shadow-[0_10px_30px_rgba(169,148,121,0.15)]
                 sm:px-7
                 md:px-8
                 md:py-4
@@ -532,7 +534,7 @@ export default function HeroSection() {
       </div>
 
       {/* =========================================================
-          SCROLL DOWN - UPDATED TO HEADER COLORS
+          SCROLL DOWN
       ========================================================= */}
 
       <div
@@ -548,9 +550,10 @@ export default function HeroSection() {
         "
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[9px] font-semibold uppercase tracking-[4px] text-cyan-700/80">
+          <span className="text-[9px] font-semibold uppercase tracking-[4px] text-[#3F382F]">
             SCROLL DOWN
           </span>
+
           <div
             className="
               flex
@@ -559,22 +562,22 @@ export default function HeroSection() {
               justify-center
               rounded-full
               border-2
-              border-cyan-600/50
+              border-[#A99479]/50
               bg-white/25
               pt-2
               backdrop-blur-sm
             "
           >
-            <div className="h-2 w-1 animate-scroll-down rounded-full bg-cyan-600" />
+            <div className="h-2 w-1 animate-scroll-down rounded-full bg-[#A99479]" />
           </div>
         </div>
       </div>
 
       {/* =========================================================
-          BOTTOM SOFT BLEND - DARKER
+          BOTTOM SOFT BLEND
       ========================================================= */}
 
-      <div className="absolute bottom-0 left-0 right-0 z-[10] h-20 bg-gradient-to-t from-cyan-300/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 z-[10] h-20 bg-gradient-to-t from-[#DCCBB5]/30 to-transparent" />
 
       {/* =========================================================
           ANIMATIONS
@@ -586,9 +589,11 @@ export default function HeroSection() {
             transform: translateY(0);
             opacity: 1;
           }
+
           50% {
             opacity: 0.5;
           }
+
           100% {
             transform: translateY(12px);
             opacity: 0;
@@ -599,12 +604,15 @@ export default function HeroSection() {
           0%, 100% {
             transform: translateY(0px) translateX(0px);
           }
+
           25% {
             transform: translateY(-10px) translateX(5px);
           }
+
           50% {
             transform: translateY(-20px) translateX(-5px);
           }
+
           75% {
             transform: translateY(-10px) translateX(5px);
           }
@@ -615,6 +623,7 @@ export default function HeroSection() {
             opacity: 0.4;
             transform: scale(1);
           }
+
           50% {
             opacity: 0.8;
             transform: scale(1.05);
@@ -625,6 +634,7 @@ export default function HeroSection() {
           0% {
             background-position: -200% 0;
           }
+
           100% {
             background-position: 200% 0;
           }
@@ -635,6 +645,7 @@ export default function HeroSection() {
             opacity: 0;
             transform: translateY(10px);
           }
+
           to {
             opacity: 1;
             transform: translateY(0);
@@ -663,9 +674,10 @@ export default function HeroSection() {
           background: linear-gradient(
             105deg,
             transparent 40%,
-            rgba(6,182,212,0.08) 50%,
+            rgba(184,165,141,0.08) 50%,
             transparent 60%
           );
+
           background-size: 200% 100%;
           animation: shimmer 5s ease-in-out infinite;
         }
@@ -681,6 +693,7 @@ export default function HeroSection() {
             opacity: 0;
             transform: translateY(30px);
           }
+
           to {
             opacity: 1;
             transform: translateY(0);
@@ -693,14 +706,17 @@ export default function HeroSection() {
             transform: translateY(0) rotate(0deg);
             opacity: 0.15;
           }
+
           25% {
             transform: translateY(-20px) rotate(8deg);
             opacity: 0.4;
           }
+
           50% {
             transform: translateY(-40px) rotate(-8deg);
             opacity: 0.6;
           }
+
           75% {
             transform: translateY(-20px) rotate(5deg);
             opacity: 0.4;

@@ -143,13 +143,13 @@ export default function BusinessesPage() {
     <>
       <Header />
 
-      <main className="overflow-hidden text-[#001a1f]">
+      <main className="overflow-hidden text-[#3F382F]">
 
         {/* =====================================================
             HERO
         ===================================================== */}
 
-        <section className="relative bg-gradient-to-br from-cyan-400/35 via-cyan-300/25 to-blue-400/30">
+        <section className="relative bg-gradient-to-br from-[#DCCBB5]/35 via-[#EDE4D5]/25 to-[#DCCBB5]/30">
 
           {/* subtle architectural grid */}
           <div
@@ -170,7 +170,7 @@ export default function BusinessesPage() {
             {[...Array(10)].map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
+                className="absolute rounded-full bg-[#A99479]/15 animate-float hidden md:block"
                 style={{
                   width: `${Math.random() * 4 + 2}px`,
                   height: `${Math.random() * 4 + 2}px`,
@@ -193,28 +193,28 @@ export default function BusinessesPage() {
                 {/* Heading */}
                 <div>
                   <div className="flex items-center gap-2 mb-3 animate-fade-in">
-                    <span className="w-8 h-px bg-cyan-600 animate-scale-x" />
-                    <span className="text-cyan-700 text-[8px] sm:text-[9px] uppercase tracking-[3px] font-bold">
+                    <span className="w-8 h-px bg-[#A99479] animate-scale-x" />
+                    <span className="text-[#927E64] text-[8px] sm:text-[9px] uppercase tracking-[3px] font-bold">
                       Our Businesses
                     </span>
                   </div>
 
-                  <h1 className="text-[42px] sm:text-[55px] md:text-[65px] lg:text-[76px] font-black leading-[0.86] tracking-[-4px] animate-slide-up">
+                  <h1 className="text-[42px] sm:text-[55px] md:text-[65px] lg:text-[76px] font-black leading-[0.98] sm:leading-[0.86] tracking-[-1.5px] sm:tracking-[-4px] animate-slide-up">
                     DIFFERENT
-                    <span className="block text-cyan-600 animate-text-glow">
+                    <span className="block text-[#A99479] animate-text-glow">
                       EXPERTISE.
                     </span>
-                    <span className="block">
+                    <span className="block mt-3 sm:mt-0">
                       ONE VISION.
                     </span>
                   </h1>
 
-                  <div className="w-14 h-1 bg-cyan-600 mt-5 animate-scale-x" />
+                  <div className="w-14 h-1 bg-[#A99479] mt-5 animate-scale-x" />
                 </div>
 
                 {/* Intro */}
                 <div className="lg:pb-1 animate-fade-in-delayed">
-                  <p className="text-[#001a1f]/55 text-sm sm:text-base leading-7 max-w-lg">
+                  <p className="text-[#3F382F]/85 text-sm sm:text-base leading-7 max-w-lg">
                     Ruhan Groups operates through specialized businesses
                     united by one commitment — creating reliable,
                     functional and beautifully designed spaces.
@@ -228,7 +228,7 @@ export default function BusinessesPage() {
                     ].map((item, index) => (
                       <span
                         key={index}
-                        className={`inline-flex items-center gap-1.5 text-[8px] uppercase tracking-[1.5px] text-cyan-700 font-semibold transition-all duration-500 hover:scale-105 ${
+                        className={`inline-flex items-center gap-1.5 text-[8px] uppercase tracking-[1.5px] text-[#927E64] font-semibold transition-all duration-500 hover:scale-105 ${
                           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                         }`}
                         style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
@@ -254,7 +254,7 @@ export default function BusinessesPage() {
 
         <section
           ref={sectionRef}
-          className="relative bg-gradient-to-br from-cyan-400/35 via-cyan-300/25 to-blue-400/30 py-9 sm:py-11 lg:py-14"
+          className="relative bg-gradient-to-br from-[#DCCBB5]/35 via-[#EDE4D5]/25 to-[#DCCBB5]/30 py-9 sm:py-11 lg:py-14"
         >
 
           <div
@@ -273,7 +273,7 @@ export default function BusinessesPage() {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full bg-[#16D5E8]/12 animate-float hidden md:block"
+                className="absolute rounded-full bg-[#A99479]/12 animate-float hidden md:block"
                 style={{
                   width: `${Math.random() * 4 + 2}px`,
                   height: `${Math.random() * 4 + 2}px`,
@@ -291,17 +291,17 @@ export default function BusinessesPage() {
             {/* Section heading */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 sm:mb-8">
               <div className="animate-fade-in">
-                <span className="text-cyan-700 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#927E64] text-[8px] uppercase tracking-[3px] font-bold">
                   Our Divisions
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black tracking-[-2px] mt-1 animate-slide-up">
                   TWO BUSINESSES.
-                  <span className="text-cyan-600 animate-text-glow">
+                  <span className="text-[#A99479] animate-text-glow">
                     {" "}ONE STANDARD.
                   </span>
                 </h2>
               </div>
-              <p className="max-w-sm text-[#001a1f]/45 text-xs leading-5 animate-fade-in-delayed">
+              <p className="max-w-sm text-[#3F382F]/95 text-xs leading-5 animate-fade-in-delayed">
                 Specialized expertise working together to deliver complete
                 solutions.
               </p>
@@ -314,7 +314,7 @@ export default function BusinessesPage() {
                 return (
                   <div
                     key={division.id}
-                    className={`group relative overflow-hidden bg-white/30 backdrop-blur-sm border border-white/50 transition-all duration-700 hover:bg-white/45 hover:border-cyan-600/30 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(6,182,212,0.05)] ${
+                    className={`group relative overflow-hidden bg-white/30 backdrop-blur-sm border border-white/50 transition-all duration-700 hover:bg-white/45 hover:border-[#A99479]/30 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(63,56,47,0.05)] ${
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-6"
@@ -349,20 +349,20 @@ export default function BusinessesPage() {
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/65 via-[#001a1f]/10 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/65 via-[#3F382F]/10 to-transparent" />
 
                         {/* image label */}
                         <div className="absolute left-5 bottom-5">
                           <div className="flex items-center gap-2 bg-white/85 backdrop-blur-md px-3 py-2 transition-all duration-300 group-hover:scale-105">
                             <Icon
                               size={15}
-                              className="text-cyan-600"
+                              className="text-[#A99479]"
                             />
                             <div>
-                              <p className="text-[#001a1f] text-[10px] font-bold uppercase tracking-wide">
+                              <p className="text-[#3F382F] text-[10px] font-bold uppercase tracking-wide">
                                 {division.name}
                               </p>
-                              <p className="text-cyan-600 text-[7px] uppercase tracking-[2px]">
+                              <p className="text-[#A99479] text-[7px] uppercase tracking-[2px]">
                                 {division.subtitle}
                               </p>
                             </div>
@@ -380,19 +380,19 @@ export default function BusinessesPage() {
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <span className="text-cyan-600 text-[7px] uppercase tracking-[3px] font-bold">
+                            <span className="text-[#A99479] text-[7px] uppercase tracking-[3px] font-bold">
                               Specialized Solutions
                             </span>
-                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-[-1.5px] mt-1 group-hover:text-cyan-700 transition-colors duration-300">
+                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-[-1.5px] mt-1 group-hover:text-[#927E64] transition-colors duration-300">
                               {division.name}
                             </h3>
                           </div>
-                          <div className="hidden sm:flex w-10 h-10 bg-cyan-600/10 border border-cyan-600/15 items-center justify-center text-cyan-600 transition-all duration-300 group-hover:bg-cyan-600 group-hover:text-white group-hover:rotate-6">
+                          <div className="hidden sm:flex w-10 h-10 bg-[#A99479]/10 border border-[#A99479]/15 items-center justify-center text-[#A99479] transition-all duration-300 group-hover:bg-[#A99479] group-hover:text-white group-hover:rotate-6">
                             <Icon size={18} />
                           </div>
                         </div>
 
-                        <p className="text-[#001a1f]/55 text-xs sm:text-sm leading-6 mt-4 max-w-xl">
+                        <p className="text-[#3F382F]/85 text-xs sm:text-sm leading-6 mt-4 max-w-xl">
                           {division.description}
                         </p>
 
@@ -406,13 +406,13 @@ export default function BusinessesPage() {
                               }`}
                               style={{ transitionDelay: `${0.6 + index * 0.1 + idx * 0.05}s` }}
                             >
-                              <span className="w-4 h-4 bg-cyan-600/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-cyan-600/20">
+                              <span className="w-4 h-4 bg-[#A99479]/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#A99479]/20">
                                 <CheckCircle
                                   size={9}
-                                  className="text-cyan-600"
+                                  className="text-[#A99479]"
                                 />
                               </span>
-                              <span className="text-[9px] sm:text-[10px] text-[#001a1f]/55">
+                              <span className="text-[9px] sm:text-[10px] text-[#3F382F]/85">
                                 {feature}
                               </span>
                             </div>
@@ -421,7 +421,7 @@ export default function BusinessesPage() {
 
                         <Link
                           href={division.link}
-                          className="inline-flex items-center gap-2 self-start mt-5 text-cyan-600 hover:text-cyan-700 text-[10px] uppercase tracking-[1.5px] font-bold group/link transition-all duration-300 hover:gap-3"
+                          className="inline-flex items-center gap-2 self-start mt-5 text-[#A99479] hover:text-[#927E64] text-[10px] uppercase tracking-[1.5px] font-bold group/link transition-all duration-300 hover:gap-3"
                         >
                           Explore {division.name}
                           <ArrowRight
@@ -433,7 +433,7 @@ export default function BusinessesPage() {
                     </div>
 
                     {/* bottom accent */}
-                    <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-cyan-600 group-hover:w-full transition-all duration-700" />
+                    <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#A99479] group-hover:w-full transition-all duration-700" />
                   </div>
                 );
               })}
@@ -452,14 +452,14 @@ export default function BusinessesPage() {
             <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-6 lg:gap-10 items-start">
               {/* Heading */}
               <div className="animate-fade-in">
-                <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                   Why Ruhan Groups
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.9] tracking-[-2px] mt-2 animate-slide-up">
                   BUILT ON
-                  <span className="block text-cyan-600 animate-text-glow">TRUST.</span>
+                  <span className="block text-[#A99479] animate-text-glow">TRUST.</span>
                 </h2>
-                <p className="text-[#001a1f]/70 text-xs leading-5 max-w-sm mt-3 animate-fade-in-delayed">
+                <p className="text-[#3F382F]/90 text-xs leading-5 max-w-sm mt-3 animate-fade-in-delayed">
                   Our approach combines experienced people, dependable
                   materials and a commitment to delivering what we promise.
                 </p>
@@ -472,7 +472,7 @@ export default function BusinessesPage() {
                   return (
                     <div
                       key={item.title}
-                      className={`group relative p-4 sm:p-5 bg-[#f4fafb] border border-[#001a1f]/[0.06] hover:bg-cyan-800 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)] ${
+                      className={`group relative p-4 sm:p-5 bg-[#F8F6F1] border border-[#3F382F]/[0.06] hover:bg-[#927E64] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(63,56,47,0.05)] ${
                         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ 
@@ -481,17 +481,17 @@ export default function BusinessesPage() {
                       }}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 bg-cyan-600/10 group-hover:bg-cyan-500 text-cyan-600 group-hover:text-[#001a1f] flex items-center justify-center group-hover:scale-110 group-hover:rotate-6">
+                        <div className="w-9 h-9 bg-[#A99479]/10 group-hover:bg-[#927E64] text-[#A99479] group-hover:text-[#3F382F] flex items-center justify-center group-hover:scale-110 group-hover:rotate-6">
                           <Icon size={16} />
                         </div>
                         <h3 className="text-xs sm:text-sm font-bold group-hover:text-white">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-[#001a1f]/80 group-hover:text-white/80 text-[9px] sm:text-[10px] leading-5 mt-3">
+                      <p className="text-[#3F382F]/95 group-hover:text-white/80 text-[9px] sm:text-[10px] leading-5 mt-3">
                         {item.description}
                       </p>
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 group-hover:w-full" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#927E64] group-hover:w-full" />
                     </div>
                   );
                 })}
@@ -504,7 +504,7 @@ export default function BusinessesPage() {
             STATS
         ===================================================== */}
 
-        <section className="bg-cyan-800 text-white">
+        <section className="bg-[#927E64] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-3">
               {stats.map((stat, index) => (
@@ -517,7 +517,7 @@ export default function BusinessesPage() {
                   } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${1.0 + index * 0.1}s` }}
                 >
-                  <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-cyan-300 animate-counter">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#EDE4D5] animate-counter">
                     {stat.value}
                   </p>
                   <p className="text-[7px] sm:text-[8px] uppercase tracking-[2px] text-white/80 mt-1">
@@ -533,39 +533,39 @@ export default function BusinessesPage() {
             CTA
         ===================================================== */}
 
-        <section className="bg-[#edf8fa] py-8 sm:py-10">
+        <section className="bg-[#EDE4D5] py-8 sm:py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`relative overflow-hidden bg-white border border-cyan-600/10 transition-all duration-700 hover:shadow-[0_0_40px_rgba(6,182,212,0.05)] ${
+            <div className={`relative overflow-hidden bg-white border border-[#A99479]/10 transition-all duration-700 hover:shadow-[0_0_40px_rgba(63,56,47,0.05)] ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}>
               {/* decorative shape */}
-              <div className="absolute -right-20 -top-20 w-60 h-60 rounded-full bg-cyan-400/10 blur-3xl animate-pulse-slow" />
+              <div className="absolute -right-20 -top-20 w-60 h-60 rounded-full bg-[#DCCBB5]/10 blur-3xl animate-pulse-slow" />
 
               <div className="relative p-6 sm:p-8 lg:p-9 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
                 <div className="animate-fade-in">
                   <div className="flex items-center gap-2">
                     <Sparkles
                       size={14}
-                      className="text-cyan-600 animate-pulse-slow"
+                      className="text-[#A99479] animate-pulse-slow"
                     />
-                    <span className="text-cyan-600 text-[8px] uppercase tracking-[3px] font-bold">
+                    <span className="text-[#A99479] text-[8px] uppercase tracking-[3px] font-bold">
                       Let's Work Together
                     </span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mt-2 animate-slide-up">
                     HAVE A PROJECT
-                    <span className="text-cyan-600 animate-text-glow">
+                    <span className="text-[#A99479] animate-text-glow">
                       {" "}IN MIND?
                     </span>
                   </h2>
-                  <p className="text-[#001a1f]/40 text-xs sm:text-sm mt-1.5 animate-fade-in-delayed">
+                  <p className="text-[#3F382F]/75 text-xs sm:text-sm mt-1.5 animate-fade-in-delayed">
                     Let's build something exceptional together.
                   </p>
                 </div>
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all group whitespace-nowrap hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-600/20"
+                  className="inline-flex items-center justify-center gap-2 bg-[#A99479] hover:bg-[#927E64] text-white px-6 py-3 text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all group whitespace-nowrap hover:-translate-y-1 hover:shadow-lg hover:shadow-[#A99479]/20"
                 >
                   Contact Us
                   <ArrowRight

@@ -35,10 +35,10 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-hidden">
       {/* Background - Same as Header */}
-      <div className="absolute inset-0 bg-cyan-700"></div>
-      
+      <div className="absolute inset-0 bg-[#A99479]"></div>
+
       {/* Decorative Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/30 via-transparent to-cyan-700/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#A99479]/20 via-transparent to-[#927E64]/30"></div>
 
       {/* Glassy Grid Pattern */}
       <div
@@ -57,7 +57,7 @@ const Footer = () => {
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-white/5 animate-float hidden md:block"
+            className="absolute rounded-full bg-white/10 animate-float hidden md:block"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
 
       {/* Top Border Glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-18 relative z-10">
         
@@ -92,21 +92,21 @@ const Footer = () => {
               <div>
                 <div className="flex items-center gap-1">
                   <span className="text-white font-bold text-base sm:text-xl tracking-tight">Ruhan</span>
-                  <span className="text-cyan-200 font-bold text-base sm:text-xl">Groups</span>
+                  <span className="text-white font-bold text-base sm:text-xl">Groups</span>
                 </div>
-                <p className="text-white/50 text-[7px] sm:text-[9px] uppercase tracking-[2px] -mt-0.5">
+                <p className="text-white/90 text-[7px] sm:text-[9px] uppercase tracking-[2px] -mt-0.5">
                   Steel Fabrication & Construction
                 </p>
               </div>
             </Link>
             
-            <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-xs">
+            <p className="text-white/95 text-xs sm:text-sm leading-relaxed max-w-xs">
               Building stronger structures with innovative engineering and long-lasting quality since 2020.
             </p>
             
             <div className="flex items-center gap-3 mt-4">
-              <span className="w-8 h-0.5 bg-cyan-300/50" />
-              <span className="text-cyan-200/60 text-[8px] sm:text-[10px] uppercase tracking-[3px]">Excellence</span>
+              <span className="w-8 h-0.5 bg-white/50" />
+              <span className="text-white/80 text-[8px] sm:text-[10px] uppercase tracking-[3px]">Excellence</span>
             </div>
 
             {/* Social Links - Moved here for better layout */}
@@ -115,29 +115,31 @@ const Footer = () => {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-cyan-300/50 hover:bg-cyan-300/20 flex items-center justify-center text-white/60 hover:text-white transition-all duration-300 hover:scale-110"
+                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-white/60 hover:bg-white/15 flex items-center justify-center text-white/95 hover:text-white transition-all duration-300 hover:scale-110"
                 aria-label="LinkedIn"
               >
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
+
               <a
                 href={twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-cyan-300/50 hover:bg-cyan-300/20 flex items-center justify-center text-white/60 hover:text-white transition-all duration-300 hover:scale-110"
+                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-white/60 hover:bg-white/15 flex items-center justify-center text-white/95 hover:text-white transition-all duration-300 hover:scale-110"
                 aria-label="Twitter"
               >
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
+
               <a
                 href={instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-cyan-300/50 hover:bg-cyan-300/20 flex items-center justify-center text-white/60 hover:text-white transition-all duration-300 hover:scale-110"
+                className="w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:border-white/60 hover:bg-white/15 flex items-center justify-center text-white/95 hover:text-white transition-all duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -150,17 +152,18 @@ const Footer = () => {
           {/* Column 2 - Quick Links */}
           <div>
             <h4 className="text-white font-semibold text-xs sm:text-sm mb-4 uppercase tracking-wider flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-cyan-300" />
+              <span className="w-1 h-1 rounded-full bg-white" />
               Quick Links
             </h4>
+
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/50 text-xs sm:text-sm hover:text-white transition-all duration-300 hover:translate-x-2 inline-flex items-center gap-2 group"
+                    className="text-white/90 text-xs sm:text-sm hover:text-white transition-all duration-300 hover:translate-x-2 inline-flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-cyan-300/30 group-hover:bg-cyan-300 transition-all duration-300" />
+                    <span className="w-1 h-1 rounded-full bg-white/30 group-hover:bg-white transition-all duration-300" />
                     {link.label}
                   </Link>
                 </li>
@@ -171,30 +174,33 @@ const Footer = () => {
           {/* Column 3 - Contact Info */}
           <div>
             <h4 className="text-white font-semibold text-xs sm:text-sm mb-4 uppercase tracking-wider flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-cyan-300" />
+              <span className="w-1 h-1 rounded-full bg-white" />
               Contact Us
             </h4>
+
             <div className="space-y-3">
               <a
                 href={`tel:${phone.replace(/\s/g, '')}`}
-                className="flex items-start gap-3 text-white/50 hover:text-white transition-all duration-300 group"
+                className="flex items-start gap-3 text-white/90 hover:text-white transition-all duration-300 group"
               >
-                <Phone size={15} className="text-cyan-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                <Phone size={15} className="text-white shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300">
                   {phone}
                 </span>
               </a>
+
               <a
                 href={`mailto:${emailAddress}`}
-                className="flex items-start gap-3 text-white/50 hover:text-white transition-all duration-300 group"
+                className="flex items-start gap-3 text-white/90 hover:text-white transition-all duration-300 group"
               >
-                <Mail size={15} className="text-cyan-300 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                <Mail size={15} className="text-white shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300">
                   {emailAddress}
                 </span>
               </a>
-              <div className="flex items-start gap-3 text-white/50 group">
-                <MapPin size={15} className="text-cyan-300 shrink-0 mt-0.5" />
+
+              <div className="flex items-start gap-3 text-white/90 group">
+                <MapPin size={15} className="text-white shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm leading-relaxed">
                   {address}
                 </span>
@@ -205,24 +211,27 @@ const Footer = () => {
           {/* Column 4 - Newsletter & Brands */}
           <div>
             <h4 className="text-white font-semibold text-xs sm:text-sm mb-4 uppercase tracking-wider flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-cyan-300" />
+              <span className="w-1 h-1 rounded-full bg-white" />
               Stay Updated
             </h4>
-            <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-3">
+
+            <p className="text-white/85 text-xs sm:text-sm leading-relaxed mb-3">
               Subscribe for latest projects & updates.
             </p>
+
             <form onSubmit={handleSubscribe} className="relative">
               <input
                 type="email"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-white placeholder:text-white/30 outline-none focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/20 transition-all duration-300"
+                className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-white placeholder:text-white/70 outline-none focus:border-white/60 focus:ring-2 focus:ring-white/20 transition-all duration-300"
                 required
               />
+
               <button
                 type="submit"
-                className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-cyan-300 hover:bg-cyan-200 text-cyan-900 p-1.5 rounded-lg transition-all duration-300 hover:scale-105"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-white hover:bg-white text-[#3F382F] p-1.5 rounded-lg transition-all duration-300 hover:scale-105"
               >
                 <Send size={14} className="sm:w-4 sm:h-4" />
               </button>
@@ -230,72 +239,101 @@ const Footer = () => {
 
             {/* Brands Section */}
             <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
+
               {/* Greenland */}
               <Link
                 href="/greenland"
-                className="group flex items-center justify-between bg-white/5 hover:bg-white/15 rounded-xl p-2.5 transition-all duration-500 hover:scale-[1.02]"
+                className="group flex items-center justify-between bg-white/5 hover:bg-white/10 rounded-xl p-2.5 transition-all duration-500 hover:scale-[1.02]"
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse-glow"></div>
+                    <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse-glow"></div>
                     <img
                       src={mediaUrl("/images/logo.webp")}
                       alt="Greenland"
                       className="h-6 sm:h-8 w-auto object-contain relative z-10"
                     />
                   </div>
+
                   <div>
                     <p className="text-white text-xs sm:text-sm font-semibold">Greenland</p>
-                    <p className="text-white/40 text-[6px] sm:text-[8px] uppercase tracking-wider">Tensile Shade</p>
+                    <p className="text-white/85 text-[6px] sm:text-[8px] uppercase tracking-wider">Tensile Shade</p>
                   </div>
                 </div>
-                <ArrowRight size={14} className="text-cyan-300/50 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all duration-300" />
+
+                <ArrowRight
+                  size={14}
+                  className="text-white/95 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"
+                />
               </Link>
 
               {/* Construction & Interiors */}
               <Link
                 href="/construction"
-                className="group flex items-center justify-between bg-white/5 hover:bg-white/15 rounded-xl p-2.5 transition-all duration-500 hover:scale-[1.02]"
+                className="group flex items-center justify-between bg-white/5 hover:bg-white/10 rounded-xl p-2.5 transition-all duration-500 hover:scale-[1.02]"
               >
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-cyan-300/20 rounded-full blur-xl animate-pulse-glow"></div>
+                    <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse-glow"></div>
                     <img
                       src={mediaUrl("/images/logo main.png")}
                       alt="Construction & Interiors"
                       className="h-6 sm:h-8 w-auto object-contain relative z-10"
                     />
                   </div>
+
                   <div>
-                    <p className="text-white text-xs sm:text-sm font-semibold">Construction &amp; Interiors</p>
-                    <p className="text-white/40 text-[6px] sm:text-[8px] uppercase tracking-wider">Building &amp; Design</p>
+                    <p className="text-white text-xs sm:text-sm font-semibold">
+                      Construction &amp; Interiors
+                    </p>
+                    <p className="text-white/85 text-[6px] sm:text-[8px] uppercase tracking-wider">
+                      Building &amp; Design
+                    </p>
                   </div>
                 </div>
-                <ArrowRight size={14} className="text-cyan-300/50 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all duration-300" />
+
+                <ArrowRight
+                  size={14}
+                  className="text-white/95 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"
+                />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar - Compact with Bigger Darker Text */}
-<div className="border-t border-white/15 mt-4 sm:mt-6 pt-2.5 sm:pt-3 flex flex-col md:flex-row justify-between items-center gap-1.5">
-  <p className="text-white/50 text-[10px] sm:text-xs font-medium text-center sm:text-left">
-    © {currentYear} {companyName}. All rights reserved.
-  </p>
-  <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-medium">
-    <Link href="/privacy" className="text-white/50 hover:text-white transition-colors duration-300">
-      Privacy Policy
-    </Link>
-    <span className="w-0.5 h-0.5 rounded-full bg-white/30" />
-    <Link href="/terms" className="text-white/50 hover:text-white transition-colors duration-300">
-      Terms of Service
-    </Link>
-    <span className="w-0.5 h-0.5 rounded-full bg-white/30" />
-    <Link href="/sitemap" className="text-white/50 hover:text-white transition-colors duration-300">
-      Sitemap
-    </Link>
-  </div>
-</div>
+        <div className="border-t border-white/15 mt-4 sm:mt-6 pt-2.5 sm:pt-3 flex flex-col md:flex-row justify-between items-center gap-1.5">
+          <p className="text-white/90 text-[10px] sm:text-xs font-medium text-center sm:text-left">
+            © {currentYear} {companyName}. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-medium">
+            <Link
+              href="/privacy"
+              className="text-white/90 hover:text-white transition-colors duration-300"
+            >
+              Privacy Policy
+            </Link>
+
+            <span className="w-0.5 h-0.5 rounded-full bg-white/30" />
+
+            <Link
+              href="/terms"
+              className="text-white/90 hover:text-white transition-colors duration-300"
+            >
+              Terms of Service
+            </Link>
+
+            <span className="w-0.5 h-0.5 rounded-full bg-white/30" />
+
+            <Link
+              href="/sitemap"
+              className="text-white/90 hover:text-white transition-colors duration-300"
+            >
+              Sitemap
+            </Link>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`

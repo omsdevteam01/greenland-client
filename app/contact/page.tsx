@@ -99,7 +99,7 @@ export default function Contact() {
       >
         {/* Background - Same as Business Section */}
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40"></div>
+          <div className="w-full h-full bg-gradient-to-br from-[#DCCBB5]/40 via-[#EDE4D5]/30 to-[#DCCBB5]/40"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15"></div>
         </div>
 
@@ -108,8 +108,8 @@ export default function Contact() {
           className="hidden md:block absolute inset-0 opacity-[0.04] z-[5]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(22,213,232,.10) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(22,213,232,.10) 1px, transparent 1px)
+              linear-gradient(rgba(169,148,121,.10) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(169,148,121,.10) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -120,7 +120,7 @@ export default function Contact() {
           {[...Array(10)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#A99479]/20 animate-float hidden md:block"
               style={{
                 width: `${Math.random() * 6 + 2}px`,
                 height: `${Math.random() * 6 + 2}px`,
@@ -138,7 +138,7 @@ export default function Contact() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="absolute border border-cyan-400/15 backdrop-blur-sm"
+              className="absolute border border-[#DCCBB5]/20 backdrop-blur-sm"
               style={{
                 width: `${Math.random() * 40 + 15}px`,
                 height: `${Math.random() * 40 + 15}px`,
@@ -148,15 +148,15 @@ export default function Contact() {
                 animation: `floatShape ${Math.random() * 12 + 8}s ease-in-out infinite`,
                 animationDelay: `${Math.random() * 6}s`,
                 transform: `rotate(${Math.random() * 360}deg)`,
-                background: `radial-gradient(circle, rgba(22,213,232,.08), transparent)`,
+                background: `radial-gradient(circle, rgba(169,148,121,.08), transparent)`,
               }}
             />
           ))}
         </div>
 
         {/* Background Glow Effects */}
-        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
-        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed" />
+        <div className="hidden md:block absolute -top-40 -right-20 w-[500px] h-[500px] bg-[#A99479]/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+        <div className="hidden md:block absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-[#A99479]/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow-delayed" />
 
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           {/* CENTER HEADER */}
@@ -168,27 +168,27 @@ export default function Contact() {
             }}
           >
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse"></span>
-              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700 animate-text-shimmer">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse"></span>
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-[#927E64] animate-text-shimmer">
                 GET IN TOUCH
               </span>
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed"></span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse-delayed"></span>
             </div>
 
-            <h2 className="mt-1.5 sm:mt-3 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-[#001a1f] animate-slide-up">
+            <h2 className="mt-1.5 sm:mt-3 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-[#3F382F] animate-slide-up">
               Let's Build the Perfect
-              <span className="block text-cyan-600 mt-0.5 sm:mt-1">
+              <span className="block text-[#A99479] mt-0.5 sm:mt-1">
                 Solution for You
               </span>
             </h2>
 
             <div className="flex justify-center items-center gap-2 sm:gap-3 mt-2 sm:mt-4">
-              <span className="w-8 sm:w-12 h-[2px] bg-cyan-600 animate-scale-x" />
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-cyan-600 flex-shrink-0 animate-spin-slow" />
-              <span className="w-8 sm:w-12 h-[2px] bg-cyan-600/40 animate-scale-x-delayed" />
+              <span className="w-8 sm:w-12 h-[2px] bg-[#A99479] animate-scale-x" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#A99479] flex-shrink-0 animate-spin-slow" />
+              <span className="w-8 sm:w-12 h-[2px] bg-[#A99479]/40 animate-scale-x-delayed" />
             </div>
 
-            <p className="max-w-2xl mx-auto text-[#001a1f]/50 mt-2 sm:mt-4 text-xs sm:text-sm leading-relaxed px-2 animate-fade-in-delayed">
+            <p className="max-w-2xl mx-auto text-[#3F382F]/75 mt-2 sm:mt-4 text-xs sm:text-sm leading-relaxed px-2 animate-fade-in-delayed">
               Have a question or need a custom quote? Our team is here to help you with the best 
               solutions tailored to your construction needs.
             </p>
@@ -253,7 +253,7 @@ export default function Contact() {
                         backdrop-blur-sm
                         border border-white/40
                         hover:bg-white/40
-                        hover:border-cyan-600/40
+                        hover:border-[#A99479]/40
                         hover:translate-x-1 sm:hover:translate-x-2
                         transition-all
                         duration-500
@@ -267,20 +267,20 @@ export default function Contact() {
                       onMouseLeave={() => setHoveredCard(null)}
                     >
                       {/* Card Glow Effect */}
-                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-600/0 via-cyan-600/5 to-cyan-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-[#A99479]/0 via-[#A99479]/5 to-[#A99479]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
 
                       <div
                         className={`
                           w-8 h-8 sm:w-10 sm:h-10
                           rounded-lg
-                          bg-cyan-600/10
-                          border border-cyan-600/20
+                          bg-[#A99479]/10
+                          border border-[#A99479]/20
                           flex-shrink-0
                           flex
                           items-center
                           justify-center
                           group-hover:scale-110
-                          group-hover:bg-cyan-600/20
+                          group-hover:bg-[#A99479]/20
                           transition-all
                           duration-500
                           ${hoveredCard === index ? 'animate-pulse-icon' : ''}
@@ -288,19 +288,19 @@ export default function Contact() {
                       >
                         <Icon
                           size={15}
-                          className="sm:w-[18px] sm:h-[18px] text-cyan-600 group-hover:scale-110 transition-transform duration-300"
+                          className="sm:w-[18px] sm:h-[18px] text-[#A99479] group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-[#001a1f] text-xs sm:text-sm font-semibold group-hover:text-cyan-700 transition-colors duration-300">
+                        <h4 className="text-[#3F382F] text-xs sm:text-sm font-semibold group-hover:text-[#927E64] transition-colors duration-300">
                           {item.title}
                         </h4>
-                        <p className="text-[#001a1f]/60 text-xs sm:text-sm leading-relaxed break-words group-hover:text-[#001a1f]/80 transition-colors duration-300">
+                        <p className="text-[#3F382F]/80 text-xs sm:text-sm leading-relaxed break-words group-hover:text-[#3F382F]/80 transition-colors duration-300">
                           {item.text}
                         </p>
                         {item.subtext && (
-                          <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-0.5 flex items-center gap-1 group-hover:text-[#001a1f]/60 transition-colors duration-300">
+                          <p className="text-[#3F382F]/70 text-[10px] sm:text-xs mt-0.5 flex items-center gap-1 group-hover:text-[#3F382F]/80 transition-colors duration-300">
                             <Clock size={8} className="sm:w-[10px] sm:h-[10px] animate-pulse-slow" />
                             {item.subtext}
                           </p>
@@ -310,7 +310,7 @@ export default function Contact() {
                       {item.link && (
                         <ArrowRight
                           size={12}
-                          className="sm:w-[14px] sm:h-[14px] text-[#001a1f]/20 group-hover:text-cyan-600 group-hover:translate-x-1 sm:group-hover:translate-x-2 group-hover:rotate-[-10deg] transition-all duration-500 flex-shrink-0"
+                          className="sm:w-[14px] sm:h-[14px] text-[#3F382F]/35 group-hover:text-[#A99479] group-hover:translate-x-1 sm:group-hover:translate-x-2 group-hover:rotate-[-10deg] transition-all duration-500 flex-shrink-0"
                         />
                       )}
                     </Wrapper>
@@ -320,28 +320,28 @@ export default function Contact() {
 
               {/* Working Hours */}
               <div
-                className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-xl bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]"
+                className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-xl bg-white/30 backdrop-blur-sm border border-white/40 hover:border-[#A99479]/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(169,148,121,0.05)]"
                 style={{
                   opacity: 0,
                   animation: "fadeInUp 0.8s ease-out 0.6s forwards",
                 }}
               >
-                <h4 className="text-[#001a1f] font-semibold text-xs sm:text-sm mb-2 sm:mb-3 flex items-center gap-2">
-                  <Clock size={14} className="sm:w-4 sm:h-4 text-cyan-600 animate-spin-slow" />
+                <h4 className="text-[#3F382F] font-semibold text-xs sm:text-sm mb-2 sm:mb-3 flex items-center gap-2">
+                  <Clock size={14} className="sm:w-4 sm:h-4 text-[#A99479] animate-spin-slow" />
                   Working Hours
                 </h4>
                 <div className="space-y-1 sm:space-y-1.5 text-xs sm:text-sm">
-                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#3F382F]/75 hover:text-[#3F382F]/80 transition-colors duration-300">
                     <span>Monday - Friday</span>
-                    <span className="text-[#001a1f]/70">9:00 AM - 6:00 PM</span>
+                    <span className="text-[#3F382F]/70">9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#3F382F]/75 hover:text-[#3F382F]/80 transition-colors duration-300">
                     <span>Saturday</span>
-                    <span className="text-[#001a1f]/70">10:00 AM - 4:00 PM</span>
+                    <span className="text-[#3F382F]/70">10:00 AM - 4:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-[#001a1f]/50 hover:text-[#001a1f]/80 transition-colors duration-300">
+                  <div className="flex justify-between text-[#3F382F]/75 hover:text-[#3F382F]/80 transition-colors duration-300">
                     <span>Sunday</span>
-                    <span className="text-[#001a1f]/70">Closed</span>
+                    <span className="text-[#3F382F]/70">Closed</span>
                   </div>
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function Contact() {
                   rounded-2xl
                   border border-white/40
                   shadow-[0_8px_32px_rgba(0,0,0,0.05)]
-                  hover:shadow-[0_8px_40px_rgba(6,182,212,0.08)]
+                  hover:shadow-[0_8px_40px_rgba(169,148,121,0.08)]
                   transition-all
                   duration-500
                   p-4 sm:p-6 md:p-8
@@ -377,16 +377,16 @@ export default function Contact() {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
 
                 {/* Animated Border */}
-                <div className="absolute inset-0 rounded-2xl border border-cyan-600/0 hover:border-cyan-600/20 transition-all duration-700 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-[#A99479]/0 hover:border-[#A99479]/20 transition-all duration-700 pointer-events-none" />
 
                 {/* Form Header */}
                 <div className="mb-3 sm:mb-4 md:mb-5">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#001a1f] leading-tight flex items-center gap-1.5 sm:gap-2">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#3F382F] leading-tight flex items-center gap-1.5 sm:gap-2">
                     Send Us a Message
-                    <Sparkles size={14} className="sm:w-4 sm:h-4 text-cyan-600 animate-pulse-slow" />
+                    <Sparkles size={14} className="sm:w-4 sm:h-4 text-[#A99479] animate-pulse-slow" />
                   </h3>
-                  <div className="w-8 sm:w-10 h-[2px] bg-gradient-to-r from-cyan-600 to-transparent mt-1.5 sm:mt-2" />
-                  <p className="text-[#001a1f]/40 text-[10px] sm:text-xs mt-1.5 sm:mt-2 flex items-center gap-1">
+                  <div className="w-8 sm:w-10 h-[2px] bg-gradient-to-r from-[#A99479] to-transparent mt-1.5 sm:mt-2" />
+                  <p className="text-[#3F382F]/70 text-[10px] sm:text-xs mt-1.5 sm:mt-2 flex items-center gap-1">
                     <MessageSquare size={10} className="sm:w-3 sm:h-3 animate-pulse-slow" />
                     We'll get back within 24 hours
                   </p>
@@ -395,11 +395,11 @@ export default function Contact() {
                 {formSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-6 sm:py-8 space-y-2 sm:space-y-3 animate-fade-in">
                     <div className="relative">
-                      <CheckCircle size={36} className="sm:w-12 sm:h-12 text-cyan-600 animate-bounce-in" />
-                      <div className="absolute inset-0 rounded-full bg-cyan-600/20 animate-ping-slow" />
+                      <CheckCircle size={36} className="sm:w-12 sm:h-12 text-[#A99479] animate-bounce-in" />
+                      <div className="absolute inset-0 rounded-full bg-[#A99479]/20 animate-ping-slow" />
                     </div>
-                    <h4 className="text-[#001a1f] font-semibold text-base sm:text-lg animate-slide-up">WhatsApp Opened!</h4>
-                    <p className="text-[#001a1f]/50 text-xs sm:text-sm text-center animate-fade-in-delayed">
+                    <h4 className="text-[#3F382F] font-semibold text-base sm:text-lg animate-slide-up">WhatsApp Opened!</h4>
+                    <p className="text-[#3F382F]/75 text-xs sm:text-sm text-center animate-fade-in-delayed">
                       Your message is ready in WhatsApp. Please press Send to complete your enquiry.
                     </p>
                   </div>
@@ -415,23 +415,23 @@ export default function Contact() {
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-[#001a1f]/20
+                          border border-[#3F382F]/20
                           bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-[#001a1f]
+                          text-[#3F382F]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-600/50
+                          focus:border-[#A99479]/50
                           focus:ring-2
-                          focus:ring-cyan-600/20
-                          placeholder:text-[#001a1f]/40
-                          hover:border-[#001a1f]/30
-                          group-hover:border-[#001a1f]/30
+                          focus:ring-[#A99479]/20
+                          placeholder:text-[#3F382F]/70
+                          hover:border-[#3F382F]/30
+                          group-hover:border-[#3F382F]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <div className="relative group">
@@ -444,23 +444,23 @@ export default function Contact() {
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-[#001a1f]/20
+                          border border-[#3F382F]/20
                           bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-[#001a1f]
+                          text-[#3F382F]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-600/50
+                          focus:border-[#A99479]/50
                           focus:ring-2
-                          focus:ring-cyan-600/20
-                          placeholder:text-[#001a1f]/40
-                          hover:border-[#001a1f]/30
-                          group-hover:border-[#001a1f]/30
+                          focus:ring-[#A99479]/20
+                          placeholder:text-[#3F382F]/70
+                          hover:border-[#3F382F]/30
+                          group-hover:border-[#3F382F]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <div className="relative group">
@@ -472,23 +472,23 @@ export default function Contact() {
                           w-full
                           h-[38px] sm:h-[42px]
                           rounded-lg
-                          border border-[#001a1f]/20
+                          border border-[#3F382F]/20
                           bg-white/20
                           px-3 sm:px-4
                           text-xs sm:text-sm
-                          text-[#001a1f]
+                          text-[#3F382F]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-600/50
+                          focus:border-[#A99479]/50
                           focus:ring-2
-                          focus:ring-cyan-600/20
-                          placeholder:text-[#001a1f]/40
-                          hover:border-[#001a1f]/30
-                          group-hover:border-[#001a1f]/30
+                          focus:ring-[#A99479]/20
+                          placeholder:text-[#3F382F]/70
+                          hover:border-[#3F382F]/30
+                          group-hover:border-[#3F382F]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     
@@ -503,24 +503,24 @@ export default function Contact() {
                           w-full
                           h-[80px] sm:h-[100px]
                           rounded-lg
-                          border border-[#001a1f]/20
+                          border border-[#3F382F]/20
                           bg-white/20
                           p-3 sm:p-4
                           text-xs sm:text-sm
                           resize-none
-                          text-[#001a1f]
+                          text-[#3F382F]
                           outline-none
                           transition-all
                           duration-300
-                          focus:border-cyan-600/50
+                          focus:border-[#A99479]/50
                           focus:ring-2
-                          focus:ring-cyan-600/20
-                          placeholder:text-[#001a1f]/40
-                          hover:border-[#001a1f]/30
-                          group-hover:border-[#001a1f]/30
+                          focus:ring-[#A99479]/20
+                          placeholder:text-[#3F382F]/70
+                          hover:border-[#3F382F]/30
+                          group-hover:border-[#3F382F]/30
                         "
                       />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-transparent group-focus-within:w-full transition-all duration-500" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#A99479] to-transparent group-focus-within:w-full transition-all duration-500" />
                     </div>
 
                     <button
@@ -532,14 +532,14 @@ export default function Contact() {
                         items-center
                         justify-center
                         gap-1.5 sm:gap-2
-                        bg-cyan-600
-                        hover:bg-cyan-700
+                        bg-[#A99479]
+                        hover:bg-[#927E64]
                         text-white
                         rounded-lg
                         font-semibold
                         text-xs sm:text-sm
-                        shadow-[0_0_30px_rgba(6,182,212,0.15)]
-                        hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]
+                        shadow-[0_0_30px_rgba(169,148,121,0.15)]
+                        hover:shadow-[0_0_40px_rgba(169,148,121,0.25)]
                         hover:-translate-y-1
                         transition-all
                         duration-300
@@ -620,7 +620,7 @@ export default function Contact() {
 
           @keyframes text-shimmer {
             0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(6,182,212,0.2); }
+            50% { opacity: 1; text-shadow: 0 0 20px rgba(169,148,121,0.2); }
           }
 
           @keyframes spin-slow {

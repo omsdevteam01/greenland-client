@@ -257,7 +257,7 @@ export default function AboutPage() {
             GLOBAL BACKGROUND
         ===================================================== */}
 
-        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-[#EDE4D5] via-[#F8F6F1] to-[#DCCBB5]" />
 
         <div className="fixed inset-0 -z-10 bg-gradient-to-b from-white/10 via-transparent to-white/10" />
 
@@ -265,8 +265,8 @@ export default function AboutPage() {
           className="fixed inset-0 -z-10 opacity-[0.035] pointer-events-none"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(22,213,232,.8) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(22,213,232,.8) 1px, transparent 1px)
+              linear-gradient(rgba(169,148,121,.45) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(169,148,121,.45) 1px, transparent 1px)
             `,
             backgroundSize: "70px 70px",
           }}
@@ -277,7 +277,7 @@ export default function AboutPage() {
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#16D5E8]/15 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#A99479]/15 animate-float hidden md:block"
               style={{
                 width: `${Math.random() * 5 + 2}px`,
                 height: `${Math.random() * 5 + 2}px`,
@@ -294,48 +294,48 @@ export default function AboutPage() {
             HERO
         ===================================================== */}
 
-        <section className="relative px-3 sm:px-6 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12">
+        <section className="relative px-3 sm:px-6 pt-6 sm:pt-12 lg:pt-16 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto animate-fade-in-up">
-            <div className="relative min-h-[390px] sm:min-h-[450px] lg:min-h-[500px] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/50 bg-white/20 backdrop-blur-sm shadow-[0_25px_80px_rgba(0,120,140,0.12)]">
+            <div className="relative min-h-[390px] sm:min-h-[450px] lg:min-h-[500px] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#E2D8C9] bg-white/55 backdrop-blur-sm shadow-[0_25px_80px_rgba(63,56,47,0.10)]">
               {/* Background glow */}
-              <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-cyan-300/20 blur-3xl animate-pulse-slow" />
+              <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#DCCBB5]/25 blur-3xl animate-pulse-slow" />
 
-              <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-blue-400/10 blur-3xl animate-pulse-slow-delayed" />
+              <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-[#B8A58D]/15 blur-3xl animate-pulse-slow-delayed" />
 
               {/* Hero image */}
-              <div className="absolute right-0 top-0 w-full lg:w-[55%] h-[230px] sm:h-[270px] lg:h-full">
+              <div className="absolute right-0 top-0 w-full lg:w-[49%] h-[230px] sm:h-[270px] lg:h-full">
                 <img
                   src={mediaUrl("/images/cons8.png")}
                   alt="Ruhan Groups"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#d9fbff]/95 via-[#d9fbff]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#F8F6F1]/95 via-[#F8F6F1]/25 to-transparent" />
 
-                <div className="absolute inset-0 bg-[#001a1f]/5" />
+                <div className="absolute inset-0 bg-[#3F382F]/5" />
               </div>
 
               {/* Hero content */}
               <div className="relative z-10 w-full lg:w-[58%] min-h-[500px] lg:min-h-[500px] flex items-end lg:items-center p-5 sm:p-8 md:p-10 lg:p-14">
                 <div className="max-w-2xl mt-[190px] sm:mt-[215px] lg:mt-0">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/50 border border-cyan-600/20 backdrop-blur-md animate-fade-in-down">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/50 border border-[#A99479]/20 backdrop-blur-md animate-fade-in-down">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A99479] animate-pulse" />
 
-                    <span className="text-cyan-700 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[3px]">
+                    <span className="text-[#927E64] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[3px]">
                       About Ruhan Groups
                     </span>
                   </div>
 
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#001a1f] leading-[0.95] tracking-[-2px] mt-4 animate-slide-up">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#3F382F] leading-[0.95] tracking-[-2px] mt-4 animate-slide-up">
                     Building Ideas.
-                    <span className="block text-cyan-600 animate-text-glow">
+                    <span className="block text-[#A99479] animate-text-glow">
                       Creating Spaces.
                     </span>
                   </h1>
 
-                  <div className="w-16 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-4 animate-scale-x" />
+                  <div className="w-16 h-1 bg-gradient-to-r from-[#A99479] to-transparent mt-4 animate-scale-x" />
 
-                  <p className="max-w-xl text-[#001a1f]/65 text-sm sm:text-base leading-relaxed mt-4 animate-fade-in-delayed">
+                  <p className="max-w-xl text-[#3F382F]/80 text-sm sm:text-base leading-relaxed mt-4 animate-fade-in-delayed">
                     From structural construction to innovative tensile
                     architecture and refined interiors, Ruhan Groups brings
                     multiple expertise together under one vision.
@@ -344,7 +344,7 @@ export default function AboutPage() {
                   <div className="flex flex-wrap items-center gap-3 mt-5 animate-fade-in-delayed-2">
                     <Link
                       href="/#contact"
-                      className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium shadow-lg shadow-cyan-600/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-cyan-600/40"
+                      className="inline-flex items-center gap-2 bg-[#A99479] hover:bg-[#927E64] text-white px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium shadow-lg shadow-[#A99479]/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[#A99479]/40"
                     >
                       Discover Our Story
 
@@ -354,7 +354,7 @@ export default function AboutPage() {
                       />
                     </Link>
 
-                    <span className="text-[#001a1f]/30 text-[9px] uppercase tracking-[3px]">
+                    <span className="text-[#3F382F]/50 text-[9px] uppercase tracking-[3px]">
                       Est. Excellence
                     </span>
                   </div>
@@ -362,13 +362,13 @@ export default function AboutPage() {
               </div>
 
               {/* Floating year */}
-              <div className="absolute hidden sm:flex bottom-5 right-5 lg:right-8 lg:bottom-8 w-20 h-20 rounded-full bg-white/75 backdrop-blur-md border border-white/60 items-center justify-center shadow-xl animate-float-card">
+              <div className="absolute hidden sm:flex bottom-5 right-5 lg:right-8 lg:bottom-8 w-20 h-20 rounded-full bg-white/85 backdrop-blur-md border border-[#E2D8C9] items-center justify-center shadow-xl animate-float-card">
                 <div className="text-center">
-                  <p className="text-cyan-600 text-lg font-bold">
+                  <p className="text-[#A99479] text-lg font-bold">
                     10+
                   </p>
 
-                  <p className="text-[#001a1f]/50 text-[7px] uppercase tracking-wider">
+                  <p className="text-[#3F382F]/65 text-[7px] uppercase tracking-wider">
                     Years
                   </p>
                 </div>
@@ -381,31 +381,31 @@ export default function AboutPage() {
             ABOUT + STATS
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-5 lg:gap-8">
               {/* Small visual */}
-              <div className="relative min-h-[280px] lg:min-h-[400px] rounded-[24px] overflow-hidden border border-white/50 bg-white/25 backdrop-blur-md animate-slide-up">
+              <div className="relative min-h-[280px] lg:min-h-[400px] rounded-[24px] overflow-hidden border border-[#E2D8C9] bg-white/55 backdrop-blur-md animate-slide-up">
                 <img
                   src={mediaUrl("/images/luxury.png")}
                   alt="Ruhan Groups"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/80 via-[#001a1f]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/80 via-[#3F382F]/10 to-transparent" />
 
                 <div className="absolute left-5 right-5 bottom-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="w-8 h-px bg-cyan-400" />
+                    <span className="w-8 h-px bg-[#B8A58D]" />
 
-                    <span className="text-cyan-300 text-[9px] uppercase tracking-[3px]">
+                    <span className="text-[#A99479] text-[9px] uppercase tracking-[3px]">
                       Who We Are
                     </span>
                   </div>
 
                   <h2 className="text-2xl sm:text-3xl font-bold text-white animate-text-glow">
                     One Group.
-                    <span className="block text-cyan-300">
+                    <span className="block text-[#A99479]">
                       Multiple Expertise.
                     </span>
                   </h2>
@@ -413,16 +413,16 @@ export default function AboutPage() {
               </div>
 
               {/* About content */}
-              <div className="rounded-[24px] border border-white/50 bg-white/25 backdrop-blur-md p-5 sm:p-7 lg:p-9 animate-slide-up-delayed">
+              <div className="rounded-[24px] border border-[#E2D8C9] bg-white/55 backdrop-blur-md p-5 sm:p-7 lg:p-9 animate-slide-up-delayed">
                 <div>
-                  <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-semibold">
+                  <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-semibold">
                     Our Story
                   </span>
 
-                  <div className="w-10 h-0.5 bg-cyan-600 mt-2 animate-scale-x" />
+                  <div className="w-10 h-0.5 bg-[#A99479] mt-2 animate-scale-x" />
                 </div>
 
-                <p className="text-[#001a1f]/70 text-sm sm:text-base leading-7 mt-5 animate-fade-in-delayed">
+                <p className="text-[#3F382F]/85 text-sm sm:text-base leading-7 mt-5 animate-fade-in-delayed">
                   Ruhan Groups is a diversified organization delivering
                   solutions across construction, interior development, and
                   innovative tensile architecture. Our businesses work across
@@ -431,7 +431,7 @@ export default function AboutPage() {
                   delivering modern architectural solutions.
                 </p>
 
-                <p className="text-[#001a1f]/55 text-sm leading-7 mt-3 animate-fade-in-delayed-2">
+                <p className="text-[#3F382F]/70 text-sm leading-7 mt-3 animate-fade-in-delayed-2">
                   With years of expertise and a focus on quality work,
                   on-time delivery, and customer satisfaction, we have
                   established ourselves as a reliable partner for residential,
@@ -452,10 +452,10 @@ export default function AboutPage() {
                       >
                         <Icon
                           size={14}
-                          className="text-cyan-600 flex-shrink-0 animate-pulse-slow"
+                          className="text-[#A99479] flex-shrink-0 animate-pulse-slow"
                         />
 
-                        <span className="text-[10px] sm:text-xs text-[#001a1f]/65">
+                        <span className="text-[10px] sm:text-xs text-[#3F382F]/80">
                           {feature.text}
                         </span>
                       </div>
@@ -466,34 +466,34 @@ export default function AboutPage() {
             </div>
 
             {/* Stats strip */}
-            <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-white/50 bg-white/30 backdrop-blur-md">
+            <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-[#E2D8C9] bg-white/60 backdrop-blur-md">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
 
                 return (
                   <div
                     key={index}
-                    className={`relative p-4 sm:p-5 flex items-center gap-3 transition-all duration-500 hover:bg-white/20 hover:scale-[1.02] ${
+                    className={`relative p-4 sm:p-5 flex items-center gap-3 transition-all duration-500 hover:bg-white/55 hover:scale-[1.02] ${
                       index !== 0
-                        ? "border-t lg:border-t-0 lg:border-l border-white/50"
+                        ? "border-t lg:border-t-0 lg:border-l border-[#E2D8C9]"
                         : ""
                     } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                     style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
                   >
-                    <div className="w-9 h-9 rounded-xl bg-cyan-600/10 flex items-center justify-center transition-all duration-300 group-hover:bg-cyan-600/20 group-hover:scale-110">
+                    <div className="w-9 h-9 rounded-xl bg-[#A99479]/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#A99479]/20 group-hover:scale-110">
                       <Icon
                         size={17}
-                        className="text-cyan-600"
+                        className="text-[#A99479]"
                       />
                     </div>
 
                     <div>
-                      <p className="text-xl sm:text-2xl font-bold text-[#001a1f] leading-none animate-counter">
+                      <p className="text-xl sm:text-2xl font-bold text-[#3F382F] leading-none animate-counter">
                         {counters[index] || 0}
                         {stat.suffix}
                       </p>
 
-                      <p className="text-[8px] sm:text-[9px] text-[#001a1f]/45 uppercase tracking-wider mt-1">
+                      <p className="text-[8px] sm:text-[9px] text-[#3F382F]/60 uppercase tracking-wider mt-1">
                         {stat.label}
                       </p>
                     </div>
@@ -508,23 +508,23 @@ export default function AboutPage() {
             OUR BUSINESSES
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
               <div className="animate-fade-in-down">
-                <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-semibold">
+                <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-semibold">
                   Our Businesses
                 </span>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#001a1f] mt-1 animate-slide-up">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3F382F] mt-1 animate-slide-up">
                   Different Expertise.
-                  <span className="text-cyan-600 animate-text-glow">
+                  <span className="text-[#A99479] animate-text-glow">
                     {" "}One Vision.
                   </span>
                 </h2>
               </div>
 
-              <p className="max-w-md text-[#001a1f]/45 text-xs sm:text-sm leading-relaxed animate-fade-in-delayed">
+              <p className="max-w-md text-[#3F382F]/60 text-xs sm:text-sm leading-relaxed animate-fade-in-delayed">
                 Multiple specialized divisions working together to create
                 stronger, smarter and more beautiful spaces.
               </p>
@@ -537,7 +537,7 @@ export default function AboutPage() {
                 return (
                   <div
                     key={division.id}
-                    className={`group relative overflow-hidden rounded-[24px] border border-white/50 bg-white/25 backdrop-blur-md transition-all duration-700 hover:shadow-[0_0_40px_rgba(6,182,212,0.08)] ${
+                    className={`group relative overflow-hidden rounded-[24px] border border-[#E2D8C9] bg-white/55 backdrop-blur-md transition-all duration-700 hover:shadow-[0_0_40px_rgba(63,56,47,0.08)] ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
                     style={{ transitionDelay: `${0.8 + index * 0.2}s` }}
@@ -563,12 +563,12 @@ export default function AboutPage() {
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/50 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/50 to-transparent" />
 
                         <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/80 backdrop-blur-md flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                           <Icon
                             size={19}
-                            className="text-cyan-600"
+                            className="text-[#A99479]"
                           />
                         </div>
                       </div>
@@ -582,18 +582,18 @@ export default function AboutPage() {
                         }`}
                       >
                         <div className="flex items-center gap-2">
-                          <span className="text-cyan-600 text-[9px] uppercase tracking-[3px] font-semibold">
+                          <span className="text-[#A99479] text-[9px] uppercase tracking-[3px] font-semibold">
                             {division.tagline}
                           </span>
                         </div>
 
-                        <h3 className="text-2xl sm:text-3xl font-bold text-[#001a1f] mt-2 group-hover:text-cyan-700 transition-colors duration-300">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-[#3F382F] mt-2 group-hover:text-[#927E64] transition-colors duration-300">
                           {division.name}
                         </h3>
 
-                        <div className="w-12 h-0.5 bg-cyan-600 mt-3 animate-scale-x" />
+                        <div className="w-12 h-0.5 bg-[#A99479] mt-3 animate-scale-x" />
 
-                        <p className="text-[#001a1f]/60 text-xs sm:text-sm leading-7 mt-4 max-w-2xl">
+                        <p className="text-[#3F382F]/75 text-xs sm:text-sm leading-7 mt-4 max-w-2xl">
                           {division.description}
                         </p>
 
@@ -601,11 +601,11 @@ export default function AboutPage() {
                           {division.features.map((feature, idx) => (
                             <span
                               key={idx}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-cyan-600/10 border border-cyan-600/15 text-[9px] text-[#001a1f]/60 transition-all duration-300 hover:bg-cyan-600/20 hover:scale-105"
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[#A99479]/10 border border-[#A99479]/15 text-[9px] text-[#3F382F]/75 transition-all duration-300 hover:bg-[#A99479]/20 hover:scale-105"
                             >
                               <CheckCircle2
                                 size={10}
-                                className="text-cyan-600"
+                                className="text-[#A99479]"
                               />
 
                               {feature}
@@ -615,7 +615,7 @@ export default function AboutPage() {
 
                         <Link
                           href={division.link}
-                          className="inline-flex items-center gap-2 text-cyan-600 text-xs sm:text-sm font-medium mt-5 group/link hover:text-cyan-700 transition-colors duration-300"
+                          className="inline-flex items-center gap-2 text-[#A99479] text-xs sm:text-sm font-medium mt-5 group/link hover:text-[#927E64] transition-colors duration-300"
                         >
                           Explore {division.name}
 
@@ -637,25 +637,25 @@ export default function AboutPage() {
             NANOCERAMIC
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
-          <div className="max-w-7xl mx-auto rounded-[24px] border border-white/50 bg-white/25 backdrop-blur-md overflow-hidden">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
+          <div className="max-w-7xl mx-auto rounded-[24px] border border-[#E2D8C9] bg-white/55 backdrop-blur-md overflow-hidden">
             <div className="grid lg:grid-cols-[0.7fr_1.3fr]">
               {/* Heading */}
-              <div className="p-5 sm:p-7 lg:p-9 bg-cyan-600/10 border-b lg:border-b-0 lg:border-r border-white/50">
-                <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-semibold animate-fade-in-down">
+              <div className="p-5 sm:p-7 lg:p-9 bg-[#A99479]/10 border-b lg:border-b-0 lg:border-r border-[#E2D8C9]">
+                <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-semibold animate-fade-in-down">
                   Granoceramics
                 </span>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#001a1f] mt-2 animate-slide-up">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3F382F] mt-2 animate-slide-up">
                   Nanoceramic
-                  <span className="block text-cyan-600 animate-text-glow">
+                  <span className="block text-[#A99479] animate-text-glow">
                     Ceiling Tiles
                   </span>
                 </h2>
 
-                <div className="w-12 h-0.5 bg-cyan-600 mt-3 animate-scale-x" />
+                <div className="w-12 h-0.5 bg-[#A99479] mt-3 animate-scale-x" />
 
-                <p className="text-[#001a1f]/55 text-xs sm:text-sm leading-6 mt-4 animate-fade-in-delayed">
+                <p className="text-[#3F382F]/70 text-xs sm:text-sm leading-6 mt-4 animate-fade-in-delayed">
                   Developed using advanced nanoceramic particles — a
                   groundbreaking innovation in ceiling technology for modern
                   construction and architectural projects.
@@ -663,7 +663,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/businesses/construction#nanoceramic"
-                  className="inline-flex items-center gap-2 text-cyan-600 text-xs sm:text-sm font-medium mt-5 group hover:text-cyan-700 transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-[#A99479] text-xs sm:text-sm font-medium mt-5 group hover:text-[#927E64] transition-colors duration-300"
                 >
                   Learn More
 
@@ -682,27 +682,27 @@ export default function AboutPage() {
                   return (
                     <div
                       key={index}
-                      className={`p-4 sm:p-5 transition-all duration-500 hover:bg-white/30 hover:scale-[1.02] ${
+                      className={`p-4 sm:p-5 transition-all duration-500 hover:bg-white/60 hover:scale-[1.02] ${
                         index % 3 !== 0
                           ? "lg:border-l"
                           : ""
-                      } ${index >= 3 ? "border-t" : ""} border-white/50 ${
+                      } ${index >= 3 ? "border-t" : ""} border-[#E2D8C9] ${
                         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ transitionDelay: `${1.0 + index * 0.08}s` }}
                     >
-                      <div className="w-8 h-8 rounded-lg bg-cyan-600/10 flex items-center justify-center transition-all duration-300 group-hover:bg-cyan-600/20 group-hover:scale-110 group-hover:rotate-6">
+                      <div className="w-8 h-8 rounded-lg bg-[#A99479]/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#A99479]/20 group-hover:scale-110 group-hover:rotate-6">
                         <Icon
                           size={15}
-                          className="text-cyan-600"
+                          className="text-[#A99479]"
                         />
                       </div>
 
-                      <h4 className="text-xs sm:text-sm font-semibold text-[#001a1f] mt-3 group-hover:text-cyan-700 transition-colors duration-300">
+                      <h4 className="text-xs sm:text-sm font-semibold text-[#3F382F] mt-3 group-hover:text-[#927E64] transition-colors duration-300">
                         {item.title}
                       </h4>
 
-                      <p className="text-[9px] sm:text-[10px] text-[#001a1f]/45 leading-5 mt-1">
+                      <p className="text-[9px] sm:text-[10px] text-[#3F382F]/60 leading-5 mt-1">
                         {item.desc}
                       </p>
                     </div>
@@ -717,17 +717,17 @@ export default function AboutPage() {
             CORE VALUES
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-end justify-between gap-4 mb-5">
               <div className="animate-fade-in-down">
-                <span className="text-cyan-700 text-[9px] uppercase tracking-[3px] font-semibold">
+                <span className="text-[#927E64] text-[9px] uppercase tracking-[3px] font-semibold">
                   Our Core Values
                 </span>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#001a1f] mt-1 animate-slide-up">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3F382F] mt-1 animate-slide-up">
                   What Drives{" "}
-                  <span className="text-cyan-600 animate-text-glow">
+                  <span className="text-[#A99479] animate-text-glow">
                     Us.
                   </span>
                 </h2>
@@ -735,13 +735,13 @@ export default function AboutPage() {
 
               <Sparkles
                 size={25}
-                className="text-cyan-600 hidden sm:block animate-pulse-slow"
+                className="text-[#A99479] hidden sm:block animate-pulse-slow"
               />
             </div>
 
             <div className="relative">
               {/* Desktop connecting line */}
-              <div className="hidden lg:block absolute top-[28px] left-[8%] right-[8%] h-px bg-cyan-600/20" />
+              <div className="hidden lg:block absolute top-[28px] left-[8%] right-[8%] h-px bg-[#A99479]/20" />
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {values.map((value, index) => {
@@ -750,23 +750,23 @@ export default function AboutPage() {
                   return (
                     <div
                       key={index}
-                      className={`relative rounded-2xl border border-white/50 bg-white/25 backdrop-blur-md p-4 sm:p-5 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] hover:border-cyan-600/30 ${
+                      className={`relative rounded-2xl border border-[#E2D8C9] bg-white/55 backdrop-blur-md p-4 sm:p-5 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(63,56,47,0.08)] hover:border-[#A99479]/30 ${
                         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                       }`}
                       style={{ transitionDelay: `${1.2 + index * 0.1}s` }}
                     >
-                      <div className="relative z-10 w-14 h-14 rounded-full bg-white/80 border border-cyan-600/20 flex items-center justify-center transition-all duration-300 group-hover:bg-cyan-600/10 group-hover:border-cyan-600/40 group-hover:scale-110 group-hover:rotate-6">
+                      <div className="relative z-10 w-14 h-14 rounded-full bg-white/80 border border-[#A99479]/20 flex items-center justify-center transition-all duration-300 group-hover:bg-[#A99479]/10 group-hover:border-[#A99479]/40 group-hover:scale-110 group-hover:rotate-6">
                         <Icon
                           size={20}
-                          className="text-cyan-600"
+                          className="text-[#A99479]"
                         />
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-bold text-[#001a1f] mt-4 group-hover:text-cyan-700 transition-colors duration-300">
+                      <h3 className="text-base sm:text-lg font-bold text-[#3F382F] mt-4 group-hover:text-[#927E64] transition-colors duration-300">
                         {value.title}
                       </h3>
 
-                      <p className="text-[#001a1f]/50 text-[10px] sm:text-xs leading-6 mt-1.5">
+                      <p className="text-[#3F382F]/65 text-[10px] sm:text-xs leading-6 mt-1.5">
                         {value.description}
                       </p>
                     </div>
@@ -781,26 +781,26 @@ export default function AboutPage() {
             MISSION / VISION
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-3">
             {/* Mission */}
             <div
-              className={`relative overflow-hidden rounded-[24px] bg-cyan-600 p-6 sm:p-8 lg:p-9 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(6,182,212,0.3)] ${
+              className={`relative overflow-hidden rounded-[24px] bg-[#A99479] p-6 sm:p-8 lg:p-9 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(63,56,47,0.16)] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: "1.4s" }}
             >
-              <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-cyan-500/15 blur-3xl animate-pulse-slow" />
+              <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-[#927E64]/15 blur-3xl animate-pulse-slow" />
 
               <div className="relative z-10">
-                <div className="w-11 h-11 rounded-xl bg-cyan-600/15 border border-cyan-400/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6">
+                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6">
                   <Target
                     size={20}
-                    className="text-cyan-300"
+                    className="text-[#A99479]"
                   />
                 </div>
 
-                <span className="block text-cyan-300 text-[9px] uppercase tracking-[3px] mt-6">
+                <span className="block text-white/75 text-[9px] uppercase tracking-[3px] mt-6">
                   Our Mission
                 </span>
 
@@ -808,7 +808,7 @@ export default function AboutPage() {
                   Build with purpose.
                 </h3>
 
-                <p className="text-white/60 text-xs sm:text-sm leading-7 mt-3">
+                <p className="text-white/75 text-xs sm:text-sm leading-7 mt-3">
                   To deliver exceptional construction and architectural
                   solutions that combine quality, innovation, and
                   sustainability, creating lasting value for our clients and
@@ -819,30 +819,30 @@ export default function AboutPage() {
 
             {/* Vision */}
             <div
-              className={`relative overflow-hidden rounded-[24px] bg-white/35 backdrop-blur-md border border-white/50 p-6 sm:p-8 lg:p-9 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(6,182,212,0.08)] hover:border-cyan-600/30 ${
+              className={`relative overflow-hidden rounded-[24px] bg-white/65 backdrop-blur-md border border-[#E2D8C9] p-6 sm:p-8 lg:p-9 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(63,56,47,0.08)] hover:border-[#A99479]/30 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: "1.5s" }}
             >
-              <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-cyan-400/15 blur-3xl animate-pulse-slow-delayed" />
+              <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-[#B8A58D]/15 blur-3xl animate-pulse-slow-delayed" />
 
               <div className="relative z-10">
-                <div className="w-11 h-11 rounded-xl bg-cyan-600/10 border border-cyan-600/15 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6">
+                <div className="w-11 h-11 rounded-xl bg-[#A99479]/10 border border-[#A99479]/15 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6">
                   <Eye
                     size={20}
-                    className="text-cyan-600"
+                    className="text-[#A99479]"
                   />
                 </div>
 
-                <span className="block text-cyan-700 text-[9px] uppercase tracking-[3px] mt-6">
+                <span className="block text-[#927E64] text-[9px] uppercase tracking-[3px] mt-6">
                   Our Vision
                 </span>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#001a1f] mt-2 group-hover:text-cyan-700 transition-colors duration-300">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#3F382F] mt-2 group-hover:text-[#927E64] transition-colors duration-300">
                   Shape what comes next.
                 </h3>
 
-                <p className="text-[#001a1f]/50 text-xs sm:text-sm leading-7 mt-3">
+                <p className="text-[#3F382F]/65 text-xs sm:text-sm leading-7 mt-3">
                   To be the most trusted and innovative construction group,
                   setting new standards of excellence through quality
                   craftsmanship, architectural innovation, and complete client
@@ -857,10 +857,10 @@ export default function AboutPage() {
             CTA
         ===================================================== */}
 
-        <section className="px-3 sm:px-6 pb-8 sm:pb-12">
+        <section className="px-3 sm:px-6 pb-5 sm:pb-12">
           <div className="max-w-7xl mx-auto">
             <div
-              className={`relative overflow-hidden rounded-[24px] bg-gradient-to-r from-cyan-600 to-cyan-500 p-6 sm:p-8 lg:p-10 transition-all duration-700 hover:shadow-[0_20px_60px_rgba(6,182,212,0.3)] ${
+              className={`relative overflow-hidden rounded-[24px] bg-gradient-to-r from-[#927E64] to-[#A99479] p-6 sm:p-8 lg:p-10 transition-all duration-700 hover:shadow-[0_20px_60px_rgba(63,56,47,0.16)] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: "1.6s" }}
@@ -888,7 +888,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/#contact"
-                  className="inline-flex self-start sm:self-center items-center gap-2 bg-white text-cyan-700 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold shadow-xl transition-all duration-300 hover:bg-[#001a1f] hover:text-white hover:-translate-y-1 hover:shadow-2xl group whitespace-nowrap"
+                  className="inline-flex self-start sm:self-center items-center gap-2 bg-white text-[#927E64] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold shadow-xl transition-all duration-300 hover:bg-[#3F382F] hover:text-white hover:-translate-y-1 hover:shadow-2xl group whitespace-nowrap"
                 >
                   Get a Free Quote
 
@@ -1105,6 +1105,169 @@ export default function AboutPage() {
         @media (max-width: 640px) {
           .animate-float {
             animation-duration: 18s !important;
+          }
+
+          /* Compact mobile cards for better vertical space usage */
+          main .rounded-2xl {
+            border-radius: 14px;
+          }
+
+          main .rounded-[24px] {
+            border-radius: 18px;
+          }
+
+          /* Extra compact mobile spacing */
+          main section {
+            padding-bottom: 1.25rem;
+          }
+
+          main section:first-of-type {
+            padding-top: 1.5rem;
+          }
+
+          main .max-w-7xl {
+            width: 100%;
+          }
+
+          main .space-y-4 {
+            gap: 0.65rem;
+          }
+
+          main .grid.lg\\:grid-cols-2 {
+            gap: 0.65rem;
+          }
+
+          /* Compact hero */
+          main .min-h-\\[390px\\] {
+            min-height: 340px;
+          }
+
+          main .min-h-\\[500px\\] {
+            min-height: 390px;
+          }
+
+          main .mt-\\[190px\\] {
+            margin-top: 155px;
+          }
+
+          /* Compact mobile content cards */
+          main .p-5 {
+            padding: 0.8rem;
+          }
+
+          main .p-6 {
+            padding: 0.9rem;
+          }
+
+          main .mt-5 {
+            margin-top: 0.7rem;
+          }
+
+          main .mt-4 {
+            margin-top: 0.6rem;
+          }
+
+          main .mt-3 {
+            margin-top: 0.5rem;
+          }
+
+          main .gap-3 {
+            gap: 0.55rem;
+          }
+
+          /* Core value cards */
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-4 > div {
+            padding: 0.75rem;
+          }
+
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-4 > div > div:first-child {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-4 > div > div:first-child svg {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          /* Nanoceramic feature cards */
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-3 > div {
+            padding: 0.7rem;
+          }
+
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-3 > div > div:first-child {
+            width: 1.9rem;
+            height: 1.9rem;
+          }
+
+          main .grid.sm\:grid-cols-2.lg\:grid-cols-3 > div > div:first-child svg {
+            width: 0.8rem;
+            height: 0.8rem;
+          }
+
+          /* Stats cards */
+          main .grid.grid-cols-2.lg\:grid-cols-4 > div {
+            padding: 0.7rem;
+            gap: 0.55rem;
+          }
+
+          main .grid.grid-cols-2.lg\:grid-cols-4 > div > div:first-child {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.65rem;
+          }
+
+          main .grid.grid-cols-2.lg\:grid-cols-4 > div > div:first-child svg {
+            width: 0.85rem;
+            height: 0.85rem;
+          }
+
+          /* Mission / Vision icon blocks */
+          main .grid.lg\:grid-cols-2 > div > div.relative.z-10 > div:first-child {
+            width: 2.25rem;
+            height: 2.25rem;
+          }
+
+          main .grid.lg\:grid-cols-2 > div > div.relative.z-10 > div:first-child svg {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          /* Business division icon badge */
+          main .space-y-4 > div .relative.h-\\[220px\\] { height: 170px; }\n\n          main .space-y-4 > div .absolute.top-4.left-4 {
+            width: 2.1rem;
+            height: 2.1rem;
+            top: 0.65rem;
+            left: 0.65rem;
+            border-radius: 0.65rem;
+          }
+
+          main .space-y-4 > div .absolute.top-4.left-4 svg {
+            width: 0.9rem;
+            height: 0.9rem;
+          }
+
+          /* Compact mission / vision on phones */
+          main .grid.lg\\:grid-cols-2 > div {
+            padding: 0.9rem;
+          }
+
+          main .grid.lg\\:grid-cols-2 > div .mt-6 {
+            margin-top: 0.75rem;
+          }
+
+          /* Compact CTA */
+          main .bg-gradient-to-r.from-\\[\\#927E64\\] {
+            padding: 0.9rem;
+          }
+
+          /* Keep mobile typography readable but compact */
+          main h2.text-2xl {
+            line-height: 1.05;
+          }
+
+          main h3.text-2xl {
+            line-height: 1.1;
           }
         }
       `}</style>

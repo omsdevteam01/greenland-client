@@ -116,12 +116,12 @@ export default function ProjectsPage() {
    * Restore the last selected category after refresh.
    *
    * IMPORTANT:
-   * We do NOT have another useEffect that automatically
-   * saves activeCategory. This prevents "tensile" from
-   * overwriting a previously saved "construction" value.
+   * The selected category is stored only for the current browser tab/session,
+   * so a refresh keeps the selection, while leaving this page and returning
+   * starts with the default Tensile category.
    */
   useEffect(() => {
-    const savedCategory = localStorage.getItem(
+    const savedCategory = sessionStorage.getItem(
       "projects-active-category"
     );
 
@@ -135,12 +135,12 @@ export default function ProjectsPage() {
 
   /*
    * Change category only when the user clicks a category.
-   * The selected value is immediately saved.
+   * The selected value is immediately saved for the current browser session.
    */
   const handleCategoryChange = (category: Category) => {
     setActiveCategory(category);
 
-    localStorage.setItem(
+    sessionStorage.setItem(
       "projects-active-category",
       category
     );
@@ -180,10 +180,10 @@ export default function ProjectsPage() {
     <>
       <Header />
 
-      <section className="relative w-full min-h-screen pt-16 sm:pt-20 pb-10 sm:pb-14 overflow-hidden">
+      <section className="relative w-full min-h-screen pt-12 sm:pt-16 pb-6 sm:pb-9 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-cyan-400/40 via-cyan-300/30 to-blue-400/40" />
+          <div className="w-full h-full bg-gradient-to-br from-[#DCCBB5]/40 via-[#EDE4D5]/30 to-[#DCCBB5]/40" />
 
           <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/15" />
         </div>
@@ -205,7 +205,7 @@ export default function ProjectsPage() {
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#16D5E8]/20 animate-float hidden md:block"
+              className="absolute rounded-full bg-[#A99479]/20 animate-float hidden md:block"
               style={{
                 width: `${(i * 3) % 6 + 2}px`,
                 height: `${(i * 3) % 6 + 2}px`,
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="absolute border border-cyan-400/15 backdrop-blur-sm"
+              className="absolute border border-[#DCCBB5]/15 backdrop-blur-sm"
               style={{
                 width: `${25 + i * 8}px`,
                 height: `${25 + i * 8}px`,
@@ -243,35 +243,35 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           {/* Page Header */}
           <div
-            className="text-center mb-7 sm:mb-9"
+            className="text-center mb-4 sm:mb-6"
             style={{
               opacity: 0,
               animation: "fadeInUp 0.8s ease-out 0.2s forwards",
             }}
           >
-            <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse" />
+            <div className="flex items-center justify-center gap-1 sm:gap-2">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse" />
 
-              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-cyan-700 animate-text-shimmer">
+              <span className="uppercase tracking-[2px] sm:tracking-[4px] text-[8px] sm:text-[10px] font-semibold text-[#927E64] animate-text-shimmer">
                 Our Portfolio
               </span>
 
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-cyan-600 animate-pulse-delayed" />
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#A99479] animate-pulse-delayed" />
             </div>
 
-            <h2 className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl lg:text-5xl font-extrabold text-[#001a1f] animate-slide-up">
-              Our <span className="text-cyan-600">Projects</span>
+            <h2 className="mt-1 sm:mt-2 text-2xl sm:text-3xl lg:text-5xl font-extrabold text-[#3F382F] animate-slide-up">
+              Our <span className="text-[#A99479]">Projects</span>
             </h2>
 
-            <div className="flex justify-center items-center gap-2 sm:gap-3 mt-1.5 sm:mt-3">
-              <span className="w-8 sm:w-10 h-[2px] bg-cyan-600 animate-scale-x" />
+            <div className="flex justify-center items-center gap-2 sm:gap-3 mt-1 sm:mt-2">
+              <span className="w-8 sm:w-10 h-[2px] bg-[#A99479] animate-scale-x" />
 
-              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-45 bg-cyan-600 animate-spin-slow" />
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-45 bg-[#A99479] animate-spin-slow" />
 
-              <span className="w-8 sm:w-10 h-[2px] bg-cyan-600/40 animate-scale-x-delayed" />
+              <span className="w-8 sm:w-10 h-[2px] bg-[#A99479]/40 animate-scale-x-delayed" />
             </div>
 
-            <p className="mt-2 sm:mt-3 max-w-2xl mx-auto text-center text-xs sm:text-sm md:text-base text-[#001a1f]/50 leading-relaxed animate-fade-in-delayed px-2">
+            <p className="mt-1.5 sm:mt-2 max-w-2xl mx-auto text-center text-xs sm:text-sm md:text-base text-[#3F382F]/70 leading-relaxed animate-fade-in-delayed px-2">
               Explore our portfolio of completed construction projects and
               tensile shade structures showcasing excellence, innovation, and
               superior craftsmanship.
@@ -280,7 +280,7 @@ export default function ProjectsPage() {
 
           {/* Main Category Buttons */}
           <div
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-4 mb-5 sm:mb-7"
             style={{
               opacity: 0,
               animation: "fadeInUp 0.8s ease-out 0.3s forwards",
@@ -290,10 +290,10 @@ export default function ProjectsPage() {
             <button
               type="button"
               onClick={() => handleCategoryChange("tensile")}
-              className={`flex items-center gap-2 px-5 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-1 sm:gap-2 px-1.5 sm:px-7 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeCategory === "tensile"
-                  ? "bg-cyan-600 text-white shadow-[0_0_30px_rgba(6,182,212,0.25)] scale-[1.02]"
-                  : "border border-[#001a1f]/20 text-[#001a1f]/50 hover:text-[#001a1f] hover:border-cyan-600/30 bg-white/30 backdrop-blur-sm"
+                  ? "bg-[#A99479] text-white shadow-[0_0_30px_rgba(169,148,121,0.25)] scale-[1.02]"
+                  : "border border-[#3F382F]/20 text-[#3F382F]/70 hover:text-[#3F382F] hover:border-[#A99479]/30 bg-white/30 backdrop-blur-sm"
               }`}
             >
               <Sun
@@ -307,7 +307,7 @@ export default function ProjectsPage() {
                 className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
                   activeCategory === "tensile"
                     ? "bg-white/20 text-white"
-                    : "bg-[#001a1f]/10 text-[#001a1f]/40"
+                    : "bg-[#3F382F]/10 text-[#3F382F]/65"
                 }`}
               >
                 {tensileProjects.length}
@@ -318,10 +318,10 @@ export default function ProjectsPage() {
             <button
               type="button"
               onClick={() => handleCategoryChange("construction")}
-              className={`flex items-center gap-2 px-5 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-1 sm:gap-2 px-1.5 sm:px-7 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeCategory === "construction"
-                  ? "bg-cyan-600 text-white shadow-[0_0_30px_rgba(6,182,212,0.25)] scale-[1.02]"
-                  : "border border-[#001a1f]/20 text-[#001a1f]/50 hover:text-[#001a1f] hover:border-cyan-600/30 bg-white/30 backdrop-blur-sm"
+                  ? "bg-[#A99479] text-white shadow-[0_0_30px_rgba(169,148,121,0.25)] scale-[1.02]"
+                  : "border border-[#3F382F]/20 text-[#3F382F]/70 hover:text-[#3F382F] hover:border-[#A99479]/30 bg-white/30 backdrop-blur-sm"
               }`}
             >
               <Building2
@@ -335,7 +335,7 @@ export default function ProjectsPage() {
                 className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
                   activeCategory === "construction"
                     ? "bg-white/20 text-white"
-                    : "bg-[#001a1f]/10 text-[#001a1f]/40"
+                    : "bg-[#3F382F]/10 text-[#3F382F]/65"
                 }`}
               >
                 {constructionProjects.length}
@@ -345,7 +345,7 @@ export default function ProjectsPage() {
 
           {/* Image Grid */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5 lg:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 lg:gap-5"
             style={{
               opacity: 0,
               animation: "fadeInUp 0.8s ease-out 0.4s forwards",
@@ -357,7 +357,7 @@ export default function ProjectsPage() {
                 key={project.id}
                 onClick={() => setSelectedImage(project)}
                 aria-label="Open project image"
-                className="group relative w-full rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/40 hover:border-cyan-600/30 shadow-lg hover:shadow-[0_0_40px_rgba(6,182,212,0.10)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer text-left animate-slide-up"
+                className="group relative w-full rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/40 hover:border-[#A99479]/30 shadow-lg hover:shadow-[0_0_40px_rgba(63,56,47,0.10)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer text-left animate-slide-up"
                 style={{
                   animationDelay: `${index * 0.08}s`,
                 }}
@@ -376,7 +376,7 @@ export default function ProjectsPage() {
                   />
 
                   {/* Subtle Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a1f]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3F382F]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </button>
             ))}
@@ -384,19 +384,19 @@ export default function ProjectsPage() {
 
           {/* Project Count */}
           <div
-            className="flex justify-center mt-7 sm:mt-9"
+            className="flex justify-center mt-5 sm:mt-7"
             style={{
               opacity: 0,
               animation: "fadeInUp 0.8s ease-out 0.6s forwards",
             }}
           >
             <div className="text-center">
-              <p className="text-[#001a1f]/25 text-[10px] sm:text-sm flex items-center justify-center gap-2">
-                <span className="w-6 sm:w-8 h-px bg-[#001a1f]/10" />
+              <p className="text-[#3F382F]/55 text-[10px] sm:text-sm flex items-center justify-center gap-2">
+                <span className="w-6 sm:w-8 h-px bg-[#3F382F]/10" />
 
                 Showing {activeProjects.length} projects
 
-                <span className="w-6 sm:w-8 h-px bg-[#001a1f]/10" />
+                <span className="w-6 sm:w-8 h-px bg-[#3F382F]/10" />
               </p>
             </div>
           </div>
@@ -412,7 +412,7 @@ export default function ProjectsPage() {
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative w-full max-w-6xl bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 overflow-hidden animate-scale-up shadow-[0_0_80px_rgba(6,182,212,0.12)]"
+            className="relative w-full max-w-6xl bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 overflow-hidden animate-scale-up shadow-[0_0_80px_rgba(63,56,47,0.12)]"
             onClick={(event) => event.stopPropagation()}
           >
             {/* Close Button */}
@@ -424,7 +424,7 @@ export default function ProjectsPage() {
             >
               <X
                 size={18}
-                className="sm:w-5 sm:h-5 text-[#001a1f]"
+                className="sm:w-5 sm:h-5 text-[#3F382F]"
               />
             </button>
 
@@ -564,7 +564,7 @@ export default function ProjectsPage() {
 
           50% {
             opacity: 1;
-            text-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            text-shadow: 0 0 20px rgba(169, 148, 121, 0.2);
           }
         }
 
