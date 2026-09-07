@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="relative">
                 <div className="absolute -inset-3 bg-white/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <img
-                  src={mediaUrl("/images/logo main.png")}
+                  src={mediaUrl("images/logo new.png")}
                   alt={companyName}
                   className="h-12 sm:h-14 w-auto object-contain relative z-10 transition-all duration-500 group-hover:scale-105"
                 />

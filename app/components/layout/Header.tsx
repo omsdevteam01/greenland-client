@@ -73,24 +73,24 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
             >
               <img
-                src={mediaUrl("/images/logo main.png")}
-                alt="Ruhan Groups"
-                className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-500 group-hover:scale-105"
-              />
+  src={mediaUrl("images/logo new.png")}
+  alt="Real Arch Builders"
+  className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-500 group-hover:scale-105"
+/>
 
               <div className="block">
                 <div className="flex items-center gap-1 sm:gap-1.5">
                   <span className="text-[#3F382F] font-bold text-sm sm:text-base md:text-lg tracking-tight">
-                    Ruhan
+                    REAL ARCH
                   </span>
 
                   <span className="text-[#A99479] font-bold text-sm sm:text-base md:text-lg">
-                    Groups
+                    BUILDERS
                   </span>
                 </div>
 
                 <p className="text-[#3F382F] text-[8px] sm:text-[9px] md:text-[10px] uppercase tracking-[1.5px] sm:tracking-[2px] -mt-0.5">
-                  Steel Fabrication & Construction
+                  Architecture & Construction
                 </p>
               </div>
             </Link>
